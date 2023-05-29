@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     List<GameObject> bulletsPrefabs = new List<GameObject> ();
 
     List<GameObjectsPool> gameObjectsPools = new List<GameObjectsPool>();
-    void Start()
+    void Awake()
     {
        for (int i = 0; i < bulletsPrefabs.Count; i++) {
         GameObjectsPool gameObjectsPool = new GameObjectsPool(1, bulletsPrefabs[i]);
