@@ -10,5 +10,5 @@ public class Bullet : MonoBehaviour
     protected int damage;
     public int Damage { get => damage; set => damage = value; }
 
-    protected Vector3 direction;
+    public Vector3 direction;
 }

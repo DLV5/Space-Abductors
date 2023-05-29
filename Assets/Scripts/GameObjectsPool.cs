@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameObjectsPool : MonoBehaviour
+public class GameObjectsPool
 {
-    public GameObject[] gameObjectsPool;
+    public GameObject[] pool;
     public GameObjectsPool(int numberOfObjects, GameObject obj)
     {
-        gameObjectsPool = new GameObject[numberOfObjects];
-        for (int i = 0; i < gameObjectsPool.Length; i++)
+        pool = new GameObject[numberOfObjects];
+        for (int i = 0; i < pool.Length; i++)
         {
-            gameObjectsPool[i] = Instantiate(obj, Vector3.zero, Quaternion.identity);
-            gameObjectsPool[i].SetActive(false);
+            pool[i] = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity);
+            pool[i].SetActive(false);
         }   
     }
 }

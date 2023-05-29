@@ -20,5 +20,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public GameObjectsPool GetGameObjectsPool(GameObject bulletInstance)
+    {
+        for (int i = 0; i < gameObjectsPools.Count; i++)
+        {
+            if(bulletInstance.tag == gameObjectsPools[i].pool[0].tag) return gameObjectsPools[i];
+        }
+
+        throw new System.IndexOutOfRangeException();
+    }
+
 
 }

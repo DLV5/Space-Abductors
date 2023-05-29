@@ -6,9 +6,15 @@ public class HelicopterEnemy : Enemy
 {
     [SerializeField]
     private Transform target;    
+
+    private static GameObjectsPool gameObjectsPool;
     // Start is called before the first frame update
     void Start()
     {
+        if(gameObjectsPool == null)
+            gameObjectsPool = GameManager.Instance.GetGameObjectsPool(bulletPrefab);
+
+        Shoot();
     }
 
     // Update is called once per frame
@@ -18,7 +24,16 @@ public class HelicopterEnemy : Enemy
     }
 
     void Shoot()
-    {
-        //Activate bullet
+    {       
+        foreach(var gameObject in gameObjectsPool.pool) {
+            if (!gameObject.activeSelf)
+            {
+                gameObject.SetActive(true);
+                gameObject.transform.position = transform.position;
+                gameObject.GetComponent<Bullet>().direction = (target.transform.position - gameObject.transform.position).normalized;
+
+                break;
+            }
+        }
     }
 }
