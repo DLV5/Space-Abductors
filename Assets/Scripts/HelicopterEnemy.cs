@@ -7,16 +7,15 @@ public class HelicopterEnemy : Enemy
     [SerializeField]
     Transform target;
 
+    Vector3 _minHeight;
+    Vector3 _maxHeight;
+
     [Header("Movement")]
 
     [SerializeField]
-    float frequency = 5f;
+    float verticalMoveSpeed = 5f;
 
-    [SerializeField]
-    float magnitude = 5f;
-
-    [SerializeField]
-    float offset = 0f;
+    private bool movingToEnd = true;
 
     [Header("Escape settings")]
 
@@ -24,10 +23,7 @@ public class HelicopterEnemy : Enemy
     float timeBerofeEscape = 5f;
 
     [SerializeField]
-    float escapeSpeed = 0f;
-
-
-    private Vector3 startPosition;
+    float escapeHorizontalSpeed = 0f;
 
     private static GameObjectsPool gameObjectsPool;
 
@@ -38,12 +34,16 @@ public class HelicopterEnemy : Enemy
         Attacking,
         Leaving
     }
+    private void Awake()
+    {
+        _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
+        _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
+    }        
     void Start()
     {
         if(gameObjectsPool == null)
             gameObjectsPool = GameManager.Instance.GetGameObjectsPool(bulletPrefab);
 
-        startPosition = transform.position;
         StartCoroutine(RepeatingShootAfrterDelay());
         StartCoroutine(WaitUntilEscape());
     }
@@ -54,10 +54,16 @@ public class HelicopterEnemy : Enemy
         switch (currentState)
         {
             case EnemyStates.Attacking:
-                transform.position = startPosition + transform.up * Mathf.Sin(Time.time * frequency + offset) * magnitude;
+                Vector3 targetPosition = movingToEnd ? _maxHeight : _minHeight;
+                float distance = Vector3.Distance(transform.position, new Vector3(transform.position.x, targetPosition.y));
+
+                if (distance > 0.01f)                
+                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, targetPosition.y), verticalMoveSpeed * Time.deltaTime);                
+                else
+                    movingToEnd = !movingToEnd; // Reverse the movement direction
                 break;
             case EnemyStates.Leaving:
-                transform.position += Time.deltaTime * Vector3.left * escapeSpeed;
+                transform.position += Time.deltaTime * Vector3.left * escapeHorizontalSpeed;
                 break;
             }
     }
