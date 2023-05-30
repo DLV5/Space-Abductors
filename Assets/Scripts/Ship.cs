@@ -13,6 +13,10 @@ public class Ship : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        if (_hpText == null)
+        {
+            _hpText = GameObject.Find("HpText").GetComponent<TextMeshProUGUI>();
+        }
         _hpText.text = "HP: " + health;
     }
 
