@@ -349,7 +349,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.36892134, g: 0.38320875, b: 0.4056604, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -728,6 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletsPrefabs:
   - {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
+  - {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
 --- !u!4 &1073158041
 Transform:
   m_ObjectHideFlags: 0
@@ -996,17 +997,29 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 150973073}
+    - target: {fileID: 2201990046505180526, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+      propertyPath: timeBerofeEscape
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201990046505180526, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+      propertyPath: verticalMoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201990046505180526, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+      propertyPath: escapeHorizontalSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.69
+      value: 3.18
       objectReference: {fileID: 0}
     - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.29
+      value: -2.33
       objectReference: {fileID: 0}
     - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1040,9 +1053,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4112500868392471950, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
       propertyPath: m_Name
       value: HelicopterEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
