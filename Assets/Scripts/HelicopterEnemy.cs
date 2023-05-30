@@ -42,7 +42,7 @@ public class HelicopterEnemy : Enemy
     void Start()
     {
         if(gameObjectsPool == null)
-            gameObjectsPool = GameManager.Instance.GetGameObjectsPool(bulletPrefab);
+            gameObjectsPool = GameManager.Instance.GetGameObjectsPool("BaseBullet");
 
         StartCoroutine(RepeatingShootAfrterDelay());
         StartCoroutine(WaitUntilEscape());
