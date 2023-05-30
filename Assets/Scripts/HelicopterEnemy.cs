@@ -14,7 +14,7 @@ public class HelicopterEnemy : Enemy
         if(gameObjectsPool == null)
             gameObjectsPool = GameManager.Instance.GetGameObjectsPool(bulletPrefab);
 
-        Shoot();
+        StartCoroutine(RepeatingShootAfrterDelay());
     }
 
     // Update is called once per frame
@@ -34,6 +34,15 @@ public class HelicopterEnemy : Enemy
 
                 break;
             }
+        }
+    }
+
+    IEnumerator RepeatingShootAfrterDelay()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1 / fireRate);
+            Shoot();
         }
     }
 }

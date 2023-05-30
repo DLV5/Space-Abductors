@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     protected int health;
     public int Health { get => health; set => health = value; }
+    [SerializeField]
+    protected int fireRate;
+    public int FireRate { get => health; set => health = value; }
 
 
     [SerializeField]
