@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
        for (int i = 0; i < bulletsPrefabs.Count; i++) {
-        GameObjectsPool gameObjectsPool = new GameObjectsPool(1, bulletsPrefabs[i]);
+        GameObjectsPool gameObjectsPool = new GameObjectsPool(20, bulletsPrefabs[i]);
         gameObjectsPools.Add(gameObjectsPool);
         }
     }
