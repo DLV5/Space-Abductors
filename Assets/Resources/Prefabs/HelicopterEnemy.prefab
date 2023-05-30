@@ -98,5 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  fireRate: 1
   bulletPrefab: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
   target: {fileID: 0}
+  frequency: 2
+  magnitude: 3
+  offset: 0

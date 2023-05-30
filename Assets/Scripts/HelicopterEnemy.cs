@@ -5,23 +5,64 @@ using UnityEngine;
 public class HelicopterEnemy : Enemy
 {
     [SerializeField]
-    private Transform target;    
+    Transform target;
+
+    [Header("Movement")]
+
+    [SerializeField]
+    float frequency = 5f;
+
+    [SerializeField]
+    float magnitude = 5f;
+
+    [SerializeField]
+    float offset = 0f;
+
+    [Header("Escape settings")]
+
+    [SerializeField]
+    float timeBerofeEscape = 5f;
+
+    [SerializeField]
+    float escapeSpeed = 0f;
+
+
+    private Vector3 startPosition;
 
     private static GameObjectsPool gameObjectsPool;
-    // Start is called before the first frame update
+
+    EnemyStates currentState = EnemyStates.Attacking;
+
+    enum EnemyStates
+    {
+        Attacking,
+        Leaving
+    }
     void Start()
     {
         if(gameObjectsPool == null)
             gameObjectsPool = GameManager.Instance.GetGameObjectsPool(bulletPrefab);
 
+        startPosition = transform.position;
         StartCoroutine(RepeatingShootAfrterDelay());
+        StartCoroutine(WaitUntilEscape());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch (currentState)
+        {
+            case EnemyStates.Attacking:
+                transform.position = startPosition + transform.up * Mathf.Sin(Time.time * frequency + offset) * magnitude;
+                break;
+            case EnemyStates.Leaving:
+                transform.position += Time.deltaTime * Vector3.left * escapeSpeed;
+                break;
+            }
     }
+
+
 
     void Shoot()
     {       
@@ -36,7 +77,12 @@ public class HelicopterEnemy : Enemy
             }
         }
     }
+    IEnumerator WaitUntilEscape()
+    {
+        yield return new WaitForSeconds(timeBerofeEscape);
+        currentState = EnemyStates.Leaving;
 
+    }
     IEnumerator RepeatingShootAfrterDelay()
     {
         while(true)
