@@ -8,7 +8,6 @@ public class HelicopterEnemy : Enemy
     Transform target;
 
     Vector3 _minHeight;
-
     Vector3 _maxHeight;
 
     [Header("Movement")]
@@ -58,14 +57,10 @@ public class HelicopterEnemy : Enemy
                 Vector3 targetPosition = movingToEnd ? _maxHeight : _minHeight;
                 float distance = Vector3.Distance(transform.position, new Vector3(transform.position.x, targetPosition.y));
 
-                if (distance > 0.01f)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, targetPosition.y), verticalMoveSpeed * Time.deltaTime);
-                }
+                if (distance > 0.01f)                
+                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, targetPosition.y), verticalMoveSpeed * Time.deltaTime);                
                 else
-                {
                     movingToEnd = !movingToEnd; // Reverse the movement direction
-                }
                 break;
             case EnemyStates.Leaving:
                 transform.position += Time.deltaTime * Vector3.left * escapeHorizontalSpeed;
