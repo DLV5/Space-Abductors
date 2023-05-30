@@ -25,4 +25,13 @@ public class Ship : MonoBehaviour, IDamageable
             gameObject.SetActive(false);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BaseBullet"))
+        {
+            Damage(1);
+            collision.gameObject.SetActive(false);
+        }
+    }
 }
