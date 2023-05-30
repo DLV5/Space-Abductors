@@ -309,9 +309,9 @@ RectTransform:
   m_Father: {fileID: 1035205762}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -616.4396, y: 477.57025}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 343.56042, y: -62.42975}
   m_SizeDelta: {x: 623.1207, y: 82.8595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825677715
@@ -336,8 +336,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'HP: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fd859f5b2c47e034d9084150cf0f4994, type: 2}
+  m_sharedMaterial: {fileID: 4345080307541344231, guid: fd859f5b2c47e034d9084150cf0f4994, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletsPrefabs:
   - {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
-  - {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
+  - {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
 --- !u!4 &1073158041
 Transform:
   m_ObjectHideFlags: 0
@@ -814,6 +814,18 @@ PrefabInstance:
       propertyPath: _hpText
       value: 
       objectReference: {fileID: 825677715}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: cooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: spreadAngle
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7640060967968053759, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -881,7 +893,7 @@ PrefabInstance:
       objectReference: {fileID: 150973073}
     - target: {fileID: 2201990046505180526, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
       propertyPath: timeBerofeEscape
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2201990046505180526, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
       propertyPath: verticalMoveSpeed
