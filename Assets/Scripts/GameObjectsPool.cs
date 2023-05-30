@@ -8,6 +8,7 @@ public class GameObjectsPool
     public GameObjectsPool(int numberOfObjects, GameObject obj)
     {
         pool = new GameObject[numberOfObjects];
+            
         for (int i = 0; i < pool.Length; i++)
         {
             pool[i] = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity);
