@@ -44,7 +44,7 @@ public class HelicopterEnemy : Enemy
         if(gameObjectsPool == null)
             gameObjectsPool = GameManager.Instance.GetGameObjectsPool("BaseBullet");
 
-        StartCoroutine(RepeatingShootAfrterDelay());
+        StartCoroutine(RepeatingShootAfterDelay());
         StartCoroutine(WaitUntilEscape());
     }
 
@@ -89,7 +89,7 @@ public class HelicopterEnemy : Enemy
         currentState = EnemyStates.Leaving;
 
     }
-    IEnumerator RepeatingShootAfrterDelay()
+    IEnumerator RepeatingShootAfterDelay()
     {
         while(true)
         {
