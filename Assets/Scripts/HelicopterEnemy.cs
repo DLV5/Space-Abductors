@@ -55,7 +55,7 @@ public class HelicopterEnemy : Enemy
         currentState = EnemyStates.FlyingToTheScreen;
         arrivalPoint = GeneratePointToFly();
         target = GameObject.FindGameObjectWithTag("Player")?.transform;
-        StartCoroutine(RepeatingShootAfrterDelay());
+        StartCoroutine(RepeatingShootAfterDelay());
         StartCoroutine(WaitUntilEscape());
     }
 
