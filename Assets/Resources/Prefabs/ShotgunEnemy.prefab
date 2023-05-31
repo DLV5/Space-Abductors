@@ -171,10 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5bb68e483d8fd45ae93f832ef9bdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  bulletTag: BaseBullet
   fireRate: 1
-  bulletPrefab: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
-  target: {fileID: 0}
+  health: 3
   verticalMoveSpeed: 5
+  timeBerofeEscape: 5
+  escapeHorizontalSpeed: 8
   spreadAngle: 90
   bulletsPerShot: 8
