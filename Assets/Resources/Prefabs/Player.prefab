@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6898231909618802581}
   - component: {fileID: 580299944375268883}
   - component: {fileID: 1618099115868786696}
+  - component: {fileID: 6647511118543344358}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,3 +206,15 @@ MonoBehaviour:
   cooldown: 0
   spreadAngle: 0
   _crosshair: {fileID: 2800000, guid: 1f1b7f4279a40de4791985d59747a8a4, type: 3}
+--- !u!114 &6647511118543344358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7848225479523271666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933ca030d336e434c852a7365c1ea2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
