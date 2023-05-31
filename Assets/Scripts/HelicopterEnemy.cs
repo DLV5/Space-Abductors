@@ -55,7 +55,7 @@ public class HelicopterEnemy : Enemy
         currentState = EnemyStates.FlyingToTheScreen;
         arrivalPoint = GeneratePointToFly();
         target = GameObject.FindGameObjectWithTag("Player")?.transform;
-        StartCoroutine(RepeatingShootAfrterDelay());
+        StartCoroutine(RepeatingShootAfterDelay());
         StartCoroutine(WaitUntilEscape());
     }
 
@@ -125,7 +125,7 @@ public class HelicopterEnemy : Enemy
         currentState = EnemyStates.Leaving;
 
     }
-    IEnumerator RepeatingShootAfrterDelay()
+    IEnumerator RepeatingShootAfterDelay()
     {
         while(true)
         {
@@ -140,7 +140,6 @@ public class HelicopterEnemy : Enemy
         {
             yield return new WaitForSeconds(1f);
 
-            Debug.Log("Co");
             Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
 
             if (!Screen.safeArea.Contains(pos)) gameObject.SetActive(false);
