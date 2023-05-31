@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,10 @@ public class HelicopterEnemy : Enemy
     [SerializeField]
     Transform target;
 
-    Vector3 _minHeight;
-    Vector3 _maxHeight;
+    Vector2 _minHeight;
+    Vector2 _maxHeight;
+
+    Vector2 arrivalPoint;
 
     [Header("Movement")]
 
@@ -27,10 +30,11 @@ public class HelicopterEnemy : Enemy
 
     private static GameObjectsPool gameObjectsPool;
 
-    EnemyStates currentState = EnemyStates.Attacking;
+    EnemyStates currentState = EnemyStates.FlyingToTheScreen;
 
     enum EnemyStates
     {
+        FlyingToTheScreen,
         Attacking,
         Leaving
     }
@@ -38,12 +42,19 @@ public class HelicopterEnemy : Enemy
     {
         _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
         _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
-    }        
-    void Start()
-    {
-        if(gameObjectsPool == null)
-            gameObjectsPool = GameManager.Instance.GetGameObjectsPool("BaseBullet");
+    }
 
+    private void Start()
+    {
+        if (gameObjectsPool == null)
+            gameObjectsPool = GameManager.Instance.GetGameObjectsPool("BaseBullet");
+    }
+
+    private void OnEnable()
+    {
+        currentState = EnemyStates.FlyingToTheScreen;
+        arrivalPoint = GeneratePointToFly();
+        Debug.Log(arrivalPoint);
         StartCoroutine(RepeatingShootAfrterDelay());
         StartCoroutine(WaitUntilEscape());
     }
@@ -53,31 +64,55 @@ public class HelicopterEnemy : Enemy
     {
         switch (currentState)
         {
+            case EnemyStates.FlyingToTheScreen:
+                FlyToTheScreen();
+                break;
             case EnemyStates.Attacking:
-                Vector3 targetPosition = movingToEnd ? _maxHeight : _minHeight;
-                float distance = Vector3.Distance(transform.position, new Vector3(transform.position.x, targetPosition.y));
+                Vector2 targetPosition = movingToEnd ? _maxHeight : _minHeight;
+                float distance = Vector2.Distance(transform.position, new Vector2(transform.position.x, targetPosition.y));
 
                 if (distance > 0.01f)                
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, targetPosition.y), verticalMoveSpeed * Time.deltaTime);                
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, targetPosition.y), verticalMoveSpeed * Time.deltaTime);                
                 else
                     movingToEnd = !movingToEnd; // Reverse the movement direction
                 break;
             case EnemyStates.Leaving:
-                transform.position += Time.deltaTime * Vector3.left * escapeHorizontalSpeed;
+                FlyOutOfTheScreen();
                 break;
             }
     }
 
+    private void FlyToTheScreen()
+    {
+        float distance = Vector2.Distance(transform.position, arrivalPoint);
 
+        if (distance > 0.01f)
+            transform.position = Vector2.MoveTowards(transform.position, arrivalPoint, verticalMoveSpeed * Time.deltaTime);
+        else currentState = EnemyStates.Attacking;
+    }
+
+    private Vector2 GeneratePointToFly()
+    {
+        float x = UnityEngine.Random.Range(Screen.width, Screen.width / 2);
+        float y = UnityEngine.Random.Range(_minHeight.y, _maxHeight.y);
+        Vector2 arrivalPoint = Camera.main.ScreenToWorldPoint(new Vector2(x, y));
+        return arrivalPoint;
+    }
+
+
+    private void FlyOutOfTheScreen()
+    {
+        transform.position += Time.deltaTime * Vector3.left * escapeHorizontalSpeed;
+    }
 
     void Shoot()
     {       
-        foreach(var gameObject in gameObjectsPool.pool) {
-            if (!gameObject.activeSelf)
+        foreach(var obj in gameObjectsPool.pool) {
+            if (!obj.activeSelf)
             {
-                gameObject.SetActive(true);
-                gameObject.transform.position = transform.position;
-                gameObject.GetComponent<Bullet>().direction = (target.transform.position - gameObject.transform.position).normalized;
+                obj.SetActive(true);
+                obj.transform.position = transform.position;
+                obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
 
                 break;
             }
