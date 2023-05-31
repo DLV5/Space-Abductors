@@ -648,8 +648,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+  - {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
   spawnZone: {fileID: 1441192111}
-  SpawnDelay: 3
+  SpawnDelay: 6
   SpawnCount: 1
 --- !u!1 &1774081403
 GameObject:
@@ -900,6 +901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580299944375268883, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: health
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 580299944375268883, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: _hpText
       value: 

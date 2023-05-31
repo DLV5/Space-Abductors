@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6506420336806340779}
   m_Layer: 6
   m_Name: ShotgunEnemy
-  m_TagString: Untagged
+  m_TagString: ShotGunEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8773585, g: 0.22678883, b: 0.22678883, a: 1}
+  m_Color: {r: 0.99480164, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -175,5 +175,6 @@ MonoBehaviour:
   fireRate: 1
   bulletPrefab: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
   target: {fileID: 0}
+  verticalMoveSpeed: 5
   spreadAngle: 90
-  bulletsPerShot: 8
+  bulletsPerShot: 2

@@ -103,7 +103,7 @@ MonoBehaviour:
   fireRate: 1
   bulletPrefab: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
   verticalMoveSpeed: 5
-  timeBerofeEscape: 2
+  timeBerofeEscape: 25
   escapeHorizontalSpeed: 10
 --- !u!61 &-242131764764823531
 BoxCollider2D:
