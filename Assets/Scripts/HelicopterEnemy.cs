@@ -125,7 +125,7 @@ public class HelicopterEnemy : Enemy
         currentState = EnemyStates.Leaving;
 
     }
-    IEnumerator RepeatingShootAfrterDelay()
+    IEnumerator RepeatingShootAfterDelay()
     {
         while(true)
         {
