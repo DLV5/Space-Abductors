@@ -6,7 +6,7 @@ public class BaseBullet : Bullet
 {
     private void Update()
     {
-        transform.position += speed * (Vector3)direction * Time.deltaTime;
+        transform.position += speed * direction * Time.deltaTime;
     }
 
 

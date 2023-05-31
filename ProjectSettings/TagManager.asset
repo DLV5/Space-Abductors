@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BaseBullet
   - PlayerBullet
+  - HelicopterEnemy
   layers:
   - Default
   - TransparentFX

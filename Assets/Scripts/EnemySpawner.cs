@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     List<GameObject> enemyPrefabs = new List<GameObject>();
     List<GameObjectsPool>enemyObjectsPools = new List<GameObjectsPool>();
 
+    private static GameObjectsPool EnemyObjectPool;
+
     [SerializeField]
     Collider2D spawnZone;
 
@@ -23,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
             GameObjectsPool gameObjectsPool = new GameObjectsPool(1, enemyPrefabs[i]);
             enemyObjectsPools.Add(gameObjectsPool);
         }
+        if (EnemyObjectPool == null)
+            EnemyObjectPool = GetEnemyObjectsPool("HelicopterEnemy");
         StartCoroutine(SpawnInsideZone());
     }
 
@@ -33,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(SpawnDelay);
             for (int i = 0; i < SpawnCount; i++)
             {
-                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], GetRandomPointInsideTheArea(spawnZone), Quaternion.identity);
+                SpawnEnemy();
             }
         }
 
@@ -45,5 +49,28 @@ public class EnemySpawner : MonoBehaviour
         float randomY = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
         Vector2 point = new Vector2(randomX, randomY);
         return point;
+    }
+
+    public GameObjectsPool GetEnemyObjectsPool(string enemyTag)
+    {
+        for (int i = 0; i < enemyObjectsPools.Count; i++)
+        {
+            if (enemyTag == enemyObjectsPools[i].pool[0].tag) return enemyObjectsPools[i];
+        }
+
+        throw new System.IndexOutOfRangeException();
+    }
+    void SpawnEnemy()
+    {
+        foreach (var obj in EnemyObjectPool.pool)
+        {
+            if (!obj.activeSelf)
+            {
+                obj.SetActive(true);
+                obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+
+                break;
+            }
+        }
     }
 }
