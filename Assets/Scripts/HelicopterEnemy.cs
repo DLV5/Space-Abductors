@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class HelicopterEnemy : Enemy
 {
-    [SerializeField]
     Transform target;
 
     Vector2 _minHeight;
@@ -54,7 +54,7 @@ public class HelicopterEnemy : Enemy
     {
         currentState = EnemyStates.FlyingToTheScreen;
         arrivalPoint = GeneratePointToFly();
-        Debug.Log(arrivalPoint);
+        target = GameObject.FindGameObjectWithTag("Player")?.transform;
         StartCoroutine(RepeatingShootAfrterDelay());
         StartCoroutine(WaitUntilEscape());
     }
@@ -103,6 +103,7 @@ public class HelicopterEnemy : Enemy
     private void FlyOutOfTheScreen()
     {
         transform.position += Time.deltaTime * Vector3.left * escapeHorizontalSpeed;
+        StartCoroutine(CheckIsInTheBoundOfTheScreen());
     }
 
     void Shoot()
@@ -130,6 +131,19 @@ public class HelicopterEnemy : Enemy
         {
             yield return new WaitForSeconds(1 / fireRate);
             Shoot();
+        }
+    }
+
+    IEnumerator CheckIsInTheBoundOfTheScreen()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            Debug.Log("Co");
+            Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+
+            if (!Screen.safeArea.Contains(pos)) gameObject.SetActive(false);
         }
     }
 }
