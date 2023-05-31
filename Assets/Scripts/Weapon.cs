@@ -37,15 +37,16 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        foreach (var gameObject in gameObjectsPool.pool)
+        foreach (var obj in gameObjectsPool.pool)
         {
-            if (!gameObject.activeSelf)
+            if (!obj.activeSelf)
             {
-                gameObject.SetActive(true);
-                gameObject.transform.position = transform.position;
+           
+                obj.SetActive(true);
+                obj.transform.position = transform.position;
                 Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-spreadAngle / 2, spreadAngle / 2));
-                var target = (spreadRotation * Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-                gameObject.GetComponent<Bullet>().direction = target.normalized;
+                var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+                obj.GetComponent<Bullet>().direction = target.normalized;
 
                 break;
             }
