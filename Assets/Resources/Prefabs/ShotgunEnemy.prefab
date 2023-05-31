@@ -177,4 +177,4 @@ MonoBehaviour:
   target: {fileID: 0}
   verticalMoveSpeed: 5
   spreadAngle: 90
-  bulletsPerShot: 2
+  bulletsPerShot: 8
