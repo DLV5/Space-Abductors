@@ -29,7 +29,7 @@ public class MovingEnemy : Enemy
         _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         currentState = EnemyStates.FlyingToTheScreen;
         arrivalPoint = GeneratePointToFly();

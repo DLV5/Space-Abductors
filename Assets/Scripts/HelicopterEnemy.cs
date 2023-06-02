@@ -12,8 +12,9 @@ public class HelicopterEnemy : MovingEnemy
         _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
         _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         target = GameObject.FindGameObjectWithTag("Player")?.transform;
         StartCoroutine(FireRateShoot());
     }

@@ -8,8 +8,9 @@ public class ShotgunEnemy : MovingEnemy
     public int bulletsPerShot = 8; 
 
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(FireRateShoot());
     }
