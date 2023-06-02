@@ -650,7 +650,7 @@ MonoBehaviour:
   - {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
   - {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
   spawnZone: {fileID: 1441192111}
-  SpawnDelay: 3
+  SpawnDelay: 0.5
   SpawnCount: 1
 --- !u!1 &1774081403
 GameObject:
@@ -921,6 +921,10 @@ PrefabInstance:
       propertyPath: spreadAngle
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5496292921670143665, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0165b63c02995bc408aa6f7b251303ad, type: 3}
     - target: {fileID: 5630256484575975445, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_Enabled
       value: 1

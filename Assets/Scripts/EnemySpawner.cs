@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    List<GameObject> enemyPrefabs = new List<GameObject>();
-    List<GameObjectsPool>enemyObjectsPools = new List<GameObjectsPool>();
-
     private static GameObjectsPool EnemyObjectPool;
 
     [SerializeField]
@@ -20,13 +16,6 @@ public class EnemySpawner : MonoBehaviour
     int SpawnCount;
     void Awake()
     {
-        for (int i = 0; i < enemyPrefabs.Count; i++)
-        {
-            GameObjectsPool gameObjectsPool = new GameObjectsPool(100, enemyPrefabs[i]);
-            enemyObjectsPools.Add(gameObjectsPool);
-        }
-        if (EnemyObjectPool == null)
-            EnemyObjectPool = GetEnemyObjectsPool("ShotGunEnemy");
         StartCoroutine(SpawnInsideZone());
     }
 
@@ -49,16 +38,6 @@ public class EnemySpawner : MonoBehaviour
         float randomY = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
         Vector2 point = new Vector2(randomX, randomY);
         return point;
-    }
-
-    public GameObjectsPool GetEnemyObjectsPool(string enemyTag)
-    {
-        for (int i = 0; i < enemyObjectsPools.Count; i++)
-        {
-            if (enemyTag == enemyObjectsPools[i].pool[0].tag) return enemyObjectsPools[i];
-        }
-
-        throw new System.IndexOutOfRangeException();
     }
     void SpawnEnemy()
     {

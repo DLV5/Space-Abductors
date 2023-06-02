@@ -175,7 +175,7 @@ MonoBehaviour:
   fireRate: 1
   health: 3
   verticalMoveSpeed: 5
-  timeBerofeEscape: 5
+  timeBerofeEscape: 25
   escapeHorizontalSpeed: 8
   spreadAngle: 90
   bulletsPerShot: 8
