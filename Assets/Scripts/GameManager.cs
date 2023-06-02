@@ -17,9 +17,14 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Awake()
+    {
+        playerState = PlayerState.Playing;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape) && playerState == PlayerState.Playing) 
         {
             playerState = PlayerState.Paused;
             UIManager.instance.pauseMenu.SetActive(true);
