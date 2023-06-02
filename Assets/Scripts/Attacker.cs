@@ -17,7 +17,7 @@ public class Attacker : MonoBehaviour
     void Start()
     {
         if (gameObjectsPool == null)
-            gameObjectsPool = GameManager.Instance.GetGameObjectsPool(bulletTag);
+            gameObjectsPool = PoolManager.Instance.GetGameObjectsPool(bulletTag);
     }
 
     protected virtual void Shoot()
