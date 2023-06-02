@@ -3,9 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
+    public bool canMove = true;
+
     [SerializeField]
     private float speed = 5.0f;
     private Vector2 _direction;
+
     private Vector2 _minScreenBounds;
     private Vector2 _maxScreenBounds;
 
@@ -17,8 +20,11 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        transform.position += (Vector3)_direction * speed * Time.deltaTime;
+        if (canMove)
+        {
+            _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            transform.position += (Vector3)_direction * speed * Time.deltaTime;
+        }
 
         // Most sane unity code
         if (transform.position.x > _maxScreenBounds.x)
