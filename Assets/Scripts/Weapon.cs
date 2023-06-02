@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         if (gameObjectsPool == null)
-            gameObjectsPool = GameManager.Instance.GetGameObjectsPool("PlayerBullet");
+            gameObjectsPool = PoolManager.Instance.GetGameObjectsPool("PlayerBullet");
     }
 
     private void Update()
