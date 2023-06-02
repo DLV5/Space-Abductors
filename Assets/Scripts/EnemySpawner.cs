@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < enemyPrefabs.Count; i++)
         {
-            GameObjectsPool gameObjectsPool = new GameObjectsPool(5, enemyPrefabs[i]);
+            GameObjectsPool gameObjectsPool = new GameObjectsPool(100, enemyPrefabs[i]);
             enemyObjectsPools.Add(gameObjectsPool);
         }
         if (EnemyObjectPool == null)
