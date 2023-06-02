@@ -650,7 +650,7 @@ MonoBehaviour:
   - {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
   - {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
   spawnZone: {fileID: 1441192111}
-  SpawnDelay: 6
+  SpawnDelay: 3
   SpawnCount: 1
 --- !u!1 &1774081403
 GameObject:
