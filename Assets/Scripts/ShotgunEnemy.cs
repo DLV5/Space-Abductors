@@ -11,9 +11,10 @@ public class ShotgunEnemy : MovingEnemy
     private void OnEnable()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(FireRateShoot());
     }
     protected override void Shoot()
-    {
+    {      
         foreach (var obj in gameObjectsPool.pool)
         {          
                 if (!obj.activeSelf)
