@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,18 +22,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        if (deathScreen == null)
-        {
-            deathScreen = GameObject.Find("DeathScreen");
-        }
-        if (pauseMenu == null)
-        {
-            pauseMenu = GameObject.Find("PauseMenu");
-        }
-    }
-
     // Common functions for UI buttons
     public void QuitGame()
     {
@@ -47,5 +36,10 @@ public class UIManager : MonoBehaviour
     public void RestartCurrentScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void SwitchToNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
