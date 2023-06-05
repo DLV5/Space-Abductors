@@ -9,6 +9,7 @@ TagManager:
   - HelicopterEnemy
   - ShotGunEnemy
   - Cow
+  - ShotGunBullet
   layers:
   - Default
   - TransparentFX
