@@ -3,24 +3,16 @@ using TMPro;
 
 public class CowStealing : MonoBehaviour
 {
-    public static int skillPoints = 0;
-    [SerializeField]
-    private TextMeshProUGUI _skillPointMenuText;
     private Movement _movementScript; // For limiting movement
     private Cow _currentCow;
 
     private void Start()
     {
         _movementScript = GetComponent<Movement>();
-        _skillPointMenuText.text = skillPoints + " skill points";
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.playerState == GameManager.PlayerState.Playing)
-        {
-            OpenSkillpointMenu();
-        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StealCow();
@@ -30,7 +22,7 @@ public class CowStealing : MonoBehaviour
             if (!_currentCow.moving)
             {
                 _currentCow.gameObject.SetActive(false);
-                AddSKillpoints(1);
+                Skills.Instance.AddSkillpoints(1);
                 _movementScript.canMove = true;
             }
         }
@@ -50,16 +42,5 @@ public class CowStealing : MonoBehaviour
         }
     }
 
-    public void OpenSkillpointMenu()
-    {
-        Time.timeScale = 0;
-        GameManager.Instance.playerState = GameManager.PlayerState.Paused;
-        UIManager.instance.skillpointMenu.SetActive(true);
-    }
-
-    public void AddSKillpoints(int pointsToAdd)
-    {
-        skillPoints += pointsToAdd;
-        _skillPointMenuText.text = skillPoints + " skill points";
-    }
+    
 }
