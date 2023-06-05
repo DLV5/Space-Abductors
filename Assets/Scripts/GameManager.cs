@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && playerState == PlayerState.Playing) 
         {
+            Time.timeScale = 0;
             playerState = PlayerState.Paused;
             UIManager.instance.pauseMenu.SetActive(true);
         }

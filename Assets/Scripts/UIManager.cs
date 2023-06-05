@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public GameObject deathScreen;
     public GameObject pauseMenu;
+    public GameObject skillpointMenu;
 
     private void Awake()
     {
