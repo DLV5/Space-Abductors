@@ -538,9 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417673d0f34393940a81e2b17ca69464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsPrefabs:
-  - {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
-  - {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
 --- !u!4 &1073158041
 Transform:
   m_ObjectHideFlags: 0
@@ -646,12 +643,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97712d9f4c48f95409dfdca31c2d7f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-  - {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
   spawnZone: {fileID: 1441192111}
   SpawnDelay: 0.5
   SpawnCount: 1
+--- !u!1 &1559183868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1559183870}
+  - component: {fileID: 1559183869}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1559183869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559183868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5578dd6b602fe2f4b8ff15f77dde908a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - objectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
+    numberOfCopies: 5
+  - objectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+    numberOfCopies: 25
+  bulletPrefabs:
+  - objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
+    numberOfCopies: 20
+  - objectToCopy: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
+    numberOfCopies: 50
+--- !u!4 &1559183870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559183868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.785786, y: 1.9602408, z: 0.0025072088}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1774081403
 GameObject:
   m_ObjectHideFlags: 0

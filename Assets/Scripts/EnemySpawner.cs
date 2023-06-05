@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private static GameObjectsPool EnemyObjectPool;
+    private static ObjectPool EnemyObjectPool;
 
     [SerializeField]
     Collider2D spawnZone;
@@ -14,8 +15,16 @@ public class EnemySpawner : MonoBehaviour
     
     [SerializeField]
     int SpawnCount;
+
+    public enum EnemyTypes
+    {
+        HelicopterEnemy,
+        ShootGunEnemy,
+        NumberOfEnemyTypes
+    }
     void Awake()
     {
+        EnemyObjectPool = PoolManager.Instance.enemyPool;
         StartCoroutine(SpawnInsideZone());
     }
 
@@ -41,15 +50,15 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        foreach (var obj in EnemyObjectPool.pool)
-        {
-            if (!obj.activeSelf)
-            {
-                obj.SetActive(true);
-                obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+        //foreach (var obj in EnemyObjectPool.pool)
+        //{
+        //    if (!obj.activeSelf)
+        //    {
+        //        obj.SetActive(true);
+        //        obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
 
-                break;
-            }
-        }
+        //        break;
+        //    }
+        //}
     }
 }
