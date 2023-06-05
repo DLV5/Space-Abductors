@@ -1,18 +1,25 @@
 using UnityEngine;
+using TMPro;
 
 public class Skillpoints : MonoBehaviour
 {
     public static int skillPoints = 0;
     private Movement _movementScript; // For limiting movement
     private Cow _currentCow;
+    private TextMeshProUGUI _skillPointMenuText;
 
     private void Start()
     {
+        _skillPointMenuText = GameObject.Find("SkillpointText").GetComponent<TextMeshProUGUI>();
         _movementScript = GetComponent<Movement>();
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.playerState == GameManager.PlayerState.Playing)
+        {
+            OpenSkillpointMenu();
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StealCow();
@@ -22,7 +29,7 @@ public class Skillpoints : MonoBehaviour
             if (!_currentCow.moving)
             {
                 _currentCow.gameObject.SetActive(false);
-                ++skillPoints;
+                AddSKillpoints(1);
                 _movementScript.canMove = true;
             }
         }
@@ -36,10 +43,22 @@ public class Skillpoints : MonoBehaviour
         if (cow == null) return;
         if (cow.CompareTag("Cow"))
         {
-            Debug.Log("CompareTag");
             _currentCow = cow.gameObject.GetComponent<Cow>();
             _currentCow.moving = true;
             _movementScript.canMove = false;
         }
+    }
+
+    public void OpenSkillpointMenu()
+    {
+        Time.timeScale = 0;
+        GameManager.Instance.playerState = GameManager.PlayerState.Paused;
+        UIManager.instance.skillpointMenu.SetActive(true);
+    }
+
+    public void AddSKillpoints(int pointsToAdd)
+    {
+        skillPoints += pointsToAdd;
+        _skillPointMenuText.text = skillPoints + " skill points";
     }
 }
