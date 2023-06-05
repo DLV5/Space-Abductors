@@ -23,9 +23,8 @@ public class Attacker : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        GameObject obj = null;
+        GameObject obj = gameObjectsPool.GetPooledObjectByTag("BaseBullet");
         
-        obj.SetActive(true);
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
     }

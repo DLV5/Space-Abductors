@@ -1,11 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private static ObjectPool EnemyObjectPool;
+    [Serializable]
+    class EnemySettings
+    {
+        public string enemyName;
+
+        [Header("Chance to spawn between 0 and 1")]
+        public float chanceToSpawn;
+    }
+    private static ObjectPool enemyObjectPool;
+    [SerializeField]
+    private List<EnemySettings> enemySettings;
 
     [SerializeField]
     Collider2D spawnZone;
@@ -22,9 +34,9 @@ public class EnemySpawner : MonoBehaviour
         ShootGunEnemy,
         NumberOfEnemyTypes
     }
-    void Awake()
+    void Start()
     {
-        EnemyObjectPool = PoolManager.Instance.enemyPool;
+        enemyObjectPool = PoolManager.Instance.enemyPool;
         StartCoroutine(SpawnInsideZone());
     }
 
@@ -43,22 +55,38 @@ public class EnemySpawner : MonoBehaviour
 
     Vector2 GetRandomPointInsideTheArea(Collider2D collider)
     {
-        float randomX = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
-        float randomY = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
+        float randomX = UnityEngine.Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+        float randomY = UnityEngine.Random.Range(collider.bounds.min.y, collider.bounds.max.y);
         Vector2 point = new Vector2(randomX, randomY);
         return point;
     }
     void SpawnEnemy()
     {
-        //foreach (var obj in EnemyObjectPool.pool)
-        //{
-        //    if (!obj.activeSelf)
-        //    {
-        //        obj.SetActive(true);
-        //        obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+        GameObject obj = ChooseObject(enemySettings); 
+        obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+    }
 
-        //        break;
-        //    }
-        //}
+    static GameObject ChooseObject(List<EnemySettings> enemies)
+    {
+        float totalProbability = 0;
+        foreach (var probability in enemies)
+        {
+            totalProbability += probability.chanceToSpawn;
+        }
+
+        float cumulativeProbability = 0;
+        float randomNum = UnityEngine.Random.Range(0f, 1f);
+
+        foreach (var obj in enemies)
+        {
+            cumulativeProbability += obj.chanceToSpawn / totalProbability;
+            if (randomNum < cumulativeProbability)
+            {
+                GameObject rez = enemyObjectPool.GetPooledObjectByTag(obj.enemyName);
+                return rez;
+            }
+        }
+
+        return null; // In case of error or no object selected
     }
 }

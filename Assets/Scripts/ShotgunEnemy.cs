@@ -18,7 +18,6 @@ public class ShotgunEnemy : MovingEnemy
     {
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("BaseBullet");
 
-        obj.SetActive(true);
         obj.transform.position = transform.position;
         Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-spreadAngle / 2, spreadAngle / 2));
         obj.GetComponent<Bullet>().direction = (spreadRotation * (target.transform.position - obj.transform.position)).normalized;

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectPool
@@ -18,7 +20,7 @@ public class ObjectPool
 
     private GameObject CreatePooledObject()
     {
-        GameObject obj = Object.Instantiate(prefab);
+        GameObject obj = UnityEngine.Object.Instantiate(prefab);
         obj.SetActive(false);
         pool.Add(obj);
         return obj;
@@ -48,8 +50,8 @@ public class ObjectPool
                 return obj;
             }
         }
-
-        return CreatePooledObject();
+        //Active when not enough objects in the pool
+        return null ;
     }
 
     public void ReturnToPool(GameObject obj)
