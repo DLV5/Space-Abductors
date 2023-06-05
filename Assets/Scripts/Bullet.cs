@@ -10,6 +10,11 @@ public class Bullet : MonoBehaviour
 
     public Vector3 direction;
 
+    public enum BulletTypes
+    {
+        NormalBullet,
+        PlayerBullet
+    }
     private void OnEnable()
     {
          StartCoroutine(CheckIsInTheBoundOfTheScreen());       

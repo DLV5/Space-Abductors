@@ -1,15 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class PoolManager : MonoBehaviour
 {
     [Serializable]
     class PoolObject
     {
-        public GameObject objectToCope;
+        public GameObject objectToCopy;
         public int numberOfCopies;
+
     }
     public static PoolManager Instance;
     PoolManager()
@@ -17,25 +18,25 @@ public class PoolManager : MonoBehaviour
         Instance = this;
     }
     [SerializeField]
-    List<PoolObject> objectsPrefabs = new List<PoolObject>();
+    List<PoolObject> enemyPrefabs = new List<PoolObject>();
 
-    List<GameObjectsPool> gameObjectsPools = new List<GameObjectsPool>();
+    [SerializeField]
+    List<PoolObject> bulletPrefabs = new List<PoolObject>();
+
+    public ObjectPool enemyPool;
+    public ObjectPool bulletPool;
+
     void Awake()
     {
-        for (int i = 0; i < objectsPrefabs.Count; i++)
+        enemyPool = new ObjectPool(enemyPrefabs[0].numberOfCopies, enemyPrefabs[0].objectToCopy);
+        bulletPool = new ObjectPool(bulletPrefabs[0].numberOfCopies, bulletPrefabs[0].objectToCopy);
+        for (int i = 1; i < enemyPrefabs.Count; i++)
         {
-            GameObjectsPool gameObjectsPool = new GameObjectsPool(objectsPrefabs[i].numberOfCopies, objectsPrefabs[i].objectToCope);
-            gameObjectsPools.Add(gameObjectsPool);
+            enemyPool += new ObjectPool(enemyPrefabs[i].numberOfCopies, enemyPrefabs[i].objectToCopy);
         }
-    }
-
-    public GameObjectsPool GetGameObjectsPool(string objectTag)
-    {
-        for (int i = 0; i < gameObjectsPools.Count; i++)
+        for (int i = 1; i < enemyPrefabs.Count; i++)
         {
-            if (objectTag == gameObjectsPools[i].pool[0].tag) return gameObjectsPools[i];
+            bulletPool += new ObjectPool(bulletPrefabs[i].numberOfCopies, bulletPrefabs[i].objectToCopy);
         }
-
-        throw new System.IndexOutOfRangeException();
     }
 }

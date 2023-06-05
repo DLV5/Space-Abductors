@@ -15,19 +15,13 @@ public class ShotgunEnemy : MovingEnemy
         StartCoroutine(FireRateShoot());
     }
     protected override void Shoot()
-    {      
-        foreach (var obj in gameObjectsPool.pool)
-        {          
-                if (!obj.activeSelf)
-                {
-                    obj.SetActive(true);
-                    obj.transform.position = transform.position;
-                    Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-spreadAngle / 2, spreadAngle / 2));
-                    obj.GetComponent<Bullet>().direction = (spreadRotation * (target.transform.position - obj.transform.position)).normalized;
-                    break;
-                } 
-                
-        }
+    {
+        GameObject obj = gameObjectsPool.GetPooledObjectByTag("BaseBullet");
+
+        obj.transform.position = transform.position;
+        Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-spreadAngle / 2, spreadAngle / 2));
+        obj.GetComponent<Bullet>().direction = (spreadRotation * (target.transform.position - obj.transform.position)).normalized;
+                  
     }   
     protected override IEnumerator FireRateShoot()
     {

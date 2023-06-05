@@ -13,26 +13,20 @@ public class Attacker : MonoBehaviour
 
     public float FireRate { get => fireRate; set => fireRate = value; }
 
-    protected static GameObjectsPool gameObjectsPool;
+    protected static ObjectPool gameObjectsPool;
+
     void Start()
     {
         if (gameObjectsPool == null)
-            gameObjectsPool = PoolManager.Instance.GetGameObjectsPool(bulletTag);
+            gameObjectsPool = PoolManager.Instance.bulletPool;
     }
 
     protected virtual void Shoot()
     {
-        foreach (var obj in gameObjectsPool.pool)
-        {
-            if (!obj.activeSelf)
-            {
-                obj.SetActive(true);
-                obj.transform.position = transform.position;
-                obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
-
-                break;
-            }
-        }
+        GameObject obj = gameObjectsPool.GetPooledObjectByTag("BaseBullet");
+        
+        obj.transform.position = transform.position;
+        obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
     }
     protected virtual IEnumerator FireRateShoot()
     {

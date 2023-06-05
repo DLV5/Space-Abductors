@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2201990046505180526}
   - component: {fileID: -242131764764823531}
   - component: {fileID: 5848321928296531738}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HelicopterEnemy
   m_TagString: HelicopterEnemy
   m_Icon: {fileID: 0}
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8084d4397e10a934887c7473f57f47b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  bulletTag: 
   fireRate: 1
-  bulletPrefab: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
+  health: 3
   verticalMoveSpeed: 5
   timeBerofeEscape: 25
   escapeHorizontalSpeed: 10
