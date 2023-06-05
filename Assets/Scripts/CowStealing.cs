@@ -1,17 +1,18 @@
 using UnityEngine;
 using TMPro;
 
-public class Skillpoints : MonoBehaviour
+public class CowStealing : MonoBehaviour
 {
     public static int skillPoints = 0;
+    [SerializeField]
+    private TextMeshProUGUI _skillPointMenuText;
     private Movement _movementScript; // For limiting movement
     private Cow _currentCow;
-    private TextMeshProUGUI _skillPointMenuText;
 
     private void Start()
     {
-        _skillPointMenuText = GameObject.Find("SkillpointText").GetComponent<TextMeshProUGUI>();
         _movementScript = GetComponent<Movement>();
+        _skillPointMenuText.text = skillPoints + " skill points";
     }
 
     private void Update()

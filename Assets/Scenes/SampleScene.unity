@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 skill points
+  m_text: ' skill points'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd859f5b2c47e034d9084150cf0f4994, type: 2}
   m_sharedMaterial: {fileID: 4345080307541344231, guid: fd859f5b2c47e034d9084150cf0f4994, type: 2}
@@ -2980,6 +2980,10 @@ PrefabInstance:
       propertyPath: spreadAngle
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3277618511199326766, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: _skillPointMenuText
+      value: 
+      objectReference: {fileID: 1174273104}
     - target: {fileID: 5496292921670143665, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_Sprite
       value: 
