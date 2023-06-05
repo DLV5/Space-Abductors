@@ -26,6 +26,7 @@ public class Ship : MonoBehaviour, IDamageable
         _hpText.text = "HP: " + health;
         if (health <= 0)
         {
+            UIManager.instance.deathScreen.SetActive(true);
             gameObject.SetActive(false);
         }
     }
