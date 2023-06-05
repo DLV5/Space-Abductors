@@ -6,8 +6,9 @@ public class PauseMenu : MonoBehaviour
 {
     public void Continue()
     {
-        gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
         GameManager.Instance.playerState = GameManager.PlayerState.Playing;
+        gameObject.SetActive(false);
     }
 
     private void Update()

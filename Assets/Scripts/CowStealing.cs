@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Skillpoints : MonoBehaviour
+public class CowStealing : MonoBehaviour
 {
-    public static int skillPoints = 0;
     private Movement _movementScript; // For limiting movement
     private Cow _currentCow;
 
@@ -22,7 +21,7 @@ public class Skillpoints : MonoBehaviour
             if (!_currentCow.moving)
             {
                 _currentCow.gameObject.SetActive(false);
-                ++skillPoints;
+                Skills.Instance.AddSkillpoints(1);
                 _movementScript.canMove = true;
             }
         }
@@ -36,10 +35,11 @@ public class Skillpoints : MonoBehaviour
         if (cow == null) return;
         if (cow.CompareTag("Cow"))
         {
-            Debug.Log("CompareTag");
             _currentCow = cow.gameObject.GetComponent<Cow>();
             _currentCow.moving = true;
             _movementScript.canMove = false;
         }
     }
+
+    
 }
