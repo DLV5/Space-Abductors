@@ -65,8 +65,10 @@ public class Skills : MonoBehaviour
         {
             switch (skill) // Add a string here for every new weapon skill
             {
-                case "Shotgun": _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShotgunShoot; break;
-                //default: break;
+                case "Shotgun": _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShotgunShoot;
+                    _playerWeapon.spreadAngle = 90f;
+                    break;
+                default: break;
             }
         }
     }
