@@ -36,9 +36,11 @@ public class Skills : MonoBehaviour
         }
     }
 
-    public void AddSkill(string skillName)
+    public void BuySkill(SkillParameter parameter)
     {
-        skillList.Add(skillName);
+        if (skillPoints < parameter.price) return;
+        skillList.Add(parameter.skillName);
+        skillPoints -= parameter.price;
     }
 
     public void OpenSkillpointMenu()
