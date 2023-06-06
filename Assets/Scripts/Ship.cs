@@ -6,6 +6,7 @@ using TMPro;
 public class Ship : MonoBehaviour, IDamageable
 {
     public int health;
+    public bool invincible = false;
     public int damage;
 
     [SerializeField]
@@ -22,6 +23,7 @@ public class Ship : MonoBehaviour, IDamageable
 
     public void Damage(int damage)
     {
+        if (invincible) return;
         health -= damage;
         _hpText.text = "HP: " + health;
         if (health <= 0)
