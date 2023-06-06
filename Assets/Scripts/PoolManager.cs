@@ -32,11 +32,19 @@ public class PoolManager : MonoBehaviour
         bulletPool = new ObjectPool(bulletPrefabs[0].numberOfCopies, bulletPrefabs[0].objectToCopy);
         for (int i = 1; i < enemyPrefabs.Count; i++)
         {
-            enemyPool += new ObjectPool(enemyPrefabs[i].numberOfCopies, enemyPrefabs[i].objectToCopy);
+            ObjectPool objects = new ObjectPool(enemyPrefabs[i].numberOfCopies, enemyPrefabs[i].objectToCopy);
+            foreach (var item in objects.pool)
+            {
+                bulletPool.pool.Add(item);
+            }
         }
-        for (int i = 1; i < enemyPrefabs.Count; i++)
+        for (int i = 1; i < bulletPrefabs.Count; i++)
         {
-            bulletPool += new ObjectPool(bulletPrefabs[i].numberOfCopies, bulletPrefabs[i].objectToCopy);
+            ObjectPool objects = new ObjectPool(bulletPrefabs[i].numberOfCopies, bulletPrefabs[i].objectToCopy);
+            foreach (var item in objects.pool)
+            {
+                 bulletPool.pool.Add(item);
+            }
         }
     }
 }
