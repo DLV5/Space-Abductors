@@ -23,7 +23,6 @@ public class Skills : MonoBehaviour
         {
             Instance = this;
         }
-        _playerWeapon = GetComponent<Weapon>();
     }
 
     private void Start()
@@ -43,7 +42,7 @@ public class Skills : MonoBehaviour
     {
         if (skillPoints < parameter.price) return;
         skillList.Add(parameter.skillName);
-        skillPoints -= parameter.price;
+        AddSkillpoints(-parameter.price);
         RefreshSkills();
     }
 
@@ -67,7 +66,7 @@ public class Skills : MonoBehaviour
             switch (skill) // Add a string here for every new weapon skill
             {
                 case "Shotgun": _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShotgunShoot; break;
-                default: break;
+                //default: break;
             }
         }
     }
