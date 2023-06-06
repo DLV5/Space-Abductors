@@ -4,7 +4,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     [SerializeField]
-    protected string bulletTag;
+    protected string bulletTag = "PlayerBullet";
 
     protected Transform target;
 
