@@ -10,6 +10,8 @@ public class Skills : MonoBehaviour
     public int skillPoints = 0;
     [SerializeField]
     private TextMeshProUGUI _skillPointMenuText;
+    [SerializeField]
+    private Weapon _playerWeapon;
 
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class Skills : MonoBehaviour
         {
             Instance = this;
         }
+        _playerWeapon = GetComponent<Weapon>();
     }
 
     private void Start()
@@ -41,6 +44,7 @@ public class Skills : MonoBehaviour
         if (skillPoints < parameter.price) return;
         skillList.Add(parameter.skillName);
         skillPoints -= parameter.price;
+        RefreshSkills();
     }
 
     public void OpenSkillpointMenu()
@@ -54,5 +58,17 @@ public class Skills : MonoBehaviour
     {
         skillPoints += pointsToAdd;
         _skillPointMenuText.text = skillPoints + " skill points";
+    }
+
+    public void RefreshSkills()
+    {
+        foreach (string skill in skillList)
+        {
+            switch (skill) // Add a string here for every new weapon skill
+            {
+                case "Shotgun": _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShotgunShoot; break;
+                default: break;
+            }
+        }
     }
 }
