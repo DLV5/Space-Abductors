@@ -16,7 +16,7 @@ public class ShotgunEnemy : MovingEnemy
     }
     protected override void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag("BaseBullet");
+        GameObject obj = gameObjectsPool.GetPooledObjectByTag("ShotGunBullet");
 
         obj.transform.position = transform.position;
         Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-spreadAngle / 2, spreadAngle / 2));

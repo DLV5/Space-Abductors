@@ -35,7 +35,7 @@ public class Ship : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("BaseBullet"))
+        if (collision.CompareTag("BaseBullet") || collision.CompareTag("ShotGunBullet"))
         {
             Damage(1);
             collision.gameObject.SetActive(false);
