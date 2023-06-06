@@ -3080,6 +3080,10 @@ PrefabInstance:
       propertyPath: _hpText
       value: 
       objectReference: {fileID: 825677715}
+    - target: {fileID: 580299944375268883, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: invincible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: damage
       value: 1
