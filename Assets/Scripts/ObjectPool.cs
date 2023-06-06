@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObjectPool
 {
-    private List<GameObject> pool;
+    public List<GameObject> pool;
     private GameObject prefab;
     public ObjectPool(int initialSize, GameObject prefab)
     {

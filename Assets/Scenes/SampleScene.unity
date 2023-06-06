@@ -2667,7 +2667,9 @@ MonoBehaviour:
   - objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
     numberOfCopies: 20
   - objectToCopy: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
-    numberOfCopies: 500
+    numberOfCopies: 100
+  - objectToCopy: {fileID: 8392131622389291262, guid: 68e0eb258986a81439102e6bd8af7c7d, type: 3}
+    numberOfCopies: 100
 --- !u!4 &1559183870
 Transform:
   m_ObjectHideFlags: 0
@@ -2681,7 +2683,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1570789007
 GameObject:
