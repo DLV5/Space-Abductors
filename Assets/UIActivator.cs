@@ -12,6 +12,9 @@ public class UIActivator : MonoBehaviour
     [SerializeField]
     Button skillBuyButton;
 
+    [SerializeField] 
+    List<Button> nextBranchesTreeToActivate;
+
     [SerializeField]
     GameObject boughtSkillImage;
 
@@ -40,5 +43,10 @@ public class UIActivator : MonoBehaviour
     public void EnableImage()
     {
         boughtSkillImage.SetActive(true);
+
+        foreach (Button go in nextBranchesTreeToActivate)
+        {
+            go.interactable = true;
+        }
     }
 }
