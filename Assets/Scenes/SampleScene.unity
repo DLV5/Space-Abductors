@@ -5475,6 +5475,10 @@ MonoBehaviour:
   spawnZone: {fileID: 1441192111}
   SpawnDelay: 5
   SpawnCount: 1
+  cowPrefab: {fileID: 2967738439069499057, guid: 7cee6f999111713489f9a79282a07d15, type: 3}
+  cowSpawnDelay: 40
+  spawning: 1
+  cowSpawned: 0
 --- !u!1 &1442781272
 GameObject:
   m_ObjectHideFlags: 0

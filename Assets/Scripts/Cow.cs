@@ -6,6 +6,13 @@ public class Cow : MonoBehaviour
     public GameObject player;
     [SerializeField]
     private float speed = 1.0f;
+    private EnemySpawner _spawner;
+
+    private void Start()
+    {
+        _spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        player = GameObject.FindWithTag("Player");
+    }
 
     private void Update()
     {
@@ -16,6 +23,8 @@ public class Cow : MonoBehaviour
             if (direction.magnitude < 0.2f)
             {
                 moving = false;
+                _spawner.cowSpawned = false;
+                _spawner.spawning = true;
             }
         }
     }

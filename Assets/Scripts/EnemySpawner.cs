@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -28,6 +26,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     int SpawnCount;
 
+    public GameObject cowPrefab;
+    [SerializeField]
+    private float cowSpawnDelay;
+
+    public bool spawning = true;
+    [HideInInspector]
+    public bool cowSpawned = false;
+
     public enum EnemyTypes
     {
         HelicopterEnemy,
@@ -38,6 +44,7 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyObjectPool = PoolManager.Instance.enemyPool;
         StartCoroutine(SpawnInsideZone());
+        StartCoroutine(WaitAndSpawnCow());
     }
 
     IEnumerator SpawnInsideZone()
@@ -45,12 +52,29 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(SpawnDelay);
-            for (int i = 0; i < SpawnCount; i++)
+            if (spawning)
             {
-                SpawnEnemy();
+                for (int i = 0; i < SpawnCount; i++)
+                {
+                    SpawnEnemy();
+                }
             }
         }
 
+    }
+
+    IEnumerator WaitAndSpawnCow()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(cowSpawnDelay);
+            if (!cowSpawned)
+            {
+                spawning = false;
+                SpawnCow();
+                cowSpawned = true;
+            }
+        }
     }
 
     Vector2 GetRandomPointInsideTheArea(Collider2D collider)
@@ -64,6 +88,12 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject obj = ChooseObject(enemySettings); 
         obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+    }
+
+    private void SpawnCow()
+    {
+        Vector2 cowSpawnPosition = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width / 2, 100));
+        GameObject.Instantiate(cowPrefab, cowSpawnPosition, Quaternion.identity);
     }
 
     static GameObject ChooseObject(List<EnemySettings> enemies)
