@@ -41,6 +41,7 @@ public class Skills : MonoBehaviour
     public void BuySkill(SkillParameter parameter)
     {
         if (skillPoints < parameter.price) return;
+        parameter.IsBought = true;
         skillList.Add(parameter.skillName);
         AddSkillpoints(-parameter.price);
         RefreshSkills();
