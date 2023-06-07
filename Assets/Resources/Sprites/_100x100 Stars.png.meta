@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ebe74e94234a85a4495c6e12d10a331e
+guid: 82c20eeca889c16419b180da3dd59204
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sun_0
+      name: _100x100 Stars_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 250
-        width: 50
-        height: 50
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,41 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b445fe99d7e77040bd04f080a993da1
-      internalID: 1506350644
+      spriteID: 7e8d43058d7ab3143b5b25a096fbc01d
+      internalID: -1073530803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_1
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 250
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b07cae165b03d264abc023ccf8d68ce1
-      internalID: -1266066521
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_2
+      name: _100x100 Stars_1
       rect:
         serializedVersion: 2
         x: 100
-        y: 250
-        width: 50
-        height: 50
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,41 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f793e18ed48ca964b9d8bfb5df07e644
-      internalID: -1641606044
+      spriteID: 586e981f22b299c4da8bf5e3d856505f
+      internalID: 1767844015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_3
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 250
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ef25def5d463d64b85a939127d359b4
-      internalID: 1918757215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_4
+      name: _100x100 Stars_2
       rect:
         serializedVersion: 2
         x: 200
-        y: 250
-        width: 50
-        height: 50
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf615cc12d06fd04f823aa5f672e3326
-      internalID: 1982480259
+      spriteID: 5d8bd0556095f3541ae8908ab00bec52
+      internalID: 573993417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_5
+      name: _100x100 Stars_3
       rect:
         serializedVersion: 2
-        x: 250
-        y: 250
-        width: 50
-        height: 50
+        x: 300
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +187,314 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0658ad5c5c7bca741a518cee91adbc48
-      internalID: -1560031783
+      spriteID: 1e3b14e57880a274a8605e9b1d5edf41
+      internalID: -473273063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_6
+      name: _100x100 Stars_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102d05ad284c3e443be8324203a2af1d
+      internalID: -264785408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edc637617f3ab04699b93cca4ee3d86
+      internalID: -1650695816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16023eaa5de49084d8d5cbee542251a3
+      internalID: -874991596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f6dab4ea6650b4998af6dcdb2db7e4
+      internalID: -862992536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e110b15ea4bd1a41abe446c13d2134b
+      internalID: 791406236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fea67d8088f08c4da6966de1d97aa49
+      internalID: 272346741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c17908223a0d8034286ed7d4d9f9c230
+      internalID: -846953840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b7bb3d10699c54586e5d298f3a95b0
+      internalID: 2075536581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe519946603bcfc438a5f80eb18a55a7
+      internalID: -2066095903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b425b14593dd9094c8a18eb2e7f1a6d9
+      internalID: 716903604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_14
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a9e3ae8086031a46a819ff76a0a68c0
+      internalID: -319520152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc89e9dd7e408d42807ef590ccc14cc
+      internalID: -142520678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_16
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6434a9c91d9a4684183818a0b6aabc10
+      internalID: -1110902335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_17
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378a71adad66ecb4a972094461c744b3
+      internalID: -1361149951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _100x100 Stars_18
       rect:
         serializedVersion: 2
         x: 0
         y: 200
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,41 +502,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efe9bc6c9646e0341ad0c2dc1a847605
-      internalID: 542256219
+      spriteID: 596b9e1c378e482429d4f1ef2cfd25b8
+      internalID: 453334410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_7
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 200
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 722bdd08bcf694b43b23ca8826706c06
-      internalID: -1717267067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_8
+      name: _100x100 Stars_19
       rect:
         serializedVersion: 2
         x: 100
         y: 200
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,41 +523,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d215c29f03dd2f844a2d8d98f73a0d8f
-      internalID: 1427742834
+      spriteID: d05df2672ce215147abdbd6c12fcda2e
+      internalID: -1656366839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_9
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 200
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47ec65882f8f8534c82695bc5c127f93
-      internalID: -162055505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_10
+      name: _100x100 Stars_20
       rect:
         serializedVersion: 2
         x: 200
         y: 200
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,20 +544,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 516cfe2c4d85916498e4aa213052b9fc
-      internalID: -1130993429
+      spriteID: 019d65ccf8ab0b84ba88845fe4247486
+      internalID: 1361513686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_11
+      name: _100x100 Stars_21
       rect:
         serializedVersion: 2
-        x: 250
+        x: 300
         y: 200
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,20 +565,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c6820c95cbfa3b47b98b4275b81db7b
-      internalID: 1788429422
+      spriteID: 91c39a4ca8a6e774182d9915ec8070cf
+      internalID: 38644692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_12
+      name: _100x100 Stars_22
       rect:
         serializedVersion: 2
-        x: 0
-        y: 150
-        width: 50
-        height: 50
+        x: 400
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,20 +586,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc2e1ddfed8e3864db16132052c4ab9f
-      internalID: -1004417519
+      spriteID: aa6c3898286384040a863bd9225cc03d
+      internalID: -1433266910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_13
+      name: _100x100 Stars_23
       rect:
         serializedVersion: 2
-        x: 50
-        y: 150
-        width: 50
-        height: 50
+        x: 500
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,104 +607,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e3353a06b4e1e46b20cdf79a91e6f1
-      internalID: 863923364
+      spriteID: 9afdde25f6e2dee429325ea28e5687cd
+      internalID: -595262776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_14
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 150
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be5c81224b3a99841ad47c666d6477c2
-      internalID: -1881943312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_15
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 150
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f024f4edabbe6824b8b4b6869fa9ce81
-      internalID: -2052736465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_16
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 150
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1008547c50879244b20b32aece20611
-      internalID: -967817697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_17
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 150
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 424e60099074d4c45bfac7258129dc57
-      internalID: 1469274500
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_18
+      name: _100x100 Stars_24
       rect:
         serializedVersion: 2
         x: 0
         y: 100
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,41 +628,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8289ec3f0bc8dc4f8c09b9c0a6b7548
-      internalID: -1741511986
+      spriteID: d0b34fbdf16777247b8d04c7ca0b4d1b
+      internalID: -334661287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_19
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 100
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8060b3b6a1ba7849a0fb6751550a178
-      internalID: 2117103310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_20
+      name: _100x100 Stars_25
       rect:
         serializedVersion: 2
         x: 100
         y: 100
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -544,41 +649,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0a6639da852ea642815cf175fb0ac0c
-      internalID: 175461566
+      spriteID: 79981886396b3c04e857c5928cf051e6
+      internalID: 768485654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_21
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 100
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1beea90d6101b604b845734db863faf1
-      internalID: -758774113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_22
+      name: _100x100 Stars_26
       rect:
         serializedVersion: 2
         x: 200
         y: 100
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -586,20 +670,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c18cf155a15e890418cb78e69712018e
-      internalID: 644894090
+      spriteID: 59aca3039efab864aae577e21d99639b
+      internalID: 86934619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_23
+      name: _100x100 Stars_27
       rect:
         serializedVersion: 2
-        x: 250
+        x: 300
         y: 100
-        width: 50
-        height: 50
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -607,20 +691,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddf2d93381e39df4aabbad37a3313b3d
-      internalID: -1212924191
+      spriteID: 635e0c12c9e752f409991bc790131b86
+      internalID: -17558229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_24
+      name: _100x100 Stars_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 50
-        width: 50
-        height: 50
+        x: 400
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,20 +712,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ee8f5a93fcd7994db2b61803cd08329
-      internalID: 442357458
+      spriteID: d7faa2789cf672947aca024a27f9be5f
+      internalID: -227075847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sun_25
+      name: _100x100 Stars_29
       rect:
         serializedVersion: 2
-        x: 50
-        y: 50
-        width: 50
-        height: 50
+        x: 500
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -649,92 +733,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5d2f48c335e64f47b674559434b8b4b
-      internalID: -789742113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_26
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 50
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83c84bbe5a7946e41984f3d251002bd6
-      internalID: 125899197
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_27
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 50
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62f7b4d1947859c44b59d8502ba77e88
-      internalID: 853740849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_28
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 50
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 390650a302d3a9e488a3d9f854a5b941
-      internalID: -942010558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sun_29
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 50
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a6c22a3d8003c742b545201d5daa085
-      internalID: -333330666
+      spriteID: d3babe3d4d823344c8a7083feb000281
+      internalID: 924392863
       vertices: []
       indices: 
       edges: []
@@ -750,36 +750,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sun_0: 1506350644
-      Sun_1: -1266066521
-      Sun_10: -1130993429
-      Sun_11: 1788429422
-      Sun_12: -1004417519
-      Sun_13: 863923364
-      Sun_14: -1881943312
-      Sun_15: -2052736465
-      Sun_16: -967817697
-      Sun_17: 1469274500
-      Sun_18: -1741511986
-      Sun_19: 2117103310
-      Sun_2: -1641606044
-      Sun_20: 175461566
-      Sun_21: -758774113
-      Sun_22: 644894090
-      Sun_23: -1212924191
-      Sun_24: 442357458
-      Sun_25: -789742113
-      Sun_26: 125899197
-      Sun_27: 853740849
-      Sun_28: -942010558
-      Sun_29: -333330666
-      Sun_3: 1918757215
-      Sun_4: 1982480259
-      Sun_5: -1560031783
-      Sun_6: 542256219
-      Sun_7: -1717267067
-      Sun_8: 1427742834
-      Sun_9: -162055505
+      _100x100 Stars_0: -1073530803
+      _100x100 Stars_1: 1767844015
+      _100x100 Stars_10: -846953840
+      _100x100 Stars_11: 2075536581
+      _100x100 Stars_12: -2066095903
+      _100x100 Stars_13: 716903604
+      _100x100 Stars_14: -319520152
+      _100x100 Stars_15: -142520678
+      _100x100 Stars_16: -1110902335
+      _100x100 Stars_17: -1361149951
+      _100x100 Stars_18: 453334410
+      _100x100 Stars_19: -1656366839
+      _100x100 Stars_2: 573993417
+      _100x100 Stars_20: 1361513686
+      _100x100 Stars_21: 38644692
+      _100x100 Stars_22: -1433266910
+      _100x100 Stars_23: -595262776
+      _100x100 Stars_24: -334661287
+      _100x100 Stars_25: 768485654
+      _100x100 Stars_26: 86934619
+      _100x100 Stars_27: -17558229
+      _100x100 Stars_28: -227075847
+      _100x100 Stars_29: 924392863
+      _100x100 Stars_3: -473273063
+      _100x100 Stars_4: -264785408
+      _100x100 Stars_5: -1650695816
+      _100x100 Stars_6: -874991596
+      _100x100 Stars_7: -862992536
+      _100x100 Stars_8: 791406236
+      _100x100 Stars_9: 272346741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
