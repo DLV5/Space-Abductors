@@ -20,7 +20,7 @@ public class CowStealing : MonoBehaviour
         {
             if (!_currentCow.moving)
             {
-                _currentCow.gameObject.SetActive(false);
+                Destroy(_currentCow.gameObject);
                 Skills.Instance.AddSkillpoints(1);
                 _movementScript.canMove = true;
             }
