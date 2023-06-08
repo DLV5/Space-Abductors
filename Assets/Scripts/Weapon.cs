@@ -31,6 +31,7 @@ public class Weapon : Attacker
         {
             Skills.Instance.RefreshSkills();
         }
+        StartingFunction();
     }
 
     private void Update()

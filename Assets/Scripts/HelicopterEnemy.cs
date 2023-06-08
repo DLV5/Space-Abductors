@@ -16,6 +16,7 @@ public class HelicopterEnemy : MovingEnemy
         base.OnEnable();
         target = GameObject.FindGameObjectWithTag("Player")?.transform;
         StartCoroutine(FireRateShoot());
+        StartingFunction();
     }
 
     protected override IEnumerator FireRateShoot()
