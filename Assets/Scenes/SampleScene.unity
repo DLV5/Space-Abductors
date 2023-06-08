@@ -1020,6 +1020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1115,6 +1119,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1951,6 +1959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2046,6 +2058,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2153,6 +2169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 2.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2248,6 +2268,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2964,6 +2988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3060,6 +3088,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
+      objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3089,6 +3121,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 1836106033}
@@ -3096,6 +3132,14 @@ PrefabInstance:
       propertyPath: nextBranchesTreeToActivate.Array.data[1]
       value: 
       objectReference: {fileID: 1700884979}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 1109336835}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.data[1]
+      value: 
+      objectReference: {fileID: 1690573488}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3111,6 +3155,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
   m_PrefabInstance: {fileID: 921086867}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &921086870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 425062671750720251, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+  m_PrefabInstance: {fileID: 921086867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &921086871 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
@@ -3157,6 +3212,10 @@ PrefabInstance:
     - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Name
       value: SkillButton 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
       objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
@@ -3253,6 +3312,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3620,6 +3683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3716,6 +3783,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
+      objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3745,6 +3816,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 1615174241}
@@ -3752,6 +3827,14 @@ PrefabInstance:
       propertyPath: nextBranchesTreeToActivate.Array.data[1]
       value: 
       objectReference: {fileID: 1235122524}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 921086870}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.data[1]
+      value: 
+      objectReference: {fileID: 1690573488}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3776,6 +3859,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bd634670b26696418332cce04fcc1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1109336835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 425062671750720251, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+  m_PrefabInstance: {fileID: 1109336831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1110161270
@@ -4267,6 +4361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4362,6 +4460,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4456,6 +4558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4551,6 +4657,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4653,6 +4763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 2.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4748,6 +4862,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4850,6 +4968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4945,6 +5067,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5153,6 +5279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 2.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5248,6 +5378,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5815,6 +5949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5910,6 +6048,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6745,6 +6887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6840,6 +6986,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7048,6 +7198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7144,6 +7298,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
+      objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7165,6 +7323,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 1490466475}
@@ -7172,6 +7334,14 @@ PrefabInstance:
       propertyPath: nextBranchesTreeToActivate.Array.data[1]
       value: 
       objectReference: {fileID: 1201546834}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 921086870}
+    - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: nextBranchesTreeToDeactivate.Array.data[1]
+      value: 
+      objectReference: {fileID: 1109336835}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7196,6 +7366,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bd634670b26696418332cce04fcc1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1690573488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 425062671750720251, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+  m_PrefabInstance: {fileID: 1690573484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1700884976 stripped
@@ -8048,6 +8229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477298776079719766, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8143,6 +8328,10 @@ PrefabInstance:
     - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443314419532897897, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: m_TagString
+      value: SkillText
       objectReference: {fileID: 0}
     - target: {fileID: 3555697843038468058, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

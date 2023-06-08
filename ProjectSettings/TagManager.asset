@@ -10,6 +10,7 @@ TagManager:
   - ShotGunEnemy
   - Cow
   - ShotGunBullet
+  - SkillIcon
   layers:
   - Default
   - TransparentFX
