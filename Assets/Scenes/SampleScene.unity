@@ -402,6 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62771768}
   - component: {fileID: 62771769}
+  - component: {fileID: 62771770}
   m_Layer: 0
   m_Name: city_bg
   m_TagString: Untagged
@@ -476,6 +477,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &62771770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62771767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f45083b48253c84bb938336a7953afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0.01
+  resetPointX: -7.92
 --- !u!1 &81050632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,6 +4009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1255979688}
   - component: {fileID: 1255979689}
+  - component: {fileID: 1255979690}
   m_Layer: 0
   m_Name: city_road
   m_TagString: Untagged
@@ -4068,6 +4084,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1255979690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255979687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f45083b48253c84bb938336a7953afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0.02
+  resetPointX: -7.92
 --- !u!1001 &1264726107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4859,6 +4889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1457303657}
   - component: {fileID: 1457303658}
+  - component: {fileID: 1457303659}
   m_Layer: 0
   m_Name: city_buildings
   m_TagString: Untagged
@@ -4933,6 +4964,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1457303659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457303656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f45083b48253c84bb938336a7953afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0.01
+  resetPointX: -7.92
 --- !u!1 &1474219182
 GameObject:
   m_ObjectHideFlags: 0
