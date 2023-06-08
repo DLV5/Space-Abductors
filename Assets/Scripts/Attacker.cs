@@ -22,7 +22,7 @@ public class Attacker : MonoBehaviour
 
     protected virtual void StartingFunction() {
         if (gameObjectsPool == null)
-            gameObjectsPool = PoolManager.Instance.bulletPool;
+            gameObjectsPool = PoolManager.bulletPool;
     }
     protected virtual void Shoot()
     {

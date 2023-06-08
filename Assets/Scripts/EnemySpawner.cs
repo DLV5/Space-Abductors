@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
-        enemyObjectPool = PoolManager.Instance.enemyPool;
+        enemyObjectPool = PoolManager.enemyPool;
         StartCoroutine(SpawnInsideZone());
         StartCoroutine(WaitAndSpawnCow());
     }
