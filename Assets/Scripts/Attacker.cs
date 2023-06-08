@@ -15,12 +15,15 @@ public class Attacker : MonoBehaviour
 
     protected static ObjectPool gameObjectsPool;
 
-    void Start()
+    protected void Start()
     {
-        if (gameObjectsPool == null)
-            gameObjectsPool = PoolManager.Instance.bulletPool;
+        StartingFunction();
     }
 
+    protected virtual void StartingFunction() {
+        if (gameObjectsPool == null)
+            gameObjectsPool = PoolManager.bulletPool;
+    }
     protected virtual void Shoot()
     {
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("BaseBullet");

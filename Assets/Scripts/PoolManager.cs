@@ -5,6 +5,7 @@ using UnityEngine.Pool;
 
 public class PoolManager : MonoBehaviour
 {
+    private static bool hasInvoked = false;
     [Serializable]
     class PoolObject
     {
@@ -23,11 +24,12 @@ public class PoolManager : MonoBehaviour
     [SerializeField]
     List<PoolObject> bulletPrefabs = new List<PoolObject>();
 
-    public ObjectPool enemyPool;
-    public ObjectPool bulletPool;
+    public static ObjectPool enemyPool;
+    public static ObjectPool bulletPool;
 
     void Awake()
     {
+        if (hasInvoked) return;
         enemyPool = new ObjectPool(enemyPrefabs[0].numberOfCopies, enemyPrefabs[0].objectToCopy);
         bulletPool = new ObjectPool(bulletPrefabs[0].numberOfCopies, bulletPrefabs[0].objectToCopy);
         for (int i = 1; i < enemyPrefabs.Count; i++)
@@ -46,5 +48,6 @@ public class PoolManager : MonoBehaviour
                  bulletPool.pool.Add(item);
             }
         }
+        hasInvoked = true;
     }
 }

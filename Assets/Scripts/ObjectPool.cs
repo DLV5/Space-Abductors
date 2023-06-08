@@ -21,6 +21,7 @@ public class ObjectPool
     private GameObject CreatePooledObject()
     {
         GameObject obj = UnityEngine.Object.Instantiate(prefab);
+        GameObject.DontDestroyOnLoad(obj);
         obj.SetActive(false);
         pool.Add(obj);
         return obj;
