@@ -21,7 +21,7 @@ public class Weapon : Attacker
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
-    private void Start()
+    protected override void Start()
     {
         if (Skills.Instance.skillList.Count <= 0)
         {
@@ -31,7 +31,7 @@ public class Weapon : Attacker
         {
             Skills.Instance.RefreshSkills();
         }
-        StartingFunction();
+        base.Start();
     }
 
     private void Update()

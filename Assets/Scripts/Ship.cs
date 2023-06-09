@@ -25,12 +25,20 @@ public class Ship : MonoBehaviour, IDamageable
     {
         if (invincible) return;
         health -= damage;
+        invincible = true;
+        StartCoroutine(DisableInvincibilityAfterTime(2f));
         _hpText.text = "HP: " + health;
         if (health <= 0)
         {
             UIManager.instance.deathScreen.SetActive(true);
             gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator DisableInvincibilityAfterTime(float invincibilityDuration)
+    {
+        yield return new WaitForSeconds(invincibilityDuration);
+        invincible = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
