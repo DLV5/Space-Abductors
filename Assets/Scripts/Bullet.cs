@@ -15,6 +15,10 @@ public class Bullet : MonoBehaviour
         NormalBullet,
         PlayerBullet
     }
+    protected void OnLevelWasLoaded(int level)
+    {
+        gameObject.SetActive(false);
+    }
     private void OnEnable()
     {
          StartCoroutine(CheckIsInTheBoundOfTheScreen());       

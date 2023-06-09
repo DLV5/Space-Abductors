@@ -21,6 +21,6 @@ public class ScrollingBackground : MonoBehaviour
         {
             transform.position = _startingPosition;
         }
-        transform.position -= new Vector3(scrollSpeed * Time.timeScale, 0f, 0f);
+        transform.position -= new Vector3(scrollSpeed * Time.timeScale * 0.01f, 0f, 0f);
     }
 }
