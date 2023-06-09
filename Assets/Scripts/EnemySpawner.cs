@@ -42,9 +42,20 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
+        DeactivateAllEnemies();
         enemyObjectPool = PoolManager.enemyPool;
         StartCoroutine(SpawnInsideZone());
         StartCoroutine(WaitAndSpawnCow());
+    }
+
+    private void DeactivateAllEnemies()
+    {
+        if (enemyObjectPool == null) return;
+        
+        foreach(GameObject enemy in enemyObjectPool.pool)
+        {
+            enemy.SetActive(false);
+        }
     }
 
     IEnumerator SpawnInsideZone()
