@@ -32,6 +32,8 @@ public class Enemy : Attacker, IDamageable
         {
             Damage(1);
             collision.gameObject.SetActive(false);
+
+            DamageUI.instance.ShowDamageOnEnemy(transform);
         }
     }
 }
