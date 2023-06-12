@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Weapon : Attacker
 {
+    public GameObject railgun;
+    private Animator animator;
+
     public int damage;
     public int cooldown;
     public float spreadAngle;
@@ -25,6 +28,7 @@ public class Weapon : Attacker
 
     private void Awake()
     {
+        animator = railgun.GetComponent<Animator>();
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
@@ -57,7 +61,11 @@ public class Weapon : Attacker
             case WeaponType.ChargingWeapon:
                 if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
                 {
-                    
+                    railgun.SetActive(true);
+                }
+                if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    animator.SetTrigger("IsReleased");
                 }
                 break;
 
