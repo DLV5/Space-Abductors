@@ -62,6 +62,23 @@ public class Weapon : Attacker
         }
     }
 
+    public void RailgunShoot()
+    {
+        Vector2 dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+        dir = dir.normalized;
+        var hits = Physics2D.RaycastAll(transform.position, dir, 10f);
+        foreach (var hit in hits)
+        {
+            Collider2D col = hit.collider;
+            if (col == null) continue;
+            if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy"))
+            {
+                Enemy enemy = col.gameObject.GetComponent<Enemy>();
+                enemy.Damage(3);
+            }
+        }
+    }
+
     private IEnumerator EnterCooldown()
     {
         yield return new WaitForSeconds(cooldown);
