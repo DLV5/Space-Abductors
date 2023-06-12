@@ -15,7 +15,7 @@ public class Attacker : MonoBehaviour
 
     protected static ObjectPool gameObjectsPool;
 
-    protected void Start()
+    protected virtual void Start()
     {
         StartingFunction();
     }
