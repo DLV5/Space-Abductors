@@ -10,24 +10,23 @@ public class DamageUI : MonoBehaviour
         instance = this;
     }
     [SerializeField]
-    List<TMP_Text> damageTexts = new List<TMP_Text>();
-    public void ShowDamageOnEnemy(Transform enemyTransform)
+    List<GameObject> damageTexts = new List<GameObject>();
+    public void ShowDamageOnEnemy(Vector2 enemyTransform)
     {
-        TMP_Text text = GetDisabledText();
-        GameObject gameObject = text.gameObject;
-        gameObject.transform.position = enemyTransform.position;
-        text.text = "100";
+        GameObject gameObj = GetDisabledText();
+        gameObject.transform.position = enemyTransform;
+        //tex.text = "100";
 
     }
 
-    private TMP_Text GetDisabledText()
+    private GameObject GetDisabledText()
     {
-        foreach (var text in damageTexts)
+        foreach (GameObject text in damageTexts)
         {
-            Debug.Log(text.gameObject.transform.parent.gameObject.activeSelf);
-            if (!text.gameObject.transform.parent.gameObject.activeSelf)
+            Debug.Log(text.gameObject.activeSelf);
+            if (!text.gameObject.activeSelf)
             {
-                text.gameObject.transform.parent.gameObject.SetActive(true);
+                text.gameObject.SetActive(true);
                 return text;
             }
         }

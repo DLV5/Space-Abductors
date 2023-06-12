@@ -30,10 +30,9 @@ public class Enemy : Attacker, IDamageable
     {
         if (collision.CompareTag("PlayerBullet"))
         {
+            DamageUI.instance.ShowDamageOnEnemy(transform.position);
             Damage(1);
             collision.gameObject.SetActive(false);
-
-            DamageUI.instance.ShowDamageOnEnemy(transform);
         }
     }
 }
