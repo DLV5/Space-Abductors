@@ -8,6 +8,7 @@ public class Weapon : Attacker
     public int damage;
     public int cooldown;
     public float spreadAngle;
+    public WeaponType type;
 
     [SerializeField]
     private Texture2D _crosshair;
@@ -15,6 +16,12 @@ public class Weapon : Attacker
     private bool _canShoot = true;
 
     public Action CurrentWeaponAttack;
+
+    public enum WeaponType
+    {
+        ChargingWeapon,
+        ShootingWeapon,
+    }
 
     private void Awake()
     {
@@ -36,12 +43,26 @@ public class Weapon : Attacker
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
+        switch (type)
         {
-            CurrentWeaponAttack();
-            _canShoot = false;
-            StartCoroutine(EnterCooldown());
+            case WeaponType.ShootingWeapon:
+                if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
+                {
+                    CurrentWeaponAttack();
+                    _canShoot = false;
+                    StartCoroutine(EnterCooldown());
+                }
+                break;
+
+            case WeaponType.ChargingWeapon:
+                if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
+                {
+                    
+                }
+                break;
+
         }
+        
     }
 
     protected override void Shoot()
