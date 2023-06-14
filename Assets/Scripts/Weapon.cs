@@ -96,7 +96,8 @@ public class Weapon : Attacker
     {
         Vector2 dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
         dir = dir.normalized;
-        var hits = Physics2D.RaycastAll(transform.position, dir, 10f);
+        //var hits = Physics2D.RaycastAll(transform.position, dir, 10f);
+        var hits = Physics2D.BoxCastAll(transform.position, new Vector2(10f, 0.1f), 0f, dir, 10f);
         foreach (var hit in hits)
         {
             Collider2D col = hit.collider;
