@@ -3747,6 +3747,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &690509956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 733761169934608748, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+  m_PrefabInstance: {fileID: 15310491815541752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &690509958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690509956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a281410574de2147be94ce5104c2663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &698528133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13240,6 +13257,10 @@ PrefabInstance:
       propertyPath: invincible
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 733761169934608748, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: damage
       value: 1
@@ -13331,6 +13352,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7848225479523271666, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1503846475}
+    - targetCorrespondingSourceObject: {fileID: 733761169934608748, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 690509958}
     - targetCorrespondingSourceObject: {fileID: 6560807263158165127, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       insertIndex: 1
       addedObject: {fileID: 15310491815541755}
