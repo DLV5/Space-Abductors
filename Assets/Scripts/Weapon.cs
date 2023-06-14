@@ -66,6 +66,7 @@ public class Weapon : Attacker
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
                     animator.SetTrigger("IsReleased");
+                    CurrentWeaponAttack();
                 }
                 break;
 
@@ -103,9 +104,10 @@ public class Weapon : Attacker
             if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy"))
             {
                 Enemy enemy = col.gameObject.GetComponent<Enemy>();
-                enemy.Damage(3);
+                enemy.Damage(damage);
             }
         }
+        damage = 1;
     }
 
     private IEnumerator EnterCooldown()

@@ -13262,6 +13262,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
@@ -13443,6 +13447,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 15310491815541753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55eba24579e14d84aafa4a57067e53d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1136052ceadbd5d40ad0f9e1c06a3066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerWeapon: {fileID: 1095686885}
