@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 32faab03b9ce86140ba186fd9b9f4aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   bulletTag: 
   fireRate: 1
   health: 3
+  _flashTime: 0.25
   verticalMoveSpeed: 5
   timeBerofeEscape: 25
   escapeHorizontalSpeed: 10

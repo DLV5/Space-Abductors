@@ -11,6 +11,8 @@ TagManager:
   - Cow
   - ShotGunBullet
   - SkillIcon
+  - SkillText
+  - BossEnemy
   layers:
   - Default
   - TransparentFX
