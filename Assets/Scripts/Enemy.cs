@@ -20,6 +20,7 @@ public class Enemy : Attacker, IDamageable
     public void Damage(int damage)
     {
         Health -= damage;
+        DamageUI.instance.ShowDamageOnEnemy(transform.position);
         if (Health <= 0) 
         {
             gameObject.SetActive(false);
@@ -30,7 +31,6 @@ public class Enemy : Attacker, IDamageable
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            DamageUI.instance.ShowDamageOnEnemy(transform.position);
             Damage(1);
             collision.gameObject.SetActive(false);
         }

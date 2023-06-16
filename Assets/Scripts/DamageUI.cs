@@ -23,7 +23,6 @@ public class DamageUI : MonoBehaviour
     {
         foreach (GameObject text in damageTexts)
         {
-            Debug.Log(text.gameObject.activeSelf);
             if (!text.gameObject.activeSelf)
             {
                 text.gameObject.SetActive(true);
