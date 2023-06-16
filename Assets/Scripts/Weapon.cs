@@ -98,13 +98,13 @@ public class Weapon : Attacker
         dir = dir.normalized;
         //var hits = Physics2D.RaycastAll(transform.position, dir, 10f);
         float angle = Vector2.Angle(transform.position, dir);
-        var hits = Physics2D.BoxCastAll(transform.position, new Vector2(0.1f, 1f), angle, dir, 10f);
+        var hits = Physics2D.BoxCastAll(transform.position, new Vector2(0.1f, 1f), angle, dir, 30f);
         //BoxCastDebug.instance.StartDrawing(transform.position, dir, new Vector2(10f, 0.1f));
         foreach (var hit in hits)
         {
             Collider2D col = hit.collider;
             if (col == null) continue;
-            if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy"))
+            if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy"))
             {
                 Enemy enemy = col.gameObject.GetComponent<Enemy>();
                 enemy.Damage(damage);
