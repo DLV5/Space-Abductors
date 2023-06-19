@@ -77,6 +77,11 @@ public class Skills : MonoBehaviour
                     _playerWeapon.type = Weapon.WeaponType.ChargingWeapon;
                     _playerWeapon.damage = 1;
                     break;
+                case "Flamethrower":
+                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.FlamethrowerShoot;
+                    _playerWeapon.type = Weapon.WeaponType.ShootingWeapon;
+                    _playerWeapon.damage = 1;
+                    break;
                 default: break;
             }
         }

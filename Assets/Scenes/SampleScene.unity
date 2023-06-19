@@ -6079,7 +6079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
