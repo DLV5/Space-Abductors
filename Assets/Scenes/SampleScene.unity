@@ -7954,6 +7954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealingEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7202860050722187345, guid: a0b204ba7e6515c4b848307d8b0ea810, type: 3}
+      propertyPath: m_TagString
+      value: HealingEnemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

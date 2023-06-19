@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -242131764764823531}
   - component: {fileID: 5848321928296531738}
   - component: {fileID: 3763095156440081690}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealingEnemy
   m_TagString: HelicopterEnemy
   m_Icon: {fileID: 0}

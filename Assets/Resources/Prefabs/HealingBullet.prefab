@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3737552164993465529}
   - component: {fileID: -7379201103690404803}
   - component: {fileID: -4092755932015818343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealingBullet
   m_TagString: HealingBullet
   m_Icon: {fileID: 0}

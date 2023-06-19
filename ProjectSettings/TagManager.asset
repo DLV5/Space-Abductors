@@ -14,6 +14,7 @@ TagManager:
   - SkillText
   - BossEnemy
   - HealingBullet
+  - HealingEnemy
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - HealingBullet
+  - HealingEnemy
   - 
   - 
   - 
