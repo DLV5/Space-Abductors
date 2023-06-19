@@ -8,6 +8,7 @@ public class Weapon : Attacker
     public GameObject flamethrower;
     public ParticleSystem flames;
     public GameObject railgun;
+    private Collider2D _flameCollider;
     private Animator animator;
 
     public int damage;
@@ -46,6 +47,7 @@ public class Weapon : Attacker
             Skills.Instance.RefreshSkills();
         }
         base.Start();
+        _flameCollider = flamethrower.GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -79,6 +81,7 @@ public class Weapon : Attacker
                 }
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
+                    _flameCollider.enabled = false;
                     flames.Stop();
                 }
                 break;
@@ -129,6 +132,7 @@ public class Weapon : Attacker
     public void FlamethrowerShoot()
     {
         flames.Play();
+        _flameCollider.enabled = true;
     }
 
     private IEnumerator EnterCooldown()
