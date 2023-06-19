@@ -75,5 +75,10 @@ public class Ship : MonoBehaviour, IDamageable
             Damage(1);
             collision.gameObject.SetActive(false);
         }
+        if (collision.CompareTag("HealingBullet"))
+        {
+            Damage(-1);
+            collision.gameObject.SetActive(false);
+        }
     }
 }

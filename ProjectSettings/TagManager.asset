@@ -13,6 +13,7 @@ TagManager:
   - SkillIcon
   - SkillText
   - BossEnemy
+  - HealingBullet
   layers:
   - Default
   - TransparentFX
