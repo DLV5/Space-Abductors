@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Weapon : Attacker
 {
+    public GameObject flamethrower;
     public ParticleSystem flames;
     public GameObject railgun;
     private Animator animator;

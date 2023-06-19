@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3655867954741695155
 Transform:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7066687585894958189
 Transform:
   m_ObjectHideFlags: 0
@@ -5260,6 +5260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletTag: PlayerBullet
   fireRate: 1
+  flamethrower: {fileID: 0}
   flames: {fileID: 0}
   railgun: {fileID: 6560807263158165127}
   damage: 1

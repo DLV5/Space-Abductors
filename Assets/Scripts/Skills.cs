@@ -68,17 +68,23 @@ public class Skills : MonoBehaviour
             {
                 case "Shotgun":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShotgunShoot;
+                    _playerWeapon.railgun.SetActive(false);
+                    _playerWeapon.flamethrower.SetActive(false);
                     _playerWeapon.type = Weapon.WeaponType.ShootingWeapon;
                     _playerWeapon.spreadAngle = 90f;
                     _playerWeapon.damage = 1;
                     break;
                 case "Railgun":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.RailgunShoot;
+                    _playerWeapon.flamethrower.SetActive(false);
+                    _playerWeapon.railgun.SetActive(true);
                     _playerWeapon.type = Weapon.WeaponType.ChargingWeapon;
                     _playerWeapon.damage = 1;
                     break;
                 case "Flamethrower":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.FlamethrowerShoot;
+                    _playerWeapon.railgun.SetActive(false);
+                    _playerWeapon.flamethrower.SetActive(true);
                     _playerWeapon.type = Weapon.WeaponType.HoldingWeapon;
                     _playerWeapon.damage = 1;
                     break;
