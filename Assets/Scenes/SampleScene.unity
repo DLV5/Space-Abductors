@@ -5093,6 +5093,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd634670b26696418332cce04fcc1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &937919511 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+  m_PrefabInstance: {fileID: 15310491815541752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &952698515
 GameObject:
   m_ObjectHideFlags: 0
@@ -7955,6 +7960,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293561350}
   m_CullTransparentMesh: 1
+--- !u!1 &1297335886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 909536569826583919, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+  m_PrefabInstance: {fileID: 15310491815541752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1338419819
 GameObject:
   m_ObjectHideFlags: 0
@@ -13305,8 +13315,32 @@ PrefabInstance:
       objectReference: {fileID: 825677715}
     - target: {fileID: 909536569826583919, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: flames
+      value: 
+      objectReference: {fileID: 937919511}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: flamethrower
+      value: 
+      objectReference: {fileID: 1297335886}
+    - target: {fileID: 2035045618679805215, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_RenderAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: moveWithCustomTransform
+      value: 
+      objectReference: {fileID: 519420032}
     - target: {fileID: 7640060967968053759, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_RootOrder
       value: 1

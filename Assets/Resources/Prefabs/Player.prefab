@@ -61,7 +61,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7066687585894958189
 Transform:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4899,7 +4899,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 1
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -5260,13 +5260,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletTag: PlayerBullet
   fireRate: 1
+  flames: {fileID: 0}
   railgun: {fileID: 6560807263158165127}
   damage: 1
   cooldown: 1
   spreadAngle: 10
   type: 1
   _crosshair: {fileID: 2800000, guid: 1f1b7f4279a40de4791985d59747a8a4, type: 3}
-  _flames: {fileID: 0}
 --- !u!114 &3277618511199326766
 MonoBehaviour:
   m_ObjectHideFlags: 0

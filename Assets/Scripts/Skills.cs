@@ -79,7 +79,7 @@ public class Skills : MonoBehaviour
                     break;
                 case "Flamethrower":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.FlamethrowerShoot;
-                    _playerWeapon.type = Weapon.WeaponType.ShootingWeapon;
+                    _playerWeapon.type = Weapon.WeaponType.HoldingWeapon;
                     _playerWeapon.damage = 1;
                     break;
                 default: break;
