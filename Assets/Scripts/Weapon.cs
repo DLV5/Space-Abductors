@@ -15,6 +15,8 @@ public class Weapon : Attacker
 
     [SerializeField]
     private Texture2D _crosshair;
+    [SerializeField]
+    private ParticleSystem _flames;
 
     private bool _canShoot = true;
 
@@ -111,6 +113,11 @@ public class Weapon : Attacker
             }
         }
         damage = 1;
+    }
+
+    public void FlamethrowerShoot()
+    {
+        ;
     }
 
     private IEnumerator EnterCooldown()
