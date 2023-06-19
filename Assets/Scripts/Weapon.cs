@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Weapon : Attacker
 {
+    public GameObject flamethrower;
+    public ParticleSystem flames;
     public GameObject railgun;
     private Animator animator;
 
@@ -24,6 +26,7 @@ public class Weapon : Attacker
     {
         ChargingWeapon,
         ShootingWeapon,
+        HoldingWeapon,
     }
 
     private void Awake()
@@ -69,7 +72,17 @@ public class Weapon : Attacker
                     CurrentWeaponAttack();
                 }
                 break;
-
+            case WeaponType.HoldingWeapon:
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    CurrentWeaponAttack();
+                }
+                if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    flames.Stop();
+                }
+                break;
+            default: break;
         }
         
     }
@@ -111,6 +124,11 @@ public class Weapon : Attacker
             }
         }
         damage = 1;
+    }
+
+    public void FlamethrowerShoot()
+    {
+        flames.Play();
     }
 
     private IEnumerator EnterCooldown()
