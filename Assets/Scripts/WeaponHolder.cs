@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RailgunHolder : MonoBehaviour
+public class WeaponHolder : MonoBehaviour
 {
     private void Update()
     {
