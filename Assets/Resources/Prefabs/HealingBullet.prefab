@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9118543803719068291}
   - component: {fileID: 8350575625521098816}
   - component: {fileID: 3737552164993465529}
-  - component: {fileID: -7379201103690404803}
   - component: {fileID: -4092755932015818343}
   m_Layer: 6
   m_Name: HealingBullet
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8392131622389291262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.63, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1638421860, guid: ffb39dcd1a29fb14db85a58cecc01c80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5bd3ad8c48101941811ca534c80f088, type: 3}
   m_Color: {r: 0.2832985, g: 1, b: 0.21568626, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,27 +121,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!95 &-7379201103690404803
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8392131622389291262}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e712ed9a118c6fe49b46d858b380ab5d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-4092755932015818343
 MonoBehaviour:
   m_ObjectHideFlags: 0

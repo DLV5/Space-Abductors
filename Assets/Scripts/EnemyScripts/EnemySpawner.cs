@@ -8,7 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [Serializable]
     class EnemySettings
     {
-        public string enemyName;
+        [TagSelector]
+        public string enemyTag;
 
         [Header("Chance to spawn between 0 and 1")]
         public float chanceToSpawn;
@@ -34,20 +35,50 @@ public class EnemySpawner : MonoBehaviour
     [HideInInspector]
     public bool cowSpawned = false;
 
-    public enum EnemyTypes
+    [SerializeField]
+    private EnemyWave[] waves = new EnemyWave[] {};
+    [SerializeField]
+    private SpawnMode spawnMode = SpawnMode.WaveSpawn;
+
+    
+    public enum SpawnMode
     {
-        HelicopterEnemy,
-        ShootGunEnemy,
-        NumberOfEnemyTypes
+        EndlessSpawn,
+        WaveSpawn
     }
     void Start()
     {
         DeactivateAllEnemies();
         enemyObjectPool = PoolManager.enemyPool;
-        StartCoroutine(SpawnInsideZone());
-        StartCoroutine(WaitAndSpawnCow());
+        switch (spawnMode)
+        {
+            case SpawnMode.WaveSpawn:
+                StartCoroutine(SpawnWaves());
+                break;
+            case SpawnMode.EndlessSpawn:
+                StartCoroutine(SpawnInsideZone());
+                StartCoroutine(WaitAndSpawnCow());
+                break;
+            default:
+                Debug.Log("Default invoke enemySpawner");
+                break;
+        }
     }
-
+    IEnumerator SpawnWaves()
+    {
+        foreach(var wave in waves)
+        {
+            foreach (var wavePart in wave.waveParts)
+            {
+                for (int i = 0; i < wavePart.enemyCount; i++)
+                {
+                    SpawnEnemy(wavePart.enemyTag);
+                    yield return new WaitForSeconds(wavePart.delayBetweenSpawn);
+                }
+                yield return new WaitForSeconds(wavePart.timeUntilNextWave);
+            }
+        }
+    }
     private void DeactivateAllEnemies()
     {
         if (enemyObjectPool == null) return;
@@ -100,6 +131,11 @@ public class EnemySpawner : MonoBehaviour
         GameObject obj = ChooseObject(enemySettings); 
         obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
     }
+    void SpawnEnemy(string tag)
+    {
+        GameObject obj = enemyObjectPool.GetPooledObjectByTag(tag); 
+        obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+    }
 
     private void SpawnCow()
     {
@@ -123,7 +159,7 @@ public class EnemySpawner : MonoBehaviour
             cumulativeProbability += obj.chanceToSpawn / totalProbability;
             if (randomNum < cumulativeProbability)
             {
-                GameObject rez = enemyObjectPool.GetPooledObjectByTag(obj.enemyName);
+                GameObject rez = enemyObjectPool.GetPooledObjectByTag(obj.enemyTag);
                 return rez;
             }
         }
