@@ -43,7 +43,6 @@ public class Enemy : Attacker, IDamageable
         if(gameObject.activeSelf) 
                 CallDamageFlash();
             _material.SetFloat("_FlashAmount", 0);
-        Debug.Log("Damaged");
         
     }
 
