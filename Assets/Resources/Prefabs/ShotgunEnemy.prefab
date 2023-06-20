@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -242131764764823531}
   - component: {fileID: 5848321928296531738}
   - component: {fileID: 6506420336806340779}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ShotgunEnemy
   m_TagString: ShotGunEnemy
   m_Icon: {fileID: 0}

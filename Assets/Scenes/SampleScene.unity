@@ -13444,8 +13444,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 825677715}
     - target: {fileID: 909536569826583919, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 909536569826583919, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 909536569826583919, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_TagString
+      value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: flames
@@ -13459,6 +13467,14 @@ PrefabInstance:
       propertyPath: m_RenderAlignment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3958127551096488216, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958127551096488216, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -13468,9 +13484,41 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.quality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: moveWithCustomTransform
       value: 
       objectReference: {fileID: 519420032}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.colliderForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7640060967968053759, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -15,6 +15,7 @@ TagManager:
   - BossEnemy
   - HealingBullet
   - HealingEnemy
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -24,6 +25,8 @@ TagManager:
   - UI
   - HealingBullet
   - HealingEnemy
+  - EnemyBullet
+  - Fire
   - 
   - 
   - 
