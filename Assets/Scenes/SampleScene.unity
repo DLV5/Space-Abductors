@@ -2448,15 +2448,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -0.11718751
     y: 0
     width: 1
-    height: 1
+    height: 0.35277778
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 5.953125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13349,6 +13349,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 181675822206275541, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 7.86348
+      objectReference: {fileID: 0}
+    - target: {fileID: 181675822206275541, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -0.99096525
+      objectReference: {fileID: 0}
+    - target: {fileID: 181675822206275541, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: 7.7719955
+      objectReference: {fileID: 0}
+    - target: {fileID: 181675822206275541, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: 1.8702396
+      objectReference: {fileID: 0}
     - target: {fileID: 580299944375268883, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: _hpText
       value: 

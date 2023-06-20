@@ -43,4 +43,20 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void StartGame(string mode)
+    {
+        PlayerPrefs.SetString("Mode", mode);
+        SceneManager.LoadScene(1);
+    }
+
+    public void OpenPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
 }

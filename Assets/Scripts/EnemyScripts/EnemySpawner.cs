@@ -48,6 +48,22 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
+        switch(PlayerPrefs.GetString("Mode", "Story"))
+        {
+            case "Story":
+                spawnMode = SpawnMode.WaveSpawn;
+                break;
+            case "EndlessEasy":
+                spawnMode = SpawnMode.EndlessSpawn;
+                break;
+            case "EndlessNormal":
+                spawnMode = SpawnMode.EndlessSpawn;
+                break;
+            case "EndlessHard":
+                spawnMode = SpawnMode.EndlessSpawn;
+                break;
+        }
+
         DeactivateAllEnemies();
         enemyObjectPool = PoolManager.enemyPool;
         switch (spawnMode)
