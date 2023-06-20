@@ -13418,6 +13418,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: CollisionModule.type
       value: 1
       objectReference: {fileID: 0}
@@ -13497,6 +13501,26 @@ PrefabInstance:
       propertyPath: UVModule.sprites.Array.data[3].sprite
       value: 
       objectReference: {fileID: -794425675, guid: 2153d92c6f133d34dbd38e57a3c44201, type: 3}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 37008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
       value: 0
