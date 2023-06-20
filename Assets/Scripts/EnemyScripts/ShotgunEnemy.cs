@@ -11,7 +11,7 @@ public class ShotgunEnemy : MovingEnemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FireRateShoot());
         StartingFunction();
     }

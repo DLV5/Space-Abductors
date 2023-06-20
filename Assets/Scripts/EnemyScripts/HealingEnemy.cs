@@ -30,14 +30,14 @@ public class HealingEnemy : HelicopterEnemy
     protected override void Shoot()
     {
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
-
+        obj.GetComponent<HomingBullet>().target = target;
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
     }
     private void ChoseRandomEnemy()
     {
         int rand = UnityEngine.Random.Range(0, targets.Length);
-        target = targets[rand].gameObject.transform;
+        target = targets[rand].gameObject;
     }
 }
 
