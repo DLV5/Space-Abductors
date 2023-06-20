@@ -13498,6 +13498,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.fps
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.timeMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
@@ -13518,6 +13534,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420032}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: CollisionModule.colliderForce
       value: 1
       objectReference: {fileID: 0}
@@ -13526,13 +13546,57 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 1.5707963
       objectReference: {fileID: 0}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: -1675316968, guid: 2153d92c6f133d34dbd38e57a3c44201, type: 3}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.sprites.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: -57232715, guid: 2153d92c6f133d34dbd38e57a3c44201, type: 3}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.sprites.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 1013687472, guid: 2153d92c6f133d34dbd38e57a3c44201, type: 3}
+    - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: UVModule.sprites.Array.data[3].sprite
+      value: 
+      objectReference: {fileID: -794425675, guid: 2153d92c6f133d34dbd38e57a3c44201, type: 3}
     - target: {fileID: 4680157364065290388, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
       value: 0
