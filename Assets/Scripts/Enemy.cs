@@ -56,6 +56,14 @@ public class Enemy : Attacker, IDamageable
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fire"))
+        {
+            Damage(1);
+        }
+    }
+
     public void CallDamageFlash()
     {
         StartCoroutine(DamageFlasher());
