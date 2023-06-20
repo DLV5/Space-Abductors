@@ -21,7 +21,7 @@ public class Enemy : Attacker, IDamageable
         Leaving
     }
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         Init();
     }
@@ -43,7 +43,6 @@ public class Enemy : Attacker, IDamageable
         if(gameObject.activeSelf) 
                 CallDamageFlash();
             _material.SetFloat("_FlashAmount", 0);
-        Debug.Log("Damaged");
         
     }
 
@@ -53,6 +52,10 @@ public class Enemy : Attacker, IDamageable
         {
             Damage(1);
             collision.gameObject.SetActive(false);
+        }
+        if (collision.CompareTag("HealingBullet"))
+        {
+            Damage(-1);
         }
     }
 

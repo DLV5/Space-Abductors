@@ -8,6 +8,7 @@ public class Weapon : Attacker
     public GameObject flamethrower;
     public ParticleSystem flames;
     public GameObject railgun;
+    public GameObject railgunHolder;
     private Collider2D _flameCollider;
     private Animator animator;
 
@@ -120,7 +121,8 @@ public class Weapon : Attacker
         {
             Collider2D col = hit.collider;
             if (col == null) continue;
-            if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy"))
+            if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy") 
+                || col.CompareTag("HealingEnemy"))
             {
                 Enemy enemy = col.gameObject.GetComponent<Enemy>();
                 enemy.Damage(damage);

@@ -13,6 +13,8 @@ TagManager:
   - SkillIcon
   - SkillText
   - BossEnemy
+  - HealingBullet
+  - HealingEnemy
   - Fire
   layers:
   - Default
@@ -21,6 +23,8 @@ TagManager:
   - 
   - Water
   - UI
+  - HealingBullet
+  - HealingEnemy
   - EnemyBullet
   - Fire
   - 
