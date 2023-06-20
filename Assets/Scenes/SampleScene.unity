@@ -2921,6 +2921,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558026788}
   m_CullTransparentMesh: 1
+--- !u!1 &572150912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 733761169934608748, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+  m_PrefabInstance: {fileID: 15310491815541752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &576207261
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,6 +4304,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &776438386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6560807263158165127, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+  m_PrefabInstance: {fileID: 15310491815541752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &811437284
 GameObject:
   m_ObjectHideFlags: 0
@@ -13460,9 +13470,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 937919511}
     - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: railgun
+      value: 
+      objectReference: {fileID: 776438386}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: flamethrower
       value: 
       objectReference: {fileID: 1297335886}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: railgunHolder
+      value: 
+      objectReference: {fileID: 572150912}
     - target: {fileID: 2035045618679805215, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_RenderAlignment
       value: 1
