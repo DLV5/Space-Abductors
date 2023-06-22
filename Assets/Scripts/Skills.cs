@@ -88,6 +88,18 @@ public class Skills : MonoBehaviour
                     _playerWeapon.type = Weapon.WeaponType.HoldingWeapon;
                     _playerWeapon.damage = 1;
                     break;
+                case "ShotgunSpreadUpgrade":
+                    _playerWeapon.spreadAngle = 40f;
+                    break;
+                case "ShotgunNumberUpgrade":
+                    _playerWeapon.bulletsPerShotgunShot = 10;
+                    break;
+                case "ShotgunDamageUpgrade":
+                    _playerWeapon.damage = 2;
+                    break;
+                case "ShotgunCooldownUpgrade":
+                    _playerWeapon.cooldown = 0.5f;
+                    break;
                 default: break;
             }
         }

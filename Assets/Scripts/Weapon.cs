@@ -13,8 +13,9 @@ public class Weapon : Attacker
     private Animator animator;
 
     public int damage;
-    public int cooldown;
+    public float cooldown = 1;
     public float spreadAngle;
+    public int bulletsPerShotgunShot = 6;
     public WeaponType type;
 
     [SerializeField]
@@ -103,7 +104,7 @@ public class Weapon : Attacker
 
     public void ShotgunShoot()
     {
-        for (int i = 0; i < 6; ++i)
+        for (int i = 0; i < bulletsPerShotgunShot; ++i)
         {
             Shoot();
         }

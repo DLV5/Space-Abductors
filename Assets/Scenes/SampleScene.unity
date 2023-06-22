@@ -2140,7 +2140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunNumberUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
@@ -2448,15 +2448,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.11718751
+    x: 0
     y: 0
     width: 1
-    height: 0.35277778
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.953125
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5418,7 +5418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunSpreadUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
@@ -7417,7 +7417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunCooldownUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
@@ -7788,7 +7788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunDamageUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
