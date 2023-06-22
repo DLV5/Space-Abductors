@@ -22,7 +22,7 @@ public class HealingEnemy : HelicopterEnemy
     {
         while (true)
         {
-            ChoseRandomEnemy();
+            StartCoroutine(ChoseRandomEnemy());
             yield return new WaitForSeconds(1 / fireRate);
             Shoot();
         }
@@ -32,15 +32,16 @@ public class HealingEnemy : HelicopterEnemy
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
         obj.GetComponent<HomingBullet>().target = target;
         obj.transform.position = transform.position;
-        obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
     }
-    private void ChoseRandomEnemy()
+    private IEnumerator ChoseRandomEnemy()
     {
         int rand = UnityEngine.Random.Range(0, targets.Length);
-        if (targets[rand].CompareTag("HealingEnemy"))
-            ChoseRandomEnemy();
-        else
+        while (targets[rand].CompareTag("HealingEnemy"))
+        {
+            yield return new WaitForSeconds(.1f);
+            rand = UnityEngine.Random.Range(0, targets.Length);
             target = targets[rand].gameObject;
+        }
     }
 }
 
