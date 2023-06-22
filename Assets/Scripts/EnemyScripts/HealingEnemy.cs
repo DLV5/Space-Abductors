@@ -37,7 +37,10 @@ public class HealingEnemy : HelicopterEnemy
     private void ChoseRandomEnemy()
     {
         int rand = UnityEngine.Random.Range(0, targets.Length);
-        target = targets[rand].gameObject;
+        if (targets[rand].CompareTag("HealingEnemy"))
+            ChoseRandomEnemy();
+        else
+            target = targets[rand].gameObject;
     }
 }
 
