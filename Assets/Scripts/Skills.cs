@@ -76,6 +76,7 @@ public class Skills : MonoBehaviour
                     break;
                 case "Railgun":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.RailgunShoot;
+                    _playerWeapon.source.clip = _playerWeapon.railgunShotSound;
                     _playerWeapon.flamethrower.SetActive(false);
                     _playerWeapon.railgunHolder.SetActive(true);
                     _playerWeapon.type = Weapon.WeaponType.ChargingWeapon;

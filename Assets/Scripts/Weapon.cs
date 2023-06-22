@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Weapon : Attacker
 {
@@ -20,6 +21,11 @@ public class Weapon : Attacker
 
     [SerializeField]
     private Texture2D _crosshair;
+    [Header("Audio")]
+    [SerializeField]
+    public AudioClip railgunShotSound;
+    public AudioSource source;
+
 
     private bool _canShoot = true;
 
@@ -35,6 +41,7 @@ public class Weapon : Attacker
     private void Awake()
     {
         animator = railgun.GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
@@ -73,6 +80,7 @@ public class Weapon : Attacker
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
                     animator.SetTrigger("IsReleased");
+                    source.Play();
                     CurrentWeaponAttack();
                 }
                 break;
