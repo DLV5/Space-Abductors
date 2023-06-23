@@ -6,7 +6,7 @@ public class Attacker : MonoBehaviour
     [SerializeField]
     protected string bulletTag = "PlayerBullet";
 
-    protected Transform target;
+    protected GameObject target;
 
     [SerializeField]
     protected float fireRate = 1;

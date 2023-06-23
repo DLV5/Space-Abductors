@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 9118543803719068291}
   - component: {fileID: 8350575625521098816}
   - component: {fileID: 3737552164993465529}
-  - component: {fileID: -4092755932015818343}
+  - component: {fileID: 7806008467085087573}
+  - component: {fileID: 2715814844760223083}
   m_Layer: 6
   m_Name: HealingBullet
   m_TagString: HealingBullet
@@ -121,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-4092755932015818343
+--- !u!114 &7806008467085087573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,8 +131,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 8392131622389291262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d5e5557379fca4cb22b0384d299f86, type: 3}
+  m_Script: {fileID: 11500000, guid: a52961148a3f0a044ac497467b4e6b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 2
   direction: {x: 0, y: 0, z: 0}
+  rotateSpeed: 200
+  target: {fileID: 0}
+--- !u!50 &2715814844760223083
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392131622389291262}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

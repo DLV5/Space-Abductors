@@ -16,6 +16,8 @@ TagManager:
   - HealingBullet
   - HealingEnemy
   - Fire
+  - RocketMissle
+  - RocketMissleEnemy
   layers:
   - Default
   - TransparentFX
@@ -27,8 +29,6 @@ TagManager:
   - HealingEnemy
   - EnemyBullet
   - Fire
-  - 
-  - 
   - 
   - 
   - 

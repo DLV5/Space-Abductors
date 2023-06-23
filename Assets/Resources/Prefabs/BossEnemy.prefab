@@ -176,7 +176,7 @@ MonoBehaviour:
   health: 30
   _flashTime: 0.25
   verticalMoveSpeed: 5
-  timeBerofeEscape: 25
+  timeBerofeEscape: 999
   escapeHorizontalSpeed: 8
   spreadAngle: 120
   bulletsPerShot: 16

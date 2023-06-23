@@ -8491,7 +8491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySettings:
-  - enemyTag: ShotGunBullet
+  - enemyTag: ShotGunEnemy
     chanceToSpawn: 0.1
   - enemyTag: BossEnemy
     chanceToSpawn: 0.1
@@ -8506,26 +8506,14 @@ MonoBehaviour:
   cowSpawned: 0
   waves:
   - waveParts:
-    - enemyTag: HelicopterEnemy
-      enemyCount: 10
+    - enemyTag: RocketMissleEnemy
+      enemyCount: 20
       targetPoint: {x: 0, y: 0, z: 0}
       delayBetweenSpawn: 1
       timeUntilNextWave: 1
   - waveParts:
-    - enemyTag: ShotGunEnemy
-      enemyCount: 5
-      targetPoint: {x: 0, y: 0, z: 0}
-      delayBetweenSpawn: 2
-      timeUntilNextWave: 1
-  - waveParts:
-    - enemyTag: BossEnemy
-      enemyCount: 2
-      targetPoint: {x: 0, y: 0, z: 0}
-      delayBetweenSpawn: 5
-      timeUntilNextWave: 1
-  - waveParts:
     - enemyTag: HealingEnemy
-      enemyCount: 2
+      enemyCount: 10
       targetPoint: {x: 0, y: 0, z: 0}
       delayBetweenSpawn: 1
       timeUntilNextWave: 1
@@ -10102,6 +10090,8 @@ MonoBehaviour:
     numberOfCopies: 10
   - objectToCopy: {fileID: 7202860050722187345, guid: a0b204ba7e6515c4b848307d8b0ea810, type: 3}
     numberOfCopies: 25
+  - objectToCopy: {fileID: 7202860050722187345, guid: 08391297237226b4d85e3e3bb85295d4, type: 3}
+    numberOfCopies: 25
   bulletPrefabs:
   - objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
     numberOfCopies: 20
@@ -10110,6 +10100,8 @@ MonoBehaviour:
   - objectToCopy: {fileID: 8392131622389291262, guid: 68e0eb258986a81439102e6bd8af7c7d, type: 3}
     numberOfCopies: 300
   - objectToCopy: {fileID: 8392131622389291262, guid: f325bbe19fc374b4a8932f2e26fe43f5, type: 3}
+    numberOfCopies: 100
+  - objectToCopy: {fileID: 8392131622389291262, guid: e3c1fc740ad673e4f8d044c5f4bf66a2, type: 3}
     numberOfCopies: 100
 --- !u!4 &1559183870
 Transform:

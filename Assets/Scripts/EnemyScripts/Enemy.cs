@@ -56,6 +56,7 @@ public class Enemy : Attacker, IDamageable
         if (collision.CompareTag("HealingBullet"))
         {
             Damage(-1);
+            collision.gameObject.SetActive(false);
         }
     }
 
