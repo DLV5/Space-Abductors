@@ -30,6 +30,7 @@ public class Enemy : Attacker, IDamageable
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _material = _spriteRenderer.material;
+        _material.SetFloat("_FlashAmount", 0);
     }
     public void Damage(int damage)
     {
@@ -40,9 +41,8 @@ public class Enemy : Attacker, IDamageable
             //StopCoroutine(DamageFlasher());
             gameObject.SetActive(false);
         }
-        if(gameObject.activeSelf) 
+        if(gameObject.activeSelf)
                 CallDamageFlash();
-            _material.SetFloat("_FlashAmount", 0);
         
     }
 
