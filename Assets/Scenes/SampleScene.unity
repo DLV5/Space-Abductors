@@ -2140,7 +2140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunNumberUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
@@ -2448,15 +2448,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.11718751
+    x: 0
     y: 0
     width: 1
-    height: 0.35277778
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.953125
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5418,7 +5418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunSpreadUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
@@ -7417,7 +7417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunCooldownUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
@@ -7788,7 +7788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
-      value: Shotgun
+      value: ShotgunDamageUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9161567270907569437, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: nextBranchesTreeToActivate.Array.size
@@ -13382,6 +13382,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 776438386}
     - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: _railgunShot
+      value: 
+      objectReference: {fileID: 8300000, guid: 00310b7d7a4ecc6468e114543ef0c920, type: 3}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: flamethrower
       value: 
       objectReference: {fileID: 1297335886}
@@ -13389,6 +13393,10 @@ PrefabInstance:
       propertyPath: railgunHolder
       value: 
       objectReference: {fileID: 572150912}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: railgunShotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 00310b7d7a4ecc6468e114543ef0c920, type: 3}
     - target: {fileID: 2035045618679805215, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_RenderAlignment
       value: 1

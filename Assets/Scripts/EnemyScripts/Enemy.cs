@@ -50,7 +50,7 @@ public class Enemy : Attacker, IDamageable
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            Damage(1);
+            Damage(Weapon.Instance.damage);
             collision.gameObject.SetActive(false);
         }
         if (collision.CompareTag("HealingBullet"))

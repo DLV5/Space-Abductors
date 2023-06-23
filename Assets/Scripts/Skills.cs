@@ -76,6 +76,7 @@ public class Skills : MonoBehaviour
                     break;
                 case "Railgun":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.RailgunShoot;
+                    _playerWeapon.source.clip = _playerWeapon.railgunShotSound;
                     _playerWeapon.flamethrower.SetActive(false);
                     _playerWeapon.railgunHolder.SetActive(true);
                     _playerWeapon.type = Weapon.WeaponType.ChargingWeapon;
@@ -87,6 +88,18 @@ public class Skills : MonoBehaviour
                     _playerWeapon.flamethrower.SetActive(true);
                     _playerWeapon.type = Weapon.WeaponType.HoldingWeapon;
                     _playerWeapon.damage = 1;
+                    break;
+                case "ShotgunSpreadUpgrade":
+                    _playerWeapon.spreadAngle = 40f;
+                    break;
+                case "ShotgunNumberUpgrade":
+                    _playerWeapon.bulletsPerShotgunShot = 10;
+                    break;
+                case "ShotgunDamageUpgrade":
+                    _playerWeapon.damage = 2;
+                    break;
+                case "ShotgunCooldownUpgrade":
+                    _playerWeapon.cooldown = 0.5f;
                     break;
                 default: break;
             }
