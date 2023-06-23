@@ -30,6 +30,7 @@ public class Enemy : Attacker, IDamageable
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _material = _spriteRenderer.material;
+        _material.SetFloat("_FlashAmount", 0);
     }
     public void Damage(int damage)
     {
@@ -40,9 +41,8 @@ public class Enemy : Attacker, IDamageable
             //StopCoroutine(DamageFlasher());
             gameObject.SetActive(false);
         }
-        if(gameObject.activeSelf) 
+        if(gameObject.activeSelf)
                 CallDamageFlash();
-            _material.SetFloat("_FlashAmount", 0);
         
     }
 
@@ -50,7 +50,7 @@ public class Enemy : Attacker, IDamageable
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            Damage(1);
+            Damage(Weapon.Instance.damage);
             collision.gameObject.SetActive(false);
         }
         if (collision.CompareTag("HealingBullet"))

@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Weapon : Attacker
 {
+    [HideInInspector]
+    public static Weapon Instance;
+
     public GameObject flamethrower;
     public ParticleSystem flames;
     public GameObject railgun;
@@ -13,12 +17,18 @@ public class Weapon : Attacker
     private Animator animator;
 
     public int damage;
-    public int cooldown;
+    public float cooldown = 1;
     public float spreadAngle;
+    public int bulletsPerShotgunShot = 6;
     public WeaponType type;
 
     [SerializeField]
     private Texture2D _crosshair;
+    [Header("Audio")]
+    [SerializeField]
+    public AudioClip railgunShotSound;
+    public AudioSource source;
+
 
     private bool _canShoot = true;
 
@@ -33,7 +43,16 @@ public class Weapon : Attacker
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
         animator = railgun.GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
@@ -72,6 +91,7 @@ public class Weapon : Attacker
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
                     animator.SetTrigger("IsReleased");
+                    source.Play();
                     CurrentWeaponAttack();
                 }
                 break;
@@ -103,7 +123,7 @@ public class Weapon : Attacker
 
     public void ShotgunShoot()
     {
-        for (int i = 0; i < 6; ++i)
+        for (int i = 0; i < bulletsPerShotgunShot; ++i)
         {
             Shoot();
         }
