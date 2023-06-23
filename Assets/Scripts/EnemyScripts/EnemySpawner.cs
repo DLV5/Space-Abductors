@@ -40,6 +40,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private SpawnMode spawnMode = SpawnMode.WaveSpawn;
 
+    private static int _enemyCount = 0;
+    public static int EnemyCount { get { return _enemyCount; } set { _enemyCount = value; } }
     
     public enum SpawnMode
     {
@@ -89,9 +91,10 @@ public class EnemySpawner : MonoBehaviour
                 for (int i = 0; i < wavePart.enemyCount; i++)
                 {
                     SpawnEnemy(wavePart.enemyTag);
+                    ++_enemyCount;
                     yield return new WaitForSeconds(wavePart.delayBetweenSpawn);
                 }
-                yield return new WaitForSeconds(wavePart.timeUntilNextWave);
+                yield return new WaitUntil(() => _enemyCount == 0);
             }
         }
     }
@@ -105,6 +108,14 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    //private bool IsAllEnemiesDead()
+    //{
+    //    foreach (var pool in enemyObjectPool.pool)
+    //    {
+    //        if(pool.activeSelf) return false;
+    //    }
+    //    return true;
+    //}
     IEnumerator SpawnInsideZone()
     {
         while (true)

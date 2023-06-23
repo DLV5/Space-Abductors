@@ -39,6 +39,7 @@ public class Enemy : Attacker, IDamageable
         if (Health <= 0) 
         {
             //StopCoroutine(DamageFlasher());
+            EnemySpawner.EnemyCount--;
             gameObject.SetActive(false);
         }
         if(gameObject.activeSelf)

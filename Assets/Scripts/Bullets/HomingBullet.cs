@@ -10,7 +10,7 @@ public class HomingBullet : Bullet
 
     private void Start()
     {
-        //GetPlayers pos
+        target = Weapon.Instance.gameObject;
     }
     void Update()
     {
