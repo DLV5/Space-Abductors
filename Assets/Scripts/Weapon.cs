@@ -6,6 +6,9 @@ using UnityEngine.Audio;
 
 public class Weapon : Attacker
 {
+    [HideInInspector]
+    public static Weapon Instance;
+
     public GameObject flamethrower;
     public ParticleSystem flames;
     public GameObject railgun;
@@ -40,6 +43,14 @@ public class Weapon : Attacker
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
         animator = railgun.GetComponent<Animator>();
         source = GetComponent<AudioSource>();
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
