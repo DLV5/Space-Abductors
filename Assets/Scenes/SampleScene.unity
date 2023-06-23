@@ -2448,15 +2448,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.11718751
+    x: 0
     y: 0
     width: 1
-    height: 0.35277778
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.953125
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13251,6 +13251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c406b249175c74f8231997245521cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxSize: {x: 0, y: 0}
+  distance: 10
+  startPos: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0}
 --- !u!4 &2120072346
 Transform:
   m_ObjectHideFlags: 0

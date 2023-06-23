@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelicopterEnemy : MovingEnemy
+public class ShootingToPlayerEnemy : MovingEnemy
 {
-
     private void Awake()
     {
         _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);

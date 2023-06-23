@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class HealingEnemy : HelicopterEnemy
+public class HealingEnemy : MovingEnemy
 {
     private Enemy[] targets = new Enemy[]{};
 

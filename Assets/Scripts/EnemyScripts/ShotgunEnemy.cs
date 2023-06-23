@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ShotgunEnemy : MovingEnemy
+public class ShotgunEnemy : ShootingInOneDirectionEnemy
 {
     [Header("ShotGun Settings")]
     public float spreadAngle;
@@ -20,7 +20,7 @@ public class ShotgunEnemy : MovingEnemy
         GameObject obj = gameObjectsPool?.GetPooledObjectByTag("ShotGunBullet");
         obj.transform.position = transform.position ;
         Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-spreadAngle / 2, spreadAngle / 2));
-        obj.GetComponent<Bullet>().direction = (spreadRotation * (target.transform.position - obj.transform.position)).normalized;
+        obj.GetComponent<Bullet>().direction = (spreadRotation * -direction).normalized;
 
     }
     protected override IEnumerator FireRateShoot()

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3823064096461235257}
   - component: {fileID: 4112500868392471950}
-  - component: {fileID: 2201990046505180526}
   - component: {fileID: -242131764764823531}
   - component: {fileID: 5848321928296531738}
+  - component: {fileID: -4793653392755395965}
   m_Layer: 0
   m_Name: HelicopterEnemy
   m_TagString: HelicopterEnemy
@@ -87,25 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2201990046505180526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7202860050722187345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8084d4397e10a934887c7473f57f47b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletTag: 
-  fireRate: 1
-  health: 3
-  _flashTime: 0.25
-  verticalMoveSpeed: 5
-  timeBerofeEscape: 25
-  escapeHorizontalSpeed: 10
 --- !u!61 &-242131764764823531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,3 +159,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4793653392755395965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202860050722187345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8084d4397e10a934887c7473f57f47b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletTagToShoot: BaseBullet
+  fireRate: 1
+  health: 0
+  _flashTime: 0.25
+  verticalMoveSpeed: 5
+  timeBerofeEscape: 5
+  escapeHorizontalSpeed: 0

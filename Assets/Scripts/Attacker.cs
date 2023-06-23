@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    [SerializeField]
-    protected string bulletTag = "PlayerBullet";
+    [TagSelector, SerializeField]
+    protected string bulletTagToShoot;
 
     protected GameObject target;
 
@@ -26,7 +26,7 @@ public class Attacker : MonoBehaviour
     }
     protected virtual void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag("BaseBullet");
+        GameObject obj = gameObjectsPool.GetPooledObjectByTag(bulletTagToShoot);
         
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;

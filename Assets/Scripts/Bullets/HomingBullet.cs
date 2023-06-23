@@ -10,7 +10,7 @@ public class HomingBullet : Bullet
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //GetPlayers pos
     }
     void Update()
     {
