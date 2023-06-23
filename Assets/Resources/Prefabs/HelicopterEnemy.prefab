@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2201990046505180526}
   - component: {fileID: -242131764764823531}
   - component: {fileID: 5848321928296531738}
+  - component: {fileID: 3182392978443238451}
   m_Layer: 0
   m_Name: HelicopterEnemy
   m_TagString: HelicopterEnemy
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f1affb4103563bf4fb9e458514719d0d, type: 3}
+  m_Sprite: {fileID: 377525012, guid: 4766f98a0d7641745b9c21d1171800ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,7 +139,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06346369, y: -0.034172773}
+  m_Offset: {x: -0.0024528503, y: -0.01825077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -149,7 +150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.580163, y: 0.5996902}
+  m_Size: {x: 0.95693684, y: 0.4586668}
   m_EdgeRadius: 0
 --- !u!50 &5848321928296531738
 Rigidbody2D:
@@ -178,3 +179,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3182392978443238451
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202860050722187345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b81431bdf0aff146a23027da9c69efa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
