@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ShootingToPlayerEnemy : MovingEnemy
+public class ShootingToPlayerMovingEnemy : MovingEnemy
 {
     private void Awake()
     {
@@ -12,11 +12,11 @@ public class ShootingToPlayerEnemy : MovingEnemy
     {
         base.OnEnable();
         target = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(FireRateShoot());
+        StartCoroutine(ShootAccordingToFireRate());
         StartingFunction();
     }
 
-    protected override IEnumerator FireRateShoot()
+    protected override IEnumerator ShootAccordingToFireRate()
     {
         while(true)
         {

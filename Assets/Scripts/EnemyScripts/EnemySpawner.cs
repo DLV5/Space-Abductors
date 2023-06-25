@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Serializable]
-    class EnemySettings
+    private class EnemySettings
     {
         [TagSelector]
         public string EnemyTag;
@@ -19,13 +19,13 @@ public class EnemySpawner : MonoBehaviour
     private List<EnemySettings> enemySettings;
 
     [SerializeField]
-    Collider2D spawnZone;
+    private Collider2D spawnZone;
 
     [SerializeField]
-    float SpawnDelay;
+    private float SpawnDelay;
     
     [SerializeField]
-    int SpawnCount;
+    private int SpawnCount;
 
     public GameObject CowPrefab;
     [SerializeField]
@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
 
     public bool Spawning = true;
     [HideInInspector]
-    public bool CowSpawned = false;
+    public bool HasCowSpawned = false;
 
     [SerializeField]
     private EnemyWave[] waves = new EnemyWave[] {};
@@ -137,11 +137,11 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(cowSpawnDelay);
-            if (!CowSpawned)
+            if (!HasCowSpawned)
             {
                 Spawning = false;
                 SpawnCow();
-                CowSpawned = true;
+                HasCowSpawned = true;
             }
         }
     }

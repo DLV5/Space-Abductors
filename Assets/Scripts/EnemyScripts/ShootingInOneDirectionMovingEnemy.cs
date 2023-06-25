@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ShootingInOneDirectionEnemy : MovingEnemy
+public class ShootingInOneDirectionMovingEnemy : MovingEnemy
 {
     [Header("Direction settings")]
     [SerializeField]
@@ -26,7 +26,7 @@ public class ShootingInOneDirectionEnemy : MovingEnemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        StartCoroutine(FireRateShoot());
+        StartCoroutine(ShootAccordingToFireRate());
         StartingFunction();
     }
 
@@ -37,7 +37,7 @@ public class ShootingInOneDirectionEnemy : MovingEnemy
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().Direction = -direction;
     }
-    protected override IEnumerator FireRateShoot()
+    protected override IEnumerator ShootAccordingToFireRate()
     {
         while (true)
         {

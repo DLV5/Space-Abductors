@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ShotgunEnemy : ShootingInOneDirectionEnemy
+public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMovingEnemy
 {
     [Header("ShotGun Settings")]
     public float SpreadAngle;
@@ -12,7 +12,7 @@ public class ShotgunEnemy : ShootingInOneDirectionEnemy
     {
         base.OnEnable();
         target = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(FireRateShoot());
+        StartCoroutine(ShootAccordingToFireRate());
         StartingFunction();
     }
     protected override void Shoot()
@@ -23,7 +23,7 @@ public class ShotgunEnemy : ShootingInOneDirectionEnemy
         obj.GetComponent<Bullet>().Direction = (spreadRotation * -direction).normalized;
 
     }
-    protected override IEnumerator FireRateShoot()
+    protected override IEnumerator ShootAccordingToFireRate()
     {
         while (true)
         {

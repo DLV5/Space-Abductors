@@ -23,7 +23,7 @@ public class Cow : MonoBehaviour
             if (direction.magnitude < 0.2f)
             {
                 Moving = false;
-                _spawner.CowSpawned = false;
+                _spawner.HasCowSpawned = false;
                 _spawner.Spawning = true;
             }
         }

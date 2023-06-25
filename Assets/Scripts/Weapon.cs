@@ -142,7 +142,7 @@ public class Weapon : Attacker
             if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy") 
                 || col.CompareTag("HealingEnemy"))
             {
-                Enemy enemy = col.gameObject.GetComponent<Enemy>();
+                EnemyAttacker enemy = col.gameObject.GetComponent<EnemyAttacker>();
                 enemy.Damage(Damage);
             }
         }

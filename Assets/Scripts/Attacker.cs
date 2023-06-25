@@ -31,7 +31,7 @@ public class Attacker : MonoBehaviour
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().Direction = (target.transform.position - obj.transform.position).normalized;
     }
-    protected virtual IEnumerator FireRateShoot()
+    protected virtual IEnumerator ShootAccordingToFireRate()
     {
             yield return new WaitForSeconds(1 / fireRate);
             Shoot();

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : Attacker, IDamageable
+public class EnemyAttacker : Attacker, IDamageable
 {
     [SerializeField]
     protected int health;

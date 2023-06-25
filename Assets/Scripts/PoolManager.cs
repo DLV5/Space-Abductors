@@ -6,7 +6,7 @@ public class PoolManager : MonoBehaviour
 {
     private static bool hasInvoked = false;
     [Serializable]
-    class PoolObject
+    private class PoolObject
     {
         public GameObject ObjectToCopy;
         public int NumberOfCopies;
@@ -18,10 +18,10 @@ public class PoolManager : MonoBehaviour
         Instance = this;
     }
     [SerializeField]
-    List<PoolObject> enemyPrefabs = new List<PoolObject>();
+    private List<PoolObject> enemyPrefabs = new List<PoolObject>();
 
     [SerializeField]
-    List<PoolObject> bulletPrefabs = new List<PoolObject>();
+    private List<PoolObject> bulletPrefabs = new List<PoolObject>();
 
     public static ObjectPool enemyPool;
     public static ObjectPool bulletPool;

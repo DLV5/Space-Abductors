@@ -1,28 +1,25 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
-public class HealingEnemy : MovingEnemy
+public class HealingMovingEnemy : MovingEnemy
 {
-    private Enemy[] targets = new Enemy[]{};
+    private EnemyAttacker[] targets = new EnemyAttacker[]{};
 
     protected override void Awake()
     {
         base.Awake();
-        targets = GameObject.FindObjectsOfType<Enemy>(false);
+        targets = GameObject.FindObjectsOfType<EnemyAttacker>(false);
     }
     protected override void OnEnable()
     {
         base.OnEnable(); 
 
     }
-        protected override IEnumerator FireRateShoot()
+        protected override IEnumerator ShootAccordingToFireRate()
     {
         while (true)
         {
-            StartCoroutine(ChoseRandomEnemy());
+            StartCoroutine(ChooseRandomEnemy());
             yield return new WaitForSeconds(1 / fireRate);
             Shoot();
         }
@@ -33,7 +30,7 @@ public class HealingEnemy : MovingEnemy
         obj.GetComponent<HomingBullet>().Target = target;
         obj.transform.position = transform.position;
     }
-    private IEnumerator ChoseRandomEnemy()
+    private IEnumerator ChooseRandomEnemy()
     {
         int rand = UnityEngine.Random.Range(0, targets.Length);
         while (targets[rand].CompareTag("HealingEnemy"))
