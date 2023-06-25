@@ -22,10 +22,10 @@ public class EnemyAttacker : Attacker, IDamageable
 
     protected virtual void Awake()
     {
-        Init();
+        Initialize();
     }
 
-    protected void Init()
+    protected void Initialize()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _material = _spriteRenderer.material;
@@ -70,11 +70,11 @@ public class EnemyAttacker : Attacker, IDamageable
 
     public void CallDamageFlash()
     {
-        StartCoroutine(DamageFlasher());
+        StartCoroutine(StartDamageFlash());
     }
-    protected IEnumerator DamageFlasher()
+    protected IEnumerator StartDamageFlash()
     {
-        if (_material == null || _spriteRenderer == null) Init();
+        if (_material == null || _spriteRenderer == null) Initialize();
         float currentFlashAmount = 0f;
         float elapsedTime = 0f;
         while (elapsedTime < _flashTime)

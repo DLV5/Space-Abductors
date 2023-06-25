@@ -36,7 +36,7 @@ public class UIActivator : MonoBehaviour
         if(!go.activeSelf) CloseAllIcons();
         go.SetActive(!go.activeSelf);
         UpdateSkillCostText();
-        CanBuySkill();
+        CheckCanBuySkill();
         skillBox = go;
     }
 
@@ -44,7 +44,7 @@ public class UIActivator : MonoBehaviour
         skillCostText.text = skillParameter.Price + " Skill Points";
     }
 
-    private void CanBuySkill()
+    private void CheckCanBuySkill()
     {
         skillBuyButton.interactable = Skills.Instance.SkillPoints >= skillParameter.Price;
     }

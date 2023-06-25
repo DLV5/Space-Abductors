@@ -119,7 +119,7 @@ public class Weapon : Attacker
         obj.GetComponent<Bullet>().Direction = target.normalized;
     }
 
-    public void ShotgunShoot()
+    public void ShootLikeShootgun()
     {
         for (int i = 0; i < BulletsPerShotgunShot; ++i)
         {
@@ -127,7 +127,7 @@ public class Weapon : Attacker
         }
     }
 
-    public void RailgunShoot()
+    public void ShootLikeRailgun()
     {
         Vector2 dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
         dir = dir.normalized;
@@ -149,7 +149,8 @@ public class Weapon : Attacker
         Damage = 1;
     }
 
-    public void FlamethrowerShoot()
+    //fire more suitable here
+    public void ShootLikeFlamethrower()
     {
         Flames.Play();
         _flameCollider.enabled = true;

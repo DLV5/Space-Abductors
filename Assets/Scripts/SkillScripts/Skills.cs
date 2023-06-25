@@ -66,7 +66,7 @@ public class Skills : MonoBehaviour
             switch (skill) // Add a string here for every new weapon skill
             {
                 case "Shotgun":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShotgunShoot;
+                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeShootgun;
                     _playerWeapon.Railgun.SetActive(false);
                     _playerWeapon.Flamethrower.SetActive(false);
                     _playerWeapon.Type = Weapon.WeaponType.ShootingWeapon;
@@ -74,7 +74,7 @@ public class Skills : MonoBehaviour
                     _playerWeapon.Damage = 1;
                     break;
                 case "Railgun":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.RailgunShoot;
+                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeRailgun;
                     _playerWeapon.Source.clip = _playerWeapon.RailgunShotSound;
                     _playerWeapon.Flamethrower.SetActive(false);
                     _playerWeapon.RailgunHolder.SetActive(true);
@@ -82,7 +82,7 @@ public class Skills : MonoBehaviour
                     _playerWeapon.Damage = 1;
                     break;
                 case "Flamethrower":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.FlamethrowerShoot;
+                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
                     _playerWeapon.Railgun.SetActive(false);
                     _playerWeapon.Flamethrower.SetActive(true);
                     _playerWeapon.Type = Weapon.WeaponType.HoldingWeapon;

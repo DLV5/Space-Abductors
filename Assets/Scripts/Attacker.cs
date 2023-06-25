@@ -17,10 +17,10 @@ public class Attacker : MonoBehaviour
 
     protected virtual void Start()
     {
-        StartingFunction();
+        Initialize();
     }
 
-    protected virtual void StartingFunction() {
+    protected virtual void Initialize() {
         if (gameObjectsPool == null)
             gameObjectsPool = PoolManager.bulletPool;
     }

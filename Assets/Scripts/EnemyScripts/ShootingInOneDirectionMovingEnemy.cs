@@ -27,7 +27,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
     {
         base.OnEnable();
         StartCoroutine(ShootAccordingToFireRate());
-        StartingFunction();
+        Initialize();
     }
 
     protected override void Shoot()

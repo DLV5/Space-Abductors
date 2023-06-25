@@ -13,7 +13,7 @@ public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMo
         base.OnEnable();
         target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(ShootAccordingToFireRate());
-        StartingFunction();
+        Initialize();
     }
     protected override void Shoot()
     {
