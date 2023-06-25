@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Cow : MonoBehaviour
 {
-    public bool moving;
-    public GameObject player;
+    public bool Moving;
+    public GameObject Player;
     [SerializeField]
     private float speed = 1.0f;
     private EnemySpawner _spawner;
@@ -11,20 +11,20 @@ public class Cow : MonoBehaviour
     private void Start()
     {
         _spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
-        player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("Player");
     }
 
     private void Update()
     {
-        if (moving)
+        if (Moving)
         {
-            var direction = player.transform.position - transform.position;
+            var direction = Player.transform.position - transform.position;
             transform.position += direction.normalized * speed * Time.deltaTime;
             if (direction.magnitude < 0.2f)
             {
-                moving = false;
-                _spawner.cowSpawned = false;
-                _spawner.spawning = true;
+                Moving = false;
+                _spawner.CowSpawned = false;
+                _spawner.Spawning = true;
             }
         }
     }

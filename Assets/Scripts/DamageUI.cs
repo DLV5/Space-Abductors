@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
-    public static DamageUI instance;
+    public static DamageUI Instance;
     DamageUI() {
-        instance = this;
+        Instance = this;
     }
     [SerializeField]
     List<GameObject> damageTexts = new List<GameObject>();

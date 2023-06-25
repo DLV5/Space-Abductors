@@ -15,6 +15,6 @@ public class IncreaseDamage : MonoBehaviour
 
     public void AddDamage(int damageToAdd)
     {
-        _playerWeapon.damage += damageToAdd;
+        _playerWeapon.Damage += damageToAdd;
     }
 }

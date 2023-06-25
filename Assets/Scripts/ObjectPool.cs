@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ObjectPool
 {
-    public List<GameObject> pool;
+    public List<GameObject> Pool;
     private GameObject prefab;
     public ObjectPool(int initialSize, GameObject prefab)
     {
         this.prefab = prefab;
-        pool = new List<GameObject>();
+        Pool = new List<GameObject>();
 
         for (int i = 0; i < initialSize; i++)
         {
@@ -23,13 +23,13 @@ public class ObjectPool
         GameObject obj = UnityEngine.Object.Instantiate(prefab);
         GameObject.DontDestroyOnLoad(obj);
         obj.SetActive(false);
-        pool.Add(obj);
+        Pool.Add(obj);
         return obj;
     }
 
     public GameObject GetPooledObject()
     {
-        foreach (GameObject obj in pool)
+        foreach (GameObject obj in Pool)
         {
             if (!obj.activeInHierarchy)
             {
@@ -43,7 +43,7 @@ public class ObjectPool
 
     public GameObject GetPooledObjectByTag(string tag)
     {
-        foreach (GameObject obj in pool)
+        foreach (GameObject obj in Pool)
         {
             if (!obj.activeInHierarchy && obj.CompareTag(tag))
             {
@@ -62,10 +62,10 @@ public class ObjectPool
 
     public static ObjectPool operator +(ObjectPool poolA, ObjectPool poolB)
     {
-        ObjectPool rez = new ObjectPool(poolA.pool.Count, poolA.pool[0]);
-        for (int i = 0;i < poolB.pool.Count;i++)
+        ObjectPool rez = new ObjectPool(poolA.Pool.Count, poolA.Pool[0]);
+        for (int i = 0;i < poolB.Pool.Count;i++)
         {
-            rez.pool.Add(poolB.pool[i]);
+            rez.Pool.Add(poolB.Pool[i]);
         }
         return rez;
     }

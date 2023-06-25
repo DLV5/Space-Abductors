@@ -9,8 +9,8 @@ public class PoolManager : MonoBehaviour
     [Serializable]
     class PoolObject
     {
-        public GameObject objectToCopy;
-        public int numberOfCopies;
+        public GameObject ObjectToCopy;
+        public int NumberOfCopies;
 
     }
     public static PoolManager Instance;
@@ -30,22 +30,22 @@ public class PoolManager : MonoBehaviour
     void Awake()
     {
         if (hasInvoked) return;
-        enemyPool = new ObjectPool(enemyPrefabs[0].numberOfCopies, enemyPrefabs[0].objectToCopy);
-        bulletPool = new ObjectPool(bulletPrefabs[0].numberOfCopies, bulletPrefabs[0].objectToCopy);
+        enemyPool = new ObjectPool(enemyPrefabs[0].NumberOfCopies, enemyPrefabs[0].ObjectToCopy);
+        bulletPool = new ObjectPool(bulletPrefabs[0].NumberOfCopies, bulletPrefabs[0].ObjectToCopy);
         for (int i = 1; i < enemyPrefabs.Count; i++)
         {
-            ObjectPool objects = new ObjectPool(enemyPrefabs[i].numberOfCopies, enemyPrefabs[i].objectToCopy);
-            foreach (var item in objects.pool)
+            ObjectPool objects = new ObjectPool(enemyPrefabs[i].NumberOfCopies, enemyPrefabs[i].ObjectToCopy);
+            foreach (var item in objects.Pool)
             {
-                enemyPool.pool.Add(item);
+                enemyPool.Pool.Add(item);
             }
         }
         for (int i = 1; i < bulletPrefabs.Count; i++)
         {
-            ObjectPool objects = new ObjectPool(bulletPrefabs[i].numberOfCopies, bulletPrefabs[i].objectToCopy);
-            foreach (var item in objects.pool)
+            ObjectPool objects = new ObjectPool(bulletPrefabs[i].NumberOfCopies, bulletPrefabs[i].ObjectToCopy);
+            foreach (var item in objects.Pool)
             {
-                 bulletPool.pool.Add(item);
+                 bulletPool.Pool.Add(item);
             }
         }
         hasInvoked = true;

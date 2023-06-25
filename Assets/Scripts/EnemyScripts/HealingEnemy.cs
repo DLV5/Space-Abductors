@@ -30,7 +30,7 @@ public class HealingEnemy : MovingEnemy
     protected override void Shoot()
     {
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
-        obj.GetComponent<HomingBullet>().target = target;
+        obj.GetComponent<HomingBullet>().Target = target;
         obj.transform.position = transform.position;
     }
     private IEnumerator ChoseRandomEnemy()

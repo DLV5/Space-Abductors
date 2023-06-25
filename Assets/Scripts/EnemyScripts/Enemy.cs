@@ -35,7 +35,7 @@ public class Enemy : Attacker, IDamageable
     public void Damage(int damage)
     {
         Health -= damage;
-        DamageUI.instance.ShowDamageOnEnemy(transform.position);
+        DamageUI.Instance.ShowDamageOnEnemy(transform.position);
         if (Health <= 0) 
         {
             //StopCoroutine(DamageFlasher());
@@ -51,7 +51,7 @@ public class Enemy : Attacker, IDamageable
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            Damage(Weapon.Instance.damage);
+            Damage(Weapon.Instance.Damage);
             collision.gameObject.SetActive(false);
         }
         if (collision.CompareTag("HealingBullet"))

@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
-    public bool canMove = true;
+    public bool CanMove = true;
 
     [SerializeField]
     private float speed = 5.0f;
@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (canMove)
+        if (CanMove)
         {
             _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             transform.position += (Vector3)_direction * speed * Time.deltaTime;

@@ -29,7 +29,7 @@ public class Attacker : MonoBehaviour
         GameObject obj = gameObjectsPool.GetPooledObjectByTag(bulletTagToShoot);
         
         obj.transform.position = transform.position;
-        obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
+        obj.GetComponent<Bullet>().Direction = (target.transform.position - obj.transform.position).normalized;
     }
     protected virtual IEnumerator FireRateShoot()
     {

@@ -43,12 +43,12 @@ public class UIActivator : MonoBehaviour
     }
 
     private void UpdateSkillCostText() {
-        skillCostText.text = skillParameter.price + " Skill Points";
+        skillCostText.text = skillParameter.Price + " Skill Points";
     }
 
     private void CanBuySkill()
     {
-        skillBuyButton.interactable = Skills.Instance.skillPoints >= skillParameter.price;
+        skillBuyButton.interactable = Skills.Instance.SkillPoints >= skillParameter.Price;
     }
 
     private void CloseAllIcons()

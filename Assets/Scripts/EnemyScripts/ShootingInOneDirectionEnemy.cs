@@ -36,7 +36,7 @@ public class ShootingInOneDirectionEnemy : MovingEnemy
         GameObject obj = gameObjectsPool.GetPooledObjectByTag(bulletTagToShoot);
 
         obj.transform.position = transform.position;
-        obj.GetComponent<Bullet>().direction = -direction;
+        obj.GetComponent<Bullet>().Direction = -direction;
     }
     protected override IEnumerator FireRateShoot()
     {

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         Playing,
         Dead,
     }
-    public PlayerState playerState;
+    public PlayerState CurrentPlayerState;
 
     GameManager() { 
         Instance = this;
@@ -20,16 +20,16 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1;
-        playerState = PlayerState.Playing;
+        CurrentPlayerState = PlayerState.Playing;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && playerState == PlayerState.Playing) 
+        if (Input.GetKeyDown(KeyCode.Escape) && CurrentPlayerState == PlayerState.Playing) 
         {
             Time.timeScale = 0;
-            playerState = PlayerState.Paused;
-            UIManager.instance.pauseMenu.SetActive(true);
+            CurrentPlayerState = PlayerState.Paused;
+            UIManager.Instance.PauseMenu.SetActive(true);
         }
     }
 }
