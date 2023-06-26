@@ -1517,9 +1517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84529a60c039f0b4baf00955d6d9a063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathScreen: {fileID: 81050632}
-  pauseMenu: {fileID: 811437284}
-  skillpointMenu: {fileID: 1474219182}
+  DeathScreen: {fileID: 81050632}
+  PauseMenu: {fileID: 811437284}
+  SkillpointMenu: {fileID: 1474219182}
 --- !u!1 &309968983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,8 +2135,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e480bb53dc7b0654b953899f9ee32db2, type: 3}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: ShotgunNumberUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -3359,6 +3367,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Flamethrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
       value: Shotgun
       objectReference: {fileID: 0}
@@ -3958,6 +3970,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Railgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
       value: Shotgun
       objectReference: {fileID: 0}
@@ -4519,8 +4535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347cb223e7575b245a84e5707f4bc776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillList: []
-  skillPoints: 10
+  SkillList: []
+  SkillPoints: 10
   _skillPointMenuText: {fileID: 1174273104}
   _playerWeapon: {fileID: 1095686885}
 --- !u!1 &861004276
@@ -5035,8 +5051,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -5413,8 +5437,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e480bb53dc7b0654b953899f9ee32db2, type: 3}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: ShotgunNumberUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -5635,7 +5667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417673d0f34393940a81e2b17ca69464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerState: 0
+  CurrentPlayerState: 0
 --- !u!4 &1073158041
 Transform:
   m_ObjectHideFlags: 0
@@ -6089,8 +6121,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -6871,6 +6911,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Railgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
       value: Shotgun
       objectReference: {fileID: 0}
@@ -7211,6 +7255,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Flamethrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
       value: Shotgun
       objectReference: {fileID: 0}
@@ -7412,8 +7460,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 414a938cad1ff5b4fbda36a35c1a4811, type: 3}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: ShotgunCooldownUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -7783,8 +7839,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 414a938cad1ff5b4fbda36a35c1a4811, type: 3}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: ShotgunDamageUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -8213,8 +8277,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: fc42524438b7e7e40adaa665da46ee62, type: 3}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -8491,32 +8563,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySettings:
-  - enemyTag: ShotGunEnemy
-    chanceToSpawn: 0.1
-  - enemyTag: BossEnemy
-    chanceToSpawn: 0.1
-  - enemyTag: HelicopterEnemy
-    chanceToSpawn: 0.8
+  - EnemyTag: HelicopterEnemy
+    ChanceToSpawn: 0.5
+  - EnemyTag: ShotGunEnemy
+    ChanceToSpawn: 0.4
+  - EnemyTag: BossEnemy
+    ChanceToSpawn: 0.1
   spawnZone: {fileID: 1441192111}
   SpawnDelay: 5
   SpawnCount: 1
-  cowPrefab: {fileID: 2967738439069499057, guid: 7cee6f999111713489f9a79282a07d15, type: 3}
+  CowPrefab: {fileID: 2967738439069499057, guid: 7cee6f999111713489f9a79282a07d15, type: 3}
   cowSpawnDelay: 40
-  spawning: 1
-  cowSpawned: 0
+  Spawning: 1
+  HasCowSpawned: 0
   waves:
-  - waveParts:
-    - enemyTag: RocketMissleEnemy
-      enemyCount: 20
-      targetPoint: {x: 0, y: 0, z: 0}
-      delayBetweenSpawn: 1
-      timeUntilNextWave: 1
-  - waveParts:
-    - enemyTag: HealingEnemy
-      enemyCount: 10
-      targetPoint: {x: 0, y: 0, z: 0}
-      delayBetweenSpawn: 1
-      timeUntilNextWave: 1
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
+      EnemyCount: 10
+      TargetPoint: {x: 0, y: 0, z: 0}
+      DelayBetweenSpawn: 1
+      TimeUntilNextWave: 5
   spawnMode: 1
 --- !u!1 &1442781272
 GameObject:
@@ -9339,6 +9405,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Railgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
       value: Shotgun
       objectReference: {fileID: 0}
@@ -10082,27 +10152,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - objectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
-    numberOfCopies: 25
-  - objectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-    numberOfCopies: 15
-  - objectToCopy: {fileID: 7202860050722187345, guid: 6839448c960ab8c439ce9f2d75088ccb, type: 3}
-    numberOfCopies: 10
-  - objectToCopy: {fileID: 7202860050722187345, guid: a0b204ba7e6515c4b848307d8b0ea810, type: 3}
-    numberOfCopies: 25
-  - objectToCopy: {fileID: 7202860050722187345, guid: 08391297237226b4d85e3e3bb85295d4, type: 3}
-    numberOfCopies: 25
+  - ObjectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+    NumberOfCopies: 25
+  - ObjectToCopy: {fileID: 7202860050722187345, guid: a0b204ba7e6515c4b848307d8b0ea810, type: 3}
+    NumberOfCopies: 25
+  - ObjectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
+    NumberOfCopies: 25
+  - ObjectToCopy: {fileID: 7202860050722187345, guid: 6839448c960ab8c439ce9f2d75088ccb, type: 3}
+    NumberOfCopies: 10
   bulletPrefabs:
-  - objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
-    numberOfCopies: 20
-  - objectToCopy: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
-    numberOfCopies: 100
-  - objectToCopy: {fileID: 8392131622389291262, guid: 68e0eb258986a81439102e6bd8af7c7d, type: 3}
-    numberOfCopies: 300
-  - objectToCopy: {fileID: 8392131622389291262, guid: f325bbe19fc374b4a8932f2e26fe43f5, type: 3}
-    numberOfCopies: 100
-  - objectToCopy: {fileID: 8392131622389291262, guid: e3c1fc740ad673e4f8d044c5f4bf66a2, type: 3}
-    numberOfCopies: 100
+  - ObjectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
+    NumberOfCopies: 100
+  - ObjectToCopy: {fileID: 8392131622389291262, guid: e3c1fc740ad673e4f8d044c5f4bf66a2, type: 3}
+    NumberOfCopies: 50
+  - ObjectToCopy: {fileID: 8392131622389291262, guid: f325bbe19fc374b4a8932f2e26fe43f5, type: 3}
+    NumberOfCopies: 50
+  - ObjectToCopy: {fileID: 8392131622389291262, guid: 68e0eb258986a81439102e6bd8af7c7d, type: 3}
+    NumberOfCopies: 250
+  - ObjectToCopy: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
+    NumberOfCopies: 100
 --- !u!4 &1559183870
 Transform:
   m_ObjectHideFlags: 0
@@ -10407,6 +10475,10 @@ PrefabInstance:
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -10986,8 +11058,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: Price
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: price
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Railgun
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
@@ -11925,6 +12005,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTexts:
   - {fileID: 2093482436}
+  - {fileID: 86205270}
+  - {fileID: 2137988821}
+  - {fileID: 402999366}
 --- !u!1 &1906885139
 GameObject:
   m_ObjectHideFlags: 0
@@ -12837,6 +12920,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
+      propertyPath: SkillName
+      value: Railgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127182697863520167, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
       propertyPath: skillName
       value: Railgun
       objectReference: {fileID: 0}
@@ -13222,54 +13309,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118402458}
   m_CullTransparentMesh: 1
---- !u!1 &2120072344
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2120072346}
-  - component: {fileID: 2120072345}
-  m_Layer: 0
-  m_Name: Debug
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2120072345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120072344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c406b249175c74f8231997245521cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxSize: {x: 0, y: 0}
-  distance: 10
-  startPos: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0}
---- !u!4 &2120072346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120072344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.578858, y: 1.2378155, z: -8.405213}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137988821
 GameObject:
   m_ObjectHideFlags: 0
@@ -13360,6 +13399,10 @@ PrefabInstance:
     - target: {fileID: 181675822206275541, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 1.8702396
+      objectReference: {fileID: 0}
+    - target: {fileID: 580299944375268883, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: Health
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 580299944375268883, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: _hpText

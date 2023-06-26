@@ -6,40 +6,42 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Serializable]
-    class EnemySettings
+    private class EnemySettings
     {
         [TagSelector]
-        public string enemyTag;
+        public string EnemyTag;
 
         [Header("Chance to spawn between 0 and 1")]
-        public float chanceToSpawn;
+        public float ChanceToSpawn;
     }
     private static ObjectPool enemyObjectPool;
     [SerializeField]
     private List<EnemySettings> enemySettings;
 
     [SerializeField]
-    Collider2D spawnZone;
+    private Collider2D spawnZone;
 
     [SerializeField]
-    float SpawnDelay;
+    private float SpawnDelay;
     
     [SerializeField]
-    int SpawnCount;
+    private int SpawnCount;
 
-    public GameObject cowPrefab;
+    public GameObject CowPrefab;
     [SerializeField]
     private float cowSpawnDelay;
 
-    public bool spawning = true;
+    public bool Spawning = true;
     [HideInInspector]
-    public bool cowSpawned = false;
+    public bool HasCowSpawned = false;
 
     [SerializeField]
     private EnemyWave[] waves = new EnemyWave[] {};
     [SerializeField]
     private SpawnMode spawnMode = SpawnMode.WaveSpawn;
 
+    private static int _enemyCount = 0;
+    public static int EnemyCount { get { return _enemyCount; } set { _enemyCount = value; } }
     
     public enum SpawnMode
     {
@@ -84,14 +86,15 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach(var wave in waves)
         {
-            foreach (var wavePart in wave.waveParts)
+            foreach (var wavePart in wave.WaveParts)
             {
-                for (int i = 0; i < wavePart.enemyCount; i++)
+                for (int i = 0; i < wavePart.EnemyCount; i++)
                 {
-                    SpawnEnemy(wavePart.enemyTag);
-                    yield return new WaitForSeconds(wavePart.delayBetweenSpawn);
+                    SpawnEnemy(wavePart.EnemyTag);
+                    ++_enemyCount;
+                    yield return new WaitForSeconds(wavePart.DelayBetweenSpawn);
                 }
-                yield return new WaitForSeconds(wavePart.timeUntilNextWave);
+                yield return new WaitUntil(() => _enemyCount == 0);
             }
         }
     }
@@ -99,18 +102,26 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyObjectPool == null) return;
         
-        foreach(GameObject enemy in enemyObjectPool.pool)
+        foreach(GameObject enemy in enemyObjectPool.Pool)
         {
             enemy.SetActive(false);
         }
     }
 
+    //private bool IsAllEnemiesDead()
+    //{
+    //    foreach (var pool in enemyObjectPool.pool)
+    //    {
+    //        if(pool.activeSelf) return false;
+    //    }
+    //    return true;
+    //}
     IEnumerator SpawnInsideZone()
     {
         while (true)
         {
             yield return new WaitForSeconds(SpawnDelay);
-            if (spawning)
+            if (Spawning)
             {
                 for (int i = 0; i < SpawnCount; i++)
                 {
@@ -126,11 +137,11 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(cowSpawnDelay);
-            if (!cowSpawned)
+            if (!HasCowSpawned)
             {
-                spawning = false;
+                Spawning = false;
                 SpawnCow();
-                cowSpawned = true;
+                HasCowSpawned = true;
             }
         }
     }
@@ -156,7 +167,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnCow()
     {
         Vector2 cowSpawnPosition = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width / 2, 100));
-        GameObject.Instantiate(cowPrefab, cowSpawnPosition, Quaternion.identity);
+        GameObject.Instantiate(CowPrefab, cowSpawnPosition, Quaternion.identity);
     }
 
     static GameObject ChooseObject(List<EnemySettings> enemies)
@@ -164,7 +175,7 @@ public class EnemySpawner : MonoBehaviour
         float totalProbability = 0;
         foreach (var probability in enemies)
         {
-            totalProbability += probability.chanceToSpawn;
+            totalProbability += probability.ChanceToSpawn;
         }
 
         float cumulativeProbability = 0;
@@ -172,10 +183,10 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (var obj in enemies)
         {
-            cumulativeProbability += obj.chanceToSpawn / totalProbability;
+            cumulativeProbability += obj.ChanceToSpawn / totalProbability;
             if (randomNum < cumulativeProbability)
             {
-                GameObject rez = enemyObjectPool.GetPooledObjectByTag(obj.enemyTag);
+                GameObject rez = enemyObjectPool.GetPooledObjectByTag(obj.EnemyTag);
                 return rez;
             }
         }

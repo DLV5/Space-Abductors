@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class SkillParameter : MonoBehaviour
 {
-    public string skillName;
-    public int price;
+    public string SkillName;
+    public int Price;
 
     private bool isBought = false;
     public bool IsBought { 

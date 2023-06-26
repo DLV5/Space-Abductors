@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -9,12 +10,13 @@ public class EnemyWave
     public class WavePart
     {
         [TagSelector]
-        public string enemyTag;
-        public int enemyCount;
-        public Vector3 targetPoint;
-        public float delayBetweenSpawn;
-        public float timeUntilNextWave;
+        public string EnemyTag;
+        public int EnemyCount;
+        [HideInInspector]
+        public Vector3 TargetPoint;
+        public float DelayBetweenSpawn;
+        public float TimeUntilNextWave;
     }
-    public WavePart[] waveParts;
+    public WavePart[] WaveParts;
 
 }

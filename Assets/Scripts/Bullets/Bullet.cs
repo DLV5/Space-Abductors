@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,7 +7,7 @@ public class Bullet : MonoBehaviour
     protected float speed;
     public float Speed { get => speed; set => speed = value; }
 
-    public Vector3 direction;
+    public Vector3 Direction;
 
     public enum BulletTypes
     {

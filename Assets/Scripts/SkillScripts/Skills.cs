@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,12 +5,10 @@ using UnityEngine;
 public class Skills : MonoBehaviour
 {
     public static Skills Instance;
-    public List<string> skillList = new List<string>();
-    public int skillPoints = 0;
-    [SerializeField]
-    private TextMeshProUGUI _skillPointMenuText;
-    [SerializeField]
-    private Weapon _playerWeapon;
+    [HideInInspector] public List<string> SkillList = new List<string>();
+    public int SkillPoints = 0;
+    [SerializeField] private TextMeshProUGUI _skillPointMenuText;
+    [SerializeField] private Weapon _playerWeapon;
 
     private void Awake()
     {
@@ -27,12 +24,12 @@ public class Skills : MonoBehaviour
 
     private void Start()
     {
-        _skillPointMenuText.text = skillPoints + " skill points";
+        _skillPointMenuText.text = SkillPoints + " skill points";
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.playerState == GameManager.PlayerState.Playing)
+        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.CurrentPlayerState == GameManager.PlayerState.Playing)
         {
             OpenSkillpointMenu();
         }
@@ -40,66 +37,66 @@ public class Skills : MonoBehaviour
 
     public void BuySkill(SkillParameter parameter)
     {
-        if (skillPoints < parameter.price) return;
+        if (SkillPoints < parameter.Price) return;
         parameter.IsBought = true;
-        skillList.Add(parameter.skillName);
-        AddSkillpoints(-parameter.price);
+        SkillList.Add(parameter.SkillName);
+        AddSkillpoints(-parameter.Price);
         RefreshSkills();
     }
 
     public void OpenSkillpointMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.playerState = GameManager.PlayerState.Paused;
-        UIManager.instance.skillpointMenu.SetActive(true);
+        GameManager.Instance.CurrentPlayerState = GameManager.PlayerState.Paused;
+        UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
     public void AddSkillpoints(int pointsToAdd)
     {
-        skillPoints += pointsToAdd;
-        _skillPointMenuText.text = skillPoints + " skill points";
+        SkillPoints += pointsToAdd;
+        _skillPointMenuText.text = SkillPoints + " skill points";
     }
 
     public void RefreshSkills()
     {
-        foreach (string skill in skillList)
+        foreach (string skill in SkillList)
         {
             switch (skill) // Add a string here for every new weapon skill
             {
                 case "Shotgun":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShotgunShoot;
-                    _playerWeapon.railgun.SetActive(false);
-                    _playerWeapon.flamethrower.SetActive(false);
-                    _playerWeapon.type = Weapon.WeaponType.ShootingWeapon;
-                    _playerWeapon.spreadAngle = 90f;
-                    _playerWeapon.damage = 1;
+                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeShootgun;
+                    _playerWeapon.Railgun.SetActive(false);
+                    _playerWeapon.Flamethrower.SetActive(false);
+                    _playerWeapon.Type = Weapon.WeaponType.ShootingWeapon;
+                    _playerWeapon.SpreadAngle = 90f;
+                    _playerWeapon.Damage = 1;
                     break;
                 case "Railgun":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.RailgunShoot;
-                    _playerWeapon.source.clip = _playerWeapon.railgunShotSound;
-                    _playerWeapon.flamethrower.SetActive(false);
-                    _playerWeapon.railgunHolder.SetActive(true);
-                    _playerWeapon.type = Weapon.WeaponType.ChargingWeapon;
-                    _playerWeapon.damage = 1;
+                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeRailgun;
+                    _playerWeapon.Source.clip = _playerWeapon.RailgunShotSound;
+                    _playerWeapon.Flamethrower.SetActive(false);
+                    _playerWeapon.RailgunHolder.SetActive(true);
+                    _playerWeapon.Type = Weapon.WeaponType.ChargingWeapon;
+                    _playerWeapon.Damage = 1;
                     break;
                 case "Flamethrower":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.FlamethrowerShoot;
-                    _playerWeapon.railgun.SetActive(false);
-                    _playerWeapon.flamethrower.SetActive(true);
-                    _playerWeapon.type = Weapon.WeaponType.HoldingWeapon;
-                    _playerWeapon.damage = 1;
+                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
+                    _playerWeapon.Railgun.SetActive(false);
+                    _playerWeapon.Flamethrower.SetActive(true);
+                    _playerWeapon.Type = Weapon.WeaponType.HoldingWeapon;
+                    _playerWeapon.Damage = 1;
                     break;
                 case "ShotgunSpreadUpgrade":
-                    _playerWeapon.spreadAngle = 40f;
+                    _playerWeapon.SpreadAngle = 40f;
                     break;
                 case "ShotgunNumberUpgrade":
-                    _playerWeapon.bulletsPerShotgunShot = 10;
+                    _playerWeapon.BulletsPerShotgunShot = 10;
                     break;
                 case "ShotgunDamageUpgrade":
-                    _playerWeapon.damage = 2;
+                    _playerWeapon.Damage = 2;
                     break;
                 case "ShotgunCooldownUpgrade":
-                    _playerWeapon.cooldown = 0.5f;
+                    _playerWeapon.Cooldown = 0.5f;
                     break;
                 default: break;
             }

@@ -1,33 +1,31 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class Weapon : Attacker
 {
     [HideInInspector]
     public static Weapon Instance;
 
-    public GameObject flamethrower;
-    public ParticleSystem flames;
-    public GameObject railgun;
-    public GameObject railgunHolder;
+    public GameObject Flamethrower;
+    public ParticleSystem Flames;
+    public GameObject Railgun;
+    public GameObject RailgunHolder;
     private Collider2D _flameCollider;
     private Animator animator;
 
-    public int damage;
-    public float cooldown = 1;
-    public float spreadAngle;
-    public int bulletsPerShotgunShot = 6;
-    public WeaponType type;
+    public int Damage;
+    public float Cooldown = 1;
+    public float SpreadAngle;
+    public int BulletsPerShotgunShot = 6;
+    public WeaponType Type;
 
     [SerializeField]
     private Texture2D _crosshair;
     [Header("Audio")]
     [SerializeField]
-    public AudioClip railgunShotSound;
-    public AudioSource source;
+    public AudioClip RailgunShotSound;
+    public AudioSource Source;
 
 
     private bool _canShoot = true;
@@ -51,14 +49,14 @@ public class Weapon : Attacker
         {
             Instance = this;
         }
-        animator = railgun.GetComponent<Animator>();
-        source = GetComponent<AudioSource>();
+        animator = Railgun.GetComponent<Animator>();
+        Source = GetComponent<AudioSource>();
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
     protected override void Start()
     {
-        if (Skills.Instance.skillList.Count <= 0)
+        if (Skills.Instance.SkillList.Count <= 0)
         {
             CurrentWeaponAttack = Shoot;
         }
@@ -67,12 +65,12 @@ public class Weapon : Attacker
             Skills.Instance.RefreshSkills();
         }
         base.Start();
-        _flameCollider = flamethrower.GetComponent<Collider2D>();
+        _flameCollider = Flamethrower.GetComponent<Collider2D>();
     }
 
     private void Update()
     {
-        switch (type)
+        switch (Type)
         {
             case WeaponType.ShootingWeapon:
                 if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
@@ -86,12 +84,12 @@ public class Weapon : Attacker
             case WeaponType.ChargingWeapon:
                 if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
                 {
-                    railgun.SetActive(true);
+                    Railgun.SetActive(true);
                 }
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
                     animator.SetTrigger("IsReleased");
-                    source.Play();
+                    Source.Play();
                     CurrentWeaponAttack();
                 }
                 break;
@@ -103,7 +101,7 @@ public class Weapon : Attacker
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
                     _flameCollider.enabled = false;
-                    flames.Stop();
+                    Flames.Stop();
                 }
                 break;
             default: break;
@@ -116,20 +114,20 @@ public class Weapon : Attacker
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
            
         obj.transform.position = transform.position;
-        Quaternion spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-spreadAngle / 2, spreadAngle / 2));
+        Quaternion spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
         var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-        obj.GetComponent<Bullet>().direction = target.normalized;
+        obj.GetComponent<Bullet>().Direction = target.normalized;
     }
 
-    public void ShotgunShoot()
+    public void ShootLikeShootgun()
     {
-        for (int i = 0; i < bulletsPerShotgunShot; ++i)
+        for (int i = 0; i < BulletsPerShotgunShot; ++i)
         {
             Shoot();
         }
     }
 
-    public void RailgunShoot()
+    public void ShootLikeRailgun()
     {
         Vector2 dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
         dir = dir.normalized;
@@ -144,22 +142,23 @@ public class Weapon : Attacker
             if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy") 
                 || col.CompareTag("HealingEnemy"))
             {
-                Enemy enemy = col.gameObject.GetComponent<Enemy>();
-                enemy.Damage(damage);
+                EnemyAttacker enemy = col.gameObject.GetComponent<EnemyAttacker>();
+                enemy.Damage(Damage);
             }
         }
-        damage = 1;
+        Damage = 1;
     }
 
-    public void FlamethrowerShoot()
+    //fire more suitable here
+    public void ShootLikeFlamethrower()
     {
-        flames.Play();
+        Flames.Play();
         _flameCollider.enabled = true;
     }
 
     private IEnumerator EnterCooldown()
     {
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(Cooldown);
         _canShoot = true;
     }
 }

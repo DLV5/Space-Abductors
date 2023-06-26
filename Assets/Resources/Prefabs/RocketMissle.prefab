@@ -138,7 +138,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   rotateSpeed: 200
   target: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 2715814844760223083}
 --- !u!50 &2715814844760223083
 Rigidbody2D:
   serializedVersion: 4

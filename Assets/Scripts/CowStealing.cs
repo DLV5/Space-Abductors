@@ -18,29 +18,29 @@ public class CowStealing : MonoBehaviour
         {
             StealCow();
         }
-        if (!_movementScript.canMove)
+        if (!_movementScript.CanMove)
         {
-            if (!_currentCow.moving)
+            if (!_currentCow.Moving)
             {
                 Destroy(_currentCow.gameObject);
                 Skills.Instance.AddSkillpoints(1);
                 _player.Damage(-1);
-                _movementScript.canMove = true;
+                _movementScript.CanMove = true;
             }
         }
     }
 
     private void StealCow()
     {
-        if (!_movementScript.canMove) return;
+        if (!_movementScript.CanMove) return;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
         Collider2D cow = hit.collider;
         if (cow == null) return;
         if (cow.CompareTag("Cow"))
         {
             _currentCow = cow.gameObject.GetComponent<Cow>();
-            _currentCow.moving = true;
-            _movementScript.canMove = false;
+            _currentCow.Moving = true;
+            _movementScript.CanMove = false;
         }
     }
 

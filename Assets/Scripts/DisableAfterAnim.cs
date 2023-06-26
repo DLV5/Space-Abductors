@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class DisableAfterAnim : MonoBehaviour
+public class DisableAfterAnim : MonoBehaviour // I should rename this class...
 {
-    public void DesableGameObject()
+    public void DisableGameObject()
     {
         gameObject.SetActive(false);
     }

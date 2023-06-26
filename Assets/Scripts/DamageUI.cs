@@ -1,16 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
-    public static DamageUI instance;
+    public static DamageUI Instance;
     DamageUI() {
-        instance = this;
+        Instance = this;
     }
     [SerializeField]
-    List<GameObject> damageTexts = new List<GameObject>();
+    private List<GameObject> damageTexts = new List<GameObject>();
     public void ShowDamageOnEnemy(Vector2 enemyTransform)
     {
         GameObject gameObj = GetDisabledText();

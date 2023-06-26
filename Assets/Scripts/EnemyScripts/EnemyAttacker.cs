@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Attacker, IDamageable
+public class EnemyAttacker : Attacker, IDamageable
 {
     [SerializeField]
     protected int health;
@@ -23,10 +22,10 @@ public class Enemy : Attacker, IDamageable
 
     protected virtual void Awake()
     {
-        Init();
+        Initialize();
     }
 
-    protected void Init()
+    protected void Initialize()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _material = _spriteRenderer.material;
@@ -35,10 +34,11 @@ public class Enemy : Attacker, IDamageable
     public void Damage(int damage)
     {
         Health -= damage;
-        DamageUI.instance.ShowDamageOnEnemy(transform.position);
+        DamageUI.Instance.ShowDamageOnEnemy(transform.position);
         if (Health <= 0) 
         {
             //StopCoroutine(DamageFlasher());
+            EnemySpawner.EnemyCount--;
             gameObject.SetActive(false);
         }
         if(gameObject.activeSelf)
@@ -50,7 +50,7 @@ public class Enemy : Attacker, IDamageable
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            Damage(Weapon.Instance.damage);
+            Damage(Weapon.Instance.Damage);
             collision.gameObject.SetActive(false);
         }
         if (collision.CompareTag("HealingBullet"))
@@ -70,11 +70,11 @@ public class Enemy : Attacker, IDamageable
 
     public void CallDamageFlash()
     {
-        StartCoroutine(DamageFlasher());
+        StartCoroutine(StartDamageFlash());
     }
-    protected IEnumerator DamageFlasher()
+    protected IEnumerator StartDamageFlash()
     {
-        if (_material == null || _spriteRenderer == null) Init();
+        if (_material == null || _spriteRenderer == null) Initialize();
         float currentFlashAmount = 0f;
         float elapsedTime = 0f;
         while (elapsedTime < _flashTime)

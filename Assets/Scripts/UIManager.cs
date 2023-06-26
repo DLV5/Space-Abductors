@@ -6,20 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
-    public GameObject deathScreen;
-    public GameObject pauseMenu;
-    public GameObject skillpointMenu;
+    public static UIManager Instance;
+    public GameObject DeathScreen;
+    public GameObject PauseMenu;
+    public GameObject SkillpointMenu;
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
     }
 

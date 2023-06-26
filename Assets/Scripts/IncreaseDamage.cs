@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IncreaseDamage : MonoBehaviour
@@ -15,6 +13,6 @@ public class IncreaseDamage : MonoBehaviour
 
     public void AddDamage(int damageToAdd)
     {
-        _playerWeapon.damage += damageToAdd;
+        _playerWeapon.Damage += damageToAdd;
     }
 }

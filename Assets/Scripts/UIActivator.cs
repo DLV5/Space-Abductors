@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,23 +8,23 @@ public class UIActivator : MonoBehaviour
     private static GameObject[] allIcons = new GameObject[] {};
 
     [SerializeField]
-    TMP_Text skillCostText;
+    private TMP_Text skillCostText;
     
     [SerializeField]
-    Button skillBuyButton;
+    private Button skillBuyButton;
 
     [SerializeField] 
-    List<Button> nextBranchesTreeToActivate;
+    private List<Button> nextBranchesTreeToActivate;
     
     [SerializeField] 
-    List<Button> nextBranchesTreeToDeactivate;
+    private List<Button> nextBranchesTreeToDeactivate;
 
     [SerializeField]
-    GameObject boughtSkillImage;
+    private GameObject boughtSkillImage;
 
-    SkillParameter skillParameter;
+    private SkillParameter skillParameter;
 
-    GameObject skillBox;
+    private GameObject skillBox;
 
     private void Start()
     {
@@ -38,17 +36,17 @@ public class UIActivator : MonoBehaviour
         if(!go.activeSelf) CloseAllIcons();
         go.SetActive(!go.activeSelf);
         UpdateSkillCostText();
-        CanBuySkill();
+        CheckCanBuySkill();
         skillBox = go;
     }
 
     private void UpdateSkillCostText() {
-        skillCostText.text = skillParameter.price + " Skill Points";
+        skillCostText.text = skillParameter.Price + " Skill Points";
     }
 
-    private void CanBuySkill()
+    private void CheckCanBuySkill()
     {
-        skillBuyButton.interactable = Skills.Instance.skillPoints >= skillParameter.price;
+        skillBuyButton.interactable = Skills.Instance.SkillPoints >= skillParameter.Price;
     }
 
     private void CloseAllIcons()

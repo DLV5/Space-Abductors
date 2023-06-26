@@ -1,23 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HomingBullet : Bullet
 {
-    public float rotateSpeed = 200f;
-    public GameObject target;
-    public Rigidbody2D rb;
+    public float RotateSpeed = 200f;
+    public GameObject Target;
+    public Rigidbody2D Rb;
 
     private void Start()
     {
-        //GetPlayers pos
+        Target = Weapon.Instance.gameObject;
     }
     void Update()
     {
-        Vector2 dir = ((Vector2)target.transform.position - (Vector2)transform.position).normalized;
+        Vector2 dir = ((Vector2)Target.transform.position - (Vector2)transform.position).normalized;
 
         float rotationAmount = Vector3.Cross(dir, transform.up).z;
-        rb.angularVelocity = -rotationAmount * rotateSpeed;
-        rb.velocity = transform.up * speed;
+        Rb.angularVelocity = -rotationAmount * RotateSpeed;
+        Rb.velocity = transform.up * speed;
     }
 }

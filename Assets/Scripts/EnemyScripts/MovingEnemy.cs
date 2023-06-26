@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MovingEnemy : Enemy
+public class MovingEnemy : EnemyAttacker
 {
     protected Vector2 _minHeight;
     protected Vector2 _maxHeight;
@@ -11,17 +11,17 @@ public class MovingEnemy : Enemy
     [Header("Movement")]
 
     [SerializeField]
-    float verticalMoveSpeed = 5f;
+    private float verticalMoveSpeed = 5f;
 
     private bool movingToEnd = true;
 
     [Header("Escape settings")]
 
     [SerializeField]
-    float timeBerofeEscape = 5f;
+    private float timeBerofeEscape = 5f;
 
     [SerializeField]
-    float escapeHorizontalSpeed = 0f;
+    private float escapeHorizontalSpeed = 0f;
 
     private void Awake()
     {

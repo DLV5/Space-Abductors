@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class Ship : MonoBehaviour, IDamageable
 {
-    public int health;
-    public bool invincible = false;
-    public int damage;
+    public int Health;
+    public bool Invincible = false;
+    //public int Damage; where this used?
 
     [SerializeField]
     private TextMeshProUGUI _hpText;
@@ -23,12 +22,12 @@ public class Ship : MonoBehaviour, IDamageable
         {
             _hpText = GameObject.Find("HpText").GetComponent<TextMeshProUGUI>();
         }
-        _hpText.text = "HP: " + health;
+        _hpText.text = "HP: " + Health;
     }
 
     private void Update()
     {
-        if (invincible)
+        if (Invincible)
         {
             Flicker();
         }
@@ -36,14 +35,14 @@ public class Ship : MonoBehaviour, IDamageable
 
     public void Damage(int damage)
     {
-        if (invincible) return;
-        health -= damage;
-        invincible = true;
+        if (Invincible) return;
+        Health -= damage;
+        Invincible = true;
         StartCoroutine(DisableInvincibilityAfterTime(2f));
-        _hpText.text = "HP: " + health;
-        if (health <= 0)
+        _hpText.text = "HP: " + Health;
+        if (Health <= 0)
         {
-            UIManager.instance.deathScreen.SetActive(true);
+            UIManager.Instance.DeathScreen.SetActive(true);
             gameObject.SetActive(false);
         }
     }
@@ -64,7 +63,7 @@ public class Ship : MonoBehaviour, IDamageable
     private IEnumerator DisableInvincibilityAfterTime(float invincibilityDuration)
     {
         yield return new WaitForSeconds(invincibilityDuration);
-        invincible = false;
+        Invincible = false;
         _renderer.enabled = true;
     }
 

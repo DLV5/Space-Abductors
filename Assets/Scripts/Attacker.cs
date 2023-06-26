@@ -17,10 +17,10 @@ public class Attacker : MonoBehaviour
 
     protected virtual void Start()
     {
-        StartingFunction();
+        Initialize();
     }
 
-    protected virtual void StartingFunction() {
+    protected virtual void Initialize() {
         if (gameObjectsPool == null)
             gameObjectsPool = PoolManager.bulletPool;
     }
@@ -29,9 +29,9 @@ public class Attacker : MonoBehaviour
         GameObject obj = gameObjectsPool.GetPooledObjectByTag(bulletTagToShoot);
         
         obj.transform.position = transform.position;
-        obj.GetComponent<Bullet>().direction = (target.transform.position - obj.transform.position).normalized;
+        obj.GetComponent<Bullet>().Direction = (target.transform.position - obj.transform.position).normalized;
     }
-    protected virtual IEnumerator FireRateShoot()
+    protected virtual IEnumerator ShootAccordingToFireRate()
     {
             yield return new WaitForSeconds(1 / fireRate);
             Shoot();
