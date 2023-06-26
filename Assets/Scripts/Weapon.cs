@@ -6,6 +6,7 @@ public class Weapon : Attacker
 {
     [HideInInspector] public static Weapon Instance;
 
+    [Header("Weapon Objects")]
     public GameObject Flamethrower;
     public ParticleSystem Flames;
     public GameObject Railgun;
@@ -13,6 +14,7 @@ public class Weapon : Attacker
     private Collider2D _flameCollider;
     private Animator animator;
 
+    [Header("Stats")]
     public int Damage;
     public float Cooldown = 1;
     public float SpreadAngle;
