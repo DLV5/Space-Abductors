@@ -5,12 +5,10 @@ using UnityEngine;
 public class Skills : MonoBehaviour
 {
     public static Skills Instance;
-    public List<string> SkillList = new List<string>();
+    [HideInInspector] public List<string> SkillList = new List<string>();
     public int SkillPoints = 0;
-    [SerializeField]
-    private TextMeshProUGUI _skillPointMenuText;
-    [SerializeField]
-    private Weapon _playerWeapon;
+    [SerializeField] private TextMeshProUGUI _skillPointMenuText;
+    [SerializeField] private Weapon _playerWeapon;
 
     private void Awake()
     {
