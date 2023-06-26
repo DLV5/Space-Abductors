@@ -15,10 +15,31 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    public void SetState(PlayerState state)
+    {
+        switch (state)
+        {
+            case PlayerState.Paused:
+                Weapon.Instance.enabled = false;
+                break;
+            case PlayerState.Playing:
+                Weapon.Instance.enabled = true;
+                break;
+            case PlayerState.Dead:
+                break;
+            default:
+                break;
+        }
+        CurrentPlayerState = state;
+    }
+
     private void Awake()
     {
         Time.timeScale = 1;
-        CurrentPlayerState = PlayerState.Playing;
+    }
+    private void Start()
+    {
+        SetState(PlayerState.Playing);
     }
 
     private void Update()
@@ -26,7 +47,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && CurrentPlayerState == PlayerState.Playing) 
         {
             Time.timeScale = 0;
-            CurrentPlayerState = PlayerState.Paused;
+            SetState(PlayerState.Paused);
+            Weapon.Instance.canShoot = false;
             UIManager.Instance.PauseMenu.SetActive(true);
         }
     }
