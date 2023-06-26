@@ -3,8 +3,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
-    [SerializeField] private State _currentState;
     public State CurrentState { get; private set;}
+
+    [SerializeField] private State _currentState;
+
     public enum State
     {
         Paused,
@@ -14,6 +16,27 @@ public class GameManager : MonoBehaviour
 
     private GameManager() { 
         Instance = this;
+    }
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
+    private void Start()
+    {
+        SetState(State.Playing);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && CurrentState == State.Playing) 
+        {
+            Time.timeScale = 0;
+            SetState(State.Paused);
+            Weapon.Instance.CanShoot = false;
+            UIManager.Instance.PauseMenu.SetActive(true);
+        }
     }
 
     public void SetState(State state)
@@ -32,25 +55,5 @@ public class GameManager : MonoBehaviour
                 break;
         }
         CurrentState = state;
-    }
-
-    private void Awake()
-    {
-        Time.timeScale = 1;
-    }
-    private void Start()
-    {
-        SetState(State.Playing);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && CurrentState == State.Playing) 
-        {
-            Time.timeScale = 0;
-            SetState(State.Paused);
-            Weapon.Instance.CanShoot = false;
-            UIManager.Instance.PauseMenu.SetActive(true);
-        }
     }
 }

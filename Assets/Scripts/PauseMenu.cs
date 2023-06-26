@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public void Continue()
-    {
-        Time.timeScale = 1.0f;
-        GameManager.Instance.SetState(GameManager.State.Playing);
-        Weapon.Instance.CanShoot = true;
-        gameObject.SetActive(false);
-    }
 
     private void Update()
     {
@@ -16,5 +9,13 @@ public class PauseMenu : MonoBehaviour
         {
             Continue();
         }
+    }
+
+    public void Continue()
+    {
+        Time.timeScale = 1.0f;
+        GameManager.Instance.SetState(GameManager.State.Playing);
+        Weapon.Instance.CanShoot = true;
+        gameObject.SetActive(false);
     }
 }

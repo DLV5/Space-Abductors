@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAttacker : Attacker, IDamageable
 {
+    protected EnemyBehavior currentState = EnemyBehavior.FlyingToTheScreen;
     [SerializeField] protected int _health;
     public int Health 
     { 
@@ -16,8 +17,6 @@ public class EnemyAttacker : Attacker, IDamageable
     private SpriteRenderer _spriteRenderer;
     private Material _material;
 
-    protected EnemyBehavior currentState = EnemyBehavior.FlyingToTheScreen;
-    [Flags]
     protected enum EnemyBehavior
     {
         FlyingToTheScreen = 0,
@@ -28,13 +27,6 @@ public class EnemyAttacker : Attacker, IDamageable
     protected virtual void Awake()
     {
         Initialize();
-    }
-
-    protected void Initialize()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _material = _spriteRenderer.material;
-        _material.SetFloat("_FlashAmount", 0);
     }
     public void Damage(int damage)
     {
@@ -48,28 +40,6 @@ public class EnemyAttacker : Attacker, IDamageable
         if(gameObject.activeSelf)
         {
             CallDamageFlash();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("PlayerBullet"))
-        {
-            Damage(Weapon.Instance.Damage);
-            collision.gameObject.SetActive(false);
-        }
-        if (collision.CompareTag("HealingBullet"))
-        {
-            Damage(-1);
-            collision.gameObject.SetActive(false);
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Fire"))
-        {
-            Damage(1);
         }
     }
 
@@ -95,5 +65,34 @@ public class EnemyAttacker : Attacker, IDamageable
             yield return null; 
         }
     }
+    protected override void Initialize()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _material = _spriteRenderer.material;
+        _material.SetFloat("_FlashAmount", 0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PlayerBullet"))
+        {
+            Damage(Weapon.Instance.Damage);
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.CompareTag("HealingBullet"))
+        {
+            Damage(-1);
+            collision.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fire"))
+        {
+            Damage(1);
+        }
+    }
+
     
 }

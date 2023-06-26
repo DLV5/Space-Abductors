@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class EnemyWave
 {
-    [System.Serializable]
+    [Serializable]
     public class WavePart
     {
         [TagSelector] public string EnemyTag;

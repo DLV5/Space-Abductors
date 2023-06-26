@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
         get => _speed; 
         set => _speed = value; 
     }
-
     public Vector3 Direction { get; set;}
 
     public enum BulletType
@@ -25,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
          StartCoroutine(CheckIsInTheBoundOfTheScreen());       
     }
-    IEnumerator CheckIsInTheBoundOfTheScreen()
+    private IEnumerator CheckIsInTheBoundOfTheScreen()
     {
         while (true)
         {

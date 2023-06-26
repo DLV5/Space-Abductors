@@ -87,14 +87,14 @@ public class MovingEnemy : EnemyAttacker
         StartCoroutine(CheckIsInTheBoundOfTheScreen());
     }
 
-    IEnumerator WaitUntilEscape()
+    private IEnumerator WaitUntilEscape()
     {
         yield return new WaitForSeconds(_timeBerofeEscape);
         currentState = EnemyBehavior.Leaving;
 
     }
 
-    IEnumerator CheckIsInTheBoundOfTheScreen()
+    private IEnumerator CheckIsInTheBoundOfTheScreen()
     {
         while (true)
         {

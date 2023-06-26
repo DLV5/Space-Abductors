@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Cow : MonoBehaviour
 {
-    public bool IsMoving { get; set;}
-    public GameObject Player { get; set;}
     [SerializeField] private float _speed = 1.0f;
     private EnemySpawner _spawner;
+    public bool IsMoving { get; set;}
+    public GameObject Player { get; set;}
 
     private void Start()
     {

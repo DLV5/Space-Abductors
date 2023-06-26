@@ -8,14 +8,15 @@ public class HealingMovingEnemy : MovingEnemy
     protected override void Awake()
     {
         base.Awake();
-        _targets = GameObject.FindObjectsOfType<EnemyAttacker>(false);
+        _targets = FindObjectsOfType<EnemyAttacker>(false);
     }
     protected override void OnEnable()
     {
         base.OnEnable(); 
 
     }
-        protected override IEnumerator ShootAccordingToFireRate()
+
+    protected override IEnumerator ShootAccordingToFireRate()
     {
         while (true)
         {
@@ -24,6 +25,7 @@ public class HealingMovingEnemy : MovingEnemy
             Shoot();
         }
     }
+
     protected override void Shoot()
     {
         var obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");

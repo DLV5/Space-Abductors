@@ -122,15 +122,6 @@ public class Weapon : Attacker
         
     }
 
-    protected override void Shoot()
-    {
-        var obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
-        obj.transform.position = transform.position;
-        var spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
-        var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-        obj.GetComponent<Bullet>().Direction = target.normalized;
-    }
-
     public void ShootLikeShootgun()
     {
         for (int i = 0; i < BulletsPerShotgunShot; ++i)
@@ -167,6 +158,15 @@ public class Weapon : Attacker
     {
         Flames.Play();
         _flameCollider.enabled = true;
+    }
+
+    protected override void Shoot()
+    {
+        var obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
+        obj.transform.position = transform.position;
+        var spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
+        var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        obj.GetComponent<Bullet>().Direction = target.normalized;
     }
 
     private IEnumerator EnterCooldown()

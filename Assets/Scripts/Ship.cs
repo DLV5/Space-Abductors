@@ -4,6 +4,12 @@ using TMPro;
 
 public class Ship : MonoBehaviour, IDamageable
 {
+    [SerializeField] private TextMeshProUGUI _hpText;
+
+    private const float _flickerDuration = 0.1f;
+    private float _flickerTimer = 0f;
+    private SpriteRenderer _renderer;
+
     [SerializeField] private int _health = 3;
     public int Health 
     {
@@ -13,11 +19,6 @@ public class Ship : MonoBehaviour, IDamageable
     public bool IsInvincible { get; set; } = false;
     //public int Damage; where this used?
 
-    [SerializeField] private TextMeshProUGUI _hpText;
-
-    private const float _flickerDuration = 0.1f;
-    private float _flickerTimer = 0f;
-    private SpriteRenderer _renderer;
 
     private void Start()
     {

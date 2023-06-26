@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+    public static ObjectPool EnemyPool;
+    public static ObjectPool BulletPool;
+
     private static bool _hasInvoked = false;
+    public static PoolManager Instance { get; private set; }
     [Serializable]
     private class PoolObject
     {
@@ -23,17 +27,12 @@ public class PoolManager : MonoBehaviour
         }
 
     }
-    public static PoolManager Instance { get; private set; }
     PoolManager()
     {
         Instance = this;
     }
     [SerializeField] private List<PoolObject> _enemyPrefabs = new List<PoolObject>();
-
     [SerializeField] private List<PoolObject> _bulletPrefabs = new List<PoolObject>();
-
-    public static ObjectPool EnemyPool;
-    public static ObjectPool BulletPool;
 
     void Awake()
     {

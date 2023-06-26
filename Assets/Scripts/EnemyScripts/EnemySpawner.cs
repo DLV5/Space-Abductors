@@ -8,25 +8,22 @@ public class EnemySpawner : MonoBehaviour
     [Serializable]
     private class EnemySettings
     {
+        [Tooltip("Choose enemy tag you wanna spawn")]
         [TagSelector] public string Tag;
 
         [Header("Chance to spawn between 0 and 1")]
         public float ChanceToSpawn;
     }
-    private static ObjectPool _enemyObjectPool;
-    [SerializeField] private List<EnemySettings> _enemySettings;
-
-    [SerializeField] private Collider2D _spawnZone;
-
-    [SerializeField] private float _spawnDelay;
-    
-    [SerializeField] private int _spawnCount;
-
-    public GameObject CowPrefab;
-    [SerializeField] private float _cowSpawnDelay;
-
     [HideInInspector] public bool IsSpawning = true;
     [HideInInspector] public bool HasCowSpawned = false;
+    public GameObject CowPrefab;
+
+    private static ObjectPool _enemyObjectPool;
+    [SerializeField] private List<EnemySettings> _enemySettings;
+    [SerializeField] private Collider2D _spawnZone;
+    [SerializeField] private float _spawnDelay;  
+    [SerializeField] private int _spawnCount;
+    [SerializeField] private float _cowSpawnDelay;
 
     [SerializeField] private EnemyWave[] _waves = new EnemyWave[] {};
     [SerializeField] private Gamemode _spawnMode = Gamemode.WaveSpawn;
@@ -77,7 +74,19 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
     }
-    IEnumerator SpawnWaves()
+
+    private void DeactivateAllEnemies()
+    {
+        if (_enemyObjectPool == null) 
+            return;
+        
+        foreach(GameObject enemy in _enemyObjectPool.Pool)
+        {
+            enemy.SetActive(false);
+        }
+    }
+
+    private IEnumerator SpawnWaves()
     {
         foreach(var wave in _waves)
         {
@@ -93,80 +102,19 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
-    private void DeactivateAllEnemies()
-    {
-        if (_enemyObjectPool == null) 
-            return;
-        
-        foreach(GameObject enemy in _enemyObjectPool.Pool)
-        {
-            enemy.SetActive(false);
-        }
-    }
 
-    //private bool IsAllEnemiesDead()
-    //{
-    //    foreach (var pool in enemyObjectPool.pool)
-    //    {
-    //        if(pool.activeSelf) return false;
-    //    }
-    //    return true;
-    //}
-    IEnumerator SpawnInsideZone()
+    private void SpawnEnemy()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(_spawnDelay);
-            if (IsSpawning)
-            {
-                for (int i = 0; i < _spawnCount; i++)
-                {
-                    SpawnEnemy();
-                }
-            }
-        }
-
-    }
-
-    IEnumerator WaitAndSpawnCow()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(_cowSpawnDelay);
-            if (!HasCowSpawned)
-            {
-                IsSpawning = false;
-                SpawnCow();
-                HasCowSpawned = true;
-            }
-        }
-    }
-
-    Vector2 GetRandomPointInsideTheArea(Collider2D collider)
-    {
-        float randomX = UnityEngine.Random.Range(collider.bounds.min.x, collider.bounds.max.x);
-        float randomY = UnityEngine.Random.Range(collider.bounds.min.y, collider.bounds.max.y);
-        var point = new Vector2(randomX, randomY);
-        return point;
-    }
-    void SpawnEnemy()
-    {
-        var obj = ChooseObject(_enemySettings); 
+        var obj = ChooseObject(_enemySettings);
         obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
     }
-    void SpawnEnemy(string tag)
+    private void SpawnEnemy(string tag)
     {
-        var obj = _enemyObjectPool.GetPooledObjectByTag(tag); 
+        var obj = _enemyObjectPool.GetPooledObjectByTag(tag);
         obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
     }
 
-    private void SpawnCow()
-    {
-        Vector2 cowSpawnPosition = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width / 2, 100));
-        GameObject.Instantiate(CowPrefab, cowSpawnPosition, Quaternion.identity);
-    }
-
-    static GameObject ChooseObject(List<EnemySettings> enemies)
+    private static GameObject ChooseObject(List<EnemySettings> enemies)
     {
         float totalProbability = 0;
         foreach (var probability in enemies)
@@ -188,5 +136,59 @@ public class EnemySpawner : MonoBehaviour
         }
 
         return null; // In case of error or no object selected
+    }
+
+    //private bool IsAllEnemiesDead()
+    //{
+    //    foreach (var pool in enemyObjectPool.pool)
+    //    {
+    //        if(pool.activeSelf) return false;
+    //    }
+    //    return true;
+    //}
+
+    private IEnumerator SpawnInsideZone()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_spawnDelay);
+            if (IsSpawning)
+            {
+                for (int i = 0; i < _spawnCount; i++)
+                {
+                    SpawnEnemy();
+                }
+            }
+        }
+
+    }
+
+    private Vector2 GetRandomPointInsideTheArea(Collider2D collider)
+    {
+        float randomX = UnityEngine.Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+        float randomY = UnityEngine.Random.Range(collider.bounds.min.y, collider.bounds.max.y);
+        var point = new Vector2(randomX, randomY);
+        return point;
+    }
+
+    private IEnumerator WaitAndSpawnCow()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_cowSpawnDelay);
+            if (!HasCowSpawned)
+            {
+                IsSpawning = false;
+                SpawnCow();
+                HasCowSpawned = true;
+            }
+        }
+    }
+
+
+    private void SpawnCow()
+    {
+        Vector2 cowSpawnPosition = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width / 2, 100));
+        GameObject.Instantiate(CowPrefab, cowSpawnPosition, Quaternion.identity);
     }
 }

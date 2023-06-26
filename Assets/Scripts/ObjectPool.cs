@@ -16,15 +16,6 @@ public class ObjectPool
         }
     }
 
-    private GameObject CreatePooledObject()
-    {
-        var obj = UnityEngine.Object.Instantiate(_prefab);
-        GameObject.DontDestroyOnLoad(obj);
-        obj.SetActive(false);
-        Pool.Add(obj);
-        return obj;
-    }
-
     public GameObject GetPooledObject()
     {
         foreach (GameObject obj in Pool)
@@ -67,4 +58,14 @@ public class ObjectPool
         }
         return rez;
     }
+
+    private GameObject CreatePooledObject()
+    {
+        var obj = Object.Instantiate(_prefab);
+        GameObject.DontDestroyOnLoad(obj);
+        obj.SetActive(false);
+        Pool.Add(obj);
+        return obj;
+    }
+
 }

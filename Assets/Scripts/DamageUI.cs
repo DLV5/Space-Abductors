@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> _damageTexts = new List<GameObject>();
     public static DamageUI Instance { get; private set;}
-    DamageUI() {
+    private DamageUI() {
         Instance = this;
     }
-    [SerializeField] private List<GameObject> _damageTexts = new List<GameObject>();
     public void ShowDamageOnEnemy(Vector2 enemyTransform)
     {
         var gameObj = GetDisabledText();

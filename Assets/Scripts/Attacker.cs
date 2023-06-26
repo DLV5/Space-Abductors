@@ -4,9 +4,8 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     [TagSelector, SerializeField] protected string _bulletTagToShoot;
-
     protected GameObject _target;
-
+    protected static ObjectPool gameObjectsPool;
     [SerializeField] protected float _fireRate = 1;
 
     public float FireRate 
@@ -15,7 +14,6 @@ public class Attacker : MonoBehaviour
         set => _fireRate = value; 
     }
 
-    protected static ObjectPool gameObjectsPool;
 
     protected virtual void Start()
     {

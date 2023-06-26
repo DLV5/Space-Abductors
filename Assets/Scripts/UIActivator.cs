@@ -38,27 +38,6 @@ public class UIActivator : MonoBehaviour
         _skillBox = go;
     }
 
-    private void UpdateSkillCostText() {
-        _skillCostText.text = _skillParameter.Price + " Skill Points";
-    }
-
-    private void CheckCanBuySkill()
-    {
-        _skillBuyButton.interactable = Skills.Instance.SkillPoints >= _skillParameter.Price;
-    }
-
-    private void CloseAllIcons()
-    {
-        foreach (GameObject iconTextGameObject in _allIcons)
-        {
-            var child = iconTextGameObject.transform.GetChild(0).gameObject;
-            if (child.activeSelf)
-            { 
-                child.SetActive(false);
-            }
-        }
-    }
-
     public void EnableImage()
     {
         _boughtSkillImage.SetActive(true);
@@ -79,5 +58,26 @@ public class UIActivator : MonoBehaviour
         }
         CloseAllIcons();
         _skillBox.SetActive(false);
+    }
+
+    private void UpdateSkillCostText() {
+        _skillCostText.text = _skillParameter.Price + " Skill Points";
+    }
+
+    private void CheckCanBuySkill()
+    {
+        _skillBuyButton.interactable = Skills.Instance.SkillPoints >= _skillParameter.Price;
+    }
+
+    private void CloseAllIcons()
+    {
+        foreach (GameObject iconTextGameObject in _allIcons)
+        {
+            var child = iconTextGameObject.transform.GetChild(0).gameObject;
+            if (child.activeSelf)
+            { 
+                child.SetActive(false);
+            }
+        }
     }
 }
