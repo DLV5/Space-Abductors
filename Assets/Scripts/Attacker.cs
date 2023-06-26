@@ -20,18 +20,20 @@ public class Attacker : MonoBehaviour
 
     protected virtual void Initialize() {
         if (gameObjectsPool == null)
+        {
             gameObjectsPool = PoolManager.BulletPool;
+        }
     }
     protected virtual void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
+        var obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
         
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().Direction = (_target.transform.position - obj.transform.position).normalized;
     }
     protected virtual IEnumerator ShootAccordingToFireRate()
     {
-            yield return new WaitForSeconds(1 / _fireRate);
-            Shoot();
+        yield return new WaitForSeconds(1 / _fireRate);
+        Shoot();
     }
 }

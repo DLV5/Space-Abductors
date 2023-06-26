@@ -26,17 +26,17 @@ public class HealingMovingEnemy : MovingEnemy
     }
     protected override void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
+        var obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
         obj.GetComponent<HomingBullet>().Target = _target;
         obj.transform.position = transform.position;
     }
     private IEnumerator ChooseRandomEnemy()
     {
-        int rand = UnityEngine.Random.Range(0, _targets.Length);
+        int rand = Random.Range(0, _targets.Length);
         while (_targets[rand].CompareTag("HealingEnemy"))
         {
             yield return new WaitForSeconds(.1f);
-            rand = UnityEngine.Random.Range(0, _targets.Length);
+            rand = Random.Range(0, _targets.Length);
             _target = _targets[rand].gameObject;
         }
     }

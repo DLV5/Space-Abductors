@@ -10,7 +10,7 @@ public class DamageUI : MonoBehaviour
     [SerializeField] private List<GameObject> _damageTexts = new List<GameObject>();
     public void ShowDamageOnEnemy(Vector2 enemyTransform)
     {
-        GameObject gameObj = GetDisabledText();
+        var gameObj = GetDisabledText();
         gameObject.transform.position = enemyTransform;
         //tex.text = "100";
 

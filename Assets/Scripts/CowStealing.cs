@@ -32,10 +32,12 @@ public class CowStealing : MonoBehaviour
 
     private void StealCow()
     {
-        if (!_movementScript.CanMove) return;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-        Collider2D cow = hit.collider;
-        if (cow == null) return;
+        if (!_movementScript.CanMove) 
+            return;
+        var hit = Physics2D.Raycast(transform.position, Vector2.down);
+        var cow = hit.collider;
+        if (cow == null) 
+            return;
         if (cow.CompareTag("Cow"))
         {
             _currentCow = cow.gameObject.GetComponent<Cow>();

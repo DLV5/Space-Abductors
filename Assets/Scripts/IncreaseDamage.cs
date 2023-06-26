@@ -7,7 +7,9 @@ public class IncreaseDamage : MonoBehaviour
     private void Start()
     {
         if (_playerWeapon == null)
+        {
             _playerWeapon = GameObject.Find("Player").GetComponent<Weapon>();
+        }
     }
 
     public void AddDamage(int damageToAdd)

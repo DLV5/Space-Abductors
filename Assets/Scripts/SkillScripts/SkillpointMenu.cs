@@ -13,7 +13,7 @@ public class SkillpointMenu : MonoBehaviour
     private void CloseSkillpointMenu()
     {
         Time.timeScale = 1.0f;
-        GameManager.Instance.CurrentState = GameManager.State.Playing;
+        GameManager.Instance.SetState(GameManager.State.Playing);
         gameObject.SetActive(false);
     }
 }

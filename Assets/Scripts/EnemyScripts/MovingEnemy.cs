@@ -53,8 +53,13 @@ public class MovingEnemy : EnemyAttacker
         float distance = Vector2.Distance(transform.position, _arrivalPoint);
 
         if (distance > 0.01f)
+        {
             transform.position = Vector2.MoveTowards(transform.position, _arrivalPoint, _verticalMoveSpeed * Time.deltaTime);
-        else currentState = EnemyBehavior.Attacking;
+        }
+        else
+        {
+            currentState = EnemyBehavior.Attacking;
+        }
     }
 
     protected virtual void FlyWhenAttacking()

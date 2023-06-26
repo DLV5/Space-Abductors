@@ -31,7 +31,7 @@ public class PoolManager : MonoBehaviour
         BulletPool = new ObjectPool(_bulletPrefabs[0].NumberOfCopies, _bulletPrefabs[0].ObjectToCopy);
         for (int i = 1; i < _enemyPrefabs.Count; i++)
         {
-            ObjectPool objects = new ObjectPool(_enemyPrefabs[i].NumberOfCopies, _enemyPrefabs[i].ObjectToCopy);
+            var objects = new ObjectPool(_enemyPrefabs[i].NumberOfCopies, _enemyPrefabs[i].ObjectToCopy);
             foreach (var item in objects.Pool)
             {
                 EnemyPool.Pool.Add(item);
@@ -39,7 +39,7 @@ public class PoolManager : MonoBehaviour
         }
         for (int i = 1; i < _bulletPrefabs.Count; i++)
         {
-            ObjectPool objects = new ObjectPool(_bulletPrefabs[i].NumberOfCopies, _bulletPrefabs[i].ObjectToCopy);
+            var objects = new ObjectPool(_bulletPrefabs[i].NumberOfCopies, _bulletPrefabs[i].ObjectToCopy);
             foreach (var item in objects.Pool)
             {
                  BulletPool.Pool.Add(item);

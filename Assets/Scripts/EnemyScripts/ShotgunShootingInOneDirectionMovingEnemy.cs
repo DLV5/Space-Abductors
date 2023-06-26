@@ -17,7 +17,7 @@ public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMo
     }
     protected override void Shoot()
     {
-        GameObject obj = gameObjectsPool?.GetPooledObjectByTag("ShotGunBullet");
+        var obj = gameObjectsPool?.GetPooledObjectByTag("ShotGunBullet");
         obj.transform.position = transform.position ;
         Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
         obj.GetComponent<Bullet>().Direction = (spreadRotation * -direction).normalized;

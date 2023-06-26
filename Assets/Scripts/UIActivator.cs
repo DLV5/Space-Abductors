@@ -28,7 +28,10 @@ public class UIActivator : MonoBehaviour
     }
     public void ActivateChoosenGameObject(GameObject go)
     {
-        if(!go.activeSelf) CloseAllIcons();
+        if (!go.activeSelf)
+        {
+            CloseAllIcons();
+        } 
         go.SetActive(!go.activeSelf);
         UpdateSkillCostText();
         CheckCanBuySkill();
@@ -46,10 +49,13 @@ public class UIActivator : MonoBehaviour
 
     private void CloseAllIcons()
     {
-        foreach (GameObject go in _allIcons)
+        foreach (GameObject iconTextGameObject in _allIcons)
         {
-            GameObject child = go.transform.GetChild(0).gameObject;
-            if(child.activeSelf) child.SetActive(false);
+            var child = iconTextGameObject.transform.GetChild(0).gameObject;
+            if (child.activeSelf)
+            { 
+                child.SetActive(false);
+            }
         }
     }
 
@@ -60,12 +66,16 @@ public class UIActivator : MonoBehaviour
         foreach (Button go in _nextBranchesTreeToActivate)
         {
             if (go != null)
+            {
                 go.interactable = true;
+            }
         }
         foreach (Button go in _nextBranchesTreeToDeactivate)
         {
             if (go != null)
+            {
                 go.interactable = false;
+            }
         }
         CloseAllIcons();
         _skillBox.SetActive(false);

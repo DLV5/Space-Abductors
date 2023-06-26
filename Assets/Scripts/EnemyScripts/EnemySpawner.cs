@@ -91,7 +91,8 @@ public class EnemySpawner : MonoBehaviour
     }
     private void DeactivateAllEnemies()
     {
-        if (_enemyObjectPool == null) return;
+        if (_enemyObjectPool == null) 
+            return;
         
         foreach(GameObject enemy in _enemyObjectPool.Pool)
         {
@@ -141,17 +142,17 @@ public class EnemySpawner : MonoBehaviour
     {
         float randomX = UnityEngine.Random.Range(collider.bounds.min.x, collider.bounds.max.x);
         float randomY = UnityEngine.Random.Range(collider.bounds.min.y, collider.bounds.max.y);
-        Vector2 point = new Vector2(randomX, randomY);
+        var point = new Vector2(randomX, randomY);
         return point;
     }
     void SpawnEnemy()
     {
-        GameObject obj = ChooseObject(_enemySettings); 
+        var obj = ChooseObject(_enemySettings); 
         obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
     }
     void SpawnEnemy(string tag)
     {
-        GameObject obj = _enemyObjectPool.GetPooledObjectByTag(tag); 
+        var obj = _enemyObjectPool.GetPooledObjectByTag(tag); 
         obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
     }
 

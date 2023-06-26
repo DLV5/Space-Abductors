@@ -32,7 +32,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
 
     protected override void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
+        var obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
 
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().Direction = -direction;

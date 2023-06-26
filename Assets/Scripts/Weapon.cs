@@ -6,6 +6,7 @@ public class Weapon : Attacker
 {
     [HideInInspector] public static Weapon Instance;
 
+    [Header("Weapon Objects")]
     public GameObject Flamethrower;
     public ParticleSystem Flames;
     public GameObject Railgun;
@@ -13,6 +14,7 @@ public class Weapon : Attacker
     private Collider2D _flameCollider;
     private Animator _animator;
 
+    [Header("Stats")]
     public int Damage;
     public float Cooldown = 1;
     public float SpreadAngle;
@@ -23,10 +25,12 @@ public class Weapon : Attacker
 
     [Header("Audio")]
     [SerializeField] public AudioClip RailgunShotSound;
+    [SerializeField] public AudioClip FlamethrowerSound;
+    [SerializeField] public AudioClip PistolShotSound;
     public AudioSource Source;
 
-
     private bool _canShoot = true;
+    public bool CanShoot { get => _canShoot; set => _canShoot = value; }
 
     public Action CurrentWeaponAttack;
 
@@ -49,6 +53,7 @@ public class Weapon : Attacker
         }
         _animator = Railgun.GetComponent<Animator>();
         Source = GetComponent<AudioSource>();
+        Source.clip = PistolShotSound;
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
@@ -73,8 +78,9 @@ public class Weapon : Attacker
             case Type.ShootingWeapon:
                 if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
                 {
+                    Source.Play();
                     CurrentWeaponAttack();
-                    _canShoot = false;
+                    CanShoot = false;
                     StartCoroutine(EnterCooldown());
                 }
                 break;
@@ -94,10 +100,15 @@ public class Weapon : Attacker
             case Type.HoldingWeapon:
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
+                    if (!Source.isPlaying)
+                    {
+                        Source.Play();
+                    }
                     CurrentWeaponAttack();
                 }
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
+                    Source.Stop();
                     _flameCollider.enabled = false;
                     Flames.Stop();
                 }
@@ -109,10 +120,9 @@ public class Weapon : Attacker
 
     protected override void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
-           
+        var obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
         obj.transform.position = transform.position;
-        Quaternion spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
+        var spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
         var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         obj.GetComponent<Bullet>().Direction = target.normalized;
     }
@@ -127,7 +137,7 @@ public class Weapon : Attacker
 
     public void ShootLikeRailgun()
     {
-        Vector2 dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+        var dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
         dir = dir.normalized;
         //var hits = Physics2D.RaycastAll(transform.position, dir, 10f);
         float angle = Vector2.Angle(transform.position, dir);
@@ -135,12 +145,13 @@ public class Weapon : Attacker
         //BoxCastDebug.instance.StartDrawing(transform.position, dir, new Vector2(10f, 0.1f));
         foreach (var hit in hits)
         {
-            Collider2D col = hit.collider;
-            if (col == null) continue;
+            var col = hit.collider;
+            if (col == null) 
+                continue;
             if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy") 
                 || col.CompareTag("HealingEnemy"))
             {
-                EnemyAttacker enemy = col.gameObject.GetComponent<EnemyAttacker>();
+                var enemy = col.gameObject.GetComponent<EnemyAttacker>();
                 enemy.Damage(Damage);
             }
         }
@@ -157,6 +168,6 @@ public class Weapon : Attacker
     private IEnumerator EnterCooldown()
     {
         yield return new WaitForSeconds(Cooldown);
-        _canShoot = true;
+        CanShoot = true;
     }
 }

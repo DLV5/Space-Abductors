@@ -13,5 +13,5 @@ public class SkillParameter : MonoBehaviour
             _isBought = value;
             GetComponent<UIActivator>().EnableImage();
         }
-            }
+    }
 }

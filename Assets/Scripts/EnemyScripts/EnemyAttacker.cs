@@ -38,13 +38,13 @@ public class EnemyAttacker : Attacker, IDamageable
         DamageUI.Instance.ShowDamageOnEnemy(transform.position);
         if (Health <= 0) 
         {
-            //StopCoroutine(DamageFlasher());
             EnemySpawner.EnemyCount--;
             gameObject.SetActive(false);
         }
         if(gameObject.activeSelf)
-                CallDamageFlash();
-        
+        {
+            CallDamageFlash();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,7 +75,10 @@ public class EnemyAttacker : Attacker, IDamageable
     }
     protected IEnumerator StartDamageFlash()
     {
-        if (_material == null || _spriteRenderer == null) Initialize();
+        if (_material == null || _spriteRenderer == null)
+        { 
+            Initialize();
+        }
         float currentFlashAmount = 0f;
         float elapsedTime = 0f;
         while (elapsedTime < _flashTime)

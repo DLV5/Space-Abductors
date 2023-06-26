@@ -37,7 +37,8 @@ public class Skills : MonoBehaviour
 
     public void BuySkill(SkillParameter parameter)
     {
-        if (SkillPoints < parameter.Price) return;
+        if (SkillPoints < parameter.Price) 
+            return;
         parameter.IsBought = true;
         SkillList.Add(parameter.SkillName);
         AddSkillpoints(-parameter.Price);
@@ -47,7 +48,7 @@ public class Skills : MonoBehaviour
     public void OpenSkillpointMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.CurrentState = GameManager.State.Paused;
+        GameManager.Instance.SetState(GameManager.State.Paused);
         UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
@@ -81,6 +82,8 @@ public class Skills : MonoBehaviour
                     break;
                 case "Flamethrower":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
+                    _playerWeapon.Source.clip = _playerWeapon.FlamethrowerSound;
+                    _playerWeapon.Source.loop = true;
                     _playerWeapon.Railgun.SetActive(false);
                     _playerWeapon.Flamethrower.SetActive(true);
                     _playerWeapon.CurrentType = Weapon.Type.HoldingWeapon;

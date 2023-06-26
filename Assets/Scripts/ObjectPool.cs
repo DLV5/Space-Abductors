@@ -7,7 +7,7 @@ public class ObjectPool
     private GameObject _prefab;
     public ObjectPool(int initialSize, GameObject prefab)
     {
-        this._prefab = prefab;
+        _prefab = prefab;
         Pool = new List<GameObject>();
 
         for (int i = 0; i < initialSize; i++)
@@ -18,7 +18,7 @@ public class ObjectPool
 
     private GameObject CreatePooledObject()
     {
-        GameObject obj = UnityEngine.Object.Instantiate(_prefab);
+        var obj = UnityEngine.Object.Instantiate(_prefab);
         GameObject.DontDestroyOnLoad(obj);
         obj.SetActive(false);
         Pool.Add(obj);
@@ -60,7 +60,7 @@ public class ObjectPool
 
     public static ObjectPool operator +(ObjectPool poolA, ObjectPool poolB)
     {
-        ObjectPool rez = new ObjectPool(poolA.Pool.Count, poolA.Pool[0]);
+        var rez = new ObjectPool(poolA.Pool.Count, poolA.Pool[0]);
         for (int i = 0;i < poolB.Pool.Count;i++)
         {
             rez.Pool.Add(poolB.Pool[i]);

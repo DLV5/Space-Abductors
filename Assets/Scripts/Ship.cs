@@ -34,7 +34,8 @@ public class Ship : MonoBehaviour, IDamageable
 
     public void Damage(int damage)
     {
-        if (Invincible) return;
+        if (Invincible) 
+            return;
         Health -= damage;
         Invincible = true;
         StartCoroutine(DisableInvincibilityAfterTime(2f));
