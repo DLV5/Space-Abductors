@@ -13441,6 +13441,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 572150912}
     - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      propertyPath: PistolShotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dd3707e6c96a8b84aa15c23212a51c9f, type: 3}
+    - target: {fileID: 1618099115868786696, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       propertyPath: railgunShotSound
       value: 
       objectReference: {fileID: 8300000, guid: 00310b7d7a4ecc6468e114543ef0c920, type: 3}

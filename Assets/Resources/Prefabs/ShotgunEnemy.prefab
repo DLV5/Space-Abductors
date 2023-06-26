@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5bb68e483d8fd45ae93f832ef9bdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTagToShoot: BaseBullet
+  bulletTagToShoot: ShotGunBullet
   fireRate: 1
   health: 3
   _flashTime: 0.25
@@ -179,5 +179,5 @@ MonoBehaviour:
   timeBerofeEscape: 25
   escapeHorizontalSpeed: 8
   directionToShoot: 0
-  spreadAngle: 90
-  bulletsPerShot: 4
+  SpreadAngle: 90
+  BulletsPerShot: 4
