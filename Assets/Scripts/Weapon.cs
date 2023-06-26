@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Weapon : Attacker
 {
-    [HideInInspector]
-    public static Weapon Instance;
+    [HideInInspector] public static Weapon Instance;
 
     public GameObject Flamethrower;
     public ParticleSystem Flames;
@@ -20,11 +19,10 @@ public class Weapon : Attacker
     public int BulletsPerShotgunShot = 6;
     public WeaponType Type;
 
-    [SerializeField]
-    private Texture2D _crosshair;
+    [SerializeField] private Texture2D _crosshair;
     [Header("Audio")]
-    [SerializeField]
-    public AudioClip RailgunShotSound;
+    [SerializeField] public AudioClip RailgunShotSound;
+    [SerializeField] public AudioClip PistolShotSound;
     public AudioSource Source;
 
 
@@ -51,6 +49,7 @@ public class Weapon : Attacker
         }
         animator = Railgun.GetComponent<Animator>();
         Source = GetComponent<AudioSource>();
+        Source.clip = PistolShotSound;
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
@@ -75,6 +74,7 @@ public class Weapon : Attacker
             case WeaponType.ShootingWeapon:
                 if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
                 {
+                    Source.Play();
                     CurrentWeaponAttack();
                     _canShoot = false;
                     StartCoroutine(EnterCooldown());
@@ -112,7 +112,6 @@ public class Weapon : Attacker
     protected override void Shoot()
     {
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
-           
         obj.transform.position = transform.position;
         Quaternion spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
         var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
