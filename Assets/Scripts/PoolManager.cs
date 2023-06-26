@@ -17,11 +17,9 @@ public class PoolManager : MonoBehaviour
     {
         Instance = this;
     }
-    [SerializeField]
-    private List<PoolObject> enemyPrefabs = new List<PoolObject>();
+    [SerializeField] private List<PoolObject> enemyPrefabs = new List<PoolObject>();
 
-    [SerializeField]
-    private List<PoolObject> bulletPrefabs = new List<PoolObject>();
+    [SerializeField] private List<PoolObject> bulletPrefabs = new List<PoolObject>();
 
     public static ObjectPool enemyPool;
     public static ObjectPool bulletPool;

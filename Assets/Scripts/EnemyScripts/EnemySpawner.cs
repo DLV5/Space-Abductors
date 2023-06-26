@@ -8,37 +8,28 @@ public class EnemySpawner : MonoBehaviour
     [Serializable]
     private class EnemySettings
     {
-        [TagSelector]
-        public string EnemyTag;
+        [TagSelector] public string EnemyTag;
 
         [Header("Chance to spawn between 0 and 1")]
         public float ChanceToSpawn;
     }
     private static ObjectPool enemyObjectPool;
-    [SerializeField]
-    private List<EnemySettings> enemySettings;
+    [SerializeField] private List<EnemySettings> enemySettings;
 
-    [SerializeField]
-    private Collider2D spawnZone;
+    [SerializeField] private Collider2D spawnZone;
 
-    [SerializeField]
-    private float SpawnDelay;
+    [SerializeField] private float SpawnDelay;
     
-    [SerializeField]
-    private int SpawnCount;
+    [SerializeField] private int SpawnCount;
 
     public GameObject CowPrefab;
-    [SerializeField]
-    private float cowSpawnDelay;
+    [SerializeField] private float cowSpawnDelay;
 
     public bool Spawning = true;
-    [HideInInspector]
-    public bool HasCowSpawned = false;
+    [HideInInspector] public bool HasCowSpawned = false;
 
-    [SerializeField]
-    private EnemyWave[] waves = new EnemyWave[] {};
-    [SerializeField]
-    private SpawnMode spawnMode = SpawnMode.WaveSpawn;
+    [SerializeField] private EnemyWave[] waves = new EnemyWave[] {};
+    [SerializeField] private SpawnMode spawnMode = SpawnMode.WaveSpawn;
 
     private static int _enemyCount = 0;
     public static int EnemyCount { get { return _enemyCount; } set { _enemyCount = value; } }

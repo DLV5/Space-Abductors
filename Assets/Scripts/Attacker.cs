@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    [TagSelector, SerializeField]
-    protected string bulletTagToShoot;
+    [TagSelector, SerializeField] protected string bulletTagToShoot;
 
     protected GameObject target;
 
-    [SerializeField]
-    protected float fireRate = 1;
+    [SerializeField] protected float fireRate = 1;
 
     public float FireRate { get => fireRate; set => fireRate = value; }
 

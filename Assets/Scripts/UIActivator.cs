@@ -7,20 +7,15 @@ public class UIActivator : MonoBehaviour
 {
     private static GameObject[] allIcons = new GameObject[] {};
 
-    [SerializeField]
-    private TMP_Text skillCostText;
+    [SerializeField] private TMP_Text skillCostText;
     
-    [SerializeField]
-    private Button skillBuyButton;
+    [SerializeField] private Button skillBuyButton;
 
-    [SerializeField] 
-    private List<Button> nextBranchesTreeToActivate;
+    [SerializeField] private List<Button> nextBranchesTreeToActivate;
     
-    [SerializeField] 
-    private List<Button> nextBranchesTreeToDeactivate;
+    [SerializeField] private List<Button> nextBranchesTreeToDeactivate;
 
-    [SerializeField]
-    private GameObject boughtSkillImage;
+    [SerializeField] private GameObject boughtSkillImage;
 
     private SkillParameter skillParameter;
 

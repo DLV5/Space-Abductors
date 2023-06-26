@@ -4,9 +4,8 @@ using UnityEngine;
 public class ShootingInOneDirectionMovingEnemy : MovingEnemy
 {
     [Header("Direction settings")]
-    [SerializeField]
     [Tooltip("Direction value between 0 and 360. It should be divisible by 15")]
-    protected float directionToShoot;
+    [SerializeField, Range(0,24)] protected int directionToShoot;
 
     protected Vector3 direction;
 
@@ -15,7 +14,8 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
         _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
         _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
 
-        float radians = directionToShoot * Mathf.Deg2Rad;
+        //15f - multiplier for direction to shoot
+        float radians = directionToShoot * 15f * Mathf.Deg2Rad;
 
         // Calculate the direction vector
         direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
@@ -48,7 +48,8 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
 
     private void OnDrawGizmosSelected()
     {
-        float radians = directionToShoot * Mathf.Deg2Rad;
+        //15f - multiplier for direction to shoot
+        float radians = directionToShoot * 15f * Mathf.Deg2Rad;
 
         // Calculate the direction vector
         direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));

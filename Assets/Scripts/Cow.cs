@@ -4,8 +4,7 @@ public class Cow : MonoBehaviour
 {
     public bool Moving;
     public GameObject Player;
-    [SerializeField]
-    private float speed = 1.0f;
+    [SerializeField] private float speed = 1.0f;
     private EnemySpawner _spawner;
 
     private void Start()

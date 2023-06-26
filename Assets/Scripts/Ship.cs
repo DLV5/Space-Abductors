@@ -8,8 +8,7 @@ public class Ship : MonoBehaviour, IDamageable
     public bool Invincible = false;
     //public int Damage; where this used?
 
-    [SerializeField]
-    private TextMeshProUGUI _hpText;
+    [SerializeField] private TextMeshProUGUI _hpText;
 
     private float _flickerDuration = 0.1f;
     private float _flickerTimer = 0f;

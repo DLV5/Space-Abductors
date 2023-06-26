@@ -5,8 +5,7 @@ public class Movement : MonoBehaviour
 {
     public bool CanMove = true;
 
-    [SerializeField]
-    private float speed = 5.0f;
+    [SerializeField] private float speed = 5.0f;
     private Vector2 _direction;
 
     private Vector2 _minScreenBounds;

@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class ScrollingBackground : MonoBehaviour
 {
-    [SerializeField]
-    private float scrollSpeed;
-    [SerializeField]
-    private float resetPointX;
+    [SerializeField] private float scrollSpeed;
+    [SerializeField] private float resetPointX;
     private Vector2 _startingPosition;
 
     private void Start()

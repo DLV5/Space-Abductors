@@ -10,18 +10,15 @@ public class MovingEnemy : EnemyAttacker
 
     [Header("Movement")]
 
-    [SerializeField]
-    private float verticalMoveSpeed = 5f;
+    [SerializeField] private float verticalMoveSpeed = 5f;
 
     private bool movingToEnd = true;
 
     [Header("Escape settings")]
 
-    [SerializeField]
-    private float timeBerofeEscape = 5f;
+    [SerializeField] private float timeBerofeEscape = 5f;
 
-    [SerializeField]
-    private float escapeHorizontalSpeed = 0f;
+    [SerializeField] private float escapeHorizontalSpeed = 0f;
 
     private void Awake()
     {

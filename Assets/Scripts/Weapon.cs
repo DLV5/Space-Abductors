@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Weapon : Attacker
 {
-    [HideInInspector]
-    public static Weapon Instance;
+    [HideInInspector] public static Weapon Instance;
 
     public GameObject Flamethrower;
     public ParticleSystem Flames;
@@ -20,11 +19,10 @@ public class Weapon : Attacker
     public int BulletsPerShotgunShot = 6;
     public WeaponType Type;
 
-    [SerializeField]
-    private Texture2D _crosshair;
+    [SerializeField] private Texture2D _crosshair;
+
     [Header("Audio")]
-    [SerializeField]
-    public AudioClip RailgunShotSound;
+    [SerializeField] public AudioClip RailgunShotSound;
     public AudioSource Source;
 
 

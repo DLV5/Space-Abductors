@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class IncreaseDamage : MonoBehaviour
 {
-    [SerializeField]
-    private Weapon _playerWeapon;
+    [SerializeField] private Weapon _playerWeapon;
 
     private void Start()
     {
