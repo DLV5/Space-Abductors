@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class UIActivator : MonoBehaviour
 {
-    private static GameObject[] allIcons = new GameObject[] {};
+    private static GameObject[] _allIcons = new GameObject[] {};
 
-    [SerializeField] private TMP_Text skillCostText;
+    [SerializeField] private TMP_Text _skillCostText;
     
-    [SerializeField] private Button skillBuyButton;
+    [SerializeField] private Button _skillBuyButton;
 
-    [SerializeField] private List<Button> nextBranchesTreeToActivate;
+    [SerializeField] private List<Button> _nextBranchesTreeToActivate;
     
-    [SerializeField] private List<Button> nextBranchesTreeToDeactivate;
+    [SerializeField] private List<Button> _nextBranchesTreeToDeactivate;
 
-    [SerializeField] private GameObject boughtSkillImage;
+    [SerializeField] private GameObject _boughtSkillImage;
 
-    private SkillParameter skillParameter;
+    private SkillParameter _skillParameter;
 
-    private GameObject skillBox;
+    private GameObject _skillBox;
 
     private void Start()
     {
-        allIcons = GameObject.FindGameObjectsWithTag("SkillIcon");
-        skillParameter = GetComponent<SkillParameter>();
+        _allIcons = GameObject.FindGameObjectsWithTag("SkillIcon");
+        _skillParameter = GetComponent<SkillParameter>();
     }
     public void ActivateChoosenGameObject(GameObject go)
     {
@@ -32,21 +32,21 @@ public class UIActivator : MonoBehaviour
         go.SetActive(!go.activeSelf);
         UpdateSkillCostText();
         CheckCanBuySkill();
-        skillBox = go;
+        _skillBox = go;
     }
 
     private void UpdateSkillCostText() {
-        skillCostText.text = skillParameter.Price + " Skill Points";
+        _skillCostText.text = _skillParameter.Price + " Skill Points";
     }
 
     private void CheckCanBuySkill()
     {
-        skillBuyButton.interactable = Skills.Instance.SkillPoints >= skillParameter.Price;
+        _skillBuyButton.interactable = Skills.Instance.SkillPoints >= _skillParameter.Price;
     }
 
     private void CloseAllIcons()
     {
-        foreach (GameObject go in allIcons)
+        foreach (GameObject go in _allIcons)
         {
             GameObject child = go.transform.GetChild(0).gameObject;
             if(child.activeSelf) child.SetActive(false);
@@ -55,19 +55,19 @@ public class UIActivator : MonoBehaviour
 
     public void EnableImage()
     {
-        boughtSkillImage.SetActive(true);
+        _boughtSkillImage.SetActive(true);
 
-        foreach (Button go in nextBranchesTreeToActivate)
+        foreach (Button go in _nextBranchesTreeToActivate)
         {
             if (go != null)
                 go.interactable = true;
         }
-        foreach (Button go in nextBranchesTreeToDeactivate)
+        foreach (Button go in _nextBranchesTreeToDeactivate)
         {
             if (go != null)
                 go.interactable = false;
         }
         CloseAllIcons();
-        skillBox.SetActive(false);
+        _skillBox.SetActive(false);
     }
 }

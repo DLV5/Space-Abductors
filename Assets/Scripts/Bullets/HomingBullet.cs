@@ -16,6 +16,6 @@ public class HomingBullet : Bullet
 
         float rotationAmount = Vector3.Cross(dir, transform.up).z;
         Rb.angularVelocity = -rotationAmount * RotateSpeed;
-        Rb.velocity = transform.up * speed;
+        Rb.velocity = transform.up * _speed;
     }
 }

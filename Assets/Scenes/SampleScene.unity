@@ -2456,10 +2456,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -1.5
+    x: 0
     y: 0
-    width: 3
-    height: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -8562,28 +8562,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97712d9f4c48f95409dfdca31c2d7f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySettings:
+  _enemySettings:
   - EnemyTag: HelicopterEnemy
-    ChanceToSpawn: 0.5
-  - EnemyTag: ShotGunEnemy
-    ChanceToSpawn: 0.4
-  - EnemyTag: BossEnemy
-    ChanceToSpawn: 0.1
-  spawnZone: {fileID: 1441192111}
-  SpawnDelay: 5
-  SpawnCount: 1
+    ChanceToSpawn: 1
+  _spawnZone: {fileID: 1441192111}
+  _spawnDelay: 5
+  _spawnCount: 0
   CowPrefab: {fileID: 2967738439069499057, guid: 7cee6f999111713489f9a79282a07d15, type: 3}
-  cowSpawnDelay: 40
-  Spawning: 1
+  _cowSpawnDelay: 0
+  IsSpawning: 1
   HasCowSpawned: 0
-  waves:
+  _waves:
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      EnemyCount: 10
+      EnemyCount: 20
       TargetPoint: {x: 0, y: 0, z: 0}
       DelayBetweenSpawn: 1
-      TimeUntilNextWave: 5
-  spawnMode: 1
+      TimeUntilNextWave: 1
+  _spawnMode: 1
 --- !u!1 &1442781272
 GameObject:
   m_ObjectHideFlags: 0

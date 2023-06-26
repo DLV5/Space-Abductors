@@ -11,7 +11,7 @@ public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMo
     protected override void OnEnable()
     {
         base.OnEnable();
-        target = GameObject.FindGameObjectWithTag("Player");
+        _target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(ShootAccordingToFireRate());
         Initialize();
     }
@@ -27,7 +27,7 @@ public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMo
     {
         while (true)
         {
-            yield return new WaitForSeconds(1 / fireRate);
+            yield return new WaitForSeconds(1 / _fireRate);
             for (int i = 0; i < BulletsPerShot; i++)
             {
                 Shoot();

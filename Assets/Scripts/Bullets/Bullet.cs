@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] protected float speed;
-    public float Speed { get => speed; set => speed = value; }
+    [SerializeField] protected float _speed;
+    public float Speed { get => _speed; set => _speed = value; }
 
     public Vector3 Direction;
 

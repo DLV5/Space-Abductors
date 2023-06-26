@@ -5,12 +5,12 @@ public class SkillParameter : MonoBehaviour
     public string SkillName;
     public int Price;
 
-    private bool isBought = false;
+    private bool _isBought = false;
     public bool IsBought { 
-        get => isBought; 
+        get => _isBought; 
         set
         {
-            isBought = value;
+            _isBought = value;
             GetComponent<UIActivator>().EnableImage();
         }
             }

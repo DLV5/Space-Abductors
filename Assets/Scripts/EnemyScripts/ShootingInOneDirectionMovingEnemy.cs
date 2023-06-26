@@ -5,7 +5,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
 {
     [Header("Direction settings")]
     [Tooltip("Direction value between 0 and 360. It should be divisible by 15")]
-    [SerializeField, Range(0,24)] protected int directionToShoot;
+    [SerializeField, Range(0,24)] protected int _directionToShoot;
 
     protected Vector3 direction;
 
@@ -15,7 +15,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
         _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
 
         //15f - multiplier for direction to shoot
-        float radians = directionToShoot * 15f * Mathf.Deg2Rad;
+        float radians = _directionToShoot * 15f * Mathf.Deg2Rad;
 
         // Calculate the direction vector
         direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
@@ -32,7 +32,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
 
     protected override void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag(bulletTagToShoot);
+        GameObject obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
 
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().Direction = -direction;
@@ -41,7 +41,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
     {
         while (true)
         {
-            yield return new WaitForSeconds(1 / fireRate);
+            yield return new WaitForSeconds(1 / _fireRate);
             Shoot();
         }
     }
@@ -49,7 +49,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
     private void OnDrawGizmosSelected()
     {
         //15f - multiplier for direction to shoot
-        float radians = directionToShoot * 15f * Mathf.Deg2Rad;
+        float radians = _directionToShoot * 15f * Mathf.Deg2Rad;
 
         // Calculate the direction vector
         direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));

@@ -11,13 +11,13 @@ public class Weapon : Attacker
     public GameObject Railgun;
     public GameObject RailgunHolder;
     private Collider2D _flameCollider;
-    private Animator animator;
+    private Animator _animator;
 
     public int Damage;
     public float Cooldown = 1;
     public float SpreadAngle;
     public int BulletsPerShotgunShot = 6;
-    public WeaponType Type;
+    public Type CurrentType;
 
     [SerializeField] private Texture2D _crosshair;
 
@@ -30,7 +30,7 @@ public class Weapon : Attacker
 
     public Action CurrentWeaponAttack;
 
-    public enum WeaponType
+    public enum Type
     {
         ChargingWeapon,
         ShootingWeapon,
@@ -47,7 +47,7 @@ public class Weapon : Attacker
         {
             Instance = this;
         }
-        animator = Railgun.GetComponent<Animator>();
+        _animator = Railgun.GetComponent<Animator>();
         Source = GetComponent<AudioSource>();
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
@@ -68,9 +68,9 @@ public class Weapon : Attacker
 
     private void Update()
     {
-        switch (Type)
+        switch (CurrentType)
         {
-            case WeaponType.ShootingWeapon:
+            case Type.ShootingWeapon:
                 if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
                 {
                     CurrentWeaponAttack();
@@ -79,19 +79,19 @@ public class Weapon : Attacker
                 }
                 break;
 
-            case WeaponType.ChargingWeapon:
+            case Type.ChargingWeapon:
                 if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
                 {
                     Railgun.SetActive(true);
                 }
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
-                    animator.SetTrigger("IsReleased");
+                    _animator.SetTrigger("IsReleased");
                     Source.Play();
                     CurrentWeaponAttack();
                 }
                 break;
-            case WeaponType.HoldingWeapon:
+            case Type.HoldingWeapon:
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     CurrentWeaponAttack();

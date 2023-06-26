@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
 {
     public bool CanMove = true;
 
-    [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float _speed = 5.0f;
     private Vector2 _direction;
 
     private Vector2 _minScreenBounds;
@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
         if (CanMove)
         {
             _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            transform.position += (Vector3)_direction * speed * Time.deltaTime;
+            transform.position += (Vector3)_direction * _speed * Time.deltaTime;
         }
 
         // Most sane unity code

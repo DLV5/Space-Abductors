@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class HealingMovingEnemy : MovingEnemy
 {
-    private EnemyAttacker[] targets = new EnemyAttacker[]{};
+    private EnemyAttacker[] _targets = new EnemyAttacker[]{};
 
     protected override void Awake()
     {
         base.Awake();
-        targets = GameObject.FindObjectsOfType<EnemyAttacker>(false);
+        _targets = GameObject.FindObjectsOfType<EnemyAttacker>(false);
     }
     protected override void OnEnable()
     {
@@ -20,24 +20,24 @@ public class HealingMovingEnemy : MovingEnemy
         while (true)
         {
             StartCoroutine(ChooseRandomEnemy());
-            yield return new WaitForSeconds(1 / fireRate);
+            yield return new WaitForSeconds(1 / _fireRate);
             Shoot();
         }
     }
     protected override void Shoot()
     {
         GameObject obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
-        obj.GetComponent<HomingBullet>().Target = target;
+        obj.GetComponent<HomingBullet>().Target = _target;
         obj.transform.position = transform.position;
     }
     private IEnumerator ChooseRandomEnemy()
     {
-        int rand = UnityEngine.Random.Range(0, targets.Length);
-        while (targets[rand].CompareTag("HealingEnemy"))
+        int rand = UnityEngine.Random.Range(0, _targets.Length);
+        while (_targets[rand].CompareTag("HealingEnemy"))
         {
             yield return new WaitForSeconds(.1f);
-            rand = UnityEngine.Random.Range(0, targets.Length);
-            target = targets[rand].gameObject;
+            rand = UnityEngine.Random.Range(0, _targets.Length);
+            _target = _targets[rand].gameObject;
         }
     }
 }

@@ -13,28 +13,28 @@ public class EnemySpawner : MonoBehaviour
         [Header("Chance to spawn between 0 and 1")]
         public float ChanceToSpawn;
     }
-    private static ObjectPool enemyObjectPool;
-    [SerializeField] private List<EnemySettings> enemySettings;
+    private static ObjectPool _enemyObjectPool;
+    [SerializeField] private List<EnemySettings> _enemySettings;
 
-    [SerializeField] private Collider2D spawnZone;
+    [SerializeField] private Collider2D _spawnZone;
 
-    [SerializeField] private float SpawnDelay;
+    [SerializeField] private float _spawnDelay;
     
-    [SerializeField] private int SpawnCount;
+    [SerializeField] private int _spawnCount;
 
     public GameObject CowPrefab;
-    [SerializeField] private float cowSpawnDelay;
+    [SerializeField] private float _cowSpawnDelay;
 
-    public bool Spawning = true;
+    [HideInInspector] public bool IsSpawning = true;
     [HideInInspector] public bool HasCowSpawned = false;
 
-    [SerializeField] private EnemyWave[] waves = new EnemyWave[] {};
-    [SerializeField] private SpawnMode spawnMode = SpawnMode.WaveSpawn;
+    [SerializeField] private EnemyWave[] _waves = new EnemyWave[] {};
+    [SerializeField] private Gamemode _spawnMode = Gamemode.WaveSpawn;
 
     private static int _enemyCount = 0;
     public static int EnemyCount { get { return _enemyCount; } set { _enemyCount = value; } }
     
-    public enum SpawnMode
+    public enum Gamemode
     {
         EndlessSpawn,
         WaveSpawn
@@ -44,27 +44,27 @@ public class EnemySpawner : MonoBehaviour
         switch(PlayerPrefs.GetString("Mode", "Story"))
         {
             case "Story":
-                spawnMode = SpawnMode.WaveSpawn;
+                _spawnMode = Gamemode.WaveSpawn;
                 break;
             case "EndlessEasy":
-                spawnMode = SpawnMode.EndlessSpawn;
+                _spawnMode = Gamemode.EndlessSpawn;
                 break;
             case "EndlessNormal":
-                spawnMode = SpawnMode.EndlessSpawn;
+                _spawnMode = Gamemode.EndlessSpawn;
                 break;
             case "EndlessHard":
-                spawnMode = SpawnMode.EndlessSpawn;
+                _spawnMode = Gamemode.EndlessSpawn;
                 break;
         }
 
         DeactivateAllEnemies();
-        enemyObjectPool = PoolManager.enemyPool;
-        switch (spawnMode)
+        _enemyObjectPool = PoolManager.EnemyPool;
+        switch (_spawnMode)
         {
-            case SpawnMode.WaveSpawn:
+            case Gamemode.WaveSpawn:
                 StartCoroutine(SpawnWaves());
                 break;
-            case SpawnMode.EndlessSpawn:
+            case Gamemode.EndlessSpawn:
                 StartCoroutine(SpawnInsideZone());
                 StartCoroutine(WaitAndSpawnCow());
                 break;
@@ -75,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator SpawnWaves()
     {
-        foreach(var wave in waves)
+        foreach(var wave in _waves)
         {
             foreach (var wavePart in wave.WaveParts)
             {
@@ -91,9 +91,9 @@ public class EnemySpawner : MonoBehaviour
     }
     private void DeactivateAllEnemies()
     {
-        if (enemyObjectPool == null) return;
+        if (_enemyObjectPool == null) return;
         
-        foreach(GameObject enemy in enemyObjectPool.Pool)
+        foreach(GameObject enemy in _enemyObjectPool.Pool)
         {
             enemy.SetActive(false);
         }
@@ -111,10 +111,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(SpawnDelay);
-            if (Spawning)
+            yield return new WaitForSeconds(_spawnDelay);
+            if (IsSpawning)
             {
-                for (int i = 0; i < SpawnCount; i++)
+                for (int i = 0; i < _spawnCount; i++)
                 {
                     SpawnEnemy();
                 }
@@ -127,10 +127,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(cowSpawnDelay);
+            yield return new WaitForSeconds(_cowSpawnDelay);
             if (!HasCowSpawned)
             {
-                Spawning = false;
+                IsSpawning = false;
                 SpawnCow();
                 HasCowSpawned = true;
             }
@@ -146,13 +146,13 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        GameObject obj = ChooseObject(enemySettings); 
-        obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+        GameObject obj = ChooseObject(_enemySettings); 
+        obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
     }
     void SpawnEnemy(string tag)
     {
-        GameObject obj = enemyObjectPool.GetPooledObjectByTag(tag); 
-        obj.transform.position = GetRandomPointInsideTheArea(spawnZone);
+        GameObject obj = _enemyObjectPool.GetPooledObjectByTag(tag); 
+        obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
     }
 
     private void SpawnCow()
@@ -177,7 +177,7 @@ public class EnemySpawner : MonoBehaviour
             cumulativeProbability += obj.ChanceToSpawn / totalProbability;
             if (randomNum < cumulativeProbability)
             {
-                GameObject rez = enemyObjectPool.GetPooledObjectByTag(obj.EnemyTag);
+                GameObject rez = _enemyObjectPool.GetPooledObjectByTag(obj.EnemyTag);
                 return rez;
             }
         }

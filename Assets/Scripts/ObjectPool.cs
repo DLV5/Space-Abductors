@@ -4,10 +4,10 @@ using UnityEngine;
 public class ObjectPool
 {
     public List<GameObject> Pool;
-    private GameObject prefab;
+    private GameObject _prefab;
     public ObjectPool(int initialSize, GameObject prefab)
     {
-        this.prefab = prefab;
+        this._prefab = prefab;
         Pool = new List<GameObject>();
 
         for (int i = 0; i < initialSize; i++)
@@ -18,7 +18,7 @@ public class ObjectPool
 
     private GameObject CreatePooledObject()
     {
-        GameObject obj = UnityEngine.Object.Instantiate(prefab);
+        GameObject obj = UnityEngine.Object.Instantiate(_prefab);
         GameObject.DontDestroyOnLoad(obj);
         obj.SetActive(false);
         Pool.Add(obj);

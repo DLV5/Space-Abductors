@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    [TagSelector, SerializeField] protected string bulletTagToShoot;
+    [TagSelector, SerializeField] protected string _bulletTagToShoot;
 
-    protected GameObject target;
+    protected GameObject _target;
 
-    [SerializeField] protected float fireRate = 1;
+    [SerializeField] protected float _fireRate = 1;
 
-    public float FireRate { get => fireRate; set => fireRate = value; }
+    public float FireRate { get => _fireRate; set => _fireRate = value; }
 
     protected static ObjectPool gameObjectsPool;
 
@@ -20,18 +20,18 @@ public class Attacker : MonoBehaviour
 
     protected virtual void Initialize() {
         if (gameObjectsPool == null)
-            gameObjectsPool = PoolManager.bulletPool;
+            gameObjectsPool = PoolManager.BulletPool;
     }
     protected virtual void Shoot()
     {
-        GameObject obj = gameObjectsPool.GetPooledObjectByTag(bulletTagToShoot);
+        GameObject obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
         
         obj.transform.position = transform.position;
-        obj.GetComponent<Bullet>().Direction = (target.transform.position - obj.transform.position).normalized;
+        obj.GetComponent<Bullet>().Direction = (_target.transform.position - obj.transform.position).normalized;
     }
     protected virtual IEnumerator ShootAccordingToFireRate()
     {
-            yield return new WaitForSeconds(1 / fireRate);
+            yield return new WaitForSeconds(1 / _fireRate);
             Shoot();
     }
 }

@@ -29,7 +29,7 @@ public class Skills : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.CurrentPlayerState == GameManager.PlayerState.Playing)
+        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.CurrentState == GameManager.State.Playing)
         {
             OpenSkillpointMenu();
         }
@@ -47,7 +47,7 @@ public class Skills : MonoBehaviour
     public void OpenSkillpointMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.CurrentPlayerState = GameManager.PlayerState.Paused;
+        GameManager.Instance.CurrentState = GameManager.State.Paused;
         UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
@@ -67,7 +67,7 @@ public class Skills : MonoBehaviour
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeShootgun;
                     _playerWeapon.Railgun.SetActive(false);
                     _playerWeapon.Flamethrower.SetActive(false);
-                    _playerWeapon.Type = Weapon.WeaponType.ShootingWeapon;
+                    _playerWeapon.CurrentType = Weapon.Type.ShootingWeapon;
                     _playerWeapon.SpreadAngle = 90f;
                     _playerWeapon.Damage = 1;
                     break;
@@ -76,14 +76,14 @@ public class Skills : MonoBehaviour
                     _playerWeapon.Source.clip = _playerWeapon.RailgunShotSound;
                     _playerWeapon.Flamethrower.SetActive(false);
                     _playerWeapon.RailgunHolder.SetActive(true);
-                    _playerWeapon.Type = Weapon.WeaponType.ChargingWeapon;
+                    _playerWeapon.CurrentType = Weapon.Type.ChargingWeapon;
                     _playerWeapon.Damage = 1;
                     break;
                 case "Flamethrower":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
                     _playerWeapon.Railgun.SetActive(false);
                     _playerWeapon.Flamethrower.SetActive(true);
-                    _playerWeapon.Type = Weapon.WeaponType.HoldingWeapon;
+                    _playerWeapon.CurrentType = Weapon.Type.HoldingWeapon;
                     _playerWeapon.Damage = 1;
                     break;
                 case "ShotgunSpreadUpgrade":

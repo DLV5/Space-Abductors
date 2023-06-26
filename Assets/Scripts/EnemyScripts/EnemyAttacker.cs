@@ -1,22 +1,24 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class EnemyAttacker : Attacker, IDamageable
 {
-    [SerializeField] protected int health;
-    public int Health { get => health; set => health = value; }
+    [SerializeField] protected int _health;
+    public int Health { get => _health; set => _health = value; }
 
     [SerializeField] protected float _flashTime = 0.25f;
 
     private SpriteRenderer _spriteRenderer;
     private Material _material;
 
-    protected EnemyStates currentState = EnemyStates.FlyingToTheScreen;
-    protected enum EnemyStates
+    protected EnemyBehavior currentState = EnemyBehavior.FlyingToTheScreen;
+    [Flags]
+    protected enum EnemyBehavior
     {
-        FlyingToTheScreen,
-        Attacking,
-        Leaving
+        FlyingToTheScreen = 0,
+        Attacking = 1,
+        Leaving = 2
     }
 
     protected virtual void Awake()

@@ -11,7 +11,7 @@ public class ShootingToPlayerMovingEnemy : MovingEnemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        target = GameObject.FindGameObjectWithTag("Player");
+        _target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(ShootAccordingToFireRate());
         Initialize();
     }
@@ -20,7 +20,7 @@ public class ShootingToPlayerMovingEnemy : MovingEnemy
     {
         while(true)
         {
-            yield return new WaitForSeconds(1 / fireRate);
+            yield return new WaitForSeconds(1 / _fireRate);
             Shoot();
         }
     }

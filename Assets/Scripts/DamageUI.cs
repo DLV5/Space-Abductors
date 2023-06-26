@@ -7,7 +7,7 @@ public class DamageUI : MonoBehaviour
     DamageUI() {
         Instance = this;
     }
-    [SerializeField] private List<GameObject> damageTexts = new List<GameObject>();
+    [SerializeField] private List<GameObject> _damageTexts = new List<GameObject>();
     public void ShowDamageOnEnemy(Vector2 enemyTransform)
     {
         GameObject gameObj = GetDisabledText();
@@ -18,7 +18,7 @@ public class DamageUI : MonoBehaviour
 
     private GameObject GetDisabledText()
     {
-        foreach (GameObject text in damageTexts)
+        foreach (GameObject text in _damageTexts)
         {
             if (!text.gameObject.activeSelf)
             {
