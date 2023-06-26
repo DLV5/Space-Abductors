@@ -47,7 +47,7 @@ public class Skills : MonoBehaviour
     public void OpenSkillpointMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.CurrentPlayerState = GameManager.PlayerState.Paused;
+        GameManager.Instance.SetState(GameManager.PlayerState.Paused);
         UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
@@ -81,6 +81,8 @@ public class Skills : MonoBehaviour
                     break;
                 case "Flamethrower":
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
+                    _playerWeapon.Source.clip = _playerWeapon.FlamethrowerSound;
+                    _playerWeapon.Source.loop = true;
                     _playerWeapon.Railgun.SetActive(false);
                     _playerWeapon.Flamethrower.SetActive(true);
                     _playerWeapon.Type = Weapon.WeaponType.HoldingWeapon;
