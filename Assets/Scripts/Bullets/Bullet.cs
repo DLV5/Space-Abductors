@@ -4,11 +4,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] protected float _speed;
-    public float Speed { get => _speed; set => _speed = value; }
+    public float Speed 
+    { 
+        get => _speed; 
+        set => _speed = value; 
+    }
 
-    public Vector3 Direction;
+    public Vector3 Direction { get; set;}
 
-    public enum BulletTypes
+    public enum BulletType
     {
         NormalBullet,
         PlayerBullet

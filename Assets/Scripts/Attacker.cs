@@ -9,7 +9,11 @@ public class Attacker : MonoBehaviour
 
     [SerializeField] protected float _fireRate = 1;
 
-    public float FireRate { get => _fireRate; set => _fireRate = value; }
+    public float FireRate 
+    { 
+        get => _fireRate;
+        set => _fireRate = value; 
+    }
 
     protected static ObjectPool gameObjectsPool;
 

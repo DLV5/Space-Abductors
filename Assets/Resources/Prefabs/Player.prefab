@@ -5288,8 +5288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb1dd159d086394f8eec8887bc8bd04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanMove: 1
-  speed: 5
+  _speed: 5
 --- !u!114 &580299944375268883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5302,8 +5301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e437a041e7b2848be2e9f180cd33a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  Invincible: 0
   _hpText: {fileID: 0}
 --- !u!114 &1618099115868786696
 MonoBehaviour:
@@ -5317,8 +5314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3973e7f0bf21064a936c301c0cc82ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTagToShoot: PlayerBullet
-  fireRate: 1
+  _bulletTagToShoot: BaseBullet
+  _fireRate: 1
   Flamethrower: {fileID: 909536569826583919}
   Flames: {fileID: 4680157364065290388}
   Railgun: {fileID: 6560807263158165127}
@@ -5327,9 +5324,11 @@ MonoBehaviour:
   Cooldown: 1
   SpreadAngle: 0
   BulletsPerShotgunShot: 6
-  Type: 1
+  CurrentType: 1
   _crosshair: {fileID: 2800000, guid: 1f1b7f4279a40de4791985d59747a8a4, type: 3}
   RailgunShotSound: {fileID: 8300000, guid: 00310b7d7a4ecc6468e114543ef0c920, type: 3}
+  FlamethrowerSound: {fileID: 8300000, guid: c80059caf171afb449a06b1364cac05b, type: 3}
+  PistolShotSound: {fileID: 8300000, guid: dd3707e6c96a8b84aa15c23212a51c9f, type: 3}
   Source: {fileID: -5525532505961141654}
 --- !u!114 &3277618511199326766
 MonoBehaviour:

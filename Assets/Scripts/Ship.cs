@@ -4,13 +4,18 @@ using TMPro;
 
 public class Ship : MonoBehaviour, IDamageable
 {
-    public int Health;
-    public bool Invincible = false;
+    [SerializeField] private int _health = 3;
+    public int Health 
+    {
+        get => _health; 
+        set => _health = value;
+    }
+    public bool IsInvincible { get; set; } = false;
     //public int Damage; where this used?
 
     [SerializeField] private TextMeshProUGUI _hpText;
 
-    private float _flickerDuration = 0.1f;
+    private const float _flickerDuration = 0.1f;
     private float _flickerTimer = 0f;
     private SpriteRenderer _renderer;
 
@@ -26,7 +31,7 @@ public class Ship : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (Invincible)
+        if (IsInvincible)
         {
             Flicker();
         }
@@ -34,10 +39,10 @@ public class Ship : MonoBehaviour, IDamageable
 
     public void Damage(int damage)
     {
-        if (Invincible) 
+        if (IsInvincible) 
             return;
         Health -= damage;
-        Invincible = true;
+        IsInvincible = true;
         StartCoroutine(DisableInvincibilityAfterTime(2f));
         _hpText.text = "HP: " + Health;
         if (Health <= 0)
@@ -63,7 +68,7 @@ public class Ship : MonoBehaviour, IDamageable
     private IEnumerator DisableInvincibilityAfterTime(float invincibilityDuration)
     {
         yield return new WaitForSeconds(invincibilityDuration);
-        Invincible = false;
+        IsInvincible = false;
         _renderer.enabled = true;
     }
 

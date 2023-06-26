@@ -8,11 +8,22 @@ public class PoolManager : MonoBehaviour
     [Serializable]
     private class PoolObject
     {
-        public GameObject ObjectToCopy;
-        public int NumberOfCopies;
+        [SerializeField]private GameObject _objectToCopy;
+        public GameObject ObjectToCopy
+        {
+            get => _objectToCopy;
+            set => _objectToCopy = value;
+        }
+
+        [SerializeField] private int _numberOfCopies;
+        public int NumberOfCopies
+        {
+            get => _numberOfCopies;
+            set => _numberOfCopies = value;
+        }
 
     }
-    public static PoolManager Instance;
+    public static PoolManager Instance { get; private set; }
     PoolManager()
     {
         Instance = this;
@@ -26,7 +37,8 @@ public class PoolManager : MonoBehaviour
 
     void Awake()
     {
-        if (_hasInvoked) return;
+        if (_hasInvoked) 
+            return;
         EnemyPool = new ObjectPool(_enemyPrefabs[0].NumberOfCopies, _enemyPrefabs[0].ObjectToCopy);
         BulletPool = new ObjectPool(_bulletPrefabs[0].NumberOfCopies, _bulletPrefabs[0].ObjectToCopy);
         for (int i = 1; i < _enemyPrefabs.Count; i++)

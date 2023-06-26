@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : Attacker
 {
-    [HideInInspector] public static Weapon Instance;
+    public static Weapon Instance { get; set; }
 
     [Header("Weapon Objects")]
     public GameObject Flamethrower;
@@ -24,13 +24,17 @@ public class Weapon : Attacker
     [SerializeField] private Texture2D _crosshair;
 
     [Header("Audio")]
-    [SerializeField] public AudioClip RailgunShotSound;
-    [SerializeField] public AudioClip FlamethrowerSound;
-    [SerializeField] public AudioClip PistolShotSound;
+    public AudioClip RailgunShotSound;
+    public AudioClip FlamethrowerSound;
+    public AudioClip PistolShotSound;
     public AudioSource Source;
 
     private bool _canShoot = true;
-    public bool CanShoot { get => _canShoot; set => _canShoot = value; }
+    public bool CanShoot 
+    { 
+        get => _canShoot; 
+        set => _canShoot = value; 
+    }
 
     public Action CurrentWeaponAttack;
 

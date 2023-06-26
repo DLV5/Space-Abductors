@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ObjectPool
 {
-    public List<GameObject> Pool;
+    public List<GameObject> Pool { get; private set; }
     private GameObject _prefab;
     public ObjectPool(int initialSize, GameObject prefab)
     {

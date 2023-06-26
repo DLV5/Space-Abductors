@@ -4,8 +4,18 @@ using UnityEngine;
 public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMovingEnemy
 {
     [Header("ShotGun Settings")]
-    public float SpreadAngle;
-    public int BulletsPerShot = 8;
+    [SerializeField] private float _spreadAngle;
+    public float SpreadAngle 
+    {
+        get => _spreadAngle;
+        set => _spreadAngle = value;
+    }
+    [SerializeField] private int _bulletsPerShoot = 8;
+    public int BulletsPerShot
+    {
+        get => _bulletsPerShoot;
+        set => _bulletsPerShoot = value;
+    }
 
 
     protected override void OnEnable()

@@ -172,13 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8084d4397e10a934887c7473f57f47b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTagToShoot: BaseBullet
-  fireRate: 1
-  health: 0
+  _bulletTagToShoot: BaseBullet
+  _fireRate: 1
+  _health: 0
   _flashTime: 0.25
-  verticalMoveSpeed: 5
-  timeBerofeEscape: 5
-  escapeHorizontalSpeed: 0
+  _verticalMoveSpeed: 5
+  _timeBerofeEscape: 5
+  _escapeHorizontalSpeed: 5
 --- !u!95 &6504653974965037279
 Animator:
   serializedVersion: 5

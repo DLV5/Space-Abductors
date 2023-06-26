@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
-    public static Skills Instance;
-    [HideInInspector] public List<string> SkillList = new List<string>();
-    public int SkillPoints = 0;
+    public static Skills Instance { get; set; }
+    public List<string> SkillList { get; set; } = new List<string>();
+    [SerializeField] private int _skillPoints = 0;
+    public int SkillPoints
+    {
+        get => _skillPoints;
+        set => _skillPoints = value;
+    }
     [SerializeField] private TextMeshProUGUI _skillPointMenuText;
     [SerializeField] private Weapon _playerWeapon;
 
@@ -40,7 +45,7 @@ public class Skills : MonoBehaviour
         if (SkillPoints < parameter.Price) 
             return;
         parameter.IsBought = true;
-        SkillList.Add(parameter.SkillName);
+        SkillList.Add(parameter.Name);
         AddSkillpoints(-parameter.Price);
         RefreshSkills();
     }

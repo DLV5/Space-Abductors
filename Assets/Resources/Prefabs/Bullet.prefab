@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 8350575625521098816}
   - component: {fileID: 5743907468560604060}
   - component: {fileID: 3737552164993465529}
-  - component: {fileID: -7379201103690404803}
   m_Layer: 6
-  m_Layer: 0
   m_Name: Bullet
   m_TagString: BaseBullet
   m_Icon: {fileID: 0}
@@ -100,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d5e5557379fca4cb22b0384d299f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  direction: {x: 0, y: 0, z: 0}
+  _speed: 5
 --- !u!58 &3737552164993465529
 CircleCollider2D:
   m_ObjectHideFlags: 0

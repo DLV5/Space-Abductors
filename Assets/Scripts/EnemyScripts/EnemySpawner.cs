@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [Serializable]
     private class EnemySettings
     {
-        [TagSelector] public string EnemyTag;
+        [TagSelector] public string Tag;
 
         [Header("Chance to spawn between 0 and 1")]
         public float ChanceToSpawn;
@@ -32,7 +32,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Gamemode _spawnMode = Gamemode.WaveSpawn;
 
     private static int _enemyCount = 0;
-    public static int EnemyCount { get { return _enemyCount; } set { _enemyCount = value; } }
+    public static int EnemyCount 
+    { 
+        get => _enemyCount; 
+        set => _enemyCount = value;
+    }
     
     public enum Gamemode
     {
@@ -178,7 +182,7 @@ public class EnemySpawner : MonoBehaviour
             cumulativeProbability += obj.ChanceToSpawn / totalProbability;
             if (randomNum < cumulativeProbability)
             {
-                GameObject rez = _enemyObjectPool.GetPooledObjectByTag(obj.EnemyTag);
+                GameObject rez = _enemyObjectPool.GetPooledObjectByTag(obj.Tag);
                 return rez;
             }
         }

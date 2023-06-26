@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
-    public bool CanMove = true;
+    public bool CanMove { get; set; } = true;
 
     [SerializeField] private float _speed = 5.0f;
     private Vector2 _direction;

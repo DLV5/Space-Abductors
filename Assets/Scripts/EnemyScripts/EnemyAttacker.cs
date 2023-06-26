@@ -5,7 +5,11 @@ using UnityEngine;
 public class EnemyAttacker : Attacker, IDamageable
 {
     [SerializeField] protected int _health;
-    public int Health { get => _health; set => _health = value; }
+    public int Health 
+    { 
+        get => _health; 
+        set => _health = value; 
+    }
 
     [SerializeField] protected float _flashTime = 0.25f;
 

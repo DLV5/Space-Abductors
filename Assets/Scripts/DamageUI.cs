@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
-    public static DamageUI Instance;
+    public static DamageUI Instance { get; private set;}
     DamageUI() {
         Instance = this;
     }

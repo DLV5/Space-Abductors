@@ -20,7 +20,7 @@ public class CowStealing : MonoBehaviour
         }
         if (!_movementScript.CanMove)
         {
-            if (!_currentCow.Moving)
+            if (!_currentCow.IsMoving)
             {
                 Destroy(_currentCow.gameObject);
                 Skills.Instance.AddSkillpoints(1);
@@ -41,7 +41,7 @@ public class CowStealing : MonoBehaviour
         if (cow.CompareTag("Cow"))
         {
             _currentCow = cow.gameObject.GetComponent<Cow>();
-            _currentCow.Moving = true;
+            _currentCow.IsMoving = true;
             _movementScript.CanMove = false;
         }
     }

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public State CurrentState;
+    public static GameManager Instance { get; private set;}
+    [SerializeField] private State _currentState;
+    public State CurrentState { get; private set;}
     public enum State
     {
         Paused,
