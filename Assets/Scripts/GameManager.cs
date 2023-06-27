@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             SetState(State.Paused);
-            Weapon.Instance.CanShoot = false;
             UIManager.Instance.PauseMenu.SetActive(true);
         }
     }
@@ -44,10 +43,8 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case State.Paused:
-                Weapon.Instance.enabled = false;
                 break;
             case State.Playing:
-                Weapon.Instance.enabled = true;
                 break;
             case State.Finished:
                 break;

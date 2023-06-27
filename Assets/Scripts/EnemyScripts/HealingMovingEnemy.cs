@@ -16,17 +16,17 @@ public class HealingMovingEnemy : MovingEnemy
 
     }
 
-    protected override IEnumerator ShootAccordingToFireRate()
+    protected virtual IEnumerator ShootAccordingToFireRate()
     {
         while (true)
         {
             StartCoroutine(ChooseRandomEnemy());
             yield return new WaitForSeconds(1 / _fireRate);
-            Shoot();
+            Fire();
         }
     }
 
-    protected override void Shoot()
+    protected override void Fire()
     {
         var obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
         obj.GetComponent<HomingBullet>().Target = _target;

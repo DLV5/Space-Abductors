@@ -8,7 +8,7 @@ public class HomingBullet : Bullet
 
     private void Start()
     {
-        Target = Weapon.Instance.gameObject;
+        //Target = Weapon.Instance.gameObject;
     }
     void Update()
     {

@@ -25,7 +25,7 @@ public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMo
         StartCoroutine(ShootAccordingToFireRate());
         Initialize();
     }
-    protected override void Shoot()
+    protected override void Fire()
     {
         var obj = gameObjectsPool?.GetPooledObjectByTag("ShotGunBullet");
         obj.transform.position = transform.position ;
@@ -40,7 +40,7 @@ public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMo
             yield return new WaitForSeconds(1 / _fireRate);
             for (int i = 0; i < BulletsPerShot; i++)
             {
-                Shoot();
+                Fire();
             }
         }
     }

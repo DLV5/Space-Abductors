@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class EnemyAttacker : Attacker, IDamageable
 {
+    [TagSelector, SerializeField] protected string _bulletTagToShoot;
     protected EnemyBehavior currentState = EnemyBehavior.FlyingToTheScreen;
+    protected static ObjectPool gameObjectsPool;
+
+    protected GameObject _target;
     [SerializeField] protected int _health;
     public int Health 
     { 
         get => _health; 
         set => _health = value; 
+    }
+    public override float FireRate 
+    { 
+        get => _fireRate; 
+        set => _fireRate = value; 
     }
 
     [SerializeField] protected float _flashTime = 0.25f;
@@ -65,18 +74,27 @@ public class EnemyAttacker : Attacker, IDamageable
             yield return null; 
         }
     }
-    protected override void Initialize()
+
+    protected virtual void Initialize()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _material = _spriteRenderer.material;
         _material.SetFloat("_FlashAmount", 0);
     }
 
+    protected override void Fire()
+    {
+        var obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
+
+        obj.transform.position = transform.position;
+        obj.GetComponent<Bullet>().Direction = (_target.transform.position - obj.transform.position).normalized;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            Damage(Weapon.Instance.Damage);
+            //Damage(Weapon.Instance.Damage);
             collision.gameObject.SetActive(false);
         }
         if (collision.CompareTag("HealingBullet"))
@@ -93,6 +111,4 @@ public class EnemyAttacker : Attacker, IDamageable
             Damage(1);
         }
     }
-
-    
 }

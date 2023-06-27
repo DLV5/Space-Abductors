@@ -30,19 +30,19 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
         Initialize();
     }
 
-    protected override void Shoot()
+    protected override void Fire()
     {
         var obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
 
         obj.transform.position = transform.position;
         obj.GetComponent<Bullet>().Direction = -direction;
     }
-    protected override IEnumerator ShootAccordingToFireRate()
+    protected virtual IEnumerator ShootAccordingToFireRate()
     {
         while (true)
         {
             yield return new WaitForSeconds(1 / _fireRate);
-            Shoot();
+            Fire();
         }
     }
 

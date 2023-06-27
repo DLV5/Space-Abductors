@@ -74,47 +74,47 @@ public class Skills : MonoBehaviour
 
     public void RefreshSkills()
     {
-        var instance = Weapon.Instance;
-        foreach (var skill in SkillList)
-        {
-            switch (skill) // Add a string here for every new weapon skill
-            {
-                case Skill.Shotgun:
-                    instance.CurrentWeaponAttack = instance.ShootLikeShootgun;
-                    instance.Source.clip = instance.ShotgunSound;
-                    instance.Railgun.SetActive(false);
-                    instance.Flamethrower.SetActive(false);
-                    instance.CurrentType = Weapon.Type.ShootingWeapon;
-                    instance.SpreadAngle = 90f;
-                    instance.Damage = 1;
-                    break;
-                case Skill.Railgun:
-                    instance.CurrentWeaponAttack = instance.ShootLikeRailgun;
-                    instance.Source.clip = instance.RailgunShotSound;
-                    instance.Flamethrower.SetActive(false);
-                    instance.RailgunHolder.SetActive(true);
-                    instance.CurrentType = Weapon.Type.ChargingWeapon;
-                    instance.Damage = 1;
-                    break;
-                case Skill.Flamethrower:
-                    instance.CurrentWeaponAttack = instance.ShootLikeFlamethrower;
-                    instance.Source.clip = instance.FlamethrowerSound;
-                    instance.Source.loop = true;
-                    instance.Railgun.SetActive(false);
-                    instance.Flamethrower.SetActive(true);
-                    instance.CurrentType = Weapon.Type.HoldingWeapon;
-                    instance.Damage = 1;
-                    break;
-                case Skill.ShotgunSpreadUpgrade:
-                    break;
-                case Skill.ShotgunNumberUpgrade:
-                    break;
-                case Skill.ShotgunDamageUpgrade:
-                    break;
-                case Skill.ShotgunCooldownUpgrade:
-                    break;
-                default: break;
-            }
-        }
+        //var instance = Weapon.Instance;
+        //foreach (var skill in SkillList)
+        //{
+        //    switch (skill) // Add a string here for every new weapon skill
+        //    {
+        //        case Skill.Shotgun:
+        //            instance.CurrentWeaponAttack = instance.ShootLikeShootgun;
+        //            instance.Source.clip = instance.ShotgunSound;
+        //            instance.Railgun.SetActive(false);
+        //            instance.Flamethrower.SetActive(false);
+        //            instance.CurrentType = Weapon.Type.ShootingWeapon;
+        //            instance.SpreadAngle = 90f;
+        //            instance.Damage = 1;
+        //            break;
+        //        case Skill.Railgun:
+        //            instance.CurrentWeaponAttack = instance.ShootLikeRailgun;
+        //            instance.Source.clip = instance.RailgunShotSound;
+        //            instance.Flamethrower.SetActive(false);
+        //            instance.RailgunHolder.SetActive(true);
+        //            instance.CurrentType = Weapon.Type.ChargingWeapon;
+        //            instance.Damage = 1;
+        //            break;
+        //        case Skill.Flamethrower:
+        //            instance.CurrentWeaponAttack = instance.ShootLikeFlamethrower;
+        //            instance.Source.clip = instance.FlamethrowerSound;
+        //            instance.Source.loop = true;
+        //            instance.Railgun.SetActive(false);
+        //            instance.Flamethrower.SetActive(true);
+        //            instance.CurrentType = Weapon.Type.HoldingWeapon;
+        //            instance.Damage = 1;
+        //            break;
+        //        case Skill.ShotgunSpreadUpgrade:
+        //            break;
+        //        case Skill.ShotgunNumberUpgrade:
+        //            break;
+        //        case Skill.ShotgunDamageUpgrade:
+        //            break;
+        //        case Skill.ShotgunCooldownUpgrade:
+        //            break;
+        //        default: break;
+        //    }
+        //}
     }
 }

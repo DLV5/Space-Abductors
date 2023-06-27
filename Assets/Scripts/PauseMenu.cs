@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         GameManager.Instance.SetState(GameManager.State.Playing);
-        Weapon.Instance.CanShoot = true;
+        //StartCoroutine(Weapon.Instance.EnterCooldown());
         gameObject.SetActive(false);
     }
 }

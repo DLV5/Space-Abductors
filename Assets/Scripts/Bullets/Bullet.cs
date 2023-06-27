@@ -11,18 +11,23 @@ public class Bullet : MonoBehaviour
     }
     public Vector3 Direction { get; set;}
 
-    public enum BulletType
+    private void FixedUpdate()
     {
-        NormalBullet,
-        PlayerBullet
+        Move();
     }
-    protected void OnLevelWasLoaded(int level)
+
+    private void OnLevelWasLoaded(int level)
     {
         gameObject.SetActive(false);
     }
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
          StartCoroutine(CheckIsInTheBoundOfTheScreen());       
+    }
+
+    protected virtual void Move()
+    {
+        transform.position += _speed * Time.deltaTime * Direction;
     }
     private IEnumerator CheckIsInTheBoundOfTheScreen()
     {

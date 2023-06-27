@@ -16,12 +16,12 @@ public class ShootingToPlayerMovingEnemy : MovingEnemy
         Initialize();
     }
 
-    protected override IEnumerator ShootAccordingToFireRate()
+    protected virtual IEnumerator ShootAccordingToFireRate()
     {
         while(true)
         {
             yield return new WaitForSeconds(1 / _fireRate);
-            Shoot();
+            Fire();
         }
     }
 }

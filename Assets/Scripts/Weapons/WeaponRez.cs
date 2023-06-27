@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Weapon : Attacker
+public class WeaponRez : Attacker
 {
-    public static Weapon Instance { get; set; }
+    public static WeaponRez Instance { get; set; }
 
     [Header("Weapon Objects")]
     public GameObject Flamethrower;
@@ -36,6 +36,7 @@ public class Weapon : Attacker
         get => _canShoot; 
         set => _canShoot = value; 
     }
+    public override float FireRate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public Action CurrentWeaponAttack;
 
@@ -62,17 +63,17 @@ public class Weapon : Attacker
         Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
-    protected override void Start()
+    protected virtual void Start()
     {
         if (Skills.Instance.SkillList.Count <= 0)
         {
-            CurrentWeaponAttack = Shoot;
+            CurrentWeaponAttack = Fire;
         }
         else
         {
             Skills.Instance.RefreshSkills();
         }
-        base.Start();
+        //base.Start();
         _flameCollider = Flamethrower.GetComponent<Collider2D>();
     }
 
@@ -141,7 +142,7 @@ public class Weapon : Attacker
     {
         for (int i = 0; i < BulletsPerShotgunShot; ++i)
         {
-            Shoot();
+            Fire();
         }
     }
 
@@ -175,18 +176,25 @@ public class Weapon : Attacker
         _flameCollider.enabled = true;
     }
 
-    protected override void Shoot()
+    public IEnumerator EnterCooldown()
     {
-        var obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
-        obj.transform.position = transform.position;
-        var spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
-        var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-        obj.GetComponent<Bullet>().Direction = target.normalized;
+        CanShoot = false;
+        yield return new WaitForSeconds(Cooldown);
+        CanShoot = true;
+    }
+
+    protected override void Fire()
+    {
+    //    var obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
+    //    obj.transform.position = transform.position;
+    //    var spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
+    //    var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+    //    obj.GetComponent<Bullet>().Direction = target.normalized;
     }
 
     private void InputHandler_PressingShootButton()
     {
-        if (CurrentType == Type.ShootingWeapon && !_canShoot)
+        if (CurrentType != Type.ShootingWeapon || !_canShoot)
             return;
 
         Source.Play();
@@ -197,12 +205,12 @@ public class Weapon : Attacker
 
     private void InputHandler_HoldingShootButton()
     {
-        if (CurrentType != Type.ChargingWeapon)
+        if (CurrentType != Type.ChargingWeapon || !_canShoot)
             return;
 
         Debug.Log("Railgun holded");
         Railgun.SetActive(true);
-        //StartCoroutine(EnterCooldown());
+        StartCoroutine(EnterCooldown());
     }
 
     private void InputHandler_ReleasingShootButton()
@@ -225,10 +233,4 @@ public class Weapon : Attacker
         }            
     }
 
-    private IEnumerator EnterCooldown()
-    {
-        CanShoot = false;
-        yield return new WaitForSeconds(Cooldown);
-        CanShoot = true;
-    }
 }
