@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 19a0eddf775f2da4e8e83950c20879d6
+guid: 665a6ddebea07b44593cdea0431ffbe5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e20acfedfb24e94d951548fbc051eba
-      internalID: 83768666
+      spriteID: d890043ef0a9a6c42969d35ea5c67bb7
+      internalID: 2143065750
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a29b3d6240a45364bbb6d777b9ecbfbb
-      internalID: -1594494390
+      spriteID: a653bec9b0826304ead4dc984b803985
+      internalID: -680266741
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cow-anim_0: 83768666
-      cow-anim_1: -1594494390
+      cow-anim_0: 2143065750
+      cow-anim_1: -680266741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
