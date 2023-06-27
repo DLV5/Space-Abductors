@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SkillParameter : MonoBehaviour
 {
-    [SerializeField] private string _name;
-    public string Name
+    [SerializeField] private Skill _name;
+    public Skill Name
     {
         get => _name;
         private set => _name = value;

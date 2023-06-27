@@ -75,50 +75,64 @@ public class Weapon : Attacker
         _flameCollider = Flamethrower.GetComponent<Collider2D>();
     }
 
+    private void OnEnable()
+    {
+        InputHandler.PressingShootButton += InputHandler_PressingShootButton;
+        InputHandler.HoldingShootButton += InputHandler_HoldingShootButton;
+        InputHandler.ReleasingShootButton += InputHandler_ReleasingShootButton;
+    }
+
+    private void OnDisable()
+    {
+        InputHandler.PressingShootButton -= InputHandler_PressingShootButton;
+        InputHandler.HoldingShootButton -= InputHandler_HoldingShootButton;
+        InputHandler.ReleasingShootButton -= InputHandler_ReleasingShootButton;
+    }
+
     private void Update()
     {
-        switch (CurrentType)
-        {
-            case Type.ShootingWeapon:
-                if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
-                {
-                    Source.Play();
-                    CurrentWeaponAttack();
-                    CanShoot = false;
-                    StartCoroutine(EnterCooldown());
-                }
-                break;
+        //switch (CurrentType)
+        //{
+        //    case Type.ShootingWeapon:
+        //        if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
+        //        {
+        //            Source.Play();
+        //            CurrentWeaponAttack();
+        //            CanShoot = false;
+        //            StartCoroutine(EnterCooldown());
+        //        }
+        //        break;
 
-            case Type.ChargingWeapon:
-                if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
-                {
-                    Railgun.SetActive(true);
-                }
-                if (Input.GetKeyUp(KeyCode.Mouse0))
-                {
-                    _animator.SetTrigger("IsReleased");
-                    Source.Play();
-                    CurrentWeaponAttack();
-                }
-                break;
-            case Type.HoldingWeapon:
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    if (!Source.isPlaying)
-                    {
-                        Source.Play();
-                    }
-                    CurrentWeaponAttack();
-                }
-                if (Input.GetKeyUp(KeyCode.Mouse0))
-                {
-                    Source.Stop();
-                    _flameCollider.enabled = false;
-                    Flames.Stop();
-                }
-                break;
-            default: break;
-        }
+        //    case Type.ChargingWeapon:
+        //        if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
+        //        {
+        //            Railgun.SetActive(true);
+        //        }
+        //        if (Input.GetKeyUp(KeyCode.Mouse0))
+        //        {
+        //            _animator.SetTrigger("IsReleased");
+        //            Source.Play();
+        //            CurrentWeaponAttack();
+        //        }
+        //        break;
+        //    case Type.HoldingWeapon:
+        //        if (Input.GetKeyDown(KeyCode.Mouse0))
+        //        {
+        //            if (!Source.isPlaying)
+        //            {
+        //                Source.Play();
+        //            }
+        //            CurrentWeaponAttack();
+        //        }
+        //        if (Input.GetKeyUp(KeyCode.Mouse0))
+        //        {
+        //            Source.Stop();
+        //            _flameCollider.enabled = false;
+        //            Flames.Stop();
+        //        }
+        //        break;
+        //    default: break;
+        //}
         
     }
 
@@ -169,8 +183,50 @@ public class Weapon : Attacker
         obj.GetComponent<Bullet>().Direction = target.normalized;
     }
 
+    private void InputHandler_PressingShootButton()
+    {
+        if (CurrentType == Type.ShootingWeapon && !_canShoot)
+            return;
+
+        Source.Play();
+        CurrentWeaponAttack();
+        StartCoroutine(EnterCooldown());
+        
+    }
+
+    private void InputHandler_HoldingShootButton()
+    {
+        if (CurrentType != Type.ChargingWeapon)
+            return;
+
+        Debug.Log("Railgun holded");
+        Railgun.SetActive(true);
+        //StartCoroutine(EnterCooldown());
+    }
+
+    private void InputHandler_ReleasingShootButton()
+    {
+        switch (CurrentType)
+        {
+            case Type.ShootingWeapon:
+                break;
+            case Type.ChargingWeapon:
+                Debug.Log("Railgun released");
+                _animator.SetTrigger("IsReleased");
+                Source.Play();
+                CurrentWeaponAttack();
+                break;
+            case Type.HoldingWeapon:
+                Source.Stop();
+                _flameCollider.enabled = false;
+                Flames.Stop();
+                break;
+        }            
+    }
+
     private IEnumerator EnterCooldown()
     {
+        CanShoot = false;
         yield return new WaitForSeconds(Cooldown);
         CanShoot = true;
     }

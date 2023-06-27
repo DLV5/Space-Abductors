@@ -2,10 +2,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+public enum Skill
+{
+    Shotgun,
+    Railgun,
+    Flamethrower,
+    ShotgunSpreadUpgrade,
+    ShotgunNumberUpgrade,
+    ShotgunDamageUpgrade,
+    ShotgunCooldownUpgrade
+}
 public class Skills : MonoBehaviour
 {
     public static Skills Instance { get; set; }
-    public List<string> SkillList { get; set; } = new List<string>();
+    public List<Skill> SkillList { get; set; } = new List<Skill>();
     [SerializeField] private int _skillPoints = 0;
     public int SkillPoints
     {
@@ -65,11 +75,11 @@ public class Skills : MonoBehaviour
 
     public void RefreshSkills()
     {
-        foreach (string skill in SkillList)
+        foreach (var skill in SkillList)
         {
             switch (skill) // Add a string here for every new weapon skill
             {
-                case "Shotgun":
+                case Skill.Shotgun:
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeShootgun;
                     _playerWeapon.Railgun.SetActive(false);
                     _playerWeapon.Flamethrower.SetActive(false);
@@ -77,7 +87,7 @@ public class Skills : MonoBehaviour
                     _playerWeapon.SpreadAngle = 90f;
                     _playerWeapon.Damage = 1;
                     break;
-                case "Railgun":
+                case Skill.Railgun:
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeRailgun;
                     _playerWeapon.Source.clip = _playerWeapon.RailgunShotSound;
                     _playerWeapon.Flamethrower.SetActive(false);
@@ -85,7 +95,7 @@ public class Skills : MonoBehaviour
                     _playerWeapon.CurrentType = Weapon.Type.ChargingWeapon;
                     _playerWeapon.Damage = 1;
                     break;
-                case "Flamethrower":
+                case Skill.Flamethrower:
                     _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
                     _playerWeapon.Source.clip = _playerWeapon.FlamethrowerSound;
                     _playerWeapon.Source.loop = true;
@@ -94,16 +104,16 @@ public class Skills : MonoBehaviour
                     _playerWeapon.CurrentType = Weapon.Type.HoldingWeapon;
                     _playerWeapon.Damage = 1;
                     break;
-                case "ShotgunSpreadUpgrade":
+                case Skill.ShotgunSpreadUpgrade:
                     _playerWeapon.SpreadAngle = 40f;
                     break;
-                case "ShotgunNumberUpgrade":
+                case Skill.ShotgunNumberUpgrade:
                     _playerWeapon.BulletsPerShotgunShot = 10;
                     break;
-                case "ShotgunDamageUpgrade":
+                case Skill.ShotgunDamageUpgrade:
                     _playerWeapon.Damage = 2;
                     break;
-                case "ShotgunCooldownUpgrade":
+                case Skill.ShotgunCooldownUpgrade:
                     _playerWeapon.Cooldown = 0.5f;
                     break;
                 default: break;

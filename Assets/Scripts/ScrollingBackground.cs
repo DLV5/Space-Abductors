@@ -3,7 +3,7 @@ using UnityEngine;
 public class ScrollingBackground : MonoBehaviour
 {
     [SerializeField] private float _scrollSpeed;
-    [SerializeField] private float _resetPointX;
+    private const float _resetPointX = -7.92f;
     private Vector2 _startingPosition;
 
     private void Start()

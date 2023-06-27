@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702bfe1127340d84ea4481d490227da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: 
-  price: 0
+  _name: 0
+  _price: 0
 --- !u!114 &9161567270907569437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,13 +162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd634670b26696418332cce04fcc1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCostText: {fileID: 322849286359073773}
-  skillBuyButton: {fileID: 3555697843038468058}
-  nextBranchesTreeToActivate:
-  - {fileID: 0}
-  nextBranchesTreeToDeactivate:
-  - {fileID: 0}
-  boughtSkillImage: {fileID: 8563549123706489243}
+  _skillCostText: {fileID: 322849286359073773}
+  _skillBuyButton: {fileID: 3555697843038468058}
+  _nextBranchesTreeToActivate: []
+  _nextBranchesTreeToDeactivate: []
+  _boughtSkillImage: {fileID: 8563549123706489243}
 --- !u!1 &2102846008922867047
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +777,7 @@ GameObject:
   - component: {fileID: 5083628024916759330}
   - component: {fileID: 322849286359073773}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SkillCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
