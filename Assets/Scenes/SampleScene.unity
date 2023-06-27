@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 62771768}
   - component: {fileID: 62771769}
   - component: {fileID: 62771770}
+  - component: {fileID: 62771771}
   m_Layer: 0
   m_Name: city_bg
   m_TagString: Untagged
@@ -576,6 +577,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollSpeed: 0.5
   resetPointX: -7.92
+--- !u!95 &62771771
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62771767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a903d53740f5be64eac0356d52b184fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &81050632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,15 +2478,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -1.5
     y: 0
-    width: 1
-    height: 1
+    width: 3
+    height: 0
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 0
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
