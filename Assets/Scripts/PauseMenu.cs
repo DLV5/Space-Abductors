@@ -5,7 +5,8 @@ public class PauseMenu : MonoBehaviour
     public void Continue()
     {
         Time.timeScale = 1.0f;
-        GameManager.Instance.CurrentPlayerState = GameManager.PlayerState.Playing;
+        GameManager.Instance.SetState(GameManager.PlayerState.Playing);
+        Weapon.Instance.canShoot = true;
         gameObject.SetActive(false);
     }
 

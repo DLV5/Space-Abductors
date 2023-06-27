@@ -6,6 +6,7 @@ public class Weapon : Attacker
 {
     [HideInInspector] public static Weapon Instance;
 
+    [Header("Weapon Objects")]
     public GameObject Flamethrower;
     public ParticleSystem Flames;
     public GameObject Railgun;
@@ -13,6 +14,7 @@ public class Weapon : Attacker
     private Collider2D _flameCollider;
     private Animator animator;
 
+    [Header("Stats")]
     public int Damage;
     public float Cooldown = 1;
     public float SpreadAngle;
@@ -22,11 +24,12 @@ public class Weapon : Attacker
     [SerializeField] private Texture2D _crosshair;
     [Header("Audio")]
     [SerializeField] public AudioClip RailgunShotSound;
+    [SerializeField] public AudioClip FlamethrowerSound;
     [SerializeField] public AudioClip PistolShotSound;
     public AudioSource Source;
 
 
-    private bool _canShoot = true;
+    public bool canShoot = true;
 
     public Action CurrentWeaponAttack;
 
@@ -72,17 +75,17 @@ public class Weapon : Attacker
         switch (Type)
         {
             case WeaponType.ShootingWeapon:
-                if (Input.GetKey(KeyCode.Mouse0) && _canShoot)
+                if (Input.GetKey(KeyCode.Mouse0) && canShoot)
                 {
                     Source.Play();
                     CurrentWeaponAttack();
-                    _canShoot = false;
+                    canShoot = false;
                     StartCoroutine(EnterCooldown());
                 }
                 break;
 
             case WeaponType.ChargingWeapon:
-                if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
+                if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
                 {
                     Railgun.SetActive(true);
                 }
@@ -96,10 +99,13 @@ public class Weapon : Attacker
             case WeaponType.HoldingWeapon:
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
+                    if (!Source.isPlaying)
+                        Source.Play();
                     CurrentWeaponAttack();
                 }
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
+                    Source.Stop();
                     _flameCollider.enabled = false;
                     Flames.Stop();
                 }
@@ -158,6 +164,6 @@ public class Weapon : Attacker
     private IEnumerator EnterCooldown()
     {
         yield return new WaitForSeconds(Cooldown);
-        _canShoot = true;
+        canShoot = true;
     }
 }

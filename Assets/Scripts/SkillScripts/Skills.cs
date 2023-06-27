@@ -8,7 +8,6 @@ public class Skills : MonoBehaviour
     [HideInInspector] public List<string> SkillList = new List<string>();
     public int SkillPoints = 0;
     [SerializeField] private TextMeshProUGUI _skillPointMenuText;
-    [SerializeField] private Weapon _playerWeapon;
 
     private void Awake()
     {
@@ -47,7 +46,7 @@ public class Skills : MonoBehaviour
     public void OpenSkillpointMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.CurrentPlayerState = GameManager.PlayerState.Paused;
+        GameManager.Instance.SetState(GameManager.PlayerState.Paused);
         UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
@@ -59,44 +58,47 @@ public class Skills : MonoBehaviour
 
     public void RefreshSkills()
     {
+        var instance = Weapon.Instance;
         foreach (string skill in SkillList)
         {
             switch (skill) // Add a string here for every new weapon skill
             {
                 case "Shotgun":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeShootgun;
-                    _playerWeapon.Railgun.SetActive(false);
-                    _playerWeapon.Flamethrower.SetActive(false);
-                    _playerWeapon.Type = Weapon.WeaponType.ShootingWeapon;
-                    _playerWeapon.SpreadAngle = 90f;
-                    _playerWeapon.Damage = 1;
+                    instance.CurrentWeaponAttack = instance.ShootLikeShootgun;
+                    instance.Railgun.SetActive(false);
+                    instance.Flamethrower.SetActive(false);
+                    instance.Type = Weapon.WeaponType.ShootingWeapon;
+                    instance.SpreadAngle = 90f;
+                    instance.Damage = 1;
                     break;
                 case "Railgun":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeRailgun;
-                    _playerWeapon.Source.clip = _playerWeapon.RailgunShotSound;
-                    _playerWeapon.Flamethrower.SetActive(false);
-                    _playerWeapon.RailgunHolder.SetActive(true);
-                    _playerWeapon.Type = Weapon.WeaponType.ChargingWeapon;
-                    _playerWeapon.Damage = 1;
+                    instance.CurrentWeaponAttack = instance.ShootLikeRailgun;
+                    instance.Source.clip = instance.RailgunShotSound;
+                    instance.Flamethrower.SetActive(false);
+                    instance.RailgunHolder.SetActive(true);
+                    instance.Type = Weapon.WeaponType.ChargingWeapon;
+                    instance.Damage = 1;
                     break;
                 case "Flamethrower":
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
-                    _playerWeapon.Railgun.SetActive(false);
-                    _playerWeapon.Flamethrower.SetActive(true);
-                    _playerWeapon.Type = Weapon.WeaponType.HoldingWeapon;
-                    _playerWeapon.Damage = 1;
+                    instance.CurrentWeaponAttack = instance.ShootLikeFlamethrower;
+                    instance.Source.clip = instance.FlamethrowerSound;
+                    instance.Source.loop = true;
+                    instance.Railgun.SetActive(false);
+                    instance.Flamethrower.SetActive(true);
+                    instance.Type = Weapon.WeaponType.HoldingWeapon;
+                    instance.Damage = 1;
                     break;
                 case "ShotgunSpreadUpgrade":
-                    _playerWeapon.SpreadAngle = 40f;
+                    instance.SpreadAngle = 40f;
                     break;
                 case "ShotgunNumberUpgrade":
-                    _playerWeapon.BulletsPerShotgunShot = 10;
+                    instance.BulletsPerShotgunShot = 10;
                     break;
                 case "ShotgunDamageUpgrade":
-                    _playerWeapon.Damage = 2;
+                    instance.Damage = 2;
                     break;
                 case "ShotgunCooldownUpgrade":
-                    _playerWeapon.Cooldown = 0.5f;
+                    instance.Cooldown = 0.5f;
                     break;
                 default: break;
             }
