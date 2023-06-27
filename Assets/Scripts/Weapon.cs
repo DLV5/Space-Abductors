@@ -27,6 +27,7 @@ public class Weapon : Attacker
     public AudioClip RailgunShotSound;
     public AudioClip FlamethrowerSound;
     public AudioClip PistolShotSound;
+    public AudioClip ShotgunSound;
     public AudioSource Source;
 
     private bool _canShoot = true;

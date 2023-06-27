@@ -23,7 +23,6 @@ public class Skills : MonoBehaviour
         set => _skillPoints = value;
     }
     [SerializeField] private TextMeshProUGUI _skillPointMenuText;
-    [SerializeField] private Weapon _playerWeapon;
 
     private void Awake()
     {
@@ -75,46 +74,44 @@ public class Skills : MonoBehaviour
 
     public void RefreshSkills()
     {
+        var instance = Weapon.Instance;
         foreach (var skill in SkillList)
         {
             switch (skill) // Add a string here for every new weapon skill
             {
                 case Skill.Shotgun:
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeShootgun;
-                    _playerWeapon.Railgun.SetActive(false);
-                    _playerWeapon.Flamethrower.SetActive(false);
-                    _playerWeapon.CurrentType = Weapon.Type.ShootingWeapon;
-                    _playerWeapon.SpreadAngle = 90f;
-                    _playerWeapon.Damage = 1;
+                    instance.CurrentWeaponAttack = instance.ShootLikeShootgun;
+                    instance.Source.clip = instance.ShotgunSound;
+                    instance.Railgun.SetActive(false);
+                    instance.Flamethrower.SetActive(false);
+                    instance.CurrentType = Weapon.Type.ShootingWeapon;
+                    instance.SpreadAngle = 90f;
+                    instance.Damage = 1;
                     break;
                 case Skill.Railgun:
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeRailgun;
-                    _playerWeapon.Source.clip = _playerWeapon.RailgunShotSound;
-                    _playerWeapon.Flamethrower.SetActive(false);
-                    _playerWeapon.RailgunHolder.SetActive(true);
-                    _playerWeapon.CurrentType = Weapon.Type.ChargingWeapon;
-                    _playerWeapon.Damage = 1;
+                    instance.CurrentWeaponAttack = instance.ShootLikeRailgun;
+                    instance.Source.clip = instance.RailgunShotSound;
+                    instance.Flamethrower.SetActive(false);
+                    instance.RailgunHolder.SetActive(true);
+                    instance.CurrentType = Weapon.Type.ChargingWeapon;
+                    instance.Damage = 1;
                     break;
                 case Skill.Flamethrower:
-                    _playerWeapon.CurrentWeaponAttack = _playerWeapon.ShootLikeFlamethrower;
-                    _playerWeapon.Source.clip = _playerWeapon.FlamethrowerSound;
-                    _playerWeapon.Source.loop = true;
-                    _playerWeapon.Railgun.SetActive(false);
-                    _playerWeapon.Flamethrower.SetActive(true);
-                    _playerWeapon.CurrentType = Weapon.Type.HoldingWeapon;
-                    _playerWeapon.Damage = 1;
+                    instance.CurrentWeaponAttack = instance.ShootLikeFlamethrower;
+                    instance.Source.clip = instance.FlamethrowerSound;
+                    instance.Source.loop = true;
+                    instance.Railgun.SetActive(false);
+                    instance.Flamethrower.SetActive(true);
+                    instance.CurrentType = Weapon.Type.HoldingWeapon;
+                    instance.Damage = 1;
                     break;
                 case Skill.ShotgunSpreadUpgrade:
-                    _playerWeapon.SpreadAngle = 40f;
                     break;
                 case Skill.ShotgunNumberUpgrade:
-                    _playerWeapon.BulletsPerShotgunShot = 10;
                     break;
                 case Skill.ShotgunDamageUpgrade:
-                    _playerWeapon.Damage = 2;
                     break;
                 case Skill.ShotgunCooldownUpgrade:
-                    _playerWeapon.Cooldown = 0.5f;
                     break;
                 default: break;
             }
