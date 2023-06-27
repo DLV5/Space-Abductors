@@ -65,6 +65,7 @@ public class Skills : MonoBehaviour
             {
                 case "Shotgun":
                     instance.CurrentWeaponAttack = instance.ShootLikeShootgun;
+                    instance.Source.clip = instance.ShotgunSound;
                     instance.Railgun.SetActive(false);
                     instance.Flamethrower.SetActive(false);
                     instance.Type = Weapon.WeaponType.ShootingWeapon;

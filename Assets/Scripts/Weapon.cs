@@ -24,6 +24,7 @@ public class Weapon : Attacker
     [SerializeField] private Texture2D _crosshair;
     [Header("Audio")]
     [SerializeField] public AudioClip RailgunShotSound;
+    public AudioClip ShotgunSound;
     [SerializeField] public AudioClip FlamethrowerSound;
     [SerializeField] public AudioClip PistolShotSound;
     public AudioSource Source;
