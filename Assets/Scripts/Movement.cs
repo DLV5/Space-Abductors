@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
@@ -17,11 +18,10 @@ public class Movement : MonoBehaviour
         _maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (CanMove)
-        {
-            _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        {            
             transform.position += (Vector3)_direction * _speed * Time.deltaTime;
         }
 
@@ -43,4 +43,9 @@ public class Movement : MonoBehaviour
             transform.position = new Vector2(transform.position.x, _minScreenBounds.y);
         }
     }
+
+    private void OnMove(InputValue inputValue) {
+        _direction = inputValue.Get<Vector2>();
+    }
+
 }

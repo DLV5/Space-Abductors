@@ -29,7 +29,7 @@ public class InputHandler : MonoBehaviour
         HoldingShootButton?.Invoke();
     }
 
-    private void OnReleasingShootButton( InputAction.CallbackContext context)
+    private void OnReleasingShootButton(InputAction.CallbackContext context)
     {
         context.ReadValueAsButton();
         ReleasingShootButton?.Invoke();

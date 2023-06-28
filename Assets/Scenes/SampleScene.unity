@@ -13928,6 +13928,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7848225479523271666, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
       insertIndex: 7
       addedObject: {fileID: 15310491815541754}
+    - targetCorrespondingSourceObject: {fileID: 7848225479523271666, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 15310491815541765}
   m_SourcePrefab: {fileID: 100100000, guid: deeeca7adffab084388c8d09f800a6e2, type: 3}
 --- !u!1 &15310491815541753 stripped
 GameObject:
@@ -13941,12 +13944,42 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15310491815541753}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a08ea06ca288d3d4dbf65faa3dbe65a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRate: 1
   _bulletTagToShoot: ShotgunPlayerBullet
-  _spreadAngle: 0
+  _spreadAngle: 155
   _bulletsPerShotgunShot: 6
+--- !u!114 &15310491815541765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15310491815541753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e6e245fc58f1c9f4ca14f9516a3ea368, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
