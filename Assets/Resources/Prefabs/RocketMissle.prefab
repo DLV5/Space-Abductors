@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3737552164993465529}
   - component: {fileID: 7806008467085087573}
   - component: {fileID: 2715814844760223083}
+  - component: {fileID: 9013369931825349144}
   m_Layer: 6
   m_Name: RocketMissle
   m_TagString: RocketMissle
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5bd3ad8c48101941811ca534c80f088, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1130194704, guid: cecda3189d335ae4d9fe229e02439453, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,10 +136,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  direction: {x: 0, y: 0, z: 0}
-  rotateSpeed: 200
-  target: {fileID: 0}
-  rb: {fileID: 2715814844760223083}
+  Direction: {x: 0, y: 0, z: 0}
+  RotateSpeed: 200
+  Target: {fileID: 0}
+  Rb: {fileID: 0}
 --- !u!50 &2715814844760223083
 Rigidbody2D:
   serializedVersion: 4
@@ -166,3 +167,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &9013369931825349144
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392131622389291262}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d9d3b8834efe1f4fb461ab86570e8cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
