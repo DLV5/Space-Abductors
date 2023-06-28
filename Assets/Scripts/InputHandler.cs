@@ -11,21 +11,29 @@ public class InputHandler : MonoBehaviour
     public static event Action ReleasingShootButton;
 
     private void Start()
-    {
-        _playerInput.actions["Shoot"].performed += OnPressingShootButton;
-        _playerInput.actions["ShootHolding"].performed += OnHoldingShootButton;
+    {      
         _playerInput.actions["ShootHolding"].canceled += OnReleasingShootButton;
     }
 
-    private void OnPressingShootButton(InputAction.CallbackContext context)
+    private void Update()
     {
-        context.ReadValueAsButton();
+        if (_playerInput.actions["Shoot"].IsPressed())
+        {
+            OnPressingShootButton();
+        }
+        if (_playerInput.actions["ShootHolding"].IsInProgress())
+        {
+            OnHoldingShootButton();
+        }
+    }
+
+    private void OnPressingShootButton()
+    {
         PressingShootButton?.Invoke();
     }
 
-    private void OnHoldingShootButton(InputAction.CallbackContext context)
+    private void OnHoldingShootButton()
     {
-        context.ReadValueAsButton();
         HoldingShootButton?.Invoke();
     }
 

@@ -4,6 +4,8 @@ public class PistolWeapon : Weapon
 {
     protected static ObjectPool _gameObjectsPool;
 
+    protected Transform _firePoint;
+
     [TagSelector, SerializeField] protected string _bulletTagToShoot;
     [SerializeField, Range(0, 360)] protected float _spreadAngle;
     public float SpreadAngle 
@@ -21,6 +23,8 @@ public class PistolWeapon : Weapon
     protected override void Awake()
     {
         base.Awake();
+        //GameObject has only one child and it will be muzzle point
+        _firePoint = gameObject.transform.GetChild(0);
         PlayerBullet.FirePoint = _firePoint;
     }
 

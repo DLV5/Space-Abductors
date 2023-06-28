@@ -92,7 +92,7 @@ public class EnemyAttacker : Attacker, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerBullet"))
+        if (collision.tag.Contains("PlayerB"))
         {
             //Damage(Weapon.Instance.Damage);
             collision.gameObject.SetActive(false);

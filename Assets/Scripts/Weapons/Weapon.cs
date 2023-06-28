@@ -5,7 +5,6 @@ using UnityEngine;
 public class Weapon : Attacker
 {
     [Tooltip("Position of muzzle, it should be child of that gameobject")]
-    [SerializeField] protected Transform _firePoint;
 
     public override float FireRate 
     { 
@@ -38,12 +37,6 @@ public class Weapon : Attacker
     protected virtual void Awake()
     {
         Shooted += OnShooted;
-    }
-
-    private void Start()
-    {
-        //GameObject has only one child and it will be muzzle point
-        _firePoint = gameObject.transform.GetChild(0);
     }
 
     private void OnShooted()
