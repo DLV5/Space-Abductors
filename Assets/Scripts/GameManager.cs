@@ -1,18 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum GameState
+{
+    Paused,
+    Playing,
+    Finished
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
-    public State CurrentState { get; private set;}
+    public GameState CurrentState { get; private set;}
 
-    [SerializeField] private State _currentState;
-
-    public enum State
-    {
-        Paused,
-        Playing,
-        Finished,
-    }
+    [SerializeField] private GameState _currentState;
 
     private GameManager() { 
         Instance = this;
@@ -25,32 +26,49 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SetState(State.Playing);
+        SetState(GameState.Playing);
+        InputHandler.PauseMenuButtonPressed += InputHandler_PauseMenuButtonPressed;
     }
 
-    private void Update()
+    public void StartGame(string mode)
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && CurrentState == State.Playing) 
-        {
-            Time.timeScale = 0;
-            SetState(State.Paused);
-            UIManager.Instance.PauseMenu.SetActive(true);
-        }
+        PlayerPrefs.SetString("Mode", mode);
+        SceneManager.LoadScene(1);
     }
 
-    public void SetState(State state)
+    public void SetState(GameState state)
     {
         switch (state)
         {
-            case State.Paused:
+            case GameState.Paused:
+                UIManager.Instance.OpenMenu(UIManager.Instance.PauseMenu);
                 break;
-            case State.Playing:
+            case GameState.Playing:
+                UIManager.Instance.CloseMenu(UIManager.Instance.PauseMenu);
                 break;
-            case State.Finished:
+            case GameState.Finished:
                 break;
             default:
                 break;
         }
         CurrentState = state;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private void InputHandler_PauseMenuButtonPressed()
+    {
+        switch (CurrentState)
+        {
+            case GameState.Playing:
+                SetState(GameState.Paused);
+                break;
+            case GameState.Paused:
+                SetState(GameState.Playing);
+                break;
+        }
     }
 }

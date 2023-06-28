@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManager Instance { get; private set; }
     public GameObject DeathScreen;
     public GameObject PauseMenu;
     public GameObject SkillpointMenu;
 
-    private void Awake()
+    private UIManager()
     {
         if (Instance != null && Instance != this)
         {
@@ -24,11 +24,6 @@ public class UIManager : MonoBehaviour
     }
 
     // Common functions for UI buttons
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
     public void ReturnToFirstScene()
     {
         SceneManager.LoadScene(0);
@@ -44,19 +39,15 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void StartGame(string mode)
+    public void OpenMenu(GameObject menu)
     {
-        PlayerPrefs.SetString("Mode", mode);
-        SceneManager.LoadScene(1);
+        Pause.Instance.EnterPause();
+        menu.SetActive(true);
     }
 
-    public void OpenPanel(GameObject panel)
+    public void CloseMenu(GameObject menu)
     {
-        panel.SetActive(true);
-    }
-
-    public void ClosePanel(GameObject panel)
-    {
-        panel.SetActive(false);
+        Pause.Instance.ExitPause();
+        menu.SetActive(false);
     }
 }

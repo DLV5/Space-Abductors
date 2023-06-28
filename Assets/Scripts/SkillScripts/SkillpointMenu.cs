@@ -4,7 +4,7 @@ public class SkillpointMenu : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.CurrentState == GameManager.State.Paused)
+        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.CurrentState == GameState.Paused)
         {
             CloseSkillpointMenu();
         }
@@ -13,7 +13,7 @@ public class SkillpointMenu : MonoBehaviour
     private void CloseSkillpointMenu()
     {
         Time.timeScale = 1.0f;
-        GameManager.Instance.SetState(GameManager.State.Playing);
+        GameManager.Instance.SetState(GameState.Playing);
         gameObject.SetActive(false);
     }
 }

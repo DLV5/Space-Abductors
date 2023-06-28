@@ -43,7 +43,7 @@ public class Skills : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.CurrentState == GameManager.State.Playing)
+        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.CurrentState == GameState.Playing)
         {
             OpenSkillpointMenu();
         }
@@ -62,7 +62,7 @@ public class Skills : MonoBehaviour
     public void OpenSkillpointMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.SetState(GameManager.State.Paused);
+        GameManager.Instance.SetState(GameState.Paused);
         UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
