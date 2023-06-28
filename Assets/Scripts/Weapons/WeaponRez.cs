@@ -185,11 +185,11 @@ public class WeaponRez : Attacker
 
     protected override void Fire()
     {
-    //    var obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
-    //    obj.transform.position = transform.position;
-    //    var spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
-    //    var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-    //    obj.GetComponent<Bullet>().Direction = target.normalized;
+        //var obj = gameObjectsPool.GetPooledObjectByTag("PlayerBullet");
+        //obj.transform.position = transform.position;
+        //var spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
+        //var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        //obj.GetComponent<Bullet>().Direction = target.normalized;
     }
 
     private void InputHandler_PressingShootButton()

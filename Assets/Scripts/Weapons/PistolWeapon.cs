@@ -7,28 +7,32 @@ public class PistolWeapon : Weapon
     protected static ObjectPool _gameObjectsPool;
 
     [TagSelector, SerializeField] protected string _bulletTagToShoot;
-    [SerializeField, Range(0, 360)] private float _spreadAngle;
-    public float SpreadAngle { get; }
+    [SerializeField, Range(0, 360)] protected float _spreadAngle;
+    public float SpreadAngle 
+    { 
+        get => _spreadAngle; 
+    }
 
-    public static PistolWeapon Instance { get; private set; }
+    public static PistolWeapon Instance { get; protected set; }
 
-    private PistolWeapon()
+    protected PistolWeapon()
     {
         Instance = this;
     }
 
-    private void Start()
+    protected void Start()
     {
         _gameObjectsPool ??= PoolManager.BulletPool;
         InputHandler.PressingShootButton += InputHandler_OnPressingShootButton;
     }
 
-    protected void InputHandler_OnPressingShootButton()
+    protected virtual void InputHandler_OnPressingShootButton()
     {
         Fire();
     }
     protected override void Shoot()
     {
-        var obj = _gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);        
+        //Enabeling object, all other stuff bullet handle by itself
+        _gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);        
     }
 }

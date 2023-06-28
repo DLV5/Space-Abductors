@@ -19,11 +19,11 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        //if (CanMove)
-        //{
-        //    _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        //    transform.position += (Vector3)_direction * _speed * Time.deltaTime;
-        //}
+        if (CanMove)
+        {
+            _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            transform.position += (Vector3)_direction * _speed * Time.deltaTime;
+        }
 
         // Most sane unity code
         if (transform.position.x > _maxScreenBounds.x)

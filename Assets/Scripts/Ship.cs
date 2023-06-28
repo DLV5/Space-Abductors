@@ -75,15 +75,15 @@ public class Ship : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("BaseBullet") || collision.CompareTag("ShotGunBullet") || collision.CompareTag("RocketMissle"))
-        {
-            Damage(1);
-            collision.gameObject.SetActive(false);
-        }
-        if (collision.CompareTag("HealingBullet"))
-        {
-            Damage(-1);
-            collision.gameObject.SetActive(false);
-        }
+        //if (collision.CompareTag("BaseBullet") || collision.CompareTag("ShotGunBullet") || collision.CompareTag("RocketMissle"))
+        //{
+        //    Damage(1);
+        //    collision.gameObject.SetActive(false);
+        //}
+        //if (collision.CompareTag("HealingBullet"))
+        //{
+        //    Damage(-1);
+        //    collision.gameObject.SetActive(false);
+        //}
     }
 }

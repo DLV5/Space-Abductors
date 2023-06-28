@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
-    private static Transform _playerTransform;
-    private float _spreadAngle;
+    protected static Transform _playerTransform;
+    protected float _spreadAngle = 0;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -17,15 +17,14 @@ public class PlayerBullet : Bullet
         CalculateDirection();
     }
 
-    private void Initializate()
+    protected virtual void Initializate()
     {
-        _spreadAngle = PistolWeapon.Instance.SpreadAngle;
         transform.position = _playerTransform.position;
     }
-    private void CalculateDirection()
+    protected void CalculateDirection()
     {
-        Quaternion spreadRotation = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-_spreadAngle / 2, _spreadAngle / 2));
-        var target = (spreadRotation * (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-_spreadAngle / 2, _spreadAngle / 2));
+        var target = (spreadRotation * ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position));
         Direction = target.normalized;
     }
 }

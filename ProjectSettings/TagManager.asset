@@ -4,20 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BaseBullet
-  - PlayerBullet
-  - HelicopterEnemy
-  - ShotGunEnemy
   - Cow
-  - ShotGunBullet
+  - HelicopterEnemy
   - SkillIcon
   - SkillText
   - BossEnemy
-  - HealingBullet
-  - HealingEnemy
   - Fire
-  - RocketMissle
+  - EnemyBullet
+  - HealingEnemy
+  - ShotgunEnemy
   - RocketMissleEnemy
+  - PlayerBullet
+  - BaseBullet
+  - PistolPlayerBullet
+  - ShotgunPlayerBullet
   layers:
   - Default
   - TransparentFX
