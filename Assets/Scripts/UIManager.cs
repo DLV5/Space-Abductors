@@ -41,13 +41,13 @@ public class UIManager : MonoBehaviour
 
     public void OpenMenu(GameObject menu)
     {
-        Pause.Instance.EnterPause();
+        GameManager.Instance.SetState(GameState.Paused);
         menu.SetActive(true);
     }
 
     public void CloseMenu(GameObject menu)
     {
-        Pause.Instance.ExitPause();
+        GameManager.Instance.SetState(GameState.Playing);
         menu.SetActive(false);
     }
 }

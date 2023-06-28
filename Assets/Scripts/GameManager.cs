@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetState(GameState.Playing);
-        InputHandler.PauseMenuButtonPressed += InputHandler_PauseMenuButtonPressed;
     }
 
     public void StartGame(string mode)
@@ -41,10 +40,10 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case GameState.Paused:
-                UIManager.Instance.OpenMenu(UIManager.Instance.PauseMenu);
+                Pause.Instance.EnterPause();
                 break;
             case GameState.Playing:
-                UIManager.Instance.CloseMenu(UIManager.Instance.PauseMenu);
+                Pause.Instance.ExitPause();
                 break;
             case GameState.Finished:
                 break;
@@ -57,18 +56,5 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    private void InputHandler_PauseMenuButtonPressed()
-    {
-        switch (CurrentState)
-        {
-            case GameState.Playing:
-                SetState(GameState.Paused);
-                break;
-            case GameState.Paused:
-                SetState(GameState.Playing);
-                break;
-        }
     }
 }

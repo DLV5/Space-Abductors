@@ -34,7 +34,7 @@ public class PoolManager : MonoBehaviour
     [SerializeField] private List<PoolObject> _enemyPrefabs = new List<PoolObject>();
     [SerializeField] private List<PoolObject> _bulletPrefabs = new List<PoolObject>();
 
-    void Awake()
+    private void Awake()
     {
         if (_hasInvoked) 
             return;

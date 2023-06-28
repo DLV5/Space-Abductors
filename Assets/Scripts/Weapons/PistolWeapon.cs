@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PistolWeapon : Weapon
@@ -20,6 +18,12 @@ public class PistolWeapon : Weapon
         Instance = this;
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        PlayerBullet.FirePoint = _firePoint;
+    }
+
     protected void Start()
     {
         _gameObjectsPool ??= PoolManager.BulletPool;
@@ -33,6 +37,6 @@ public class PistolWeapon : Weapon
     protected override void Shoot()
     {
         //Enabeling object, all other stuff bullet handle by itself
-        _gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);        
+        _gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
     }
 }

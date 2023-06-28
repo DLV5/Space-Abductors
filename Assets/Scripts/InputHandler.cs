@@ -10,16 +10,11 @@ public class InputHandler : MonoBehaviour
     public static event Action HoldingShootButton;
     public static event Action ReleasingShootButton;
 
-    public static event Action PauseMenuButtonPressed;
-    public static event Action SkillMenuButtonPressed;
-
     private void Start()
     {
         _playerInput.actions["Shoot"].performed += OnPressingShootButton;
         _playerInput.actions["ShootHolding"].performed += OnHoldingShootButton;
         _playerInput.actions["ShootHolding"].canceled += OnReleasingShootButton;
-        _playerInput.actions["OpenOrClosePauseMenu"].performed += OnPauseMenuButtonPressed;
-        _playerInput.actions["OpenOrCloseSkillMenu"].performed += OnSkillMenuButtonPressed;
     }
 
     private void OnPressingShootButton(InputAction.CallbackContext context)
@@ -38,18 +33,5 @@ public class InputHandler : MonoBehaviour
     {
         context.ReadValueAsButton();
         ReleasingShootButton?.Invoke();
-    }
-
-    private void OnPauseMenuButtonPressed(InputAction.CallbackContext context) 
-    {
-        context.ReadValueAsButton();
-        PauseMenuButtonPressed?.Invoke();
-    
-    }
-
-    private void OnSkillMenuButtonPressed(InputAction.CallbackContext context) 
-    {
-        context.ReadValueAsButton();
-        SkillMenuButtonPressed?.Invoke();
     }
 }

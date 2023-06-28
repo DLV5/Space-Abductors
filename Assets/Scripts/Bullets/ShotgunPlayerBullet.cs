@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class ShotgunPlayerBullet : PlayerBullet
 {
     protected override void Initializate()

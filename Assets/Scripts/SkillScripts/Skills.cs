@@ -41,14 +41,6 @@ public class Skills : MonoBehaviour
         _skillPointMenuText.text = SkillPoints + " skill points";
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.CurrentState == GameState.Playing)
-        {
-            OpenSkillpointMenu();
-        }
-    }
-
     public void BuySkill(SkillParameter parameter)
     {
         if (SkillPoints < parameter.Price) 
@@ -57,13 +49,6 @@ public class Skills : MonoBehaviour
         SkillList.Add(parameter.Name);
         AddSkillpoints(-parameter.Price);
         RefreshSkills();
-    }
-
-    public void OpenSkillpointMenu()
-    {
-        Time.timeScale = 0;
-        GameManager.Instance.SetState(GameState.Paused);
-        UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
     public void AddSkillpoints(int pointsToAdd)

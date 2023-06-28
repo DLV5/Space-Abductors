@@ -5101,7 +5101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1136052ceadbd5d40ad0f9e1c06a3066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerWeapon: {fileID: 1618099115868786696}
+  _playerWeapon: {fileID: 0}
 --- !u!1 &7848225479523271666
 GameObject:
   m_ObjectHideFlags: 0
@@ -5116,8 +5116,6 @@ GameObject:
   - component: {fileID: 4637231238101405740}
   - component: {fileID: 6898231909618802581}
   - component: {fileID: 580299944375268883}
-  - component: {fileID: 3541078547120111444}
-  - component: {fileID: 1618099115868786696}
   - component: {fileID: 3277618511199326766}
   - component: {fileID: 3305410594945020209}
   - component: {fileID: -5525532505961141654}
@@ -5304,34 +5302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hpText: {fileID: 0}
   _health: 3
---- !u!114 &3541078547120111444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7848225479523271666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d19b25d714998842a400ca797430f03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fireRate: 1
-  _bulletTagToShoot: PlayerBullet
-  _spreadAngle: 30
---- !u!114 &1618099115868786696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7848225479523271666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3973e7f0bf21064a936c301c0cc82ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fireRate: 1
 --- !u!114 &3277618511199326766
 MonoBehaviour:
   m_ObjectHideFlags: 0

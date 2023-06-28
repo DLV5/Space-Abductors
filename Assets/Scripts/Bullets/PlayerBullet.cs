@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
-    protected static Transform _playerTransform;
-    protected float _spreadAngle = 0;
-
-    protected virtual void Awake()
+    protected static Transform _firePoint;
+    public static Transform FirePoint 
     {
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        get => _firePoint;
+        set => _firePoint = value;
     }
+
+    protected float _spreadAngle = 0;
 
     protected override void OnEnable()
     {
@@ -19,7 +20,7 @@ public class PlayerBullet : Bullet
 
     protected virtual void Initializate()
     {
-        transform.position = _playerTransform.position;
+        transform.position = _firePoint.position;
     }
     protected void CalculateDirection()
     {
