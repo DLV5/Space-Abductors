@@ -12,17 +12,19 @@ public enum Skill
     ShotgunDamageUpgrade,
     ShotgunCooldownUpgrade
 }
+
+[RequireComponent(typeof(SkillsObjectsManager))]
 public class Skills : MonoBehaviour
 {
     public static Skills Instance { get; set; }
     public List<Skill> SkillList { get; set; } = new List<Skill>();
+
     [SerializeField] private int _skillPoints = 0;
     public int SkillPoints
     {
         get => _skillPoints;
         set => _skillPoints = value;
     }
-    [SerializeField] private TextMeshProUGUI _skillPointMenuText;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class Skills : MonoBehaviour
 
     private void Start()
     {
-        _skillPointMenuText.text = SkillPoints + " skill points";
+        //_skillsData.SkillPointMenuText.text = SkillPoints + " skill points";
     }
 
     public void BuySkill(SkillParameter parameter)
@@ -54,52 +56,35 @@ public class Skills : MonoBehaviour
     public void AddSkillpoints(int pointsToAdd)
     {
         SkillPoints += pointsToAdd;
-        _skillPointMenuText.text = SkillPoints + " skill points";
+       // _skillsData.SkillPointMenuText.text = SkillPoints + " skill points";
     }
 
     public void RefreshSkills()
     {
-        //var instance = Weapon.Instance;
-        //foreach (var skill in SkillList)
-        //{
-        //    switch (skill) // Add a string here for every new weapon skill
-        //    {
-        //        case Skill.Shotgun:
-        //            instance.CurrentWeaponAttack = instance.ShootLikeShootgun;
-        //            instance.Source.clip = instance.ShotgunSound;
-        //            instance.Railgun.SetActive(false);
-        //            instance.Flamethrower.SetActive(false);
-        //            instance.CurrentType = Weapon.Type.ShootingWeapon;
-        //            instance.SpreadAngle = 90f;
-        //            instance.Damage = 1;
-        //            break;
-        //        case Skill.Railgun:
-        //            instance.CurrentWeaponAttack = instance.ShootLikeRailgun;
-        //            instance.Source.clip = instance.RailgunShotSound;
-        //            instance.Flamethrower.SetActive(false);
-        //            instance.RailgunHolder.SetActive(true);
-        //            instance.CurrentType = Weapon.Type.ChargingWeapon;
-        //            instance.Damage = 1;
-        //            break;
-        //        case Skill.Flamethrower:
-        //            instance.CurrentWeaponAttack = instance.ShootLikeFlamethrower;
-        //            instance.Source.clip = instance.FlamethrowerSound;
-        //            instance.Source.loop = true;
-        //            instance.Railgun.SetActive(false);
-        //            instance.Flamethrower.SetActive(true);
-        //            instance.CurrentType = Weapon.Type.HoldingWeapon;
-        //            instance.Damage = 1;
-        //            break;
-        //        case Skill.ShotgunSpreadUpgrade:
-        //            break;
-        //        case Skill.ShotgunNumberUpgrade:
-        //            break;
-        //        case Skill.ShotgunDamageUpgrade:
-        //            break;
-        //        case Skill.ShotgunCooldownUpgrade:
-        //            break;
-        //        default: break;
-        //    }
-        //}
+        var _instance = SkillsObjectsManager.Instance;
+        foreach (var skill in SkillList)
+        {
+            switch (skill) // Add a string here for every new weapon skill
+            {
+                case Skill.Shotgun:
+                    _instance.ChangeWeapon(_instance.Weapons["ShotgunWeapon"]);
+                    break;
+                case Skill.Railgun:
+                    _instance.ChangeWeapon(_instance.Weapons["RailgunWeapon"]);
+                    break;
+                case Skill.Flamethrower:
+                    _instance.ChangeWeapon(_instance.Weapons["FlamethrowerWeapon"]);
+                    break;
+                case Skill.ShotgunSpreadUpgrade:
+                    break;
+                case Skill.ShotgunNumberUpgrade:
+                    break;
+                case Skill.ShotgunDamageUpgrade:
+                    break;
+                case Skill.ShotgunCooldownUpgrade:
+                    break;
+                default: break;
+            }
+        }
     }
 }
