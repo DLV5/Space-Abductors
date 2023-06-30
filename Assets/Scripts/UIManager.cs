@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject DeathScreen;
     public GameObject PauseMenu;
     public GameObject SkillpointMenu;
+    private GameObject _currentMenu;
 
     private UIManager()
     {
@@ -41,12 +43,25 @@ public class UIManager : MonoBehaviour
 
     public void OpenMenu(GameObject menu)
     {
+        _currentMenu = menu;
         GameManager.Instance.SetState(GameState.Paused);
         menu.SetActive(true);
     }
 
+    public void OpenMenuWindow(GameObject window)
+    {
+        window.SetActive(true);
+    }
+
+    public void CloseMenuWindow(GameObject window)
+    {
+        window.SetActive(false);
+    }
+
     public void CloseMenu(GameObject menu)
     {
+        if (_currentMenu != menu)
+            return;
         GameManager.Instance.SetState(GameState.Playing);
         menu.SetActive(false);
     }

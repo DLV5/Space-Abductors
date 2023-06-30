@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1853072925}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: CloseMenu
+        m_MethodName: CloseMenuWindow
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 357124826}
@@ -343,7 +343,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1853072925}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OpenMenuWindow
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 357124826}
@@ -692,7 +692,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1853072925}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: CloseMenu
+        m_MethodName: CloseMenuWindow
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 157870141}
@@ -2312,7 +2312,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1853072925}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OpenMenuWindow
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 157870141}
