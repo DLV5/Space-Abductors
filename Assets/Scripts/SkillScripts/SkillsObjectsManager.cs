@@ -11,6 +11,7 @@ public class SkillsObjectsManager : MonoBehaviour
     public GameObject CurrentWeapon { get; set; }
     //[SerializeField] public TextMeshProUGUI SkillPointMenuText;
     
+    // Dictionary with all weapons in the scene. String is the name
     public Dictionary<string, GameObject> Weapons { get; set; } = new Dictionary<string, GameObject>();
 
     private void Awake()
