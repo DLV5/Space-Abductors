@@ -14,10 +14,13 @@ public enum Skill
 }
 
 [RequireComponent(typeof(SkillsObjectsManager))]
+[RequireComponent(typeof(SkillsUI))]
 public class Skills : MonoBehaviour
 {
     public static Skills Instance { get; set; }
     public List<Skill> SkillList { get; set; } = new List<Skill>();
+
+    private SkillsUI _skillUI;
 
     [SerializeField] private int _skillPoints = 0;
     public int SkillPoints
@@ -40,7 +43,8 @@ public class Skills : MonoBehaviour
 
     private void Start()
     {
-        //_skillsData.SkillPointMenuText.text = SkillPoints + " skill points";
+        _skillUI = GetComponent<SkillsUI>();
+        _skillUI.UpdateSkillPointsText();
     }
 
     public void BuySkill(SkillParameter parameter)
@@ -56,7 +60,7 @@ public class Skills : MonoBehaviour
     public void AddSkillpoints(int pointsToAdd)
     {
         SkillPoints += pointsToAdd;
-       // _skillsData.SkillPointMenuText.text = SkillPoints + " skill points";
+        _skillUI.UpdateSkillPointsText();
     }
 
     public void RefreshSkills()

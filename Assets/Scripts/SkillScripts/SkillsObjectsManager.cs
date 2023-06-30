@@ -42,14 +42,14 @@ public class SkillsObjectsManager : MonoBehaviour
     //Return dictionary of GameObject with "Weapon" in name
     private Dictionary<string, GameObject> FindAllWeapons()
     {
-        Dictionary<string, GameObject> _weapons = new Dictionary<string, GameObject>();
-        GameObject[] _allGameObjects = FindObjectsOfType<GameObject>(true);
-        foreach (var gameObj in _allGameObjects)
+        Dictionary<string, GameObject> weapons = new Dictionary<string, GameObject>();
+        GameObject[] allGameObjects = FindObjectsOfType<GameObject>(true);
+        foreach (var gameObj in allGameObjects)
         {
             if (gameObj.name.Contains("Weapon")){
-                _weapons.Add(gameObj.name, gameObj);
+                weapons.Add(gameObj.name, gameObj);
             }
         }
-        return _weapons;
+        return weapons;
     }
 }

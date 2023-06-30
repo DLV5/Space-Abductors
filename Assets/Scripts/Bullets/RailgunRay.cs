@@ -1,10 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RailgunRay : MonoBehaviour
 {
-    [SerializeField] int _damage;
+    public int Damage { get; set; }
+    public int DamageMultiplier { get; set; }
+
+    private RailgunWeapon _railgunWeapon;
+
+    private void Start()
+    {
+        _railgunWeapon = FindObjectOfType<RailgunWeapon>();
+        Debug.Log(_railgunWeapon);
+        Damage = _railgunWeapon.Damage;
+        DamageMultiplier = _railgunWeapon.DamageMultiplier;
+    }
 
     public void CastRayThroughMouseBosition()
     {
@@ -22,15 +31,16 @@ public class RailgunRay : MonoBehaviour
 
             if (col.tag.Contains("Enemy"))
             {
-                var enemy = col.gameObject.GetComponent<EnemyAttacker>();
-                enemy.Damage(_damage);
+                var enemy = col.gameObject.GetComponent<EnemyDamageHanlder>();
+                Debug.Log(Damage);
+                enemy.Damage(Damage);
             }
         }
-        _damage = 1;
+        Damage = 1;
     }
 
-    public void AddDamageOnCharge(int damageToAdd)
+    public void MultiplyDamageOnCharge()
     {
-        _damage += damageToAdd;
+        Damage *= DamageMultiplier;
     }
 }

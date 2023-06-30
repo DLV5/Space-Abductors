@@ -138,36 +138,36 @@ public class WeaponRez : Attacker
         
     }
 
-    public void ShootLikeShootgun()
-    {
-        for (int i = 0; i < BulletsPerShotgunShot; ++i)
-        {
-            Fire();
-        }
-    }
+    //public void ShootLikeShootgun()
+    //{
+    //    for (int i = 0; i < BulletsPerShotgunShot; ++i)
+    //    {
+    //        Fire();
+    //    }
+    //}
 
-    public void ShootLikeRailgun()
-    {
-        var dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
-        dir = dir.normalized;
-        //var hits = Physics2D.RaycastAll(transform.position, dir, 10f);
-        float angle = Vector2.Angle(transform.position, dir);
-        var hits = Physics2D.BoxCastAll(transform.position, new Vector2(0.1f, 1f), angle, dir, 30f);
-        //BoxCastDebug.instance.StartDrawing(transform.position, dir, new Vector2(10f, 0.1f));
-        foreach (var hit in hits)
-        {
-            var col = hit.collider;
-            if (col == null) 
-                continue;
-            if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy") 
-                || col.CompareTag("HealingEnemy"))
-            {
-                var enemy = col.gameObject.GetComponent<EnemyAttacker>();
-                enemy.Damage(Damage);
-            }
-        }
-        Damage = 1;
-    }
+    //public void ShootLikeRailgun()
+    //{
+    //    var dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+    //    dir = dir.normalized;
+    //    //var hits = Physics2D.RaycastAll(transform.position, dir, 10f);
+    //    float angle = Vector2.Angle(transform.position, dir);
+    //    var hits = Physics2D.BoxCastAll(transform.position, new Vector2(0.1f, 1f), angle, dir, 30f);
+    //    //BoxCastDebug.instance.StartDrawing(transform.position, dir, new Vector2(10f, 0.1f));
+    //    foreach (var hit in hits)
+    //    {
+    //        var col = hit.collider;
+    //        if (col == null) 
+    //            continue;
+    //        if (col.CompareTag("ShotGunEnemy") || col.CompareTag("HelicopterEnemy") || col.CompareTag("BossEnemy") 
+    //            || col.CompareTag("HealingEnemy"))
+    //        {
+    //            var enemy = col.gameObject.GetComponent<EnemyAttacker>();
+    //            enemy.Damage(Damage);
+    //        }
+    //    }
+    //    Damage = 1;
+    //}
 
     //fire more suitable here
     public void ShootLikeFlamethrower()

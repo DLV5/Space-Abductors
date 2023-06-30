@@ -8,12 +8,31 @@ public class DamageUI : MonoBehaviour
     private DamageUI() {
         Instance = this;
     }
+
+    private void Start()
+    {
+        _damageTexts = FindAllDamageTextBoxes();
+    }
+
     public void ShowDamageOnEnemy(Vector2 enemyTransform)
     {
         var gameObj = GetDisabledText();
         gameObject.transform.position = enemyTransform;
         //tex.text = "100";
 
+    }
+    private List<GameObject> FindAllDamageTextBoxes()
+    {
+        List<GameObject> damageTextBoxes = new List<GameObject>();
+        GameObject[] allGameObjects = FindObjectsOfType<GameObject>(true);
+        foreach (var gameObj in allGameObjects)
+        {
+            if (gameObj.name.Contains("MainDamageTextBox"))
+            {
+                damageTextBoxes.Add(gameObj);
+            }
+        }
+        return damageTextBoxes;
     }
 
     private GameObject GetDisabledText()
