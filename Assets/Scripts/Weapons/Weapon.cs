@@ -38,7 +38,7 @@ public class Weapon : Attacker
 
     //Move to the next scripts
     //public Action CurrentWeaponAttack;
-    public event Action Shooted;
+    public static event Action Shooted;
 
     protected virtual void Awake()
     {

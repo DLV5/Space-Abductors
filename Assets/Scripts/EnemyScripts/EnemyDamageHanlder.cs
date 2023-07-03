@@ -12,13 +12,11 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
     }
 
     private static FlamethrowerWeapon _flamethrowerWeapon;
-    private static RailgunWeapon _railgunWeapon;
 
     protected virtual void Awake()
     {
         _enemyUI = GetComponent<EnemyUI>();
         _flamethrowerWeapon = FindObjectOfType<FlamethrowerWeapon>(true);
-        _railgunWeapon = FindObjectOfType<RailgunWeapon>(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
