@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     [HideInInspector] public bool HasCowSpawned = false;
     public GameObject CowPrefab;
 
-    private static ObjectPool _enemyObjectPool;
+    private static ObjectsPool _enemyObjectPool;
     [SerializeField] private List<EnemySettings> _enemySettings;
     [SerializeField] private Collider2D _spawnZone;
     [SerializeField] private float _spawnDelay;  

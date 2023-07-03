@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Weapon : Attacker
 {
-    [Tooltip("Position of muzzle, it should be child of that gameobject")]
-
     [SerializeField] protected int _damage;
     public int Damage
     {
@@ -44,6 +42,7 @@ public class Weapon : Attacker
 
     protected virtual void Awake()
     {
+        SetFirePoint();
         Shooted += OnShooted;
     }
 
@@ -60,6 +59,11 @@ public class Weapon : Attacker
         CanShoot = false;
         yield return new WaitForSeconds(1 / FireRate);
         CanShoot = true;
+    }
+
+    protected override void SetFirePoint()
+    {
+        _firePoint = transform.GetChild(0);
     }
 
     protected override void Fire()

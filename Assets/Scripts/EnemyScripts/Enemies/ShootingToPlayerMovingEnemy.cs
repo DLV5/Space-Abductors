@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class ShootingToPlayerMovingEnemy : MovingEnemy
 {
-    private void Awake()
+    protected override void Awake()
     {
-        _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
-        _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
+        base.Awake();
+        SetFirePoint();
     }
     protected override void OnEnable()
     {

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDamageHanlder : MonoBehaviour, IDamageable
@@ -31,11 +28,11 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
             HandleBulletDamage(collision.tag);
             collision.gameObject.SetActive(false);
         }
-        if (collision.CompareTag("HealingBullet"))
-        {
-            Damage(-1);
-            collision.gameObject.SetActive(false);
-        }
+        //if (collision.CompareTag("HealingBullet"))
+        //{
+        //    Damage(-1);
+        //    collision.gameObject.SetActive(false);
+        //}
     }
 
     private void HandleBulletDamage(string tag)

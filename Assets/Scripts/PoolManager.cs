@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    public static ObjectPool EnemyPool;
-    public static ObjectPool BulletPool;
+    public static ObjectsPool EnemyPool;
+    public static ObjectsPool BulletPool;
 
     private static bool _hasInvoked = false;
     public static PoolManager Instance { get; private set; }
@@ -38,11 +38,11 @@ public class PoolManager : MonoBehaviour
     {
         if (_hasInvoked) 
             return;
-        EnemyPool = new ObjectPool(_enemyPrefabs[0].NumberOfCopies, _enemyPrefabs[0].ObjectToCopy);
-        BulletPool = new ObjectPool(_bulletPrefabs[0].NumberOfCopies, _bulletPrefabs[0].ObjectToCopy);
+        EnemyPool = new ObjectsPool(_enemyPrefabs[0].NumberOfCopies, _enemyPrefabs[0].ObjectToCopy);
+        BulletPool = new ObjectsPool(_bulletPrefabs[0].NumberOfCopies, _bulletPrefabs[0].ObjectToCopy);
         for (int i = 1; i < _enemyPrefabs.Count; i++)
         {
-            var objects = new ObjectPool(_enemyPrefabs[i].NumberOfCopies, _enemyPrefabs[i].ObjectToCopy);
+            var objects = new ObjectsPool(_enemyPrefabs[i].NumberOfCopies, _enemyPrefabs[i].ObjectToCopy);
             foreach (var item in objects.Pool)
             {
                 EnemyPool.Pool.Add(item);
@@ -50,7 +50,7 @@ public class PoolManager : MonoBehaviour
         }
         for (int i = 1; i < _bulletPrefabs.Count; i++)
         {
-            var objects = new ObjectPool(_bulletPrefabs[i].NumberOfCopies, _bulletPrefabs[i].ObjectToCopy);
+            var objects = new ObjectsPool(_bulletPrefabs[i].NumberOfCopies, _bulletPrefabs[i].ObjectToCopy);
             foreach (var item in objects.Pool)
             {
                  BulletPool.Pool.Add(item);

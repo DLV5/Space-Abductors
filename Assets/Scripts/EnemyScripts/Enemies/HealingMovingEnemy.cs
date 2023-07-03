@@ -28,7 +28,7 @@ public class HealingMovingEnemy : MovingEnemy
 
     protected override void Fire()
     {
-        var obj = gameObjectsPool.GetPooledObjectByTag("HealingBullet");
+        var obj = GameObjectsPool.GetPooledObjectByTag("HealingBullet");
         obj.GetComponent<HomingBullet>().Target = _target;
         obj.transform.position = transform.position;
     }

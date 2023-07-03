@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyUI))]
@@ -8,10 +9,13 @@ public class EnemyAttacker : Attacker
 {
     [TagSelector, SerializeField] protected string _bulletTagToShoot;
     protected EnemyBehavior currentState = EnemyBehavior.FlyingToTheScreen;
-    protected static ObjectPool gameObjectsPool;
+    protected static ObjectsPool GameObjectsPool
+    {
+        get => PoolManager.BulletPool;
+    }
 
     protected GameObject _target;
-
+    
     public override float FireRate 
     { 
         get => _fireRate; 
@@ -25,11 +29,20 @@ public class EnemyAttacker : Attacker
         Leaving = 2
     }
 
+    protected virtual void Awake()
+    {
+        SetFirePoint();
+    }
+
     protected override void Fire()
     {
-        var obj = gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
+        var bullet = GameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot, false);
+        bullet.transform.position = _firePoint.position;
+        bullet.SetActive(true);
+    }
 
-        obj.transform.position = transform.position;
-        obj.GetComponent<Bullet>().Direction = (_target.transform.position - obj.transform.position).normalized;
+    protected override void SetFirePoint()
+    {
+        _firePoint = transform.GetChild(0);
     }
 }

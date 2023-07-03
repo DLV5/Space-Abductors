@@ -20,7 +20,7 @@ public class MovingEnemy : EnemyAttacker
 
     private bool _isMovingToEnd = true;
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
         _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
         _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));

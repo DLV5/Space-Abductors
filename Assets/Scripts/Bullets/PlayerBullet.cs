@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerBullet : Bullet
 {
     protected static Transform _firePoint;
-    public static Transform FirePoint 
+    public static Transform FirePoint
     {
         get => _firePoint;
         set => _firePoint = value;

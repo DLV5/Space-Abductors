@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class PistolWeapon : Weapon
 {
-    protected static ObjectPool _gameObjectsPool;
-
-    protected Transform _firePoint;
+    protected static ObjectsPool _gameObjectsPool;
 
     [TagSelector, SerializeField] protected string _bulletTagToShoot;
     [SerializeField, Range(0, 360)] protected float _spreadAngle;
