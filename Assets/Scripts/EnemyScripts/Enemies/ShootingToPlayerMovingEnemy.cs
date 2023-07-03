@@ -13,7 +13,6 @@ public class ShootingToPlayerMovingEnemy : MovingEnemy
         base.OnEnable();
         _target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(ShootAccordingToFireRate());
-        Initialize();
     }
 
     protected virtual IEnumerator ShootAccordingToFireRate()

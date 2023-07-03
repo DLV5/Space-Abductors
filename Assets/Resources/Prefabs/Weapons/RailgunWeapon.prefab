@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8458643061429549091}
   - component: {fileID: 9023073826067822549}
   - component: {fileID: 6292321100846504195}
-  - component: {fileID: 2032843742899273492}
+  - component: {fileID: 2253401390799124162}
   - component: {fileID: 2922210383742635653}
   m_Layer: 0
   m_Name: RailgunWeapon
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a281410574de2147be94ce5104c2663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2032843742899273492
+--- !u!114 &2253401390799124162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,11 +140,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3850700957730185362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3947c5e25c78fd49a91760be7905060, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d852d10772f4f84f90d27e4dbdf70f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 1
-  _flames: {fileID: 0}
+  _fireRate: 0
+  _damage: 0
 --- !u!60 &2922210383742635653
 PolygonCollider2D:
   m_ObjectHideFlags: 0

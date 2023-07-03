@@ -6,6 +6,14 @@ public class Weapon : Attacker
 {
     [Tooltip("Position of muzzle, it should be child of that gameobject")]
 
+    [SerializeField] protected int _damage;
+    public int Damage
+    {
+        get => _damage;
+        set => _damage = value;
+    }
+
+
     public override float FireRate 
     { 
         get => _fireRate;

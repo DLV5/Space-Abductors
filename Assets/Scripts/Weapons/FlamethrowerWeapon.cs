@@ -14,6 +14,7 @@ public class FlamethrowerWeapon : Weapon
     protected void Start()
     {
         _flameCollider = GetComponent<Collider2D>();
+        _flameCollider.enabled = false;
         InputHandler.PressingShootButton += InputHandler_OnPressingShootButton;
         InputHandler.ReleasingShootButton += InputHandler_OnReleasingShootButton;
     }
