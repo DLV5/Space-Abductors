@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
     public AudioSource PlayerSource;
 
-    [SerializeField] private AudioData _audioData;
+    //public AudioData Data;
 
     private void Awake()
     {
@@ -20,11 +20,27 @@ public class AudioManager : MonoBehaviour
             Instance = this;
         }
         Weapon.Shooted += PlayShootSound;
+        InputHandler.ReleasingShootButton += StopSoundLoop;
     }
 
     private void PlayShootSound()
     {
-        if (PlayerSource.isPlaying)
-            PlayerSource.Play();
+        //if (PlayerSource.isPlaying)
+        PlayerSource.Play();
+    }
+
+    private void StopSoundLoop()
+    {
+        if (PlayerSource.loop)
+            PlayerSource.Stop();
+    }
+
+    public void ChangeSound(AudioClip clip, bool loop = false)
+    {
+        PlayerSource.clip = clip;
+        if (loop)
+            PlayerSource.loop = true;
+        else
+            PlayerSource.loop = false; // in case previous weapon was looping
     }
 }

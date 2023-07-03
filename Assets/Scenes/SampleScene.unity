@@ -1859,7 +1859,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.953125
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2774,6 +2774,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3850700957730185362, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 645306943}
     - targetCorrespondingSourceObject: {fileID: 1354787774570690058, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       insertIndex: -1
       addedObject: {fileID: 645306942}
@@ -2795,6 +2798,11 @@ Transform:
 --- !u!1 &645306938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1354787774570690058, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
+  m_PrefabInstance: {fileID: 645306936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &645306939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3850700957730185362, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
   m_PrefabInstance: {fileID: 645306936}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &645306940
@@ -2882,6 +2890,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &645306943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645306939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb608d04a1523f04a939ffa27be7e9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 00310b7d7a4ecc6468e114543ef0c920, type: 3}
+  _looping: 0
 --- !u!114 &645306945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9591,7 +9613,7 @@ GameObject:
   - component: {fileID: 1706319209}
   - component: {fileID: 1706319208}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9610,7 +9632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSource: {fileID: 15310491815541754}
-  _audioData: {fileID: 11400000, guid: 1d2ee7f03cc049442b2eb8b9e30ce550, type: 2}
 --- !u!4 &1706319209
 Transform:
   m_ObjectHideFlags: 0
@@ -11456,8 +11477,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5050224860163481516, guid: c17196703f2449d43949f84844b37d26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257583538951738259}
   m_SourcePrefab: {fileID: 100100000, guid: c17196703f2449d43949f84844b37d26, type: 3}
+--- !u!1 &1257583538951738258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5050224860163481516, guid: c17196703f2449d43949f84844b37d26, type: 3}
+  m_PrefabInstance: {fileID: 1257583538951738257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1257583538951738259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257583538951738258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb608d04a1523f04a939ffa27be7e9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 0e2b6055e1cf8ee4494b1fabc837cb88, type: 3}
+  _looping: 0
 --- !u!4 &2553244804438455175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8458643061429549091, guid: f96c8e963113ead46833f40c9d4b5a1a, type: 3}
@@ -11530,8 +11573,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7088901958847738990, guid: a0417a887b1f1e94ca5f7759c898aad5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6579306098538628229}
   m_SourcePrefab: {fileID: 100100000, guid: a0417a887b1f1e94ca5f7759c898aad5, type: 3}
+--- !u!1 &6579306098538628228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7088901958847738990, guid: a0417a887b1f1e94ca5f7759c898aad5, type: 3}
+  m_PrefabInstance: {fileID: 6579306098538628227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6579306098538628229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579306098538628228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb608d04a1523f04a939ffa27be7e9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: dd3707e6c96a8b84aa15c23212a51c9f, type: 3}
+  _looping: 0
 --- !u!1001 &6714339007512143804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11599,5 +11664,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3850700957730185362, guid: f96c8e963113ead46833f40c9d4b5a1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6714339007512143806}
   m_SourcePrefab: {fileID: 100100000, guid: f96c8e963113ead46833f40c9d4b5a1a, type: 3}
+--- !u!1 &6714339007512143805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3850700957730185362, guid: f96c8e963113ead46833f40c9d4b5a1a, type: 3}
+  m_PrefabInstance: {fileID: 6714339007512143804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6714339007512143806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6714339007512143805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb608d04a1523f04a939ffa27be7e9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: c80059caf171afb449a06b1364cac05b, type: 3}
+  _looping: 1
