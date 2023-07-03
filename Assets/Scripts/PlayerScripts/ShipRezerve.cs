@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class Ship : MonoBehaviour, IDamageable
+public class ShipRezerve : MonoBehaviour, IDamageable
 {
     [SerializeField] private TextMeshProUGUI _hpText;
 
@@ -11,12 +11,12 @@ public class Ship : MonoBehaviour, IDamageable
     private SpriteRenderer _renderer;
 
     [SerializeField] private int _health = 3;
-    public int Health 
+    public int Health
     {
-        get => _health; 
+        get => _health;
         set => _health = value;
     }
-    public bool IsInvincible { get; set; } = false;
+    public bool IsInvincible { get; private set; } = false;
     //public int Damage; where this used?
 
 
@@ -40,7 +40,7 @@ public class Ship : MonoBehaviour, IDamageable
 
     public void Damage(int damage)
     {
-        if (IsInvincible) 
+        if (IsInvincible)
             return;
         Health -= damage;
         IsInvincible = true;
@@ -87,3 +87,4 @@ public class Ship : MonoBehaviour, IDamageable
         //}
     }
 }
+

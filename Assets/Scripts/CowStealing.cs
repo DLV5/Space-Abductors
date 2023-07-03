@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class CowStealing : MonoBehaviour
 {
-    private Ship _player; // For healing
+    private PlayerHealth _player; // For healing
     private Movement _movementScript; // For limiting movement
     private Cow _currentCow;
 
     private void Start()
     {
         _movementScript = GetComponent<Movement>();
-        _player = GetComponent<Ship>();
+        _player = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class CowStealing : MonoBehaviour
             {
                 Destroy(_currentCow.gameObject);
                 Skills.Instance.AddSkillpoints(1);
-                _player.Damage(-1);
+                _player.Health += 1;
                 _movementScript.CanMove = true;
             }
         }
