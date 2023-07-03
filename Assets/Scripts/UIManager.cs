@@ -11,9 +11,12 @@ public class UIManager : MonoBehaviour
     public GameObject DeathScreen;
     public GameObject PauseMenu;
     public GameObject SkillpointMenu;
+
+    [SerializeField] private Texture2D _crosshair;
+
     private GameObject _currentMenu;
 
-    private UIManager()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -23,6 +26,8 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
     // Common functions for UI buttons
