@@ -13,13 +13,17 @@ public class PistolWeapon : Weapon
 
     public static PistolWeapon Instance { get; protected set; }
 
-    protected PistolWeapon()
-    {
-        Instance = this;
-    }
-
     protected override void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         base.Awake();
         //GameObject has only one child and it will be muzzle point
         _firePoint = gameObject.transform.GetChild(0);

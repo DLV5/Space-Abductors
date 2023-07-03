@@ -5,9 +5,17 @@ public class ShotgunWeapon : PistolWeapon
     [SerializeField] private int _bulletsPerShotgunShot = 6;
 
     public static ShotgunWeapon ShotgunInstance { get; protected set; }
-    private ShotgunWeapon()
+
+    protected override void Awake()
     {
-        ShotgunInstance = this;
+        if (ShotgunInstance != null && ShotgunInstance != this)
+        {
+            Destroy(Instance);
+        }
+        else
+        {
+            ShotgunInstance = this;
+        }
     }
 
     protected override void Shoot()
