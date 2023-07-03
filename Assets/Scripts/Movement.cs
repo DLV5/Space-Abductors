@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
-    public bool CanMove = true;
+    public bool CanMove { get; set; } = true;
 
-    [SerializeField]
-    private float speed = 5.0f;
+    [SerializeField] private float _speed = 5.0f;
     private Vector2 _direction;
 
     private Vector2 _minScreenBounds;
@@ -18,22 +18,34 @@ public class Movement : MonoBehaviour
         _maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (CanMove)
-        {
-            _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            transform.position += (Vector3)_direction * speed * Time.deltaTime;
+        {            
+            transform.position += (Vector3)_direction * _speed * Time.deltaTime;
         }
 
         // Most sane unity code
         if (transform.position.x > _maxScreenBounds.x)
+        {
             transform.position = new Vector2(_maxScreenBounds.x, transform.position.y);
+        }
         if (transform.position.y > _maxScreenBounds.y)
+        {
             transform.position = new Vector2(transform.position.x, _maxScreenBounds.y);
+        }
         if (transform.position.x < _minScreenBounds.x)
+        {
             transform.position = new Vector2(_minScreenBounds.x, transform.position.y);
+        }
         if (transform.position.y < _minScreenBounds.y)
+        {
             transform.position = new Vector2(transform.position.x, _minScreenBounds.y);
+        }
     }
+
+    private void OnMove(InputValue inputValue) {
+        _direction = inputValue.Get<Vector2>();
+    }
+
 }

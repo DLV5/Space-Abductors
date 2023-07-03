@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class HomingBullet : Bullet
 {
-    public float RotateSpeed = 200f;
-    public GameObject Target;
-    public Rigidbody2D Rb;
+    public float RotateSpeed { get; set;} = 200f;
+    public GameObject Target { get; set; }
+    public Rigidbody2D Rb { get; set; }
 
     private void Start()
     {
-        Target = Weapon.Instance.gameObject;
+        //Target = Weapon.Instance.gameObject;
     }
     void Update()
     {
@@ -16,6 +16,6 @@ public class HomingBullet : Bullet
 
         float rotationAmount = Vector3.Cross(dir, transform.up).z;
         Rb.angularVelocity = -rotationAmount * RotateSpeed;
-        Rb.velocity = transform.up * speed;
+        Rb.velocity = transform.up * _speed;
     }
 }

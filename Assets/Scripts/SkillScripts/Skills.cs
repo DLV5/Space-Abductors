@@ -2,12 +2,32 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+public enum Skill
+{
+    Shotgun,
+    Railgun,
+    Flamethrower,
+    ShotgunSpreadUpgrade,
+    ShotgunNumberUpgrade,
+    ShotgunDamageUpgrade,
+    ShotgunCooldownUpgrade
+}
+
+[RequireComponent(typeof(SkillsObjectsManager))]
+[RequireComponent(typeof(SkillsUI))]
 public class Skills : MonoBehaviour
 {
-    public static Skills Instance;
-    [HideInInspector] public List<string> SkillList = new List<string>();
-    public int SkillPoints = 0;
-    [SerializeField] private TextMeshProUGUI _skillPointMenuText;
+    public static Skills Instance { get; set; }
+    public List<Skill> SkillList { get; set; } = new List<Skill>();
+
+    private SkillsUI _skillUI;
+
+    [SerializeField] private int _skillPoints = 0;
+    public int SkillPoints
+    {
+        get => _skillPoints;
+        set => _skillPoints = value;
+    }
 
     private void Awake()
     {
@@ -23,83 +43,49 @@ public class Skills : MonoBehaviour
 
     private void Start()
     {
-        _skillPointMenuText.text = SkillPoints + " skill points";
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L) && GameManager.Instance.CurrentPlayerState == GameManager.PlayerState.Playing)
-        {
-            OpenSkillpointMenu();
-        }
+        _skillUI = GetComponent<SkillsUI>();
+        _skillUI.UpdateSkillPointsText();
     }
 
     public void BuySkill(SkillParameter parameter)
     {
-        if (SkillPoints < parameter.Price) return;
+        if (SkillPoints < parameter.Price) 
+            return;
         parameter.IsBought = true;
-        SkillList.Add(parameter.SkillName);
+        SkillList.Add(parameter.Name);
         AddSkillpoints(-parameter.Price);
         RefreshSkills();
-    }
-
-    public void OpenSkillpointMenu()
-    {
-        Time.timeScale = 0;
-        GameManager.Instance.SetState(GameManager.PlayerState.Paused);
-        UIManager.Instance.SkillpointMenu.SetActive(true);
     }
 
     public void AddSkillpoints(int pointsToAdd)
     {
         SkillPoints += pointsToAdd;
-        _skillPointMenuText.text = SkillPoints + " skill points";
+        _skillUI.UpdateSkillPointsText();
     }
 
     public void RefreshSkills()
     {
-        var instance = Weapon.Instance;
-        foreach (string skill in SkillList)
+        var _instance = SkillsObjectsManager.Instance;
+        foreach (var skill in SkillList)
         {
             switch (skill) // Add a string here for every new weapon skill
             {
-                case "Shotgun":
-                    instance.CurrentWeaponAttack = instance.ShootLikeShootgun;
-                    instance.Source.clip = instance.ShotgunSound;
-                    instance.Railgun.SetActive(false);
-                    instance.Flamethrower.SetActive(false);
-                    instance.Type = Weapon.WeaponType.ShootingWeapon;
-                    instance.SpreadAngle = 90f;
-                    instance.Damage = 1;
+                case Skill.Shotgun:
+                    _instance.ChangeWeapon(_instance.Weapons["ShotgunWeapon"]);
                     break;
-                case "Railgun":
-                    instance.CurrentWeaponAttack = instance.ShootLikeRailgun;
-                    instance.Source.clip = instance.RailgunShotSound;
-                    instance.Flamethrower.SetActive(false);
-                    instance.RailgunHolder.SetActive(true);
-                    instance.Type = Weapon.WeaponType.ChargingWeapon;
-                    instance.Damage = 1;
+                case Skill.Railgun:
+                    _instance.ChangeWeapon(_instance.Weapons["RailgunWeapon"]);
                     break;
-                case "Flamethrower":
-                    instance.CurrentWeaponAttack = instance.ShootLikeFlamethrower;
-                    instance.Source.clip = instance.FlamethrowerSound;
-                    instance.Source.loop = true;
-                    instance.Railgun.SetActive(false);
-                    instance.Flamethrower.SetActive(true);
-                    instance.Type = Weapon.WeaponType.HoldingWeapon;
-                    instance.Damage = 1;
+                case Skill.Flamethrower:
+                    _instance.ChangeWeapon(_instance.Weapons["FlamethrowerWeapon"]);
                     break;
-                case "ShotgunSpreadUpgrade":
-                    instance.SpreadAngle = 40f;
+                case Skill.ShotgunSpreadUpgrade:
                     break;
-                case "ShotgunNumberUpgrade":
-                    instance.BulletsPerShotgunShot = 10;
+                case Skill.ShotgunNumberUpgrade:
                     break;
-                case "ShotgunDamageUpgrade":
-                    instance.Damage = 2;
+                case Skill.ShotgunDamageUpgrade:
                     break;
-                case "ShotgunCooldownUpgrade":
-                    instance.Cooldown = 0.5f;
+                case Skill.ShotgunCooldownUpgrade:
                     break;
                 default: break;
             }

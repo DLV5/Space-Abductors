@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManager Instance { get; private set; }
     public GameObject DeathScreen;
     public GameObject PauseMenu;
     public GameObject SkillpointMenu;
+
+    [SerializeField] private Texture2D _crosshair;
+
+    private GameObject _currentMenu;
 
     private void Awake()
     {
@@ -21,14 +22,11 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            Cursor.SetCursor(_crosshair, new Vector2(_crosshair.width / 2, _crosshair.height / 2), CursorMode.Auto);
     }
 
     // Common functions for UI buttons
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
     public void ReturnToFirstScene()
     {
         SceneManager.LoadScene(0);
@@ -44,19 +42,28 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void StartGame(string mode)
+    public void OpenMenu(GameObject menu)
     {
-        PlayerPrefs.SetString("Mode", mode);
-        SceneManager.LoadScene(1);
+        _currentMenu = menu;
+        GameManager.Instance.SetState(GameState.Paused);
+        menu.SetActive(true);
     }
 
-    public void OpenPanel(GameObject panel)
+    public void OpenMenuWindow(GameObject window)
     {
-        panel.SetActive(true);
+        window.SetActive(true);
     }
 
-    public void ClosePanel(GameObject panel)
+    public void CloseMenuWindow(GameObject window)
     {
-        panel.SetActive(false);
+        window.SetActive(false);
+    }
+
+    public void CloseMenu(GameObject menu)
+    {
+        if (_currentMenu != menu)
+            return;
+        GameManager.Instance.SetState(GameState.Playing);
+        menu.SetActive(false);
     }
 }

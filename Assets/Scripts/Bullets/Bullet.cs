@@ -3,26 +3,33 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField]
-    protected float speed;
-    public float Speed { get => speed; set => speed = value; }
-
-    public Vector3 Direction;
-
-    public enum BulletTypes
-    {
-        NormalBullet,
-        PlayerBullet
+    [SerializeField] protected float _speed;
+    public float Speed 
+    { 
+        get => _speed; 
+        set => _speed = value; 
     }
-    protected void OnLevelWasLoaded(int level)
+    public Vector3 Direction { get; set;}
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void OnLevelWasLoaded(int level)
     {
         gameObject.SetActive(false);
     }
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
          StartCoroutine(CheckIsInTheBoundOfTheScreen());       
     }
-    IEnumerator CheckIsInTheBoundOfTheScreen()
+
+    protected virtual void Move()
+    {
+        transform.position += _speed * Time.deltaTime * Direction;
+    }
+    private IEnumerator CheckIsInTheBoundOfTheScreen()
     {
         while (true)
         {
@@ -30,7 +37,10 @@ public class Bullet : MonoBehaviour
 
             Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
 
-            if (!Screen.safeArea.Contains(pos)) gameObject.SetActive(false);
+            if (!Screen.safeArea.Contains(pos))
+            {
+                gameObject.SetActive(false);
+            } 
         }
     }
 }

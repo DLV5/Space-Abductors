@@ -4,49 +4,58 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    private static bool hasInvoked = false;
+    public static ObjectsPool EnemyPool;
+    public static ObjectsPool BulletPool;
+
+    private static bool _hasInvoked = false;
+    public static PoolManager Instance { get; private set; }
     [Serializable]
     private class PoolObject
     {
-        public GameObject ObjectToCopy;
-        public int NumberOfCopies;
+        [SerializeField]private GameObject _objectToCopy;
+        public GameObject ObjectToCopy
+        {
+            get => _objectToCopy;
+            set => _objectToCopy = value;
+        }
+
+        [SerializeField] private int _numberOfCopies;
+        public int NumberOfCopies
+        {
+            get => _numberOfCopies;
+            set => _numberOfCopies = value;
+        }
 
     }
-    public static PoolManager Instance;
     PoolManager()
     {
         Instance = this;
     }
-    [SerializeField]
-    private List<PoolObject> enemyPrefabs = new List<PoolObject>();
+    [SerializeField] private List<PoolObject> _enemyPrefabs = new List<PoolObject>();
+    [SerializeField] private List<PoolObject> _bulletPrefabs = new List<PoolObject>();
 
-    [SerializeField]
-    private List<PoolObject> bulletPrefabs = new List<PoolObject>();
-
-    public static ObjectPool enemyPool;
-    public static ObjectPool bulletPool;
-
-    void Awake()
+    private void Awake()
     {
-        if (hasInvoked) return;
-        enemyPool = new ObjectPool(enemyPrefabs[0].NumberOfCopies, enemyPrefabs[0].ObjectToCopy);
-        bulletPool = new ObjectPool(bulletPrefabs[0].NumberOfCopies, bulletPrefabs[0].ObjectToCopy);
-        for (int i = 1; i < enemyPrefabs.Count; i++)
+        if (_hasInvoked) 
+            return;
+        EnemyPool = new ObjectsPool(_enemyPrefabs[0].NumberOfCopies, _enemyPrefabs[0].ObjectToCopy);
+        BulletPool = new ObjectsPool(_bulletPrefabs[0].NumberOfCopies, _bulletPrefabs[0].ObjectToCopy);
+        for (int i = 1; i < _enemyPrefabs.Count; i++)
         {
-            ObjectPool objects = new ObjectPool(enemyPrefabs[i].NumberOfCopies, enemyPrefabs[i].ObjectToCopy);
+            var objects = new ObjectsPool(_enemyPrefabs[i].NumberOfCopies, _enemyPrefabs[i].ObjectToCopy);
             foreach (var item in objects.Pool)
             {
-                enemyPool.Pool.Add(item);
+                EnemyPool.Pool.Add(item);
             }
         }
-        for (int i = 1; i < bulletPrefabs.Count; i++)
+        for (int i = 1; i < _bulletPrefabs.Count; i++)
         {
-            ObjectPool objects = new ObjectPool(bulletPrefabs[i].NumberOfCopies, bulletPrefabs[i].ObjectToCopy);
+            var objects = new ObjectsPool(_bulletPrefabs[i].NumberOfCopies, _bulletPrefabs[i].ObjectToCopy);
             foreach (var item in objects.Pool)
             {
-                 bulletPool.Pool.Add(item);
+                 BulletPool.Pool.Add(item);
             }
         }
-        hasInvoked = true;
+        _hasInvoked = true;
     }
 }

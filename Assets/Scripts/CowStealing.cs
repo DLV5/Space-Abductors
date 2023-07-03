@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class CowStealing : MonoBehaviour
 {
-    private Ship _player; // For healing
+    private PlayerHealth _player; // For healing
     private Movement _movementScript; // For limiting movement
     private Cow _currentCow;
 
     private void Start()
     {
         _movementScript = GetComponent<Movement>();
-        _player = GetComponent<Ship>();
+        _player = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -20,11 +20,11 @@ public class CowStealing : MonoBehaviour
         }
         if (!_movementScript.CanMove)
         {
-            if (!_currentCow.Moving)
+            if (!_currentCow.IsMoving)
             {
                 Destroy(_currentCow.gameObject);
                 Skills.Instance.AddSkillpoints(1);
-                _player.Damage(-1);
+                _player.Health += 1;
                 _movementScript.CanMove = true;
             }
         }
@@ -32,14 +32,16 @@ public class CowStealing : MonoBehaviour
 
     private void StealCow()
     {
-        if (!_movementScript.CanMove) return;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-        Collider2D cow = hit.collider;
-        if (cow == null) return;
+        if (!_movementScript.CanMove) 
+            return;
+        var hit = Physics2D.Raycast(transform.position, Vector2.down);
+        var cow = hit.collider;
+        if (cow == null) 
+            return;
         if (cow.CompareTag("Cow"))
         {
             _currentCow = cow.gameObject.GetComponent<Cow>();
-            _currentCow.Moving = true;
+            _currentCow.IsMoving = true;
             _movementScript.CanMove = false;
         }
     }

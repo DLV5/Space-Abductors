@@ -2,16 +2,26 @@ using UnityEngine;
 
 public class SkillParameter : MonoBehaviour
 {
-    public string SkillName;
-    public int Price;
+    [SerializeField] private Skill _name;
+    public Skill Name
+    {
+        get => _name;
+        private set => _name = value;
+    }
+    [SerializeField] private int _price;
+    public int Price
+    {
+        get => _price;
+        private set => _price = value;
+    }
 
-    private bool isBought = false;
+    private bool _isBought = false;
     public bool IsBought { 
-        get => isBought; 
+        get => _isBought; 
         set
         {
-            isBought = value;
+            _isBought = value;
             GetComponent<UIActivator>().EnableImage();
         }
-            }
+    }
 }

@@ -6,24 +6,21 @@ public class MovingEnemy : EnemyAttacker
     protected Vector2 _minHeight;
     protected Vector2 _maxHeight;
 
-    protected Vector2 arrivalPoint;
+    protected Vector2 _arrivalPoint;
 
     [Header("Movement")]
 
-    [SerializeField]
-    private float verticalMoveSpeed = 5f;
-
-    private bool movingToEnd = true;
+    [SerializeField] private float _verticalMoveSpeed = 5f;
 
     [Header("Escape settings")]
 
-    [SerializeField]
-    private float timeBerofeEscape = 5f;
+    [SerializeField] private float _timeBerofeEscape = 5f;
 
-    [SerializeField]
-    private float escapeHorizontalSpeed = 0f;
+    [SerializeField] private float _escapeHorizontalSpeed = 5f;
 
-    private void Awake()
+    private bool _isMovingToEnd = true;
+
+    protected override void Awake()
     {
         _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
         _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
@@ -31,8 +28,8 @@ public class MovingEnemy : EnemyAttacker
 
     protected virtual void OnEnable()
     {
-        currentState = EnemyStates.FlyingToTheScreen;
-        arrivalPoint = GeneratePointToFly();
+        currentState = EnemyBehavior.FlyingToTheScreen;
+        _arrivalPoint = GeneratePointToFly();
         StartCoroutine(WaitUntilEscape());
     }
 
@@ -40,35 +37,40 @@ public class MovingEnemy : EnemyAttacker
     {
         switch (currentState)
         {
-            case EnemyStates.FlyingToTheScreen:
+            case EnemyBehavior.FlyingToTheScreen:
                 FlyToTheScreen();
                 break;
-            case EnemyStates.Attacking:
+            case EnemyBehavior.Attacking:
                 FlyWhenAttacking();
                 break;
-            case EnemyStates.Leaving:
+            case EnemyBehavior.Leaving:
                 FlyOutOfTheScreen();
                 break;
         }
     }
     protected virtual void FlyToTheScreen()
     {
-        float distance = Vector2.Distance(transform.position, arrivalPoint);
+        float distance = Vector2.Distance(transform.position, _arrivalPoint);
 
         if (distance > 0.01f)
-            transform.position = Vector2.MoveTowards(transform.position, arrivalPoint, verticalMoveSpeed * Time.deltaTime);
-        else currentState = EnemyStates.Attacking;
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _arrivalPoint, _verticalMoveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            currentState = EnemyBehavior.Attacking;
+        }
     }
 
     protected virtual void FlyWhenAttacking()
     {
-        Vector2 targetPosition = movingToEnd ? _maxHeight : _minHeight;
+        Vector2 targetPosition = _isMovingToEnd ? _maxHeight : _minHeight;
         float distance = Vector2.Distance(transform.position, new Vector2(transform.position.x, targetPosition.y));
 
         if (distance > 0.01f)
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, targetPosition.y), verticalMoveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, targetPosition.y), _verticalMoveSpeed * Time.deltaTime);
         else
-            movingToEnd = !movingToEnd; // Reverse the movement direction
+            _isMovingToEnd = !_isMovingToEnd; // Reverse the movement direction
     }
     protected virtual Vector2 GeneratePointToFly()
     {
@@ -81,18 +83,18 @@ public class MovingEnemy : EnemyAttacker
 
     protected virtual void FlyOutOfTheScreen()
     {
-        transform.position += Time.deltaTime * Vector3.left * escapeHorizontalSpeed;
+        transform.position += Time.deltaTime * Vector3.left * _escapeHorizontalSpeed;
         StartCoroutine(CheckIsInTheBoundOfTheScreen());
     }
 
-    IEnumerator WaitUntilEscape()
+    private IEnumerator WaitUntilEscape()
     {
-        yield return new WaitForSeconds(timeBerofeEscape);
-        currentState = EnemyStates.Leaving;
+        yield return new WaitForSeconds(_timeBerofeEscape);
+        currentState = EnemyBehavior.Leaving;
 
     }
 
-    IEnumerator CheckIsInTheBoundOfTheScreen()
+    private IEnumerator CheckIsInTheBoundOfTheScreen()
     {
         while (true)
         {

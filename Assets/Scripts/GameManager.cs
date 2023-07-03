@@ -1,55 +1,60 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum GameState
+{
+    Paused,
+    Playing,
+    Finished
+}
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public enum PlayerState
-    {
-        Paused,
-        Playing,
-        Dead,
-    }
-    public PlayerState CurrentPlayerState;
+    public static GameManager Instance { get; private set;}
+    public GameState CurrentState { get; private set;}
 
-    GameManager() { 
+    [SerializeField] private GameState _currentState;
+
+    private GameManager() { 
         Instance = this;
-    }
-
-    public void SetState(PlayerState state)
-    {
-        switch (state)
-        {
-            case PlayerState.Paused:
-                Weapon.Instance.enabled = false;
-                break;
-            case PlayerState.Playing:
-                Weapon.Instance.enabled = true;
-                break;
-            case PlayerState.Dead:
-                break;
-            default:
-                break;
-        }
-        CurrentPlayerState = state;
     }
 
     private void Awake()
     {
         Time.timeScale = 1;
     }
+
     private void Start()
     {
-        SetState(PlayerState.Playing);
+        SetState(GameState.Playing);
     }
 
-    private void Update()
+    public void StartGame(string mode)
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && CurrentPlayerState == PlayerState.Playing) 
+        PlayerPrefs.SetString("Mode", mode);
+        SceneManager.LoadScene(1);
+    }
+
+    public void SetState(GameState state)
+    {
+        switch (state)
         {
-            Time.timeScale = 0;
-            SetState(PlayerState.Paused);
-            Weapon.Instance.canShoot = false;
-            UIManager.Instance.PauseMenu.SetActive(true);
+            case GameState.Paused:
+                Pause.Instance.EnterPause();
+                break;
+            case GameState.Playing:
+                Pause.Instance.ExitPause();
+                break;
+            case GameState.Finished:
+                break;
+            default:
+                break;
         }
+        CurrentState = state;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

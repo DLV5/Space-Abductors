@@ -3,23 +3,41 @@ using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
-    public static DamageUI Instance;
-    DamageUI() {
+    [SerializeField] private List<GameObject> _damageTexts = new List<GameObject>();
+    public static DamageUI Instance { get; private set;}
+    private DamageUI() {
         Instance = this;
     }
-    [SerializeField]
-    private List<GameObject> damageTexts = new List<GameObject>();
+
+    private void Start()
+    {
+        _damageTexts = FindAllDamageTextBoxes();
+    }
+
     public void ShowDamageOnEnemy(Vector2 enemyTransform)
     {
-        GameObject gameObj = GetDisabledText();
+        var gameObj = GetDisabledText();
         gameObject.transform.position = enemyTransform;
         //tex.text = "100";
 
     }
+    private List<GameObject> FindAllDamageTextBoxes()
+    {
+        List<GameObject> damageTextBoxes = new List<GameObject>();
+        GameObject[] allGameObjects = FindObjectsOfType<GameObject>(true);
+        foreach (var gameObj in allGameObjects)
+        {
+            if (gameObj.name.Contains("MainDamageTextBox"))
+            {
+                damageTextBoxes.Add(gameObj);
+            }
+        }
+        return damageTextBoxes;
+    }
 
     private GameObject GetDisabledText()
     {
-        foreach (GameObject text in damageTexts)
+        foreach (GameObject text in _damageTexts)
         {
             if (!text.gameObject.activeSelf)
             {
