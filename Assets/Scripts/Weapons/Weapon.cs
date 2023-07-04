@@ -46,6 +46,11 @@ public class Weapon : Attacker
         Shooted += OnShooted;
     }
 
+    private void OnDestroy()
+    {
+        Shooted = null;
+    }
+
     private void OnShooted()
     {
         EnterCooldown();
@@ -56,6 +61,7 @@ public class Weapon : Attacker
     }
     protected IEnumerator WaitBeforeNextShoot()
     {
+        Debug.Log("CoroutineStarted");
         CanShoot = false;
         yield return new WaitForSeconds(1 / FireRate);
         CanShoot = true;

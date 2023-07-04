@@ -18,6 +18,12 @@ public class FlamethrowerWeapon : Weapon
         InputHandler.ReleasingShootButton += InputHandler_OnReleasingShootButton;
     }
 
+    private void OnDestroy()
+    {
+        InputHandler.PressingShootButton -= InputHandler_OnPressingShootButton;
+        InputHandler.ReleasingShootButton -= InputHandler_OnReleasingShootButton;
+    }
+
     protected virtual void InputHandler_OnPressingShootButton()
     {
         Fire();

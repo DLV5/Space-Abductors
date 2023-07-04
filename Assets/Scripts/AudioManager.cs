@@ -23,6 +23,12 @@ public class AudioManager : MonoBehaviour
         InputHandler.ReleasingShootButton += StopSoundLoop;
     }
 
+    private void OnDestroy()
+    {
+        Weapon.Shooted -= PlayShootSound;
+        InputHandler.ReleasingShootButton -= StopSoundLoop;
+    }
+
     private void PlayShootSound()
     {
         //if (PlayerSource.isPlaying)

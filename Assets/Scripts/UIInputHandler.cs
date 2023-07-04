@@ -11,6 +11,12 @@ public class UIInputHandler : MonoBehaviour
         _playerInput.actions["OpenOrCloseSkillMenu"].performed += OnSkillMenuButtonPressed;
     }
 
+    private void OnDestroy()
+    {
+        _playerInput.actions["OpenOrClosePauseMenu"].performed -= OnPauseMenuButtonPressed;
+        _playerInput.actions["OpenOrCloseSkillMenu"].performed -= OnSkillMenuButtonPressed;   
+    }
+
     private void OnPauseMenuButtonPressed(InputAction.CallbackContext context)
     {
         context.ReadValueAsButton();

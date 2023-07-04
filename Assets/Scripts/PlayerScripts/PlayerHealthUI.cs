@@ -29,6 +29,12 @@ public class PlayerHealthUI : MonoBehaviour
         _playerDamageHandler.InvinvibilityDisabled += EnableRenderer;
     }
 
+    private void OnDestroy()
+    {
+        _playerDamageHandler.Damaged -= UpdateText;
+        _playerDamageHandler.InvinvibilityDisabled -= EnableRenderer;
+    }
+
     private void Update()
     {
         if (_playerDamageHandler.IsInvincible)
