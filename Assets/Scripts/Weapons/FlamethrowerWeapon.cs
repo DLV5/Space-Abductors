@@ -5,9 +5,9 @@ public class FlamethrowerWeapon : Weapon
     [SerializeField] ParticleSystem _flames;
     private Collider2D _flameCollider;
 
-    protected override void Awake()
+    protected override void OnEnable()
     {
-        base.Awake();
+        base.OnEnable();
     }
 
     protected void Start()

@@ -68,7 +68,7 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        UIManager.Instance.DeathScreen.SetActive(true);
+        UIManager.Instance.OpenMenu(UIManager.Instance.DeathScreen);
         gameObject.SetActive(false);
     }
 }

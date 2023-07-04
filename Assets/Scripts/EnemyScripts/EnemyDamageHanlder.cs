@@ -41,7 +41,7 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
                 Damage(PistolWeapon.Instance.Damage);
                 break;
             case "ShotgunPlayerBullet":
-                Damage(ShotgunWeapon.Instance.Damage);
+                Damage(ShotgunWeapon.ShotgunInstance.Damage);
                 break;
         }
     }
