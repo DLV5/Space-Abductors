@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        Time.timeScale = 1;
     }
 
     private void Start()
     {
+        Time.timeScale = 1;
         SetState(GameState.Playing);
     }
 
