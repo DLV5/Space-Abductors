@@ -46,9 +46,9 @@ public class Weapon : Attacker
         Shooted += OnShooted;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        Shooted = null;
+        Shooted -= OnShooted;
     }
 
     private void OnShooted()
