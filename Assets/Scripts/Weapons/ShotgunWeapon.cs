@@ -6,18 +6,18 @@ public class ShotgunWeapon : PistolWeapon
 
     public static ShotgunWeapon ShotgunInstance { get; protected set; }
 
-    protected override void Awake()
+    private void Awake()
     {
         if (ShotgunInstance != null && ShotgunInstance != this)
         {
-            Destroy(Instance);
+            Destroy(this);
         }
         else
         {
             ShotgunInstance = this;
         }
     }
-
+    
     protected override void Shoot()
     {
         for (int i = 0; i < _bulletsPerShotgunShot; i++)

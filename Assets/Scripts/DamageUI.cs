@@ -5,8 +5,17 @@ public class DamageUI : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _damageTexts = new List<GameObject>();
     public static DamageUI Instance { get; private set;}
-    private DamageUI() {
-        Instance = this;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void Start()

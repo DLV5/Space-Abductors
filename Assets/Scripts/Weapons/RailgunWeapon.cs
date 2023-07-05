@@ -27,6 +27,12 @@ public class RailgunWeapon : Weapon
         InputHandler.ReleasingShootButton += InputHandler_OnReleasingShootButton;
     }
 
+    private void OnDestroy()
+    {
+        InputHandler.PressingShootButton -= InputHandler_OnPressingShootButton;
+        InputHandler.ReleasingShootButton -= InputHandler_OnReleasingShootButton;
+    }
+
 
     private void InputHandler_OnPressingShootButton()
     {

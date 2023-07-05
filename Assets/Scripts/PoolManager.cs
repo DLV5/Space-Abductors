@@ -27,15 +27,19 @@ public class PoolManager : MonoBehaviour
         }
 
     }
-    PoolManager()
-    {
-        Instance = this;
-    }
     [SerializeField] private List<PoolObject> _enemyPrefabs = new List<PoolObject>();
     [SerializeField] private List<PoolObject> _bulletPrefabs = new List<PoolObject>();
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
         if (_hasInvoked) 
             return;
         EnemyPool = new ObjectsPool(_enemyPrefabs[0].NumberOfCopies, _enemyPrefabs[0].ObjectToCopy);

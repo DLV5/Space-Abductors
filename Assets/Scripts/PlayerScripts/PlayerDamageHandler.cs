@@ -19,6 +19,11 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
         Damaged += EnableInvincibility;
     }
 
+    private void OnDestroy()
+    {
+        Damaged -= EnableInvincibility;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Contains("EnemyBullet"))
@@ -63,7 +68,7 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        UIManager.Instance.DeathScreen.SetActive(true);
+        UIManager.Instance.OpenMenu(UIManager.Instance.DeathScreen);
         gameObject.SetActive(false);
     }
 }

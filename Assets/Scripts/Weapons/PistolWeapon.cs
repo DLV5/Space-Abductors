@@ -13,29 +13,36 @@ public class PistolWeapon : Weapon
 
     public static PistolWeapon Instance { get; protected set; }
 
-    protected override void Awake()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(Instance);
+            Destroy(this);
         }
         else
         {
             Instance = this;
         }
-
-        base.Awake();
-        //GameObject has only one child and it will be muzzle point
-        _firePoint = gameObject.transform.GetChild(0);
-        PlayerBullet.FirePoint = _firePoint;
     }
 
     protected void Start()
     {
-        _gameObjectsPool ??= PoolManager.BulletPool;
         InputHandler.PressingShootButton += InputHandler_OnPressingShootButton;
+        _gameObjectsPool ??= PoolManager.BulletPool;
     }
 
+    protected override void Initialize()
+    {
+        base.Initialize();
+        _firePoint = gameObject.transform.GetChild(0);
+        PlayerBullet.FirePoint = _firePoint;
+    }
+
+    protected override void Uninitialize()
+    {
+        base.Uninitialize();
+        InputHandler.PressingShootButton -= InputHandler_OnPressingShootButton;
+    }
     protected virtual void InputHandler_OnPressingShootButton()
     {
         Fire();

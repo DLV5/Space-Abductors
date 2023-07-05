@@ -12,15 +12,13 @@ GameObject:
   - component: {fileID: 8350575625521098816}
   - component: {fileID: 5743907468560604060}
   - component: {fileID: 3737552164993465529}
-  - component: {fileID: 3243995266231822610}
   m_Layer: 6
-  m_Layer: 0
   m_Name: ShotGunBullet
   m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9118543803719068291
 Transform:
   m_ObjectHideFlags: 0
@@ -100,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d5e5557379fca4cb22b0384d299f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
-  direction: {x: 0, y: 0, z: 0}
+  _speed: 0
 --- !u!58 &3737552164993465529
 CircleCollider2D:
   m_ObjectHideFlags: 0

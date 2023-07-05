@@ -15,17 +15,21 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameState _currentState;
 
-    private GameManager() { 
-        Instance = this;
-    }
-
     private void Awake()
     {
-        Time.timeScale = 1;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void Start()
     {
+        Time.timeScale = 1;
         SetState(GameState.Playing);
     }
 

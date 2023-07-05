@@ -40,10 +40,26 @@ public class Weapon : Attacker
     //public Action CurrentWeaponAttack;
     public static event Action Shooted;
 
-    protected virtual void Awake()
+    protected virtual void OnEnable()
+    {
+        Debug.Log("WeaponOnEnableCallded");
+        Initialize();
+    }
+
+    protected virtual void OnDisable()
+    {
+        Debug.Log("WeaponOnDisableCallded");
+        Uninitialize();
+    }
+
+    protected virtual void Initialize()
     {
         SetFirePoint();
         Shooted += OnShooted;
+    }
+    protected virtual void Uninitialize()
+    {
+        Shooted -= OnShooted;
     }
 
     private void OnShooted()
@@ -56,6 +72,7 @@ public class Weapon : Attacker
     }
     protected IEnumerator WaitBeforeNextShoot()
     {
+        Debug.Log("CoroutineStarted");
         CanShoot = false;
         yield return new WaitForSeconds(1 / FireRate);
         CanShoot = true;
@@ -68,11 +85,12 @@ public class Weapon : Attacker
 
     protected override void Fire()
     {
-        if (CanShoot)
-        {
+        if (GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+        if (!CanShoot) //&& GameManager.Instance.CurrentState == GameState.Playing)
+            return;
             Shoot();
             Shooted?.Invoke();
-        }
     }
 
     protected virtual void Shoot()

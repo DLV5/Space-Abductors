@@ -27,6 +27,13 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        PressingShootButton = null;
+        HoldingShootButton = null;
+        ReleasingShootButton = null;
+    }
+
     private void OnPressingShootButton()
     {
         PressingShootButton?.Invoke();

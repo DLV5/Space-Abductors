@@ -4,9 +4,16 @@ public class Pause : MonoBehaviour
 {
     public static Pause Instance { get; private set; }
 
-    private Pause()
+    private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     public void EnterPause()
