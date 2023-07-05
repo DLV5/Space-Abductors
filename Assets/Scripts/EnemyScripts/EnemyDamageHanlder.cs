@@ -18,10 +18,12 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
     {
         _enemyUI = GetComponent<EnemyUI>();
         _flamethrowerWeapon = FindObjectOfType<FlamethrowerWeapon>(true);
-        _health = _maxHealth;
     }
 
-
+    private void OnEnable()
+    {
+        _health = _maxHealth;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -61,7 +63,7 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
     public void Damage(int damage)
     {
         Health -= damage;
-        DamageUI.Instance.ShowDamageOnEnemy(transform.position);
+        DamageUI.Instance.ShowDamageOnEnemy(transform.position, damage);
         if (Health <= 0)
         {
             Die();

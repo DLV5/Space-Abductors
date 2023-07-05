@@ -1,9 +1,14 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _damageTexts = new List<GameObject>();
+    private List<TMP_Text> _damageTexts = new List<TMP_Text>();
+
+    private readonly float xOffset = 0.5f;
+    private readonly float yOffset = 0.5f;
+
     public static DamageUI Instance { get; private set;}
 
     private void Awake()
@@ -23,17 +28,21 @@ public class DamageUI : MonoBehaviour
         _damageTexts = FindAllDamageTextBoxes();
     }
 
-    public void ShowDamageOnEnemy(Vector2 enemyTransform)
+    public void ShowDamageOnEnemy(Vector2 enemyTransform, int damage)
     {
         var gameObj = GetDisabledText();
-        gameObject.transform.position = enemyTransform;
-        //tex.text = "100";
-
+        gameObject.transform.position = enemyTransform + GetOffset();
+        gameObj.text = damage.ToString();
     }
-    private List<GameObject> FindAllDamageTextBoxes()
+
+    private Vector2 GetOffset()
     {
-        List<GameObject> damageTextBoxes = new List<GameObject>();
-        GameObject[] allGameObjects = FindObjectsOfType<GameObject>(true);
+        return new Vector2(Random.Range(-xOffset, xOffset), Random.Range(-yOffset, yOffset));
+    }
+    private List<TMP_Text> FindAllDamageTextBoxes()
+    {
+        List<TMP_Text> damageTextBoxes = new List<TMP_Text>();
+        TMP_Text[] allGameObjects = FindObjectsOfType<TMP_Text>(true);
         foreach (var gameObj in allGameObjects)
         {
             if (gameObj.name.Contains("MainDamageTextBox"))
@@ -44,9 +53,9 @@ public class DamageUI : MonoBehaviour
         return damageTextBoxes;
     }
 
-    private GameObject GetDisabledText()
+    private TMP_Text GetDisabledText()
     {
-        foreach (GameObject text in _damageTexts)
+        foreach (TMP_Text text in _damageTexts)
         {
             if (!text.gameObject.activeSelf)
             {
