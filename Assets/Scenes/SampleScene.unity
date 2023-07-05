@@ -7241,7 +7241,6 @@ GameObject:
   - component: {fileID: 1441192110}
   - component: {fileID: 1441192112}
   - component: {fileID: 1441192111}
-  - component: {fileID: 1441192113}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -7358,7 +7357,6 @@ MonoBehaviour:
       _delayBetweenSpawn: 0.4
       _timeUntilNextWave: 20
   - WaveParts: []
-  _spawnMode: 1
 --- !u!1 &1442781272
 GameObject:
   m_ObjectHideFlags: 0
@@ -11171,7 +11169,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2212720832047071582, guid: e76cf171a4b27ef42959e1359f166fd5, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4c1ddb5aa26f04f41a199c4050e46199, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 54859ab283d7e1d4086a78d29df649b6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

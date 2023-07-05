@@ -105,7 +105,13 @@ public class EnemySpawner : MonoBehaviour
             {
                 for (int i = 0; i < wavePart.EnemyCount; i++)
                 {
-                    SpawnEnemy(wavePart.EnemyTag);
+                    if(wavePart.EnemyTag == "Cow")
+                    {
+                        StartCoroutine(WaitAndSpawnCow());
+                    } else
+                    {
+                        SpawnEnemy(wavePart.EnemyTag);
+                    }
                     ++_enemyCount;
                     yield return new WaitForSeconds(wavePart.DelayBetweenSpawn);
                 }
@@ -184,15 +190,12 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator WaitAndSpawnCow()
     {
-        while (true)
+        yield return new WaitForSeconds(_cowSpawnDelay);
+        if (!HasCowSpawned)
         {
-            yield return new WaitForSeconds(_cowSpawnDelay);
-            if (!HasCowSpawned)
-            {
-                IsSpawning = false;
-                SpawnCow();
-                HasCowSpawned = true;
-            }
+            IsSpawning = false;
+            SpawnCow();
+            HasCowSpawned = true;
         }
     }
 
