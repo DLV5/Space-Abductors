@@ -7,7 +7,7 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
     [Tooltip("Direction value between 0 and 360. It should be divisible by 15")]
     [SerializeField, Range(0,24)] protected int _directionToShoot;
 
-    protected Vector3 direction;
+    protected Vector3 _direction;
 
     private void Awake()
     {
@@ -18,10 +18,10 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
         float radians = _directionToShoot * 15f * Mathf.Deg2Rad;
 
         // Calculate the direction vector
-        direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
+        _direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
 
         // Normalize the direction vector
-        direction.Normalize();
+        _direction.Normalize();
     }
     protected override void OnEnable()
     {
@@ -31,10 +31,9 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
 
     protected override void Fire()
     {
+        FlyingToOneDirectionEnemyBullet.TargetDirection = _direction;
         var obj = GameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
-
         obj.transform.position = transform.position;
-        obj.GetComponent<Bullet>().Direction = -direction;
     }
     protected virtual IEnumerator ShootAccordingToFireRate()
     {
@@ -51,14 +50,14 @@ public class ShootingInOneDirectionMovingEnemy : MovingEnemy
         float radians = _directionToShoot * 15f * Mathf.Deg2Rad;
 
         // Calculate the direction vector
-        direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
+        _direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
 
         // Normalize the direction vector
-        direction.Normalize();
+        _direction.Normalize();
 
         // Set the color of the gizmo
         Gizmos.color = Color.red;
 
-        Gizmos.DrawRay(transform.position, -direction * 10);
+        Gizmos.DrawRay(transform.position, -_direction * 10);
     }
 }

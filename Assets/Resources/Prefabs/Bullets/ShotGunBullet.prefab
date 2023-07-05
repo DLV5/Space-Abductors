@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 9118543803719068291}
   - component: {fileID: 8350575625521098816}
-  - component: {fileID: 5743907468560604060}
   - component: {fileID: 3737552164993465529}
-  m_Layer: 6
-  m_Name: ShotGunBullet
-  m_TagString: ShotGunBullet
+  - component: {fileID: 8762307903096112293}
+  m_Layer: 0
+  m_Name: ShotgunBullet
+  m_TagString: ShotgunEnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5743907468560604060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8392131622389291262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d5e5557379fca4cb22b0384d299f86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 0
 --- !u!58 &3737552164993465529
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +121,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &8762307903096112293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392131622389291262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1198b103e252eba4fae3183d84068765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5

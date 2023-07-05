@@ -42,13 +42,11 @@ public class Weapon : Attacker
 
     protected virtual void OnEnable()
     {
-        Debug.Log("WeaponOnEnableCallded");
         Initialize();
     }
 
     protected virtual void OnDisable()
     {
-        Debug.Log("WeaponOnDisableCallded");
         Uninitialize();
     }
 
