@@ -25,20 +25,23 @@ public class Movement : MonoBehaviour
             transform.position += (Vector3)_direction * _speed * Time.deltaTime;
         }
 
+        float x = transform.position.x;
+        float y = transform.position.y;
+
         // Most sane unity code
-        if (transform.position.x > _maxScreenBounds.x)
+        if (x > _maxScreenBounds.x)
         {
             transform.position = new Vector2(_maxScreenBounds.x, transform.position.y);
         }
-        if (transform.position.y > _maxScreenBounds.y)
+        if (y > _maxScreenBounds.y)
         {
             transform.position = new Vector2(transform.position.x, _maxScreenBounds.y);
         }
-        if (transform.position.x < _minScreenBounds.x)
+        if (x < _minScreenBounds.x)
         {
             transform.position = new Vector2(_minScreenBounds.x, transform.position.y);
         }
-        if (transform.position.y < _minScreenBounds.y)
+        if (y < _minScreenBounds.y)
         {
             transform.position = new Vector2(transform.position.x, _minScreenBounds.y);
         }
