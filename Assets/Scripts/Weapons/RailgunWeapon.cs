@@ -23,16 +23,21 @@ public class RailgunWeapon : Weapon
 
         //note, that damage of a railgun depends on how long it has been holded
         _ray.Damage = _damage;
+    }
+
+    protected override void Initialize()
+    {
+        base.Initialize();
         InputHandler.PressingShootButton += InputHandler_OnPressingShootButton;
         InputHandler.ReleasingShootButton += InputHandler_OnReleasingShootButton;
     }
 
-    private void OnDestroy()
+    protected override void Uninitialize()
     {
+        base.Uninitialize();
         InputHandler.PressingShootButton -= InputHandler_OnPressingShootButton;
         InputHandler.ReleasingShootButton -= InputHandler_OnReleasingShootButton;
     }
-
 
     private void InputHandler_OnPressingShootButton()
     {
@@ -57,6 +62,7 @@ public class RailgunWeapon : Weapon
     }
     private void DisableRailgun()
     {
+        Debug.Log("Released");
         _rayAnimator.SetTrigger("IsReleased");
     }
 }

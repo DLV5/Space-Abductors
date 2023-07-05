@@ -17,19 +17,12 @@ public class ShotgunShootingInOneDirectionMovingEnemy : ShootingInOneDirectionMo
         set => _bulletsPerShoot = value;
     }
 
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        _target = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(ShootAccordingToFireRate());
-    }
     protected override void Fire()
     {
-        var obj = GameObjectsPool?.GetPooledObjectByTag("ShotGunBullet");
+        var obj = GameObjectsPool?.GetPooledObjectByTag(_bulletTagToShoot);
         obj.transform.position = transform.position ;
         Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-SpreadAngle / 2, SpreadAngle / 2));
-        obj.GetComponent<Bullet>().Direction = (spreadRotation * -direction).normalized;
+        obj.GetComponent<Bullet>().Direction = (spreadRotation * -_direction).normalized;
 
     }
     protected override IEnumerator ShootAccordingToFireRate()

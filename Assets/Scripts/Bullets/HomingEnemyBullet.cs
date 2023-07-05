@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HomingBullet : Bullet
+public class HomingEnemyBullet : Bullet
 {
     public float RotateSpeed { get; set;} = 200f;
     public GameObject Target { get; set; }

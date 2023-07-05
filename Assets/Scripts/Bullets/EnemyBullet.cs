@@ -8,12 +8,12 @@ public class EnemyBullet : Bullet
     {
         base.OnEnable();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;    
-        CalculateDirection();
+        CalculateDirection(_playerTransform.position);
     }
 
-    protected void CalculateDirection()
+    protected void CalculateDirection(Vector3 targetPoint)
     {
-        var target = (Vector2)(_playerTransform.position - transform.position);
+        var target = (Vector2)(targetPoint - transform.position);
         Direction = target.normalized;
     }
 }
