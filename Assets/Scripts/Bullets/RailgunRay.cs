@@ -10,7 +10,6 @@ public class RailgunRay : MonoBehaviour
     private void Start()
     {
         _railgunWeapon = FindObjectOfType<RailgunWeapon>();
-        Debug.Log(_railgunWeapon);
         Damage = _railgunWeapon.Damage;
         DamageMultiplier = _railgunWeapon.DamageMultiplier;
     }
@@ -32,7 +31,6 @@ public class RailgunRay : MonoBehaviour
             if (col.tag.Contains("Enemy"))
             {
                 var enemy = col.gameObject.GetComponent<EnemyDamageHanlder>();
-                Debug.Log(Damage);
                 enemy.Damage(Damage);
             }
         }

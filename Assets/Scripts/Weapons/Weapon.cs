@@ -42,13 +42,11 @@ public class Weapon : Attacker
 
     protected virtual void OnEnable()
     {
-        Debug.Log("WeaponOnEnableCallded");
         Initialize();
     }
 
     protected virtual void OnDisable()
     {
-        Debug.Log("WeaponOnDisableCallded");
         Uninitialize();
     }
 
@@ -72,7 +70,6 @@ public class Weapon : Attacker
     }
     protected IEnumerator WaitBeforeNextShoot()
     {
-        Debug.Log("CoroutineStarted");
         CanShoot = false;
         yield return new WaitForSeconds(1 / FireRate);
         CanShoot = true;
@@ -95,7 +92,6 @@ public class Weapon : Attacker
 
     protected virtual void Shoot()
     {
-        Debug.Log("Shoot");
         //position of shouted object should be set to the fire point
     }
 }
