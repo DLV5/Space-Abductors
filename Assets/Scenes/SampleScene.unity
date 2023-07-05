@@ -1729,15 +1729,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -1.5
     y: 0
-    width: 1
-    height: 1
+    width: 3
+    height: 0
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 0
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7241,7 +7241,6 @@ GameObject:
   - component: {fileID: 1441192110}
   - component: {fileID: 1441192112}
   - component: {fileID: 1441192111}
-  - component: {fileID: 1441192113}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -7358,7 +7357,6 @@ MonoBehaviour:
       _delayBetweenSpawn: 0.4
       _timeUntilNextWave: 20
   - WaveParts: []
-  _spawnMode: 1
 --- !u!1 &1442781272
 GameObject:
   m_ObjectHideFlags: 0
