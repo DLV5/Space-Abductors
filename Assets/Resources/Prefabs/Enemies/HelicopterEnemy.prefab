@@ -209,7 +209,7 @@ MonoBehaviour:
   _fireRate: 1
   _bulletTagToShoot: EnemyBullet
   _verticalMoveSpeed: 5
-  _timeBerofeEscape: 50
+  _timeBerofeEscape: 500
   _escapeHorizontalSpeed: 5
 --- !u!95 &6504653974965037279
 Animator:
@@ -257,4 +257,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb8648aa5428434b8fa8998c411733b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 100

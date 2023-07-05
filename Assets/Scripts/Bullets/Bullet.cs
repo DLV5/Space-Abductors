@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
     {
         transform.position += _speed * Time.deltaTime * Direction;
     }
-    private IEnumerator CheckIsInTheBoundOfTheScreen()
+    protected IEnumerator CheckIsInTheBoundOfTheScreen()
     {
         while (true)
         {

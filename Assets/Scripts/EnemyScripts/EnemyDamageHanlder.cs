@@ -4,7 +4,8 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
 {
     protected EnemyUI _enemyUI;
 
-    [SerializeField] protected int _health;
+    [SerializeField] protected int _maxHealth;
+    protected int _health;
     public int Health
     {
         get => _health;
@@ -17,7 +18,10 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
     {
         _enemyUI = GetComponent<EnemyUI>();
         _flamethrowerWeapon = FindObjectOfType<FlamethrowerWeapon>(true);
+        _health = _maxHealth;
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

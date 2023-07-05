@@ -3500,7 +3500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347cb223e7575b245a84e5707f4bc776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillPoints: 10
+  _skillPoints: 0
 --- !u!114 &828129923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7334,22 +7334,31 @@ MonoBehaviour:
   _waves:
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 3
+      _enemyCount: 1
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 0
-  SpawnMode: 1
---- !u!114 &1441192113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441192109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7524635356203c41bf72fa98fb06438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 2
+      _delayBetweenSpawn: 1.6
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 4
+      _delayBetweenSpawn: 1.2
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 8
+      _delayBetweenSpawn: 2.2
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 16
+      _delayBetweenSpawn: 1.6
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 32
+      _delayBetweenSpawn: 0.4
+      _timeUntilNextWave: 20
+  - WaveParts: []
+  _spawnMode: 1
 --- !u!1 &1442781272
 GameObject:
   m_ObjectHideFlags: 0
@@ -8363,6 +8372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefabs:
   - _objectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
+    _numberOfCopies: 40
+  - _objectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
     _numberOfCopies: 25
   _bulletPrefabs:
   - _objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
@@ -8370,6 +8381,8 @@ MonoBehaviour:
   - _objectToCopy: {fileID: 8392131622389291262, guid: 7e3675c5b6ef88444af25291f7187371, type: 3}
     _numberOfCopies: 100
   - _objectToCopy: {fileID: 8392131622389291262, guid: 9bd490dcc1b5f844f9c55583739e321b, type: 3}
+    _numberOfCopies: 100
+  - _objectToCopy: {fileID: 8392131622389291262, guid: 68e0eb258986a81439102e6bd8af7c7d, type: 3}
     _numberOfCopies: 100
 --- !u!4 &1559183870
 Transform:
@@ -11352,7 +11365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1492060191335466143, guid: a0417a887b1f1e94ca5f7759c898aad5, type: 3}
       propertyPath: _damage
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2553244803803544686, guid: a0417a887b1f1e94ca5f7759c898aad5, type: 3}
       propertyPath: m_RootOrder
