@@ -14,7 +14,7 @@ public class RailgunRay : MonoBehaviour
         DamageMultiplier = _railgunWeapon.DamageMultiplier;
     }
 
-    public void CastRayThroughMouseBosition()
+    public void CastRayThroughMousePosition()
     {
         var dir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
         dir = dir.normalized;
@@ -31,7 +31,7 @@ public class RailgunRay : MonoBehaviour
             if (col.tag.Contains("Enemy"))
             {
                 var enemy = col.gameObject.GetComponent<EnemyDamageHanlder>();
-                enemy.Damage(Damage);
+                enemy?.Damage(Damage);
             }
         }
         Damage = 1;
