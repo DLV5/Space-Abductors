@@ -26,15 +26,23 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _cowSpawnDelay;
 
     [SerializeField] private EnemyWave[] _waves = new EnemyWave[] {};
-    [SerializeField] private Gamemode _spawnMode = Gamemode.WaveSpawn;
+    private Gamemode _spawnMode = Gamemode.WaveSpawn;
+    public event Action<int> WaveSpawned;
 
     private static int _enemyCount = 0;
+    private int _waveCount = 0;
+
     public static int EnemyCount 
     { 
         get => _enemyCount; 
         set => _enemyCount = value;
     }
-    
+
+    public int NumberOfWaves
+    {
+        get => _waves.Length;
+    }
+
     public enum Gamemode
     {
         EndlessSpawn,
@@ -92,6 +100,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach(var wave in _waves)
         {
+            WaveSpawned?.Invoke(++_waveCount);
             foreach (var wavePart in wave.WaveParts)
             {
                 for (int i = 0; i < wavePart.EnemyCount; i++)
@@ -186,7 +195,6 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
-
 
     private void SpawnCow()
     {

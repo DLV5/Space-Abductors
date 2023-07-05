@@ -52,7 +52,7 @@ public class RailgunWeapon : Weapon
 
     protected override void Fire()
     {
-        _ray.CastRayThroughMouseBosition();
+        _ray.CastRayThroughMousePosition();
     }
 
     private void EnableRailgun()
