@@ -84,6 +84,8 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.SetActive(false);
         }
+
+        _enemyCount = 0;
     }
 
     private IEnumerator SpawnWaves()

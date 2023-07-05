@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5bb68e483d8fd45ae93f832ef9bdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 0
-  _bulletTagToShoot: 
+  _fireRate: 1
+  _bulletTagToShoot: ShotgunEnemyBullet
   _verticalMoveSpeed: 5
   _timeBerofeEscape: 5
   _escapeHorizontalSpeed: 5

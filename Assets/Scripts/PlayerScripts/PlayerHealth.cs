@@ -19,8 +19,8 @@ public class PlayerHealth : MonoBehaviour
             } 
         } 
     }
-    
-    private PlayerHealth()
+
+    private void Awake()
     {
         _health = _maxHealth;
     }
