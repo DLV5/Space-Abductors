@@ -6,8 +6,8 @@ public class DamageUI : MonoBehaviour
 {
     private List<TMP_Text> _damageTexts = new List<TMP_Text>();
 
-    private readonly float xOffset = 0.5f;
-    private readonly float yOffset = 0.5f;
+    private readonly float xOffset = 0.1f;
+    private readonly float yOffset = 0.1f;
 
     public static DamageUI Instance { get; private set;}
 

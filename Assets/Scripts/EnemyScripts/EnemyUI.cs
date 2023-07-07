@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyUI : MonoBehaviour
@@ -14,6 +13,11 @@ public class EnemyUI : MonoBehaviour
         Initialize();
     }
 
+    private void OnDisable()
+    {
+        Unitialize();
+    }
+
     public void CallDamageFlash()
     {
         StartCoroutine(StartDamageFlash());
@@ -23,6 +27,11 @@ public class EnemyUI : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _material = _spriteRenderer.material;
+        _material.SetFloat("_FlashAmount", 0);
+    }
+    
+    protected virtual void Unitialize()
+    {
         _material.SetFloat("_FlashAmount", 0);
     }
 
