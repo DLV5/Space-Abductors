@@ -5804,7 +5804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369054241346489881, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.73
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8369054241346489881, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14012,7 +14012,6 @@ GameObject:
   - component: {fileID: 1441192110}
   - component: {fileID: 1441192112}
   - component: {fileID: 1441192111}
-  - component: {fileID: 1441192113}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
