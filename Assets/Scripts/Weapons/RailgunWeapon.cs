@@ -61,9 +61,9 @@ public class RailgunWeapon : Weapon
         _rayObject.SetActive(true);
         _rayAnimator.SetTrigger("IsCharged");
     }
+
     private void DisableRailgun()
     {
-        Debug.Log("Released");
         _rayAnimator.SetTrigger("IsReleased");
     }
 }

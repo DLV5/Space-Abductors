@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyUI))]
-[RequireComponent(typeof(EnemyDamageHanlder))]
+[RequireComponent(typeof(EnemyDamageHandler))]
 public class EnemyAttacker : Attacker
 {
     [TagSelector, SerializeField] protected string _bulletTagToShoot;
