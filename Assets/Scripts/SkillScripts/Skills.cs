@@ -80,12 +80,16 @@ public class Skills : MonoBehaviour
                     _instance.ChangeWeapon(_instance.Weapons["FlamethrowerWeapon"]);
                     break;
                 case Skill.ShotgunSpreadUpgrade:
+                    _instance.CurrentWeapon.GetComponent<ShotgunWeapon>().SpreadAngle = 30;
                     break;
                 case Skill.ShotgunNumberUpgrade:
+                    _instance.CurrentWeapon.GetComponent<ShotgunWeapon>().BulletsPerShotgunShot = 9;
                     break;
                 case Skill.ShotgunDamageUpgrade:
+                    _instance.CurrentWeapon.GetComponent<ShotgunWeapon>().Damage = 50;
                     break;
                 case Skill.ShotgunCooldownUpgrade:
+                    _instance.CurrentWeapon.GetComponent<ShotgunWeapon>().FireRate = 2;
                     break;
                 default: break;
             }

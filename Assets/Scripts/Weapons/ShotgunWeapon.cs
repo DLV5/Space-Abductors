@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShotgunWeapon : PistolWeapon
 {
-    [SerializeField] private int _bulletsPerShotgunShot = 6;
+    public int BulletsPerShotgunShot = 6;
 
     public static ShotgunWeapon ShotgunInstance { get; protected set; }
 
@@ -20,7 +20,7 @@ public class ShotgunWeapon : PistolWeapon
     
     protected override void Shoot()
     {
-        for (int i = 0; i < _bulletsPerShotgunShot; i++)
+        for (int i = 0; i < BulletsPerShotgunShot; i++)
         {
             _gameObjectsPool.GetPooledObjectByTag(_bulletTagToShoot);
         }

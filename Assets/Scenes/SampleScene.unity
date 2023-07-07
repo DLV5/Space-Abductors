@@ -8023,7 +8023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347cb223e7575b245a84e5707f4bc776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillPoints: 1
+  _skillPoints: 100
 --- !u!114 &828129923
 MonoBehaviour:
   m_ObjectHideFlags: 0

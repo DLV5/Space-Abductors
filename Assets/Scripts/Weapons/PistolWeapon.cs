@@ -8,7 +8,8 @@ public class PistolWeapon : Weapon
     [SerializeField, Range(0, 360)] protected float _spreadAngle;
     public float SpreadAngle 
     { 
-        get => _spreadAngle; 
+        get => _spreadAngle;
+        set => _spreadAngle = value;
     }
 
     public static PistolWeapon Instance { get; protected set; }
