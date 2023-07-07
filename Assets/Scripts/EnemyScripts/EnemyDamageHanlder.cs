@@ -14,14 +14,27 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
 
     private static FlamethrowerWeapon _flamethrowerWeapon;
 
+    /// <summary>
+    /// Variable for counting frames before taking damage for flamethrower
+    /// </summary>
+    private int _frameCounter = 0;
+
+    /// <summary>
+    /// Numbers of frames before taking fire damage
+    /// </summary>
+    private static int _framesToWait = 0;
+
     protected virtual void Awake()
     {
         _enemyUI = GetComponent<EnemyUI>();
         _flamethrowerWeapon = FindObjectOfType<FlamethrowerWeapon>(true);
-        _health = _maxHealth;
     }
 
-
+    private void OnEnable()
+    {
+        _health = _maxHealth;
+        _framesToWait = 60 / FlamethrowerWeapon.Instance.DamageTicksPerSecond;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,14 +67,20 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
     {
         if (collision.CompareTag("Fire"))
         {
-            Damage(_flamethrowerWeapon.Damage);
+            ++_frameCounter;
+            if (_frameCounter >= _framesToWait)
+            {
+                Damage(_flamethrowerWeapon.Damage);
+                // Reset the frame counter
+                _frameCounter = 0;
+            }
         }
     }
 
     public void Damage(int damage)
     {
         Health -= damage;
-        DamageUI.Instance.ShowDamageOnEnemy(transform.position);
+        DamageUI.Instance.ShowDamageOnEnemy(transform.position, damage);
         if (Health <= 0)
         {
             Die();

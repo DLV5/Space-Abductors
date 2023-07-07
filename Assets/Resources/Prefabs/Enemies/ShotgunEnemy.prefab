@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6506420336806340779}
   - component: {fileID: 2882973868235275814}
   - component: {fileID: 6745712532826964197}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShotgunEnemy
   m_TagString: ShotgunEnemy
   m_Icon: {fileID: 0}
@@ -176,10 +176,10 @@ MonoBehaviour:
   _fireRate: 1
   _bulletTagToShoot: ShotgunEnemyBullet
   _verticalMoveSpeed: 5
-  _timeBerofeEscape: 5
+  _timeBerofeEscape: 500
   _escapeHorizontalSpeed: 5
   _directionToShoot: 0
-  _spreadAngle: 0
+  _spreadAngle: 45
   _bulletsPerShoot: 8
 --- !u!114 &2882973868235275814
 MonoBehaviour:
@@ -206,4 +206,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb8648aa5428434b8fa8998c411733b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  _maxHealth: 200

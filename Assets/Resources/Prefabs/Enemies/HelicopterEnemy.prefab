@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3723330649684685058}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6504653974965037279}
   - component: {fileID: 2882973868235275814}
   - component: {fileID: 6745712532826964197}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HelicopterEnemy
   m_TagString: HelicopterEnemy
   m_Icon: {fileID: 0}
@@ -257,4 +257,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb8648aa5428434b8fa8998c411733b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _maxHealth: 100

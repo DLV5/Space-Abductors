@@ -26,6 +26,7 @@ public class CowStealing : MonoBehaviour
                 Skills.Instance.AddSkillpoints(1);
                 _player.Health += 1;
                 _movementScript.CanMove = true;
+                EnemySpawner.EnemyCount--;
             }
         }
     }

@@ -2,9 +2,24 @@ using UnityEngine;
 
 public class FlamethrowerWeapon : Weapon
 {
+    public static FlamethrowerWeapon Instance;
+
+    public int DamageTicksPerSecond;
+
     [SerializeField] ParticleSystem _flames;
     private Collider2D _flameCollider;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     protected override void OnEnable()
     {
         base.OnEnable();

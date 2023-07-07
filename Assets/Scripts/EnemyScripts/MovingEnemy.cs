@@ -102,7 +102,11 @@ public class MovingEnemy : EnemyAttacker
 
             Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
 
-            if (!Screen.safeArea.Contains(pos)) gameObject.SetActive(false);
+            if (!Screen.safeArea.Contains(pos))
+            {
+                EnemySpawner.EnemyCount--;
+                gameObject.SetActive(false);
+            }
         }
     }
 }
