@@ -1,9 +1,27 @@
 using System.Collections;
 using UnityEngine;
 
+public enum EnemyMovingBehavior
+{
+    CircleMove,
+    ReverseCircleMove,
+    CurveMove,
+    ReverseCurveMove,
+    StandAtTopLeft,
+    StandAtTopMiddle,
+    StandAtTopRight,
+    StandAtMiddleLeft,
+    StandAtCenter,
+    StandAtMiddleRight,
+    StandAtButtomLeft,
+    StandAtButtomMiddle,
+    StandAtButtomRight
+}
 public class MovingEnemy : EnemyAttacker
 {
-    [SerializeField] protected GameObject _movingPath;
+    [SerializeField] EnemyMovingBehavior behavior;
+    [SerializeField] protected EnemyPathData _pathData;
+    protected GameObject _movingPath;
     private Vector3 _nextWayPointPos;
     private int _wayPointCounter;
     private int _lastWayPoint;
@@ -71,11 +89,16 @@ public class MovingEnemy : EnemyAttacker
 
     protected virtual void FlyWhenAttacking()
     {
+        if(_lastWayPoint == 1)
+        {
+            transform.position = Vector2.MoveTowards(transform.position,
+                _nextWayPointPos, _verticalMoveSpeed * Time.deltaTime);
+            return;
+        }
         if (_wayPointCounter < _lastWayPoint- 1)
         {
             transform.position = Vector2.MoveTowards(transform.position,
                 _nextWayPointPos, _verticalMoveSpeed * Time.deltaTime);
-
             if ((transform.position - _nextWayPointPos).magnitude < 0.1f)
             {
                 ++_wayPointCounter;

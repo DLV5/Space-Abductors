@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18d84d4019578847bc21b9a024f903c, type: 3}
+  m_Name: PathData
+  m_EditorClassIdentifier: 
+  CircleMove: {fileID: 2959748029095123178, guid: 5d270d1a1638d0f4b8dc1761cc034059, type: 3}
+  ReverseCircleMove: {fileID: 5699444769242259071, guid: 8336a19d08cd26244ba0f53b613b2b6e, type: 3}
+  CurveMove: {fileID: 2112051915147035413, guid: 23d31eb4cf170d14f88930887283a450, type: 3}
+  ReverseCurveMove: {fileID: 6415612695252657035, guid: 18ff5454611520446b7292100c8513c4, type: 3}
+  StandAtTopLeft: {fileID: 1115050419497344024, guid: 16d60a8442795b74db6ebf296e534f6e, type: 3}
+  StandAtTopMiddle: {fileID: 3946015285178584787, guid: 88f56160af446dc4dad28ce04b5ddc4f, type: 3}
+  StandAtTopRight: {fileID: 5997257789605921966, guid: 31a2f425b78eb804484159527e2eab41, type: 3}
+  StandAtMiddleLeft: {fileID: 3946015285178584787, guid: 88f56160af446dc4dad28ce04b5ddc4f, type: 3}
+  StandAtCenter: {fileID: 2071145073040421660, guid: cd26ce5ccda015641b4ac75b020febbb, type: 3}
+  StandAtMiddleRight: {fileID: 724058685754673798, guid: 23b36b94e01183f41be2e551a003c3f8, type: 3}
+  StandAtButtomLeft: {fileID: 2730146141142098248, guid: defa0185311d2444da851afe8e4a6885, type: 3}
+  StandAtButtomMiddle: {fileID: 4910621468301212258, guid: 532e5a7fb26735a43b7cce774c397322, type: 3}
+  StandAtButtomRight: {fileID: 4292379151310695062, guid: 0536403daafbb4c4ab343708d9e4ac20, type: 3}
