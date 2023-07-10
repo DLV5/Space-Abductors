@@ -127,6 +127,7 @@ public class EnemySpawner : MonoBehaviour
                 }
                 yield return new WaitUntil(() => _enemyCount == 0);
             }
+            Debug.Log(_enemyCount);
         }
     }
 

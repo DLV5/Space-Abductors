@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum EnemyMovingBehavior
@@ -59,6 +60,12 @@ public class MovingEnemy : EnemyAttacker
         currentState = EnemyBehavior.FlyingToTheScreen;
         _arrivalPoint = GeneratePointToFly();
         StartCoroutine(WaitUntilEscape());
+    }
+
+    private void OnDisable()
+    {
+        _lastWayPoint = 0;
+        _wayPointCounter = 0;
     }
 
     private void Update()
