@@ -19,6 +19,8 @@ public class EnemySpawner : MonoBehaviour
     [HideInInspector] public bool HasCowSpawned = false;
     public GameObject CowPrefab;
 
+    [SerializeField] protected EnemyPathData _pathData;
+
     private static ObjectsPool _enemyObjectPool;
     [SerializeField] private List<EnemySettings> _enemySettings;
     [SerializeField] private Collider2D _spawnZone;
@@ -49,6 +51,12 @@ public class EnemySpawner : MonoBehaviour
         EndlessSpawn,
         WaveSpawn
     }
+
+    private void OnEnable()
+    {
+        MovingEnemy.EnemyPathData = _pathData;
+    }
+
     void Start()
     {
         switch(PlayerPrefs.GetString("Mode", "Story"))
@@ -111,6 +119,7 @@ public class EnemySpawner : MonoBehaviour
                         StartCoroutine(WaitAndSpawnCow());
                     } else
                     {
+                        MovingEnemy.Behavior = wavePart.MoveBehavior;
                         SpawnEnemy(wavePart.EnemyTag);
                     }
                     ++_enemyCount;
@@ -126,10 +135,13 @@ public class EnemySpawner : MonoBehaviour
         var obj = ChooseObject(_enemySettings);
         obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
     }
+
     private void SpawnEnemy(string tag)
     {
         var obj = _enemyObjectPool.GetPooledObjectByTag(tag);
+
         obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
+        
     }
 
     private static GameObject ChooseObject(List<EnemySettings> enemies)
