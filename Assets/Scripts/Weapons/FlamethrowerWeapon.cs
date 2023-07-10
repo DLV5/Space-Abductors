@@ -4,7 +4,7 @@ public class FlamethrowerWeapon : Weapon
 {
     public static FlamethrowerWeapon Instance;
 
-    public int DamageTicksPerSecond;
+    public int DamageTicksPerSecond = 3;
 
     [SerializeField] ParticleSystem _flames;
     private Collider2D _flameCollider;

@@ -33,7 +33,7 @@ public class EnemyDamageHanlder : MonoBehaviour, IDamageable
     private void OnEnable()
     {
         _health = _maxHealth;
-        _framesToWait = 60 / FlamethrowerWeapon.Instance.DamageTicksPerSecond;
+        //_framesToWait = 60 / FlamethrowerWeapon.Instance.DamageTicksPerSecond;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
