@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -242131764764823531}
   - component: {fileID: 5848321928296531738}
   - component: {fileID: 6506420336806340779}
+  - component: {fileID: 2882973868235275814}
+  - component: {fileID: 2926640618321574389}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: BossEnemy
@@ -171,13 +173,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5bb68e483d8fd45ae93f832ef9bdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletTagToShoot: 
   _fireRate: 1
-  _health: 100
-  _flashTime: 0.25
+  _bulletTagToShoot: 
   _verticalMoveSpeed: 5
   _timeBerofeEscape: 500
   _escapeHorizontalSpeed: 5
   _directionToShoot: 0
   _spreadAngle: 0
   _bulletsPerShoot: 8
+--- !u!114 &2882973868235275814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202860050722187345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2264fe1ab6445304081e7974b8bfcb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashTime: 0.25
+--- !u!114 &2926640618321574389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202860050722187345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b0a2e7f680d4b43be1fe3541421b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
