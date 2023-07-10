@@ -54,7 +54,9 @@ public class Skills : MonoBehaviour
         parameter.IsBought = true;
         SkillList.Add(parameter.Name);
         AddSkillpoints(-parameter.Price);
-        RefreshSkills();
+        if (parameter.Type == SkillParameter.SkillType.Skill)
+            RefreshSkills();
+        else RefreshWeapon();
     }
 
     public void AddSkillpoints(int pointsToAdd)
@@ -63,12 +65,12 @@ public class Skills : MonoBehaviour
         _skillUI.UpdateSkillPointsText();
     }
 
-    public void RefreshSkills()
+    public void RefreshWeapon()
     {
         var _instance = SkillsObjectsManager.Instance;
         foreach (var skill in SkillList)
         {
-            switch (skill) // Add a string here for every new weapon skill
+            switch (skill) // Add a string here for every new weapon
             {
                 case Skill.Shotgun:
                     _instance.ChangeWeapon(_instance.Weapons["ShotgunWeapon"]);
@@ -79,6 +81,18 @@ public class Skills : MonoBehaviour
                 case Skill.Flamethrower:
                     _instance.ChangeWeapon(_instance.Weapons["FlamethrowerWeapon"]);
                     break;
+                default: break;
+            }
+        }
+    }
+
+    public void RefreshSkills()
+    {
+        var _instance = SkillsObjectsManager.Instance;
+        foreach (var skill in SkillList)
+        {
+            switch (skill) // Add a string here for every new skill
+            {
                 case Skill.ShotgunSpreadUpgrade:
                     _instance.CurrentWeapon.GetComponent<ShotgunWeapon>().SpreadAngle = 30;
                     break;
