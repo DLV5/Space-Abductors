@@ -16,6 +16,14 @@ public class Movement : MonoBehaviour
     {
         _minScreenBounds = Camera.main.ScreenToWorldPoint(Vector2.zero);
         _maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        CowStealing.StartedCowCapture += ToggleCanMove;
+        CowStealing.FinishedCowCapture += ToggleCanMove;
+    }
+
+    private void OnDisable()
+    {
+        CowStealing.StartedCowCapture -= ToggleCanMove;
+        CowStealing.FinishedCowCapture -= ToggleCanMove;
     }
 
     private void FixedUpdate()
@@ -45,6 +53,11 @@ public class Movement : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, _minScreenBounds.y);
         }
+    }
+
+    public void ToggleCanMove()
+    {
+        CanMove = !CanMove;
     }
 
     private void OnMove(InputValue inputValue) {
