@@ -11,7 +11,6 @@ public class Weapon : Attacker
         set => _damage = value;
     }
 
-
     public override float FireRate 
     { 
         get => _fireRate;
