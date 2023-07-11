@@ -126,8 +126,8 @@ public class EnemySpawner : MonoBehaviour
                     Debug.Log(_enemyCount);
                     yield return new WaitForSeconds(wavePart.DelayBetweenSpawn);
                 }
-                yield return new WaitUntil(() => _enemyCount == 0);
             }
+                yield return new WaitUntil(() => _enemyCount == 0);
         }
     }
 

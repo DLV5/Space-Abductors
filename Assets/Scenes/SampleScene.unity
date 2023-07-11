@@ -14107,55 +14107,164 @@ MonoBehaviour:
   - WaveParts:
     - EnemyTag: HelicopterEnemy
       _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 5
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 11
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
       MoveBehavior: 12
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 2
-      MoveBehavior: 3
+      _enemyCount: 1
+      MoveBehavior: 2
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
-  - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 4
+      _enemyCount: 1
       MoveBehavior: 1
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
     - EnemyTag: Cow
       _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
       MoveBehavior: 0
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
-  - WaveParts:
-    - EnemyTag: HelicopterEnemy
-      _enemyCount: 8
-      MoveBehavior: 12
+      _timeUntilNextWave: 0.9
+    - EnemyTag: EliteHelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 0
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 0
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 16
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 5
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
       MoveBehavior: 6
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
-    - EnemyTag: ShotgunEnemy
-      _enemyCount: 2
-      MoveBehavior: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 7
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 9
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 11
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 25
-      MoveBehavior: 0
+      _enemyCount: 2
+      MoveBehavior: 2
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
     - EnemyTag: ShotgunEnemy
-      _enemyCount: 4
-      MoveBehavior: 0
+      _enemyCount: 1
+      MoveBehavior: 12
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
 --- !u!114 &1441192113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15613,6 +15722,8 @@ MonoBehaviour:
   - _objectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
     _numberOfCopies: 25
   - _objectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
+    _numberOfCopies: 25
+  - _objectToCopy: {fileID: 7202860050722187345, guid: 5289af0bbed710c4aa3923e4e19a93e1, type: 3}
     _numberOfCopies: 25
   _bulletPrefabs:
   - _objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
