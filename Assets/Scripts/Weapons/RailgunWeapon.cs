@@ -63,7 +63,6 @@ public class RailgunWeapon : Weapon
     }
     private void DisableRailgun()
     {
-        Debug.Log("Released");
         _rayAnimator.SetTrigger("IsReleased");
     }
 }

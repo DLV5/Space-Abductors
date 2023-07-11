@@ -123,11 +123,11 @@ public class EnemySpawner : MonoBehaviour
                         SpawnEnemy(wavePart.EnemyTag);
                     }
                     ++_enemyCount;
+                    Debug.Log(_enemyCount);
                     yield return new WaitForSeconds(wavePart.DelayBetweenSpawn);
                 }
                 yield return new WaitUntil(() => _enemyCount == 0);
             }
-            Debug.Log(_enemyCount);
         }
     }
 
