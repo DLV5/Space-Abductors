@@ -5780,7 +5780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2253401390799124162, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: _damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2253401390799124162, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: _fireRate
@@ -14107,7 +14107,7 @@ MonoBehaviour:
   - WaveParts:
     - EnemyTag: HelicopterEnemy
       _enemyCount: 1
-      MoveBehavior: 0
+      MoveBehavior: 12
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:

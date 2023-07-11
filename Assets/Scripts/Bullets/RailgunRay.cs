@@ -34,7 +34,7 @@ public class RailgunRay : MonoBehaviour
                 enemy?.Damage(Damage);
             }
         }
-        Damage = 1;
+        Damage = _railgunWeapon.Damage;
     }
 
     public void MultiplyDamageOnCharge()
