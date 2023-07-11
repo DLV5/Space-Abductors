@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDamageHanlder : MonoBehaviour, IDamageable
+public class EnemyDamageHandler : MonoBehaviour, IDamageable
 {
     protected EnemyUI _enemyUI;
 

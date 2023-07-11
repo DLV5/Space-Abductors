@@ -30,7 +30,7 @@ public class RailgunRay : MonoBehaviour
 
             if (col.tag.Contains("Enemy"))
             {
-                var enemy = col.gameObject.GetComponent<EnemyDamageHanlder>();
+                var enemy = col.gameObject.GetComponent<EnemyDamageHandler>();
                 enemy?.Damage(Damage);
             }
         }

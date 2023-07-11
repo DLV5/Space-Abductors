@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class SkillParameter : MonoBehaviour
 {
+    public enum SkillType { Weapon, Skill };
+
+    public SkillType Type;
     [SerializeField] private Skill _name;
     public Skill Name
     {

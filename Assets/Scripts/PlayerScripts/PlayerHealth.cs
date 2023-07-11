@@ -13,10 +13,18 @@ public class PlayerHealth : MonoBehaviour
     {
         get => _health;
         set {
-            if (_health - value > 0 && _health - value < _maxHealth)
+            if (_maxHealth <= value) // Handle value being larger than maxHealth
             {
+                _health = _maxHealth;
+                return;
+            }
+            if (value <= 0) // Handle value being 0 or less
+            {
+                _health = 0;
+                return;
+            }
+            else
                 _health = value;
-            } 
         } 
     }
 
