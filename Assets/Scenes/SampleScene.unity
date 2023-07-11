@@ -5788,7 +5788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2253401390799124162, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: _damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2253401390799124162, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: _fireRate
@@ -10776,71 +10776,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1001 &1097713885
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -4793653392755395965, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: _movingPath
-      value: 
-      objectReference: {fileID: 2959748029095123178, guid: 5d270d1a1638d0f4b8dc1761cc034059, type: 3}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823064096461235257, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-      propertyPath: m_Name
-      value: HelicopterEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
 --- !u!1 &1102560214
 GameObject:
   m_ObjectHideFlags: 0
@@ -14120,7 +14055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1441192110
 Transform:
   m_ObjectHideFlags: 0
@@ -14196,6 +14131,7 @@ MonoBehaviour:
   IsSpawning: 1
   HasCowSpawned: 0
   CowPrefab: {fileID: 2967738439069499057, guid: 7cee6f999111713489f9a79282a07d15, type: 3}
+  _pathData: {fileID: 11400000, guid: d49d73654759b154e8e213779911942e, type: 2}
   _enemySettings:
   - Tag: ShotGunEnemy
     ChanceToSpawn: 1
@@ -14207,46 +14143,164 @@ MonoBehaviour:
   - WaveParts:
     - EnemyTag: HelicopterEnemy
       _enemyCount: 1
+      MoveBehavior: 8
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 2
+      _enemyCount: 1
+      MoveBehavior: 5
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 11
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 4
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 2
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 1
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
     - EnemyTag: Cow
       _enemyCount: 1
+      MoveBehavior: 8
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 8
+      _enemyCount: 1
+      MoveBehavior: 0
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
+    - EnemyTag: EliteHelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 0
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 0
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 16
+      _enemyCount: 1
+      MoveBehavior: 4
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
-    - EnemyTag: ShotgunEnemy
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 5
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 7
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 9
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 11
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
       _enemyCount: 2
+      MoveBehavior: 2
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
-  - WaveParts:
-    - EnemyTag: HelicopterEnemy
-      _enemyCount: 25
-      _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
     - EnemyTag: ShotgunEnemy
-      _enemyCount: 4
+      _enemyCount: 1
+      MoveBehavior: 12
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
 --- !u!114 &1441192113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15706,9 +15760,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefabs:
   - _objectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-    _numberOfCopies: 0
+    _numberOfCopies: 25
   - _objectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
-    _numberOfCopies: 0
+    _numberOfCopies: 25
+  - _objectToCopy: {fileID: 7202860050722187345, guid: 5289af0bbed710c4aa3923e4e19a93e1, type: 3}
+    _numberOfCopies: 25
   _bulletPrefabs:
   - _objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
     _numberOfCopies: 30

@@ -94,6 +94,7 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
     protected void Die()
     {
         EnemySpawner.EnemyCount--;
+        Debug.Log(EnemySpawner.EnemyCount);
         gameObject.SetActive(false);
     }
 }

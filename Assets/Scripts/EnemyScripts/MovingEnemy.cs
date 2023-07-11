@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum EnemyMovingBehavior
@@ -19,8 +20,10 @@ public enum EnemyMovingBehavior
 }
 public class MovingEnemy : EnemyAttacker
 {
-    [SerializeField] EnemyMovingBehavior behavior;
-    [SerializeField] protected EnemyPathData _pathData;
+    public static EnemyMovingBehavior Behavior { get; set; }
+
+    public static EnemyPathData EnemyPathData { get; set; }
+
     protected GameObject _movingPath;
     private Vector3 _nextWayPointPos;
     private int _wayPointCounter;
@@ -51,11 +54,18 @@ public class MovingEnemy : EnemyAttacker
 
     protected virtual void OnEnable()
     {
+        _movingPath = EnemyPathData.GetPath(Behavior);
         _nextWayPointPos = GetPathPoint(_wayPointCounter);
         _lastWayPoint = _movingPath.transform.childCount;
         currentState = EnemyBehavior.FlyingToTheScreen;
         _arrivalPoint = GeneratePointToFly();
         StartCoroutine(WaitUntilEscape());
+    }
+
+    private void OnDisable()
+    {
+        _lastWayPoint = 0;
+        _wayPointCounter = 0;
     }
 
     private void Update()
@@ -73,6 +83,7 @@ public class MovingEnemy : EnemyAttacker
                 break;
         }
     }
+
     protected virtual void FlyToTheScreen()
     {
         float distance = Vector2.Distance(transform.position, _arrivalPoint);

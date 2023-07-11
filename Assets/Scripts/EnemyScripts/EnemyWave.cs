@@ -9,6 +9,10 @@ public class EnemyWave
     {
         [TagSelector] public string EnemyTag;
         [SerializeField, Range(0, 100)] private int _enemyCount;
+
+        [Tooltip("Choose how enemy should move")]
+        public EnemyMovingBehavior MoveBehavior;
+
         public int EnemyCount 
         { 
             get => _enemyCount; 
