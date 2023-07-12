@@ -38,7 +38,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (_sentences.Count == 0)
         {
-            EndDialogue();
             return;
         }
         string sentence = _sentences.Dequeue();
@@ -54,10 +53,5 @@ public class DialogueManager : MonoBehaviour
             DialogueText.text += letter;
             yield return null;
         }
-    }
-
-    public void EndDialogue()
-    {
-
     }
 }
