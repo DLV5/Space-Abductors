@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue DialogueObject;
+    public Dialogue[] DialogueArray;
     private bool _isStarted = false;
 
     private void Start()
@@ -18,6 +18,6 @@ public class DialogueTrigger : MonoBehaviour
             return;
         }
         _isStarted = true;
-        DialogueManager.Instance.StartDialogue(DialogueObject);
+        DialogueManager.Instance.StartDialogue(DialogueArray[0]);
     }
 }

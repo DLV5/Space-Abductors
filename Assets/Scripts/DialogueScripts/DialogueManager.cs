@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
     public TextMeshProUGUI NameText;
+    public Image Portrait;
     public TextMeshProUGUI DialogueText;
     private Queue<string> _sentences;
 
@@ -26,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         NameText.text = dialogue.Name;
+        Portrait.sprite = dialogue.Portrait;
         _sentences.Clear();
         foreach (string sentence in dialogue.Sentences)
         {
