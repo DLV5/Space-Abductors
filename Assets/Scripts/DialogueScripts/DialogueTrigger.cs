@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -14,10 +16,19 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (_isStarted)
         {
-            if(!DialogueManager.Instance.DisplayNextSentence() && DialogueManager.Instance.Index + 1 < DialogueArray.Length)
+            if (DialogueManager.Instance.DisplayNextSentence())
+                return;
+            else
             {
-                ++DialogueManager.Instance.Index;
-                _isStarted = false;
+                if (DialogueManager.Instance.Index + 1 < DialogueArray.Length)
+                {
+                    ++DialogueManager.Instance.Index;
+                    _isStarted = false;
+                }
+                else
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
             return;
         }
