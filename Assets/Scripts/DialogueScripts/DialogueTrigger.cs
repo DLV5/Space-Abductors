@@ -14,10 +14,14 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (_isStarted)
         {
-            DialogueManager.Instance.DisplayNextSentence();
+            if(!DialogueManager.Instance.DisplayNextSentence() && DialogueManager.Instance.Index + 1 < DialogueArray.Length)
+            {
+                ++DialogueManager.Instance.Index;
+                _isStarted = false;
+            }
             return;
         }
         _isStarted = true;
-        DialogueManager.Instance.StartDialogue(DialogueArray[0]);
+        DialogueManager.Instance.StartDialogue(DialogueArray[DialogueManager.Instance.Index]);
     }
 }
