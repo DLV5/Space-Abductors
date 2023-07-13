@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
     public TextMeshProUGUI NameText;
-    public Image Portrait;
+    public Image DialoguePortrait;
     public TextMeshProUGUI DialogueText;
     private Queue<string> _sentences;
 
@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         NameText.text = dialogue.Name;
-        Portrait.sprite = dialogue.Portrait;
+        DialoguePortrait.sprite = dialogue.Portrait;
         _sentences.Clear();
         foreach (string sentence in dialogue.Sentences)
         {
