@@ -4850,7 +4850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8458643061429549091
 Transform:
   m_ObjectHideFlags: 0
@@ -4945,6 +4945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireRate: 1
   _damage: 0
+  DamageTicksPerSecond: 0
   _flames: {fileID: 6861344130291796310}
 --- !u!60 &2922210383742635653
 PolygonCollider2D:

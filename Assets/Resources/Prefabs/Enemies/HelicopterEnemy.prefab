@@ -208,6 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireRate: 1
   _bulletTagToShoot: EnemyBullet
+  behavior: 0
+  _pathData: {fileID: 11400000, guid: d49d73654759b154e8e213779911942e, type: 2}
   _verticalMoveSpeed: 5
   _timeBerofeEscape: 500
   _escapeHorizontalSpeed: 5

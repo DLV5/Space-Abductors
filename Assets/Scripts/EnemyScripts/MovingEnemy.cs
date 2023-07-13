@@ -1,8 +1,34 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
+public enum EnemyMovingBehavior
+{
+    CircleMove,
+    ReverseCircleMove,
+    CurveMove,
+    ReverseCurveMove,
+    StandAtTopLeft,
+    StandAtTopMiddle,
+    StandAtTopRight,
+    StandAtMiddleLeft,
+    StandAtCenter,
+    StandAtMiddleRight,
+    StandAtButtomLeft,
+    StandAtButtomMiddle,
+    StandAtButtomRight
+}
 public class MovingEnemy : EnemyAttacker
 {
+    public static EnemyMovingBehavior Behavior { get; set; }
+
+    public static EnemyPathData EnemyPathData { get; set; }
+
+    protected GameObject _movingPath;
+    private Vector3 _nextWayPointPos;
+    private int _wayPointCounter;
+    private int _lastWayPoint;
+
     protected Vector2 _minHeight;
     protected Vector2 _maxHeight;
 
@@ -22,15 +48,24 @@ public class MovingEnemy : EnemyAttacker
 
     protected override void Awake()
     {
-        _minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
-        _maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
+        //_minHeight = Camera.main.ScreenToWorldPoint(Vector2.zero);
+        //_maxHeight = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
     }
 
     protected virtual void OnEnable()
     {
+        _movingPath = EnemyPathData.GetPath(Behavior);
+        _nextWayPointPos = GetPathPoint(_wayPointCounter);
+        _lastWayPoint = _movingPath.transform.childCount;
         currentState = EnemyBehavior.FlyingToTheScreen;
         _arrivalPoint = GeneratePointToFly();
         StartCoroutine(WaitUntilEscape());
+    }
+
+    private void OnDisable()
+    {
+        _lastWayPoint = 0;
+        _wayPointCounter = 0;
     }
 
     private void Update()
@@ -41,13 +76,14 @@ public class MovingEnemy : EnemyAttacker
                 FlyToTheScreen();
                 break;
             case EnemyBehavior.Attacking:
-                FlyWhenAttacking();
+                    FlyWhenAttacking();
                 break;
             case EnemyBehavior.Leaving:
                 FlyOutOfTheScreen();
                 break;
         }
     }
+
     protected virtual void FlyToTheScreen()
     {
         float distance = Vector2.Distance(transform.position, _arrivalPoint);
@@ -64,14 +100,33 @@ public class MovingEnemy : EnemyAttacker
 
     protected virtual void FlyWhenAttacking()
     {
-        Vector2 targetPosition = _isMovingToEnd ? _maxHeight : _minHeight;
-        float distance = Vector2.Distance(transform.position, new Vector2(transform.position.x, targetPosition.y));
-
-        if (distance > 0.01f)
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, targetPosition.y), _verticalMoveSpeed * Time.deltaTime);
-        else
-            _isMovingToEnd = !_isMovingToEnd; // Reverse the movement direction
+        if(_lastWayPoint == 1)
+        {
+            transform.position = Vector2.MoveTowards(transform.position,
+                _nextWayPointPos, _verticalMoveSpeed * Time.deltaTime);
+            return;
+        }
+        if (_wayPointCounter < _lastWayPoint- 1)
+        {
+            transform.position = Vector2.MoveTowards(transform.position,
+                _nextWayPointPos, _verticalMoveSpeed * Time.deltaTime);
+            if ((transform.position - _nextWayPointPos).magnitude < 0.1f)
+            {
+                ++_wayPointCounter;
+                _nextWayPointPos = GetPathPoint(_wayPointCounter);
+            }
+        } else
+        {
+            _wayPointCounter = 0;
+            _nextWayPointPos = GetPathPoint(_wayPointCounter);
+        }
     }
+
+    private Vector3 GetPathPoint(int numberOfPoint)
+    {
+        return _movingPath.transform.GetChild(numberOfPoint).position;
+    }
+
     protected virtual Vector2 GeneratePointToFly()
     {
         float x = Random.Range(Screen.width, Screen.width / 2);

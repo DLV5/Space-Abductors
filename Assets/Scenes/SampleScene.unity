@@ -4672,7 +4672,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5788,7 +5788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2253401390799124162, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: _damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2253401390799124162, guid: 788563036b9e9dc4aa7e2610cf747128, type: 3}
       propertyPath: _fireRate
@@ -12263,6 +12263,55 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2178390209270497576, guid: 60871b394a2f78c41bf862de1bd4b3d0, type: 3}
   m_PrefabInstance: {fileID: 1201546833}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1231097367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231097369}
+  - component: {fileID: 1231097368}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1231097368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231097367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 69cae66317f9e4542b1054cc86927215, type: 2}
+--- !u!4 &1231097369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231097367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7602837, y: 0.5553731, z: -8.464702}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1235122523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14131,6 +14180,7 @@ MonoBehaviour:
   IsSpawning: 1
   HasCowSpawned: 0
   CowPrefab: {fileID: 2967738439069499057, guid: 7cee6f999111713489f9a79282a07d15, type: 3}
+  _pathData: {fileID: 11400000, guid: d49d73654759b154e8e213779911942e, type: 2}
   _enemySettings:
   - Tag: ShotGunEnemy
     ChanceToSpawn: 1
@@ -14142,46 +14192,164 @@ MonoBehaviour:
   - WaveParts:
     - EnemyTag: HelicopterEnemy
       _enemyCount: 1
+      MoveBehavior: 8
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 2
+      _enemyCount: 1
+      MoveBehavior: 5
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 11
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 4
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 2
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 1
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
     - EnemyTag: Cow
       _enemyCount: 1
+      MoveBehavior: 8
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 8
+      _enemyCount: 1
+      MoveBehavior: 0
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
+    - EnemyTag: EliteHelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 0
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 0
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
   - WaveParts:
     - EnemyTag: HelicopterEnemy
-      _enemyCount: 16
+      _enemyCount: 1
+      MoveBehavior: 4
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
-    - EnemyTag: ShotgunEnemy
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 5
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 7
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 9
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 11
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: HelicopterEnemy
       _enemyCount: 2
+      MoveBehavior: 2
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
-  - WaveParts:
-    - EnemyTag: HelicopterEnemy
-      _enemyCount: 25
-      _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
     - EnemyTag: ShotgunEnemy
-      _enemyCount: 4
+      _enemyCount: 1
+      MoveBehavior: 12
       _delayBetweenSpawn: 0
-      _timeUntilNextWave: 20
+      _timeUntilNextWave: 0.9
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 0.9
 --- !u!114 &1441192113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15641,8 +15809,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefabs:
   - _objectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-    _numberOfCopies: 40
+    _numberOfCopies: 25
   - _objectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
+    _numberOfCopies: 25
+  - _objectToCopy: {fileID: 7202860050722187345, guid: 5289af0bbed710c4aa3923e4e19a93e1, type: 3}
     _numberOfCopies: 25
   _bulletPrefabs:
   - _objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
@@ -20319,6 +20489,7 @@ GameObject:
   - component: {fileID: 1944128704}
   - component: {fileID: 1944128703}
   - component: {fileID: 1944128702}
+  - component: {fileID: 1944128705}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -20393,6 +20564,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1944128705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944128701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988171875
 GameObject:
   m_ObjectHideFlags: 0
@@ -22352,7 +22535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc15764401c9c944b8bba2554463929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
+  _maxHealth: 5
 --- !u!82 &15310491815541783
 AudioSource:
   m_ObjectHideFlags: 0
