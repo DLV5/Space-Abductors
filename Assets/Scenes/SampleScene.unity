@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f45083b48253c84bb938336a7953afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollSpeed: 5
+  _scrollSpeed: 2
 --- !u!1 &81050632
 GameObject:
   m_ObjectHideFlags: 0
@@ -8035,7 +8035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347cb223e7575b245a84e5707f4bc776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillPoints: 100
+  _skillPoints: 1
 --- !u!114 &828129923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12859,7 +12859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f45083b48253c84bb938336a7953afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollSpeed: 10
+  _scrollSpeed: 4
 --- !u!1001 &1264726107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14190,9 +14190,9 @@ MonoBehaviour:
   _cowSpawnDelay: 0
   _waves:
   - WaveParts:
-    - EnemyTag: HelicopterEnemy
+    - EnemyTag: BossEnemy
       _enemyCount: 1
-      MoveBehavior: 8
+      MoveBehavior: 2
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 20
   - WaveParts:
@@ -14350,6 +14350,85 @@ MonoBehaviour:
       MoveBehavior: 6
       _delayBetweenSpawn: 0
       _timeUntilNextWave: 0.9
+  - WaveParts:
+    - EnemyTag: RocketMissleEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: EliteShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 8
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: ShotgunEnemy
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 4
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: HelicopterEnemy
+      _enemyCount: 1
+      MoveBehavior: 10
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: RocketMissleEnemy
+      _enemyCount: 1
+      MoveBehavior: 5
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: RocketMissleEnemy
+      _enemyCount: 1
+      MoveBehavior: 11
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+  - WaveParts:
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 6
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
+    - EnemyTag: Cow
+      _enemyCount: 1
+      MoveBehavior: 12
+      _delayBetweenSpawn: 0
+      _timeUntilNextWave: 20
 --- !u!114 &1441192113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14808,7 +14887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f45083b48253c84bb938336a7953afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollSpeed: 5
+  _scrollSpeed: 2
 --- !u!1 &1474219182
 GameObject:
   m_ObjectHideFlags: 0
@@ -15809,11 +15888,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefabs:
   - _objectToCopy: {fileID: 7202860050722187345, guid: 8a109dad60093ad438e64d313067fdd6, type: 3}
-    _numberOfCopies: 25
+    _numberOfCopies: 10
   - _objectToCopy: {fileID: 7202860050722187345, guid: cb42281e2c6dc994da1b54b6708a7de5, type: 3}
-    _numberOfCopies: 25
+    _numberOfCopies: 10
   - _objectToCopy: {fileID: 7202860050722187345, guid: 5289af0bbed710c4aa3923e4e19a93e1, type: 3}
-    _numberOfCopies: 25
+    _numberOfCopies: 5
+  - _objectToCopy: {fileID: 7202860050722187345, guid: 08391297237226b4d85e3e3bb85295d4, type: 3}
+    _numberOfCopies: 10
+  - _objectToCopy: {fileID: 7202860050722187345, guid: b01a16cf1d75758469d332918f804213, type: 3}
+    _numberOfCopies: 5
+  - _objectToCopy: {fileID: 2344713681016834259, guid: 93057f834cc7a8c4ca4814500c86209f, type: 3}
+    _numberOfCopies: 1
   _bulletPrefabs:
   - _objectToCopy: {fileID: 8392131622389291262, guid: 49da12eb54226eb4284b4a6a6db3b093, type: 3}
     _numberOfCopies: 30
@@ -15823,6 +15908,8 @@ MonoBehaviour:
     _numberOfCopies: 100
   - _objectToCopy: {fileID: 8392131622389291262, guid: 68e0eb258986a81439102e6bd8af7c7d, type: 3}
     _numberOfCopies: 100
+  - _objectToCopy: {fileID: 8020550323594576169, guid: c7b2732eea7e5dc4c835d97ee9d38301, type: 3}
+    _numberOfCopies: 30
 --- !u!4 &1559183870
 Transform:
   m_ObjectHideFlags: 0
@@ -22945,12 +23032,8 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2032843742899273492, guid: f96c8e963113ead46833f40c9d4b5a1a, type: 3}
-      propertyPath: _damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032843742899273492, guid: f96c8e963113ead46833f40c9d4b5a1a, type: 3}
-      propertyPath: _fireRate
-      value: 10
+      propertyPath: DamageTicksPerSecond
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3850700957730185362, guid: f96c8e963113ead46833f40c9d4b5a1a, type: 3}
       propertyPath: m_Name

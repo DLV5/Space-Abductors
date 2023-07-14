@@ -139,7 +139,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy(string tag)
     {
-        var obj = _enemyObjectPool.GetPooledObjectByTag(tag);
+               var obj = _enemyObjectPool.GetPooledObjectByTag(tag);
 
         obj.transform.position = GetRandomPointInsideTheArea(_spawnZone);
         

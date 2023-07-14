@@ -22,6 +22,9 @@ TagManager:
   - ShotgunEnemyBullet
   - EliteHelicopterEnemy
   - EliteShotgunEnemy
+  - HealingBullet
+  - EnemyRocketMissle
+  - RocketMissleEnemyBullet
   layers:
   - Default
   - TransparentFX

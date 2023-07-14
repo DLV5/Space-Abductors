@@ -4944,8 +4944,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRate: 1
-  _damage: 0
-  DamageTicksPerSecond: 0
+  _damage: 50
+  DamageTicksPerSecond: 3
   _flames: {fileID: 6861344130291796310}
 --- !u!60 &2922210383742635653
 PolygonCollider2D:
