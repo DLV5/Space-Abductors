@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashTime: 0.25
+  _shouldShowHealthBar: 0
 --- !u!114 &8888223208488862644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashTime: 0.25
+  _shouldShowHealthBar: 0
 --- !u!114 &569021335696252672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,13 +345,14 @@ GameObject:
   - component: {fileID: 6835770015792413358}
   - component: {fileID: 4496359387764610011}
   - component: {fileID: 6854615005915124312}
+  - component: {fileID: -1406681384626888246}
   m_Layer: 10
   m_Name: BossEnemy
   m_TagString: BossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &823164402707938337
 Transform:
   m_ObjectHideFlags: 0
@@ -434,6 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashTime: 0.25
+  _shouldShowHealthBar: 1
 --- !u!114 &6835770015792413358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRate: 1
-  _bulletTagToShoot: PlayerBullet
+  _bulletTagToShoot: BaseBullet
   _verticalMoveSpeed: 5
   _timeBerofeEscape: 5000
   _escapeHorizontalSpeed: 5
@@ -509,6 +513,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1125498, y: 0.1221987}
   m_EdgeRadius: 0
+--- !u!50 &-1406681384626888246
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344713681016834259}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &3204747434947868803
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashTime: 0.25
+  _shouldShowHealthBar: 0
 --- !u!114 &8735211927722594685
 MonoBehaviour:
   m_ObjectHideFlags: 0

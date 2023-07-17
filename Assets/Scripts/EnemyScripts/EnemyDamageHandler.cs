@@ -55,6 +55,7 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
         switch (tag)
         {
             case "PistolPlayerBullet":
+                Debug.Log("Damaging");
                 Damage(PistolWeapon.Instance.Damage);
                 break;
             case "ShotgunPlayerBullet":
@@ -81,10 +82,16 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
     {
         Health -= damage;
         DamageUI.Instance.ShowDamageOnEnemy(transform.position, damage);
+        if (_enemyUI.ShouldShowHealthBar)
+        {
+            _enemyUI.SetSliderHealth(Health);
+        }
+
         if (Health <= 0)
         {
             Die();
         }
+
         if (gameObject.activeSelf)
         {
             _enemyUI.CallDamageFlash();
@@ -96,7 +103,6 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
         if (!gameObject.activeSelf)
             return;
         --EnemySpawner.EnemyCount;
-        Debug.Log(EnemySpawner.EnemyCount);
         gameObject.SetActive(false);
     }
 }
