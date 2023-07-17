@@ -102,6 +102,11 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
     {
         if (!gameObject.activeSelf)
             return;
+
+        if (_enemyUI.ShouldShowHealthBar)
+        {
+            GameManager.Instance.SetState(GameState.Finished);
+        }
         --EnemySpawner.EnemyCount;
         gameObject.SetActive(false);
     }

@@ -1355,15 +1355,16 @@ MonoBehaviour:
   - Name: ???
     Portrait: {fileID: 21300000, guid: 55cd289ab6f6e324bb369482a5e54268, type: 3}
     Sentences:
-    - Hey give me your cows!
-  - Name: Captain
+    - Now...
+  - Name: ???
+    Portrait: {fileID: 21300000, guid: 6ac306469bd9a25489c6ace6bd077dc2, type: 3}
+    Sentences:
+    - All cows are mine!!!
+    - Hahahahahahahahahahahahahsaahahahahahaha
+  - Name: Jeve Bobs
     Portrait: {fileID: 21300000, guid: 8c67341a7719a0046b3354cd2f66a9a7, type: 3}
     Sentences:
-    - No!
-  - Name: ???
-    Portrait: {fileID: 21300000, guid: 55cd289ab6f6e324bb369482a5e54268, type: 3}
-    Sentences:
-    - Okay, I will steal them!
+    - Noooo...
 --- !u!114 &1859879868
 MonoBehaviour:
   m_ObjectHideFlags: 0

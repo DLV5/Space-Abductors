@@ -12,10 +12,11 @@ public class Movement : MonoBehaviour
     private Vector2 _minScreenBounds;
     private Vector2 _maxScreenBounds;
 
-    private void Awake()
+    private void OnEnable()
     {
         _minScreenBounds = Camera.main.ScreenToWorldPoint(Vector2.zero);
         _maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        Debug.Log(_minScreenBounds + " " + _maxScreenBounds);
     }
 
     private void FixedUpdate()

@@ -3,7 +3,7 @@ using UnityEngine;
 public class RailgunRay : MonoBehaviour
 {
     public int Damage { get; set; }
-    public int DamageMultiplier { get; set; }
+    public float DamageMultiplier { get; set; }
 
     private RailgunWeapon _railgunWeapon;
 
@@ -39,6 +39,6 @@ public class RailgunRay : MonoBehaviour
 
     public void MultiplyDamageOnCharge()
     {
-        Damage *= DamageMultiplier;
+        Damage = (int)(Damage * DamageMultiplier);
     }
 }

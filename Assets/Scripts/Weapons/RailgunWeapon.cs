@@ -3,9 +3,9 @@ using UnityEngine;
 public class RailgunWeapon : Weapon
 {
     [Tooltip("Damage multiplying by this value every step of charge (there 3 steps)")]
-    [SerializeField] private int _damageMultiplier = 1;
+    [SerializeField] private float _damageMultiplier = 1;
 
-    public int DamageMultiplier 
+    public float DamageMultiplier 
     {
         get => _damageMultiplier;
         private set => _damageMultiplier = value;

@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
                 Pause.Instance.ExitPause();
                 break;
             case GameState.Finished:
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 break;
             default:
                 break;
