@@ -20,7 +20,7 @@ public enum EnemyMovingBehavior
 }
 public class MovingEnemy : EnemyAttacker
 {
-    public static EnemyMovingBehavior Behavior { get; set; }
+    public static EnemyMovingBehavior Behavior { get; set; } = EnemyMovingBehavior.StandAtCenter;
 
     public static EnemyPathData EnemyPathData { get; set; }
 

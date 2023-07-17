@@ -33,7 +33,7 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
     private void OnEnable()
     {
         _health = _maxHealth;
-        //_framesToWait = 60 / FlamethrowerWeapon.Instance.DamageTicksPerSecond;
+        _framesToWait = 60 / FlamethrowerWeapon.Instance.DamageTicksPerSecond;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +55,7 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
         switch (tag)
         {
             case "PistolPlayerBullet":
+                Debug.Log("Damaging");
                 Damage(PistolWeapon.Instance.Damage);
                 break;
             case "ShotgunPlayerBullet":
@@ -81,10 +82,16 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
     {
         Health -= damage;
         DamageUI.Instance.ShowDamageOnEnemy(transform.position, damage);
+        if (_enemyUI.ShouldShowHealthBar)
+        {
+            _enemyUI.SetSliderHealth(Health);
+        }
+
         if (Health <= 0)
         {
             Die();
         }
+
         if (gameObject.activeSelf)
         {
             _enemyUI.CallDamageFlash();
@@ -93,8 +100,9 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
 
     protected void Die()
     {
-        EnemySpawner.EnemyCount--;
-        Debug.Log(EnemySpawner.EnemyCount);
+        if (!gameObject.activeSelf)
+            return;
+        --EnemySpawner.EnemyCount;
         gameObject.SetActive(false);
     }
 }

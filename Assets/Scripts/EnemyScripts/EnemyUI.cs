@@ -1,14 +1,25 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+ 
 
 public class EnemyUI : MonoBehaviour
 {
     [SerializeField] protected float _flashTime = 0.25f;
 
+    [SerializeField] protected bool _shouldShowHealthBar = false;
+    public bool ShouldShowHealthBar
+    {
+        get => _shouldShowHealthBar;
+        private set => _shouldShowHealthBar = value;
+    }
+
+    private Slider _healthBarSlider;
+
     private SpriteRenderer _spriteRenderer;
     private Material _material;
 
-    private void Awake()
+    private void OnEnable()
     {
         Initialize();
     }
@@ -23,8 +34,19 @@ public class EnemyUI : MonoBehaviour
         StartCoroutine(StartDamageFlash());
     }
 
+    public void SetSliderHealth(int value)
+    {
+        _healthBarSlider.value = value;
+    }
+
     protected virtual void Initialize()
     {
+        if (_shouldShowHealthBar)
+        {
+            _healthBarSlider = FindAnyObjectByType<Slider>(FindObjectsInactive.Include) ;
+            _healthBarSlider.gameObject.SetActive(true);
+        }
+
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _material = _spriteRenderer.material;
         _material.SetFloat("_FlashAmount", 0);
@@ -32,8 +54,14 @@ public class EnemyUI : MonoBehaviour
     
     protected virtual void Unitialize()
     {
+        if (_shouldShowHealthBar)
+        {
+            _healthBarSlider.gameObject.SetActive(false);
+        }
+
         _material.SetFloat("_FlashAmount", 0);
     }
+
 
     protected IEnumerator StartDamageFlash()
     {

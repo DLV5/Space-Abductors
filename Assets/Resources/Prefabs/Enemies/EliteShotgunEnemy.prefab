@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4781719411165002130
+--- !u!1 &6365593324522720823
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3723330649684685058}
-  m_Layer: 10
+  - component: {fileID: 7361108505271640341}
+  m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3723330649684685058
+--- !u!4 &7361108505271640341
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4781719411165002130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.17, z: 0}
+  m_GameObject: {fileID: 6365593324522720823}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,13 +43,12 @@ GameObject:
   - component: {fileID: 4112500868392471950}
   - component: {fileID: -242131764764823531}
   - component: {fileID: 5848321928296531738}
-  - component: {fileID: -4793653392755395965}
-  - component: {fileID: 6504653974965037279}
+  - component: {fileID: 6506420336806340779}
   - component: {fileID: 2882973868235275814}
   - component: {fileID: 2926640618321574389}
   m_Layer: 10
-  m_Name: HelicopterEnemy
-  m_TagString: HelicopterEnemy
+  m_Name: EliteShotgunEnemy
+  m_TagString: EliteShotgunEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +65,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3723330649684685058}
+  - {fileID: 7361108505271640341}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,8 +110,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 377525012, guid: 4766f98a0d7641745b9c21d1171800ef, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7c2b2c012a271d94fab0d07b209b8265, type: 3}
+  m_Color: {r: 0, g: 0.31225413, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -154,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0024528503, y: -0.01825077}
+  m_Offset: {x: -0.032387257, y: -0.022266328}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95693684, y: 0.4586668}
+  m_Size: {x: 0.70851326, y: 0.69636786}
   m_EdgeRadius: 0
 --- !u!50 &5848321928296531738
 Rigidbody2D:
@@ -194,7 +193,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4793653392755395965
+--- !u!114 &6506420336806340779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,35 +202,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7202860050722187345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8084d4397e10a934887c7473f57f47b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5bb68e483d8fd45ae93f832ef9bdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 1
-  _bulletTagToShoot: EnemyBullet
+  _fireRate: 0.66
+  _bulletTagToShoot: ShotgunEnemyBullet
   _verticalMoveSpeed: 5
   _timeBerofeEscape: 500
   _escapeHorizontalSpeed: 5
---- !u!95 &6504653974965037279
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7202860050722187345}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5b81431bdf0aff146a23027da9c69efa, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  _directionToShoot: 0
+  _spreadAngle: 45
+  _bulletsPerShoot: 4
 --- !u!114 &2882973868235275814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,4 +239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b0a2e7f680d4b43be1fe3541421b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 1500
