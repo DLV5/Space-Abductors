@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fddec013b5a53c4689d863eaf0e92c5
-      internalID: -189945233
+      spriteID: 05dcce50292f4b5438fd92fc0b369244
+      internalID: 1595848309
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 333b8f7c58930c9469137f77776664ed
-      internalID: 1544838331
+      spriteID: 195bde6a771d344469bdf53cdd6548c4
+      internalID: 1579969145
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9baa582c330124b87d98269e200589
-      internalID: -1544040041
+      spriteID: eb38be115ba2d0e4ba7dc6bc1f420baa
+      internalID: 430292189
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1674ff903d638a743a8dc2c44e30dc7d
-      internalID: -940306651
+      spriteID: 671a438ec6e293142b942e0c2a7626a3
+      internalID: -444395686
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      boss_0: -189945233
-      boss_1: 1544838331
-      boss_2: -1544040041
-      boss_3: -940306651
+      boss_0: 1595848309
+      boss_1: 1579969145
+      boss_2: 430292189
+      boss_3: -444395686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
