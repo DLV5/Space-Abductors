@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VisualNovelSceneFinalScene.unity
     guid: 933923ea0d277b047b695e2b61e55af9
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 86c938749e7d6244b85b1d235c77f0fd
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b6b45a47ebce237429346f89255e81dd, type: 2}
